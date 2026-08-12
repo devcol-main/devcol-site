@@ -88,7 +88,7 @@ Steam 등 글로벌 출시 가능성, 트래픽 0 상태에서 한/영 병행 �
 ## 저장소 구조
 
 ```
-devcol-site/  (GitHub repo — URL: <여기에 실제 저장소 URL 채워넣기>)
+devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 ├── docs/
 │   ├── .vitepress/config.mts    # 네비/사이드바/로컬검색 설정
 │   ├── public/CNAME              # devcol.net
