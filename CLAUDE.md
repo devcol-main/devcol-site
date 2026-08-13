@@ -17,8 +17,9 @@ Claude Code가 세션 시작 시 자동으로 읽습니다.
 | Tistory (한국어) | 운영 중, 방문자 거의 0 → 보조 채널 |
 | Google Blogger (영어) | 운영 중, 방문자 거의 0 |
 | devcol.net | 도메인 구매 완료 (Cloudflare Registrar). **정적 사이트 스캐폴딩 및 배포 완료** |
-| Discord | 미개설 |
-| X(트위터) / 레딧 | 미개설 또는 미활동 |
+| Discord | 개설 완료 (discord.gg/BK4bvy8qS). 채널 구성/활동은 진행 필요 |
+| X(트위터) (@DevCol_Main) | 계정 개설 완료, 활동 거의 없음 |
+| 레딧 | 미개설 또는 미활동 |
 
 ## 목표 (우선순위 순)
 
@@ -108,20 +109,16 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 
 로컬 개발: `npm install` → `npm run docs:dev` (localhost:5173)
 
-## 아직 채워야 할 placeholder
-
-`docs/.vitepress/config.mts`의 `nav`/`socialLinks`에 `REPLACE_ME`로 남아있는 항목:
-- Discord 초대 링크 (서버 개설 후)
-- X(트위터) 프로필 링크
-
 ---
 
 ## 진행 상태 (04-로드맵.md)
 
 - [x] 도메인 구매 — devcol.net (Cloudflare Registrar)
 - [x] 정적 사이트 제작 — VitePress + GitHub Pages + devcol.net 연결 (devlog + wiki, 커뮤니티/투표 기능 미포함)
-- [ ] **Discord 서버 개설** — 채널 구성: 개발일지, 피드백, 투표 ← **다음 작업**
-- [ ] X(트위터), 레딧 활동 시작 — r/IndieDev, r/unrealengine 등
+- [x] Discord 서버 개설 — discord.gg/BK4bvy8qS
+- [x] X(트위터) 계정 개설 — @DevCol_Main
+- [ ] **Discord 채널 구성** — 개발일지, 피드백, 투표 채널 세팅 및 활동 시작 ← **다음 작업**
+- [ ] X(트위터) 활동 시작, 레딧 개설/활동 — r/IndieDev, r/unrealengine 등
 - [ ] 유튜브 영어화 — 영어 타이틀·설명·자막. 영상 설명에 devcol.net / Discord / X 링크 항상 포함
 - [ ] 트래픽 축적 후 — 애드센스 재신청 (devcol.net 기준) + 자체 게시판/투표 기능 확장 검토
 

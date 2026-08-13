@@ -15,7 +15,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Wiki', link: '/wiki/' },
       { text: 'YouTube', link: 'https://www.youtube.com/@devcol' },
-      { text: 'Discord', link: 'https://discord.gg/REPLACE_ME' },
+      { text: 'Discord', link: 'https://discord.gg/BK4bvy8qS' },
     ],
 
     sidebar: {
@@ -51,8 +51,8 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'x', link: 'https://x.com/REPLACE_ME' },
-      { icon: 'discord', link: 'https://discord.gg/REPLACE_ME' },
+      { icon: 'x', link: 'https://x.com/DevCol_Main' },
+      { icon: 'discord', link: 'https://discord.gg/BK4bvy8qS' },
       { icon: 'youtube', link: 'https://www.youtube.com/@devcol' },
     ],
 
