@@ -11,4 +11,4 @@ TBD — replace with a real answer once there's a target.
 
 ### Where can I give feedback?
 
-Join the [Discord](https://discord.gg/REPLACE_ME) — patch discussions and voting happen there.
+Join the [Discord](https://discord.gg/BK4bvy8qS) — patch discussions and voting happen there.
