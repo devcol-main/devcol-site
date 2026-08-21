@@ -14,6 +14,14 @@ export default defineConfig({
     nav: [
       { text: 'Blog', link: '/blog/' },
       { text: 'Wiki', link: '/wiki/' },
+      {
+        text: 'More',
+        items: [
+          { text: 'About', link: '/about' },
+          { text: 'Contact', link: '/contact' },
+          { text: 'Privacy Policy', link: '/privacy-policy' },
+        ],
+      },
     ],
 
     sidebar: {
