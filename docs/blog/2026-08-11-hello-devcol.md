@@ -1,9 +1,9 @@
 ---
-title: Hello, devcol
+title: Hello, DevCol
 date: 2026-08-11
 ---
 
-# Hello, devcol
+# Hello, DevCol
 
 This is the first devlog post. Replace this with real progress notes —
 what you're building, what changed this week, screenshots, short clips.

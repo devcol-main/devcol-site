@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'devcol',
-  description: 'devcol — development collaboration. Building an indie game with the players, in the open.',
+  title: 'DevCol',
+  description: 'DevCol — development collaboration. Building an indie game with the players, in the open.',
   cleanUrls: true,
   lastUpdated: true,
 
@@ -61,8 +61,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Built in the open with devcol.',
-      copyright: 'Copyright © 2026-present devcol',
+      message: 'Built in the open with DevCol.',
+      copyright: 'Copyright © 2026-present DevCol (by in9)',
     },
   },
 })
