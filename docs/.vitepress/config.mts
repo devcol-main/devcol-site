@@ -14,6 +14,7 @@ export default defineConfig({
     nav: [
       { text: 'Blog', link: '/blog/' },
       { text: 'Wiki', link: '/wiki/' },
+      { text: 'Projects', link: '/projects/' },
       {
         text: 'More',
         items: [
@@ -25,6 +26,14 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/projects/': [
+        {
+          text: 'Projects',
+          items: [
+            { text: 'All projects', link: '/projects/' },
+          ],
+        },
+      ],
       '/blog/': [
         {
           text: 'Devlog',
@@ -58,6 +67,8 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'youtube', link: 'https://www.youtube.com/@devcol' },
+      { icon: 'itch.io', link: 'https://devcol.itch.io' },
+      { icon: 'github', link: 'https://github.com/devcol-main' },
       { icon: 'discord', link: 'https://discord.gg/BK4bvy8qS' },
       { icon: 'x', link: 'https://x.com/DevCol_Main' },
     ],
