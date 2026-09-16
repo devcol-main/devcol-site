@@ -1,4 +1,8 @@
 import { defineConfig } from 'vitepress'
+import { writeFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+
+const SITE_URL = 'https://devcol.net'
 
 export default defineConfig({
   title: 'DevCol',
@@ -9,6 +13,20 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
+
+  async buildEnd(siteConfig) {
+    const urls = siteConfig.pages.map((page) => {
+      let route = page.replace(/\.md$/, '')
+      route = route === 'index' ? '' : route.endsWith('/index') ? route.slice(0, -'index'.length) : route
+      return `${SITE_URL}/${route}`
+    })
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+      .map((url) => `  <url><loc>${url}</loc></url>`)
+      .join('\n')}\n</urlset>\n`
+
+    writeFileSync(resolve(siteConfig.outDir, 'sitemap.xml'), xml, 'utf-8')
+  },
 
   themeConfig: {
     nav: [
