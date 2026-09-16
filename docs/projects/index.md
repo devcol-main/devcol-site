@@ -8,7 +8,7 @@ A portfolio of games and prototypes, built across different engines while learni
 
 ## Unreal Engine
 
-- **Building an Unreal Engine 5 FPS in 5 Days** — Unreal Engine 5, Blueprint. A first-person shooter built from scratch in a five-day sprint.
+- **[Building an Unreal Engine 5 FPS in 5 Days](/projects/building-an-unreal-engine-5-fps-in-5-days)** — Unreal Engine 5, Blueprint. A first-person shooter built from scratch in a five-day sprint.
 - **First UE5 Blueprint Project: 5-Day Challenge** — Unreal Engine 5, Blueprint. Character animations and state machines built in five days.
 - **Pawn Class 3D Character** — Unreal Engine 5, C++. A custom Pawn class driven by the Enhanced Input system.
 - **Rotation, Movement, Randomization, Spawning** — Unreal Engine 5, C++. Tick/DeltaTime-driven rotating platforms and dynamic object spawning.
@@ -16,12 +16,12 @@ A portfolio of games and prototypes, built across different engines while learni
 
 ## C++
 
-- **TEAM8-Text-Console-RPG** — C++. A collaborative text-based console RPG with auto-battler mechanics and a split-screen UI.
+- **[TEAM8-Text-Console-RPG](/projects/team8-text-console-rpg)** — C++. A collaborative text-based console RPG with auto-battler mechanics and a split-screen UI.
 
 ## Unity
 
-- **Rock Paper Scissors - Advance** — Unity. Released on Google Play. Multiple game modes testing quick reflexes.
-- **Press Plane** — Unity. Released on Google Play. A fast-paced, Flappy Bird-style arcade game.
+- **[Rock Paper Scissors - Advance](/projects/rock-paper-scissors-advance)** — Unity. Released on Google Play. Multiple game modes testing quick reflexes.
+- **[Press Plane](/projects/press-plane)** — Unity. Released on Google Play. A fast-paced, Flappy Bird-style arcade game.
 
 ---
 
