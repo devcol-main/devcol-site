@@ -18,7 +18,7 @@ A portfolio of games and prototypes, built across different engines while learni
 
 - **TEAM8-Text-Console-RPG** — C++. A collaborative text-based console RPG with auto-battler mechanics and a split-screen UI.
 
-## Mobile
+## Unity
 
 - **Rock Paper Scissors - Advance** — Unity. Released on Google Play. Multiple game modes testing quick reflexes.
 - **Press Plane** — Unity. Released on Google Play. A fast-paced, Flappy Bird-style arcade game.

@@ -1,8 +1,8 @@
 # FAQ
 
-### What is devcol?
+### What is DevCol?
 
-devcol ("development collaboration") is an indie game being built in the open,
+DevCol ("development collaboration") is an indie game being built in the open,
 with devlogs and design docs shared as development happens.
 
 ### When is it releasing?
