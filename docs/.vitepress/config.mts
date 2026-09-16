@@ -33,6 +33,25 @@ export default defineConfig({
             { text: 'All projects', link: '/projects/' },
           ],
         },
+        {
+          text: 'Unreal Engine',
+          items: [
+            { text: 'Building an Unreal Engine 5 FPS in 5 Days', link: '/projects/building-an-unreal-engine-5-fps-in-5-days' },
+          ],
+        },
+        {
+          text: 'C++',
+          items: [
+            { text: 'TEAM8-Text-Console-RPG', link: '/projects/team8-text-console-rpg' },
+          ],
+        },
+        {
+          text: 'Unity',
+          items: [
+            { text: 'Rock Paper Scissors - Advance', link: '/projects/rock-paper-scissors-advance' },
+            { text: 'Press Plane', link: '/projects/press-plane' },
+          ],
+        },
       ],
       '/blog/': [
         {
