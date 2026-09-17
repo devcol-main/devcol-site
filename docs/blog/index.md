@@ -2,4 +2,4 @@
 
 All posts, newest first.
 
-- [Hello, DevCol](./2026-08-11-hello-devcol)
+- [Building devcol.net](./2026-09-17-building-devcol-net)
