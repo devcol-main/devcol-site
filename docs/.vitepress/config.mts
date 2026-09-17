@@ -115,7 +115,7 @@ export default defineConfig({
         ariaLabel: 'Itch.io'      
       },
       { icon: 'github', link: 'https://github.com/devcol-main' },
-      { icon: 'discord', link: 'https://discord.gg/BK4bvy8qS' },
+      { icon: 'discord', link: 'https://discord.gg/7YTgpP8CCt' },
       { icon: 'x', link: 'https://x.com/DevCol_Main' },
     ],
 

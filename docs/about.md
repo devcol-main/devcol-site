@@ -22,4 +22,4 @@ This site serves three purposes:
 
 ## Get in touch
 
-See the [Contact](/contact) page, or find DevCol on [Discord](https://discord.gg/BK4bvy8qS), [X](https://x.com/DevCol_Main), and [YouTube](https://www.youtube.com/@devcol).
+See the [Contact](/contact) page, or find DevCol on [Discord](https://discord.gg/7YTgpP8CCt), [X](https://x.com/DevCol_Main), and [YouTube](https://www.youtube.com/@devcol).

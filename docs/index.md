@@ -14,7 +14,7 @@ hero:
       link: /wiki/
     - theme: alt
       text: Join the Discord
-      link: https://discord.gg/BK4bvy8qS
+      link: https://discord.gg/7YTgpP8CCt
 
 features:
   - title: Devlog
@@ -25,5 +25,5 @@ features:
     link: /wiki/
   - title: Community
     details: Discuss the game and vote on patches on Discord.
-    link: https://discord.gg/BK4bvy8qS
+    link: https://discord.gg/7YTgpP8CCt
 ---
