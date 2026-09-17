@@ -55,6 +55,9 @@ export default defineConfig({
           text: 'Unreal Engine',
           items: [
             { text: 'Building an Unreal Engine 5 FPS in 5 Days', link: '/projects/building-an-unreal-engine-5-fps-in-5-days' },
+            { text: 'Pawn Class 3D Character', link: '/projects/pawn-class-3d-character' },
+            { text: 'Rotation, Movement, Randomization, Spawning', link: '/projects/rotation-movement-randomization-spawning' },
+            { text: 'Game Loop & UI Redesign', link: '/projects/game-loop-ui-redesign' },
           ],
         },
         {
