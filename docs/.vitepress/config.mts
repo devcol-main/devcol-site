@@ -33,6 +33,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Wiki', link: '/wiki/' },
       { text: 'Projects', link: '/projects/' },
+      { text: 'Study', link: '/study/' },
       {
         text: 'More',
         items: [
@@ -71,6 +72,31 @@ export default defineConfig({
           items: [
             { text: 'Rock Paper Scissors - Advance', link: '/projects/rock-paper-scissors-advance' },
             { text: 'Press Plane', link: '/projects/press-plane' },
+          ],
+        },
+      ],
+      '/study/': [
+        {
+          text: 'Study',
+          items: [
+            { text: 'All notes', link: '/study/' },
+          ],
+        },
+        {
+          text: 'Unreal Engine',
+          items: [
+            { text: 'Designing Item Classes Around an Interface', link: '/study/interface-based-item-class-design' },
+            { text: 'Picking Up Items on Collision', link: '/study/collision-based-item-pickup' },
+            { text: 'Item Spawning and Level Data Management', link: '/study/item-spawning-and-level-data-management' },
+            { text: 'Character Health and Score Management', link: '/study/character-health-and-score-management' },
+            { text: 'Controlling Game Flow with a Game Loop', link: '/study/game-loop-and-flow-control' },
+          ],
+        },
+        {
+          text: 'Git',
+          items: [
+            { text: 'Managing Unreal Engine Projects with Git LFS', link: '/study/git-lfs-for-unreal-engine-projects' },
+            { text: 'Embedding GIFs and Images in a GitHub README', link: '/study/github-readme-gifs-and-images' },
           ],
         },
       ],
