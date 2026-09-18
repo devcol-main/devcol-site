@@ -30,10 +30,10 @@ export default defineConfig({
 
   themeConfig: {
     nav: [
-      { text: 'Blog', link: '/blog/' },
-      { text: 'Wiki', link: '/wiki/' },
       { text: 'Projects', link: '/projects/' },
+      { text: 'DevLog', link: '/blog/' },
       { text: 'Study', link: '/study/' },
+      { text: 'Wiki', link: '/wiki/' },
       {
         text: 'More',
         items: [
