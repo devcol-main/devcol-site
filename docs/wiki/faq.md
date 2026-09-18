@@ -7,7 +7,7 @@ with devlogs and design docs shared as development happens.
 
 ### When is it releasing?
 
-TBD — replace with a real answer once there's a target.
+No release date yet — the game is still early in development. Follow the [devlog](/blog/) or [Discord](https://discord.gg/7YTgpP8CCt) for progress updates.
 
 ### Where can I give feedback?
 
