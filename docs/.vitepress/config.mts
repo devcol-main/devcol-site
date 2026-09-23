@@ -155,7 +155,6 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Built in the open with DevCol.',
       copyright: 'Copyright © 2026-present DevCol (by in9)',
     },
   },
