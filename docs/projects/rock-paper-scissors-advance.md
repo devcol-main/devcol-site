@@ -29,10 +29,10 @@ That mostly came down to tuning difficulty and mode variety rather than adding n
 
 The goal across all three modes was to keep the barrier to entry at zero — everyone already knows rock-paper-scissors — while making the skill ceiling high enough that getting better at the game is actually about getting better at the game, not just memorizing a fixed pattern.
 
-## Play on itch.io
+## Play in browser
 
-<div style="max-width: 552px;">
-<iframe src="https://itch.io/embed/4158865" width="100%" height="167" frameborder="0"><a href="https://devcol.itch.io/rock-paper-scissors-advance">Rock Paper Scissors - Advance by DevCol - Development Collaboration</a></iframe>
+<div style="max-width: 400px;">
+<iframe src="https://itch.io/embed-upload/15989559?color=333333" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## Links

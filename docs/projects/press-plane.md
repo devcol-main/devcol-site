@@ -23,10 +23,10 @@ Press Plane keeps the plane's existing fall velocity in play instead of overridi
 - Momentum management matters in both directions: holding too long sends you climbing with the same inertia problem now working in reverse, so overcorrecting is just as easy as undercorrecting.
 - The skill ceiling shifts from timing a series of discrete taps to modulating *how long* you hold — a small change from the genre's usual all-or-nothing tap, but it's the one thing that was non-negotiable while building this: Flappy Bird's feel, with heavier, more physical flight controls layered on top.
 
-## Play on itch.io
+## Play in browser
 
-<div style="max-width: 552px;">
-<iframe src="https://itch.io/embed/4091979" width="100%" height="167" frameborder="0"><a href="https://devcol.itch.io/pressplane">Press Plane by DevCol - Development Collaboration</a></iframe>
+<div style="max-width: 400px;">
+<iframe src="https://itch.io/embed-upload/15969002?color=333333" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## Links
