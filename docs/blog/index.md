@@ -1,4 +1,4 @@
-# Devlog
+# DevLog
 
 All posts, newest first.
 

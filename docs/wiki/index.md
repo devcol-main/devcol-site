@@ -1,7 +1,5 @@
 # Wiki
 
-Documentation for the game: lore, systems, and frequently asked questions.
+Documentation for the game. Lore and systems pages will be added once they're written; for now, the FAQ covers the basics.
 
-- [Lore](./lore/)
-- [Systems](./systems/)
 - [FAQ](./faq)

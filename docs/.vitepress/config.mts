@@ -8,6 +8,7 @@ export default defineConfig({
   title: 'DevCol',
   description: 'DevCol — development collaboration. Building an indie game with the players, in the open.',
   cleanUrls: true,
+  srcExclude: ['wiki/lore/**', 'wiki/systems/**'],
   lastUpdated: true,
 
   head: [
@@ -107,7 +108,7 @@ export default defineConfig({
       ],
       '/blog/': [
         {
-          text: 'Devlog',
+          text: 'DevLog',
           items: [
             { text: 'All posts', link: '/blog/' },
           ],
@@ -119,18 +120,6 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/wiki/' },
             { text: 'FAQ', link: '/wiki/faq' },
-          ],
-        },
-        {
-          text: 'Lore',
-          items: [
-            { text: 'Overview', link: '/wiki/lore/' },
-          ],
-        },
-        {
-          text: 'Systems',
-          items: [
-            { text: 'Overview', link: '/wiki/systems/' },
           ],
         },
       ],
