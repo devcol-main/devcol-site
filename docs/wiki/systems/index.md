@@ -1,3 +1,3 @@
 # Systems
 
-Documentation for the game's mechanics, progression, and balance will land here as those systems get built and settle. In the meantime, the [Study](/study/) section has technical write-ups on the underlying systems work as it happens.
+Design notes on the game's mechanics, progression, and balance will go here once those systems have settled. The [Study](/study/) section has technical notes on the systems work in the meantime.

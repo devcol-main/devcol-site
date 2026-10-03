@@ -7,42 +7,39 @@ outline: deep
 
 *Git, GitHub*
 
-Getting a GIF onto a GitHub README page is easy to find guides for. Getting the *sizing and alignment* right — so it doesn't render huge, stretched, or jammed against the left edge — is the part that's oddly hard to find written down anywhere, so here's what actually works.
+Guides for adding a GIF to a GitHub README are easy to find. Guides for getting the size and alignment right, so it isn't huge, stretched, or stuck against the left edge, are harder to find. This is what worked for me.
 
-## Getting the GIF itself
+## Getting the GIF
 
-Two practical options:
+If you just need a clip, copy the link from [Giphy](https://giphy.com/) using the link button on the GIF page. If you have your own footage as an MP4, convert it with a free web tool such as [FreeConvert](https://www.freeconvert.com/) or [ezgif's video-to-GIF converter](https://ezgif.com/video-to-gif). Nothing needs installing for a one-off.
 
-1. **Already have a clip you like?** Grab its link from [Giphy](https://giphy.com/) — click the link button on the GIF page and use that URL directly.
-2. **Have your own footage as an MP4?** Convert it with any of the free web converters — [FreeConvert](https://www.freeconvert.com/), [ezgif's video-to-GIF tool](https://ezgif.com/video-to-gif), or similar. No software install needed for a one-off conversion.
+## Sizing it
 
-## Sizing it properly in Markdown
-
-Plain Markdown image syntax (`![alt](url)`) doesn't give any control over size — for that, drop into raw HTML instead:
+Plain Markdown image syntax (`![alt](url)`) has no size control, so use raw HTML.
 
 ```html
 <img src="path-to.gif" width="400" alt="description">
 ```
 
-The key rule: **only set one of `width` or `height`, and let the other be implied.** Setting both explicitly is the thing that causes distorted, stretched-looking images in some renderers — it works in some viewers, but it's not worth the risk when omitting one property entirely just works everywhere.
+Set only one of `width` or `height` and leave the other out. Setting both can distort the image in some renderers. Leaving one out works everywhere.
 
-For something that should scale with the reader's screen instead of a fixed pixel size:
+For an image that scales with the reader's screen instead of a fixed pixel size:
 
 ```html
 <img src="path-to.gif" width="100%">
 ```
 
-The catch: if the source GIF's actual resolution is small, stretching it to 100% width just makes it look blurry. A safer middle ground caps how large it's allowed to get:
+If the GIF's own resolution is small, stretching it to 100% makes it blurry. Capping the width helps.
 
 ```html
 <img src="path-to.gif" style="width: 100%; max-width: 800px;">
 ```
 
-That scales down gracefully on a narrow screen while never blowing past 800px on a wide one.
+That shrinks on a narrow screen and stops at 800px on a wide one.
 
-## Centering it
+## Centering
 
-GitHub's Markdown renderer left-aligns images by default. Wrapping the tag in a centered paragraph fixes that:
+GitHub left-aligns images by default. Wrapping the tag in a centered paragraph fixes that.
 
 ```html
 <p align="center">

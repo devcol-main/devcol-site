@@ -2,13 +2,12 @@
 
 ### What is DevCol?
 
-DevCol ("development collaboration") is an indie game being built in the open,
-with devlogs and design docs shared as development happens.
+DevCol is an indie game I'm building in Unreal Engine, with progress shared in the [DevLog](/blog/) as it happens.
 
 ### When is it releasing?
 
-No release date yet — the game is still early in development. Follow the [devlog](/blog/) or [Discord](https://discord.gg/7YTgpP8CCt) for progress updates.
+There's no release date yet. The game is still early. Progress updates go in the [DevLog](/blog/) and on [Discord](https://discord.gg/7YTgpP8CCt).
 
 ### Where can I give feedback?
 
-Join the [Discord](https://discord.gg/7YTgpP8CCt) — patch discussions and voting happen there.
+On the [Discord](https://discord.gg/7YTgpP8CCt).

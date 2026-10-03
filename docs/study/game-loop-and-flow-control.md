@@ -7,20 +7,17 @@ outline: deep
 
 *Unreal Engine 5, C++*
 
-Turning "3 levels, 30 seconds each, next level as soon as all coins are collected, game over after level 3" into an actual class structure — which mostly comes down to picking the right home for global game state.
+The rules were three levels of 30 seconds each, moving on as soon as every coin is collected, with game over after level 3. Turning that into classes mostly meant deciding where the global state should live.
 
 ## GameMode vs. GameState
 
-Unreal offers two natural places to put game-wide logic, and they're not interchangeable:
+GameMode holds server-only rules such as win and lose conditions, team assignment, and player spawning. Clients can't reach it, so it's the wrong place for anything a client also needs, like remaining time or the current score.
 
-- **GameMode** holds server-only rules — win/lose conditions, team assignment, player spawning. Clients can't reach it directly, which makes it the wrong place for anything a client also needs to know (remaining time, current score).
-- **GameState** holds state that's meant to be shared: it's created on the server and replicated down to clients, so both sides end up looking at the same numbers.
+GameState is created on the server and replicated to clients, so both sides see the same numbers. The level loop needs elapsed time and score to be visible to clients, and it would need that even more in a multiplayer version, so the loop lives on `GameState`.
 
-Since the level loop needs things like elapsed time and score to be client-visible from the start (and would need to be, even more so, in a multiplayer version of this), the loop lives on `GameState` rather than `GameMode`.
+## Making SpawnVolume report what it spawned
 
-## Making SpawnVolume report back what it spawned
-
-Counting "how many coins are left to collect" requires knowing whether what just got spawned was actually a coin — so `SpawnItem()` / `SpawnRandomItem()` change from returning `void` to returning the spawned `AActor*`:
+To count how many coins are left, I needed to know whether each spawned item was a coin. So `SpawnItem()` and `SpawnRandomItem()` now return the spawned `AActor*` instead of `void`.
 
 ```cpp
 AActor* ASpawnVolume::SpawnRandomItem()
@@ -36,11 +33,11 @@ AActor* ASpawnVolume::SpawnRandomItem()
 }
 ```
 
-That return value is what lets the level-start logic increment a coin counter with a simple `IsA()` check, rather than needing the spawn volume to know anything about scoring itself.
+With that return value, the level-start code can count coins with a plain `IsA()` check, and the spawn volume doesn't need to know anything about scoring.
 
-## The loop itself
+## The loop
 
-`AMainGameState` owns the level timer, the running score, and two coin counters — `SpawnedCoinCount` and `CollectedCoinCount` — so "has the player cleared this level" is just a comparison between the two:
+`AMainGameState` owns the level timer, the score, and two counters, `SpawnedCoinCount` and `CollectedCoinCount`. Clearing a level is just a comparison between them.
 
 ```cpp
 void AMainGameState::StartLevel()
@@ -72,17 +69,15 @@ void AMainGameState::OnCoinCollected()
 	CollectedCoinCount++;
 	if (SpawnedCoinCount > 0 && CollectedCoinCount >= SpawnedCoinCount)
 	{
-		EndLevel(); // cleared early — don't wait out the timer
+		EndLevel(); // cleared early, so don't wait for the timer
 	}
 }
 ```
 
-`OnLevelTimeUp()` and `OnCoinCollected()` both funnel into the same `EndLevel()`, which advances `CurrentLevelIndex` and either starts the next level or calls `OnGameOver()` once `MaxLevels` is reached. Two different exit conditions (ran out of time vs. cleared every coin), one shared cleanup path.
+Running out of time and collecting every coin both end up in `EndLevel()`. It advances `CurrentLevelIndex` and either starts the next level or calls `OnGameOver()` once `MaxLevels` is reached.
 
-## The catch with reloading levels
+## What reloading a level does
 
-`UGameplayStatics::OpenLevel()` unloads the current world entirely and loads the new map from scratch, which means `GameState` gets recreated and re-runs `BeginPlay()` — any progress it was holding resets along with it. That's fine for per-level state (coin counts, the level timer), but not for anything meant to persist *across* levels, like total score across all three stages. That's what `GameInstance` is for: unlike `GameState`, it survives level transitions for the lifetime of the whole play session, so it's the right home for whatever needs to outlive `OpenLevel()` rather than reset with it.
-
-## Links
+`UGameplayStatics::OpenLevel()` unloads the current world and loads the new map from scratch, so `GameState` is recreated and runs `BeginPlay()` again. Anything it was holding resets. That's fine for per-level data like coin counts and the timer, but it's a problem for things that should last across levels, such as the total score over all three stages. `GameInstance` survives level changes for the whole play session, so that data belongs there.
 
 [GitHub](https://github.com/devcol-main/BC_Ch3_Assignment_5)

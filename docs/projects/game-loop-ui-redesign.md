@@ -7,22 +7,12 @@ outline: deep
 
 *Unreal Engine 5, C++*
 
-Reworking a level into a proper wave-based game loop, plus the menu and HUD to go with it.
+This project turned a level into a wave-based game loop and added the menus and HUD around it.
 
 <video src="/projects/game-loop-ui-redesign-1.mp4" controls muted playsinline style="width: 100%; max-width: 640px; height: auto;"></video>
 
-## What was built
+Each level has three waves, with spawn timing and items adjusted per wave. The HUD shows score, time, and health, and it follows the current wave. There's a main menu with start and quit, and a game-over menu with restart and return to the main menu. I changed the fonts and button colors from the UMG defaults.
 
-- **A three-wave structure per level**, with timing and item spawns adjusted per wave rather than everything dropping in at once.
-- **UI tied to the current wave** — the HUD shows score, time, and health, and updates to reflect which wave is active.
-- **Menu flow** — a main menu with start/quit, and a game-over menu with restart/return-to-main-menu, both with custom fonts and button styling instead of the default UMG look.
-
-## Stretch goals
-
-- **Two stacking negative status effects** — Slowing and Reverse Controls, each represented by its own status icon in the UI so multiple active effects are visible at once rather than just inferred from how the character is behaving.
-- **UI animation** — Widget Animation drives transitions, and buttons get a tween/highlight effect on hover instead of an instant color swap.
-- **A camera-facing bomb timer** — the countdown UI only orients itself toward the camera while the bomb is actually active, so it reads correctly from the player's point of view instead of being a flat billboard sitting in world space at an arbitrary angle.
-
-## Links
+For the optional goals, I added two negative status effects, Slowing and Reverse Controls. They can stack, and each shows its own icon so you can see everything that's active. Widget Animations drive the UI transitions, and buttons get a tween highlight on hover. The bomb has a countdown widget that turns to face the camera only while the bomb is active, so it reads from the player's point of view.
 
 [GitHub](https://github.com/devcol-main/BC_Ch3_Assignment_5) · [YouTube](https://youtu.be/v2YNGF5HxqM)

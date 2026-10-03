@@ -7,13 +7,13 @@ outline: deep
 
 *Unreal Engine 5, C++*
 
-## Why health lives on the character, not PlayerState
+## Why health lives on the character
 
-`PlayerState` is Unreal's usual answer for per-player data, but it earns its keep specifically in multiplayer — synchronizing things like score or kill count between server and clients. In a single-player game there's no synchronization problem to solve, so `MaxHealth` and `Health` just live directly on the character class instead. It's a deliberate short-term call, not a permanent one — if this ever needs multiplayer, `PlayerState` is the more scalable home for this data, but building that in now would be solving a problem that doesn't exist yet.
+`PlayerState` is the usual place for per-player data, but it mainly matters in multiplayer, where it keeps things like score and kills in sync between server and clients. This is a single-player game, so there's nothing to sync. `MaxHealth` and `Health` sit directly on the character class. If the game ever becomes multiplayer, `PlayerState` would be the better home, but I'm not going to build for that yet.
 
 ## Damage and healing
 
-Unreal's built-in damage system is two functions talking to each other: `UGameplayStatics::ApplyDamage()` is the call an attacker makes, and it internally tries to call `AActor::TakeDamage()` on the receiving end — a virtual function every actor already has, ready to be overridden.
+Unreal's damage system is two functions. An attacker calls `UGameplayStatics::ApplyDamage()`, and that calls `AActor::TakeDamage()` on the target. Every actor already has `TakeDamage()` as a virtual function, so the character overrides it.
 
 ```cpp
 UFUNCTION(BlueprintPure, Category = "Health")
@@ -38,16 +38,12 @@ virtual float TakeDamage(
 
 UFUNCTION(BlueprintCallable, Category = "Health")
 virtual void OnDeath();
-```
+````AddHealth()` clamps with `FMath::Clamp` so healing can't go over `MaxHealth`. `TakeDamage()` returns the damage actually applied, which is usually the same as `DamageAmount` but leaves room for reduction or amplification later. `OnDeath()` runs once health reaches zero, and it's where input would be disabled or a death animation played.
 
-`AddHealth()` runs the recovered amount through `FMath::Clamp` so healing items can't push health past `MaxHealth`. `TakeDamage()`'s return value is the damage actually applied — usually identical to `DamageAmount`, but the hook is there for damage reduction or amplification if that's ever needed. `OnDeath()` fires once health crosses zero, and is the natural place for disabling input, switching to a ragdoll, or playing a death animation.
-
-With that in place, the mine item's `ActivateItem()` from [Picking Up Items on Collision](/study/collision-based-item-pickup) calls `UGameplayStatics::ApplyDamage()` on whatever it caught in its blast radius, and the healing item calls `AddHealth()` directly — same character-side system, two different items driving it.
+The mine from [Picking Up Items on Collision](/study/collision-based-item-pickup) calls `ApplyDamage()` on whatever is inside its blast radius, and the healing item calls `AddHealth()` directly.
 
 ## Score
 
-Score works the same way conceptually as health, but lives a level up — on `GameState`, coordinated through `GameMode` — rather than on the character, since "current score" is really game-flow data rather than something intrinsic to the player character itself. Coin items call into that instead of tracking a score value on the character. The GameMode/GameState split itself is worth its own explanation — see [Controlling Game Flow with a Game Loop](/study/game-loop-and-flow-control).
-
-## Links
+Score isn't part of the character. It lives on `GameState`, coordinated by `GameMode`, because the current score belongs to the game rather than to the player character. Coins call into that instead of storing a score themselves. The GameMode and GameState split is covered in [Controlling Game Flow with a Game Loop](/study/game-loop-and-flow-control).
 
 [GitHub](https://github.com/devcol-main/BC_Ch3_Assignment_5)

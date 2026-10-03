@@ -5,23 +5,29 @@ outline: deep
 
 # Press Plane
 
-*Unity — released on Google Play*
+*Unity, released on Google Play*
 
-A fast-paced, "Flappy Bird"-style arcade game: hold to climb, release to fall, and see how far you can get before the engines give out. One-touch controls, endless difficulty scaling, and pure high-score chasing.
+Press Plane is an endless sky-run arcade game in the style of Flappy Bird. You hold the screen to power the engines and climb, release to cut the power and fall, and try to last as long as you can. The further you fly, the harder it gets, and the only goal is a higher score.
 
 ![Press Plane gameplay screenshot](/projects/press-plane-1.png)
 
+## Controls
+
+There's one input. Hold (touch, or click with a mouse) to climb. Release to descend. That's all, so a run can start and end in seconds, which is why it works well in short sessions on a phone.
+
 ## How it differs from Flappy Bird
 
-At a glance, Press Plane looks like a typical Flappy Bird clone — hold to climb, release to fall, dodge obstacles, chase a high score. The core feel is deliberately different, though.
+In Flappy Bird, a tap ignores how fast the bird was falling and sets its upward speed straight to a fixed value. A tap is a jump, and the speed you had a moment earlier doesn't matter. The input is close to on or off.
 
-In Flappy Bird, tapping the screen resets the bird's vertical velocity to a fixed jump value, regardless of how fast it was already falling. The tap **overrides** whatever the bird was doing — that snappy, deterministic hop is what makes the game easy to reason about, but it also makes the input fairly binary: you're either flapping or you're not, and the fall speed you had a moment ago doesn't matter.
+In Press Plane, the fall speed carries over. While you aren't holding, the plane falls and builds up downward speed. Holding adds upward thrust, and that thrust first has to cancel the downward speed before the plane stops falling and starts to climb. So the same input behaves differently depending on what the plane was doing a moment before.
 
-Press Plane keeps the plane's existing fall velocity in play instead of overriding it. Holding down doesn't teleport the plane upward — it applies continuous upward thrust that has to fight against whatever momentum the plane already built up while falling. If you've been dropping for a while, a quick tap barely slows the descent; you have to hold long enough for the thrust to cancel out the fall speed and actually reverse direction. That changes the game in a few ways:
+Three things follow from that:
 
-- A single tap isn't enough to climb — you have to commit to holding, which makes "hold vs. release" feel closer to controlling a vehicle's thrust than triggering a discrete jump.
-- Momentum management matters in both directions: holding too long sends you climbing with the same inertia problem now working in reverse, so overcorrecting is just as easy as undercorrecting.
-- The skill ceiling shifts from timing a series of discrete taps to modulating *how long* you hold — a small change from the genre's usual all-or-nothing tap, but it's the one thing that was non-negotiable while building this: Flappy Bird's feel, with heavier, more physical flight controls layered on top.
+1. A quick tap after a long drop barely slows you down. To turn around you have to commit to holding, which feels closer to working a throttle than to jumping.
+2. Momentum works in both directions. If you hold too long, the plane keeps climbing past where you wanted to stop, so you can overcorrect as easily as undercorrect.
+3. Timing means something different. In a tap game you decide when to tap. Here you decide when to start holding and also for how long.
+
+If you've been falling for a while, start holding earlier than feels natural, because the plane needs time to stop before it can rise. When you're climbing, ease off before the gap, because the plane keeps going up after you let go.
 
 ## Play in browser
 
@@ -29,6 +35,6 @@ Press Plane keeps the plane's existing fall velocity in play instead of overridi
 <iframe src="https://itch.io/embed-upload/15969002?color=333333" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## Links
+The web build is fine for trying the controls. For a real run, the Android app plays better on a phone.
 
 [Google Play](https://play.google.com/store/apps/details?id=com.devcol.press_plane) · [itch.io](https://devcol.itch.io/pressplane) · [GitHub](https://github.com/devcol-main/PressPlane) · [Trailer](https://youtu.be/zQBN3ye_jtY)

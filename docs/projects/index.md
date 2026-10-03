@@ -4,24 +4,22 @@ title: Projects
 
 # Projects
 
-A portfolio of games and prototypes, built across different engines while learning and shipping. Full write-ups for each are being migrated over from older devlogs — this page will keep growing.
+Games and prototypes I've built in Unreal Engine, C++, and Unity. Newest first within each group.
 
 ## Unreal Engine
 
-- **[Game Loop & UI Redesign](/projects/game-loop-ui-redesign)** — Unreal Engine 5, C++. A three-wave level structure with a reworked UI.
-- **[Pawn Class 3D Character](/projects/pawn-class-3d-character)** — Unreal Engine 5, C++. A custom Pawn class driven by the Enhanced Input system.
-- **[Rotation, Movement, Randomization, Spawning](/projects/rotation-movement-randomization-spawning)** — Unreal Engine 5, C++. Tick/DeltaTime-driven rotating platforms and dynamic object spawning.
-- **[Building an Unreal Engine 5 FPS in 5 Days](/projects/building-an-unreal-engine-5-fps-in-5-days)** — Unreal Engine 5, Blueprint. A first-person shooter built from scratch in a five-day sprint.
+- [Game Loop & UI Redesign](/projects/game-loop-ui-redesign): Unreal Engine 5, C++. A three-wave level structure with a reworked UI.
+- [Pawn Class 3D Character](/projects/pawn-class-3d-character): Unreal Engine 5, C++. A custom Pawn class driven by the Enhanced Input system.
+- [Rotation, Movement, Randomization, Spawning](/projects/rotation-movement-randomization-spawning): Unreal Engine 5, C++. Rotating and moving platforms driven by Tick, plus random spawning.
+- [Building an Unreal Engine 5 FPS in 5 Days](/projects/building-an-unreal-engine-5-fps-in-5-days): Unreal Engine 5, Blueprint. A first-person shooter built from scratch in five days.
 
 ## C++
 
-- **[TEAM8-Text-Console-RPG](/projects/team8-text-console-rpg)** — C++. A collaborative text-based console RPG with auto-battler mechanics and a split-screen UI.
+- [TEAM8-Text-Console-RPG](/projects/team8-text-console-rpg): a team-built, text-based console RPG with auto-battles and a split-screen layout.
 
 ## Unity
 
-- **[Rock Paper Scissors - Advance](/projects/rock-paper-scissors-advance)** — Unity. Released on Google Play. Multiple game modes testing quick reflexes.
-- **[Press Plane](/projects/press-plane)** — Unity. Released on Google Play. A fast-paced, Flappy Bird-style arcade game.
+- [Rock Paper Scissors - Advance](/projects/rock-paper-scissors-advance): released on Google Play, playable in the browser.
+- [Press Plane](/projects/press-plane): released on Google Play, playable in the browser.
 
----
-
-Want more detail on any of these before the full write-ups land? Reach out via the [Contact](/contact) page.
+Questions about any of these are welcome on the [Contact](/contact) page.

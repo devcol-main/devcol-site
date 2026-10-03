@@ -5,19 +5,15 @@ outline: deep
 
 # Managing Unreal Engine Projects with Git LFS
 
-*Git, Unreal Engine (applies just as much to Unity or any other asset-heavy project)*
+*Git, Unreal Engine (the same applies to Unity or any asset-heavy project)*
 
-Unreal projects are full of exactly the kind of files Git handles badly — `.uasset`, `.umap`, `.fbx`, audio, source art — and a plain Git history of binary files that keep changing just grows forever. Git LFS exists for this specific problem.
+Unreal projects are full of files that Git handles badly: `.uasset`, `.umap`, `.fbx`, audio, and source art. Every time one of those binaries changes, Git keeps another full copy, and the repo only grows. Git LFS is built for that.
 
-## How it actually works
+## How it works
 
-Instead of storing a large file's full contents in Git, LFS stores a small text pointer (a hash and a size) in its place. The real file body goes to separate LFS storage, and gets fetched on demand:
+Instead of storing a large file, LFS puts a small text pointer in Git, with a hash and a size. The real file goes to separate LFS storage and is fetched when needed. When you commit, the file is swapped for a pointer. When you push, the file itself goes to LFS storage rather than the Git server. When you clone, the pointers come down first, and then only the large files needed for the checked-out version.
 
-- **Commit**: LFS swaps the tracked file for a pointer before it goes into Git.
-- **Push**: the actual file body goes to LFS storage, not the regular Git server.
-- **Clone**: pointers download first (fast), then only the large files needed for the checked-out version get pulled from LFS.
-
-Worth knowing going in: GitHub's free plan caps LFS at 10 GiB storage and 10 GiB bandwidth *per month*. Hit either limit and LFS uploads/downloads just stop working until the next billing cycle — cloning still succeeds, it just leaves you with pointers instead of the actual assets.
+One limit to know about: GitHub's free plan gives LFS 10 GiB of storage and 10 GiB of bandwidth per month. Past either one, LFS uploads and downloads stop until the next billing cycle. Cloning still works, but you get pointers instead of the actual assets.
 
 ## Setup
 
@@ -30,7 +26,7 @@ git lfs track "*.psd"
 git add .gitattributes   # this file has to be committed too
 ```
 
-For an Unreal project specifically, `.gitattributes` is where the actual asset types get declared:
+For an Unreal project, `.gitattributes` is where the asset types get listed.
 
 ```
 # Unreal Engine binary assets
@@ -47,21 +43,19 @@ For an Unreal project specifically, `.gitattributes` is where the actual asset t
 *.blend filter=lfs diff=lfs merge=lfs -text
 ```
 
-Two things worth not getting wrong here: PNG/JPG aren't LFS targets by default, and dumping every plain image into LFS burns through the quota fast for no real benefit. And build output — `.exe`, `.dll`, `.vcxproj` — belongs in `.gitignore`, not LFS; those aren't things worth storing at all, pointer or otherwise.
+PNG and JPG aren't LFS targets by default, and putting every ordinary image in LFS eats the quota quickly. Build output like `.exe`, `.dll`, and `.vcxproj` belongs in `.gitignore`, not in LFS.
 
-To check tracking actually took:
+To check that tracking worked:
 
 ```bash
 git lfs track          # patterns currently tracked
 git lfs ls-files -s    # tracked files, with size
 ```
 
-## Staying inside the free-tier limits
+## Staying inside the free tier
 
-`.gitignore` should come first, catching build artifacts and editor-generated junk (`Binaries/`, `Intermediate/`, `Saved/`, `DerivedDataCache/`) before LFS ever needs to consider them — no reason to burn quota on files that shouldn't be versioned at all. `.gitattributes` handles what's left in terms of tracking real assets efficiently.
+Start with `.gitignore`, so build artifacts and editor-generated files (`Binaries/`, `Intermediate/`, `Saved/`, `DerivedDataCache/`) never reach LFS. Then `.gitattributes` covers the real assets.
 
-The other lever is avoiding unnecessary `clone`s and `push`es of the same large binaries, since every one of those spends real bandwidth against the 10 GiB/month cap. Sharing bulky source assets through a separate free cloud drive and keeping `fetch`/`pull` for code changes only cuts down on LFS traffic considerably when bandwidth is the actual constraint, not just storage.
-
-## Links
+The other thing is avoiding repeated clones and pushes of the same large binaries, since each one counts against the 10 GiB monthly bandwidth. If bandwidth is the limit, sharing the bulky source assets through a free cloud drive and using `fetch` and `pull` for code only cuts LFS traffic a lot.
 
 [Git LFS](https://git-lfs.com/)

@@ -4,26 +4,29 @@ layout: home
 hero:
   name: "DevCol"
   text: "Development Collaboration"
-  tagline: An indie game built in the open — devlogs, systems docs, and lore, shaped together with the players who show up.
+  tagline: One developer, one indie game, and a public record of how it gets built. Devlogs, project write-ups, and technical notes.
   actions:
     - theme: brand
       text: Read the Devlog
       link: /blog/
     - theme: alt
-      text: Explore the Wiki
-      link: /wiki/
+      text: See the Projects
+      link: /projects/
     - theme: alt
       text: Join the Discord
       link: https://discord.gg/7YTgpP8CCt
 
 features:
-  - title: Devlog
-    details: Weekly-ish notes on what's being built, what broke, and what changed.
+  - title: DevLog
+    details: Progress notes and debugging write-ups from the Tumble Teams multiplayer project.
     link: /blog/
-  - title: Wiki
-    details: Lore, systems documentation, and FAQ — written as things get built, not after.
-    link: /wiki/
+  - title: Projects
+    details: Finished games and prototypes in Unreal Engine, C++, and Unity, some playable in the browser.
+    link: /projects/
+  - title: Study
+    details: Short notes on Unreal Engine, C++, and Git that I wanted to keep.
+    link: /study/
   - title: Community
-    details: Discuss the game and vote on patches on Discord.
+    details: Talk about the games or give feedback on Discord.
     link: https://discord.gg/7YTgpP8CCt
 ---

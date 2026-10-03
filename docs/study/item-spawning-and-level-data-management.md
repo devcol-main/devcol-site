@@ -7,11 +7,11 @@ outline: deep
 
 *Unreal Engine 5, C++*
 
-Three levels (Basic, Intermediate, Advanced, shrinking in that order) needed a way to scatter the item classes from the [interface](/study/interface-based-item-class-design) / [collision](/study/collision-based-item-pickup) posts around at random, and then a way to control *which* items show up without recompiling every time a drop rate changes.
+I had three levels (Basic, Intermediate, and Advanced, getting smaller in that order) and needed a way to scatter the item classes from the [interface](/study/interface-based-item-class-design) and [collision](/study/collision-based-item-pickup) posts around at random. I also wanted to change which items show up without recompiling every time a drop rate changed.
 
 ## Random spawn points inside a box
 
-`ASpawnVolume` wraps a `UBoxComponent` — invisible, just a collision box — and picks a random point inside it:
+`ASpawnVolume` wraps a `UBoxComponent`, which is just an invisible collision box, and picks a random point inside it.
 
 ```cpp
 FVector ASpawnVolume::GetRandomPointInVolume() const
@@ -27,11 +27,11 @@ FVector ASpawnVolume::GetRandomPointInVolume() const
 }
 ```
 
-`SpawnItem()` then just calls `GetWorld()->SpawnActor<AActor>()` at that point. One `BP_SpawnVolume` gets dropped into each of the three levels, scaled to fit.
+`SpawnItem()` then calls `GetWorld()->SpawnActor<AActor>()` at that point. I dropped one `BP_SpawnVolume` into each of the three levels and scaled it to fit.
 
-## Moving drop rates out of code and into a data table
+## Moving drop rates into a data table
 
-Hardcoding "this item has a 12% chance to spawn" means a full rebuild every time a designer wants to tweak a number. Unreal's data tables fix that: define a row structure once in C++, then edit the actual values either directly in the editor or via CSV import — no recompiling either way.
+If "this item has a 12% chance to spawn" is hardcoded, every tweak means a rebuild. A data table avoids that. You define a row structure once in C++, then edit the values in the editor or import them from a CSV, with no recompiling either way.
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -51,11 +51,11 @@ public:
 };
 ```
 
-One CSV quirk worth remembering: pasting an asset's "Copy Reference" path in only gets you most of the way there — for a Blueprint class it needs a manual `_C` suffix appended, or the data table won't resolve it as the actual generated class.
+One CSV detail to remember: pasting an asset's "Copy Reference" path isn't enough for a Blueprint class. You have to add a `_C` suffix by hand, or the data table can't resolve the generated class.
 
-## Weighted selection with cumulative probability
+## Weighted selection
 
-With multiple rows each carrying their own `SpawnChance`, picking one isn't a straight dice roll — it's summing all the chances into a running total and rolling a single random number against that total:
+Each row carries its own `SpawnChance`, so picking one isn't a single dice roll. You add up all the chances into a total, roll one random number against it, and walk through the rows adding up chance until the roll falls inside a row's share.
 
 ```cpp
 float TotalChance = 0.0f;
@@ -67,8 +67,6 @@ for (const FItemSpawnRow* Row : AllRows)
 // rows accumulating chance until the roll falls inside a row's slice
 ```
 
-The appeal of doing it this way: it only needs **one** random number no matter how many items are in the table, weights don't need to add up to any particular total (100, 450, whatever — it's all relative to `TotalChance`), and it's the same underlying mechanic a pity/guarantee system would build on top of, if drop rates ever need that kind of safety net. The tradeoff is that the cumulative table has to be rebuilt any time an item is added or removed — a small bit of bookkeeping in exchange for not hardcoding percentages into the spawn logic itself.
-
-## Links
+This needs only one random number no matter how many items are in the table, and the weights don't have to add up to 100. A total of 450 works the same way, because everything is relative to `TotalChance`. The cost is that the running total has to be recalculated whenever an item is added or removed.
 
 [GitHub](https://github.com/devcol-main/BC_Ch3_Assignment_5)

@@ -1,8 +1,22 @@
 import { defineConfig } from 'vitepress'
-import { writeFileSync } from 'node:fs'
+import { existsSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const SITE_URL = 'https://devcol.net'
+
+const tumbleTeamsPosts: [string, string][] = [
+  ['Overview', 'tumble-teams'],
+  ['Devlog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
+  ['Chat focus bugs', '2026-09-10-tumble-teams-chat-focus-bugs'],
+  ["Host couldn't move", '2026-09-18-tumble-teams-listen-server-host-cant-move'],
+  ['Chat two-player testing', '2026-09-27-tumble-teams-chat-two-player-testing'],
+  ['Root motion and BlendSpace', '2026-10-02-tumble-teams-root-motion-and-blendspace'],
+  ['Stamina and sprint', '2026-10-02-tumble-teams-gas-stamina-and-sprint'],
+  ['Health and head-up UI', '2026-10-02-tumble-teams-gas-health-and-head-ui'],
+  ['Devlog #2: Input and pawn init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
+  ['Damage and hit detection', '2026-10-03-tumble-teams-damage-and-hit-detection'],
+  ['Mixamo retargeting', '2026-10-03-tumble-teams-mixamo-retargeting'],
+]
 
 export default defineConfig({
   title: 'DevCol',
@@ -111,7 +125,14 @@ export default defineConfig({
           text: 'DevLog',
           items: [
             { text: 'All posts', link: '/blog/' },
+            { text: 'Building devcol.net', link: '/blog/2026-09-17-building-devcol-net' },
           ],
+        },
+        {
+          text: 'Tumble Teams',
+          items: tumbleTeamsPosts
+            .filter(([, slug]) => existsSync(resolve('docs/blog', `${slug}.md`)))
+            .map(([text, slug]) => ({ text, link: `/blog/${slug}` })),
         },
       ],
       '/wiki/': [

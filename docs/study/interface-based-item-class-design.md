@@ -7,20 +7,19 @@ outline: deep
 
 *Unreal Engine 5, C++*
 
-Item pickups (coins, a mine, a heal) all need to react to the same few events — overlapping the player, being "used," reporting their own type — even though what happens inside each reaction is completely different. That's exactly the case for a C++ interface instead of pushing everything through one shared base class.
+Coins, a heal, and a mine all react to the same few events: the player overlaps them, they get used, and they report what type they are. What happens inside each reaction is different for every item. That's a good case for a C++ interface rather than one big shared base class.
 
 ## Interface vs. inheritance
 
-- **Inheritance** hands a child class the parent's actual implementation, which the child can use as-is or override.
-- **An interface** only defines the function signatures — "this function must exist" — and leaves the actual behavior entirely up to whatever implements it.
+With inheritance, a child gets the parent's real implementation and can use it or override it. An interface only declares the function signatures and leaves the behavior to whatever implements it.
 
-The payoff: lower coupling (a caller only needs to know *that* a function exists, not how it's implemented), easier extensibility (a new item type just implements the interface to plug into the existing system), and real polymorphism — a single `TArray<IItemInterface*>` can hold every item type and call the same functions on all of them regardless of what they actually are.
+The interface keeps coupling low, because a caller only needs to know the function exists. Adding a new item type means implementing the interface, and nothing else changes. A single `TArray<IItemInterface*>` can hold every item type and call the same functions on all of them.
 
-One rule of thumb worth keeping: **don't build an interface out further than what you actually need right now.** It's tempting to add hooks for behavior you might want later, but that's a good way to end up with an interface nobody implements consistently.
+I also tried to keep the interface small. It's tempting to add hooks for things you might want later, but then you end up with an interface that nobody implements the same way.
 
 ## The interface
 
-Unreal splits an interface into two classes — a `UInterface`-derived class for the reflection system, and the actual C++ interface you implement:
+Unreal splits an interface into two classes: a `UInterface`-derived class for the reflection system, and the C++ interface you actually implement.
 
 ```cpp
 #pragma once
@@ -50,13 +49,11 @@ public:
 	// Returns this item's type (e.g. "Coin", "Mine")
 	virtual FName GetItemType() const = 0;
 };
-```
-
-Every function takes `AActor*` rather than a more specific type — casting later is a small price for not having to touch the interface every time a new actor type needs to call into it. `GetItemType()` returns an `FName` instead of `FString` for the same reason it usually should when you just need a fast, cheap type tag: `FName` comparisons are cheaper and it's a much lighter type than `FString` actually is under the hood.
+```Every function takes `AActor*` instead of a more specific type. Casting later costs little, and the interface doesn't need to change when a new kind of actor calls into it. `GetItemType()` returns an `FName` rather than an `FString`, because for a simple type tag `FName` is cheaper to compare and much lighter.
 
 ## A shared base item
 
-`ABaseItem` implements the interface with empty/default bodies, so concrete item classes only override what they actually need to change:
+`ABaseItem` implements the interface with empty bodies, so each concrete item only overrides what it needs.
 
 ```cpp
 // BaseItem.h
@@ -95,13 +92,11 @@ void ABaseItem::ActivateItem(AActor* Activator) {}        // overridden per item
 FName ABaseItem::GetItemType() const { return ItemType; }
 
 void ABaseItem::DestroyItem() { Destroy(); }
-```
-
-Neither `ABaseItem` nor the `ACoinItem` class below set `ItemType` themselves — both are meant to be abstract, with the actual label set by whichever concrete class (`BigCoinItem`, `SmallCoinItem`, ...) is the one that actually gets placed in the world.
+````ABaseItem` and `ACoinItem` never set `ItemType`. They're meant to be abstract, and the label is set by the concrete class that actually gets placed in the world, such as `BigCoinItem` or `SmallCoinItem`.
 
 ## Coins, healing, and a mine
 
-`ACoinItem` adds a shared `PointValue` for anything coin-shaped, without deciding what that value actually is:
+`ACoinItem` adds a `PointValue` shared by all coins without picking a value.
 
 ```cpp
 UCLASS()
@@ -116,9 +111,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	int32 PointValue;
 };
-```
-
-`ABigCoinItem` and `ASmallCoinItem` then just set that value and their `ItemType`, and override `ActivateItem()`:
+````ABigCoinItem` and `ASmallCoinItem` set the value and their `ItemType`, then override `ActivateItem()`.
 
 ```cpp
 ABigCoinItem::ABigCoinItem()
@@ -139,9 +132,7 @@ ASmallCoinItem::ASmallCoinItem()
 	PointValue = 10;
 	ItemType = "SmallCoin";
 }
-```
-
-`AHealingItem` and `AMineItem` skip `ACoinItem` entirely and inherit straight from `ABaseItem`, since they don't share anything coin-specific:
+````AHealingItem` and `AMineItem` don't share anything coin-specific, so they inherit straight from `ABaseItem`.
 
 ```cpp
 UCLASS()
@@ -177,6 +168,4 @@ public:
 
 	virtual void ActivateItem(AActor* Activator) override;
 };
-```
-
-A coin, a heal, and a mine end up doing three completely different things inside `ActivateItem()` — but every one of them is called the exact same way, through the exact same interface function. That's the actual payoff: adding a fourth item type later doesn't touch any of the existing ones.
+```A coin, a heal, and a mine do three different things inside `ActivateItem()`, yet all of them are called the same way through the same interface function. Adding a fourth item later doesn't touch the existing ones.

@@ -7,19 +7,12 @@ outline: deep
 
 *Unreal Engine 5, C++*
 
-Two small C++ `Actor` classes — a rotating platform and a moving platform — used as a vehicle for the core structure that basically every dynamic puzzle object in Unreal ends up needing: `Tick`, `DeltaTime`, and the reflection system.
+This assignment was two small C++ Actor classes: a platform that spins and a platform that slides back and forth. The point was to practice `Tick`, `DeltaTime`, and the reflection system on objects you'd actually place in a level.
 
-## What was built
+Each class has its own StaticMeshComponent and its own behavior. The rotating one calls `AddActorLocalRotation()` in `Tick()`. The moving one stores its start location and travels back and forth within a maximum range at a set speed. Both scale their motion by `DeltaTime`, so they move the same at any frame rate.
 
-- **Two distinct Actor classes**, each with its own `StaticMeshComponent` and its own behavior: one spins continuously via `AddActorLocalRotation()` in `Tick()`, the other shuttles back and forth between a stored start location and a max range, both driven by `DeltaTime` so the motion holds up regardless of frame rate.
-- **Everything that matters is a `UPROPERTY(EditAnywhere)`** — rotation speed, move speed, travel range, starting position. All of it is tunable straight from the Details panel while the level is playing, no recompiling needed to retune a platform's feel.
-- **Multiple instances placed in a level**, each with different speed/range/rotation values, to confirm the same two classes could carry a whole room of platforms, traps, and elevators without turning into one-off scripts per object.
+Rotation speed, move speed, range, and start position are all `UPROPERTY(EditAnywhere)`, so I could change them in the Details panel while the level was running and see the result immediately. I placed several instances with different values to check that two classes could cover a whole room of platforms.
 
-## Stretch goals
-
-- **Timer-based logic instead of polling every tick** — `FTimerHandle` and `GetWorld()->GetTimerManager().SetTimer(...)` drive things like a platform disappearing after a delay, which is cheaper than checking an elapsed-time condition every single frame.
-- **Randomized puzzle generation** — platforms get spawned at runtime via `SpawnActor` at randomized locations, with `FMath::RandRange` driving their speed, range, and rotation, so the same two Actor classes produce a different puzzle layout on every playthrough instead of a fixed, memorizable one.
-
-## Links
+There were two optional goals. The first was a timer. Using `FTimerHandle` and `GetWorld()->GetTimerManager().SetTimer(...)`, a platform can disappear after a delay, which is cheaper than checking elapsed time every frame. The second was random generation: platforms spawn at runtime with `SpawnActor` at random positions, and `FMath::RandRange` picks their speed, range, and rotation, so each run builds a different course.
 
 [GitHub](https://github.com/devcol-main/BC_Ch3_Assignment_3) · [YouTube](https://youtu.be/ih6_73y3hsw)

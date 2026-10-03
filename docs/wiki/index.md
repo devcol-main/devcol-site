@@ -1,5 +1,3 @@
 # Wiki
 
-Documentation for the game. Lore and systems pages will be added once they're written; for now, the FAQ covers the basics.
-
-- [FAQ](./faq)
+The game's design documents will live here once they exist. Right now there's only the [FAQ](./faq).
