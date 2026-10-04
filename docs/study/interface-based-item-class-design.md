@@ -49,7 +49,9 @@ public:
 	// Returns this item's type (e.g. "Coin", "Mine")
 	virtual FName GetItemType() const = 0;
 };
-```Every function takes `AActor*` instead of a more specific type. Casting later costs little, and the interface doesn't need to change when a new kind of actor calls into it. `GetItemType()` returns an `FName` rather than an `FString`, because for a simple type tag `FName` is cheaper to compare and much lighter.
+```
+
+Every function takes `AActor*` instead of a more specific type. Casting later costs little, and the interface doesn't need to change when a new kind of actor calls into it. `GetItemType()` returns an `FName` rather than an `FString`, because for a simple type tag `FName` is cheaper to compare and much lighter.
 
 ## A shared base item
 
@@ -92,7 +94,9 @@ void ABaseItem::ActivateItem(AActor* Activator) {}        // overridden per item
 FName ABaseItem::GetItemType() const { return ItemType; }
 
 void ABaseItem::DestroyItem() { Destroy(); }
-````ABaseItem` and `ACoinItem` never set `ItemType`. They're meant to be abstract, and the label is set by the concrete class that actually gets placed in the world, such as `BigCoinItem` or `SmallCoinItem`.
+```
+
+`ABaseItem` and `ACoinItem` never set `ItemType`. They're meant to be abstract, and the label is set by the concrete class that actually gets placed in the world, such as `BigCoinItem` or `SmallCoinItem`.
 
 ## Coins, healing, and a mine
 
@@ -111,7 +115,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	int32 PointValue;
 };
-````ABigCoinItem` and `ASmallCoinItem` set the value and their `ItemType`, then override `ActivateItem()`.
+```
+
+`ABigCoinItem` and `ASmallCoinItem` set the value and their `ItemType`, then override `ActivateItem()`.
 
 ```cpp
 ABigCoinItem::ABigCoinItem()
@@ -132,7 +138,9 @@ ASmallCoinItem::ASmallCoinItem()
 	PointValue = 10;
 	ItemType = "SmallCoin";
 }
-````AHealingItem` and `AMineItem` don't share anything coin-specific, so they inherit straight from `ABaseItem`.
+```
+
+`AHealingItem` and `AMineItem` don't share anything coin-specific, so they inherit straight from `ABaseItem`.
 
 ```cpp
 UCLASS()
@@ -168,4 +176,6 @@ public:
 
 	virtual void ActivateItem(AActor* Activator) override;
 };
-```A coin, a heal, and a mine do three different things inside `ActivateItem()`, yet all of them are called the same way through the same interface function. Adding a fourth item later doesn't touch the existing ones.
+```
+
+A coin, a heal, and a mine do three different things inside `ActivateItem()`, yet all of them are called the same way through the same interface function. Adding a fourth item later doesn't touch the existing ones.

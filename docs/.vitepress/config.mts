@@ -22,7 +22,7 @@ export default defineConfig({
   title: 'DevCol',
   description: 'DevCol — development collaboration. Building an indie game with the players, in the open.',
   cleanUrls: true,
-  srcExclude: ['wiki/lore/**', 'wiki/systems/**'],
+  srcExclude: ['wiki/**'],
   lastUpdated: true,
 
   head: [
@@ -53,11 +53,11 @@ export default defineConfig({
       { text: 'Projects', link: '/projects/' },
       { text: 'DevLog', link: '/blog/' },
       { text: 'Study', link: '/study/' },
-      { text: 'Wiki', link: '/wiki/' },
       {
         text: 'More',
         items: [
           { text: 'About', link: '/about' },
+          { text: 'FAQ', link: '/faq' },
           { text: 'Contact', link: '/contact' },
           { text: 'Privacy Policy', link: '/privacy-policy' },
         ],
@@ -133,15 +133,6 @@ export default defineConfig({
           items: tumbleTeamsPosts
             .filter(([, slug]) => existsSync(resolve('docs/blog', `${slug}.md`)))
             .map(([text, slug]) => ({ text, link: `/blog/${slug}` })),
-        },
-      ],
-      '/wiki/': [
-        {
-          text: 'Wiki',
-          items: [
-            { text: 'Overview', link: '/wiki/' },
-            { text: 'FAQ', link: '/wiki/faq' },
-          ],
         },
       ],
     },

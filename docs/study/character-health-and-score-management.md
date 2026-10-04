@@ -38,7 +38,9 @@ virtual float TakeDamage(
 
 UFUNCTION(BlueprintCallable, Category = "Health")
 virtual void OnDeath();
-````AddHealth()` clamps with `FMath::Clamp` so healing can't go over `MaxHealth`. `TakeDamage()` returns the damage actually applied, which is usually the same as `DamageAmount` but leaves room for reduction or amplification later. `OnDeath()` runs once health reaches zero, and it's where input would be disabled or a death animation played.
+```
+
+`AddHealth()` clamps with `FMath::Clamp` so healing can't go over `MaxHealth`. `TakeDamage()` returns the damage actually applied, which is usually the same as `DamageAmount` but leaves room for reduction or amplification later. `OnDeath()` runs once health reaches zero, and it's where input would be disabled or a death animation played.
 
 The mine from [Picking Up Items on Collision](/study/collision-based-item-pickup) calls `ApplyDamage()` on whatever is inside its blast radius, and the healing item calls `AddHealth()` directly.
 

@@ -8,7 +8,7 @@ outline: deep
 # Tumble Teams Devlog #1: Building a Server-Authoritative Chat Plugin in UE5
 
 ::: info Update (September 27)
-This post describes ChatCore as it stood on August 11. A few things have moved since: the rate limit and history cap listed as "still open" below were finished shortly after; team routing is now wired up through an interface the project layer implements; and in late September I replaced the C++ chat widget with a Blueprint UI on top of the C++ transport layer. The tunneling trick for Enter and Tab now lives in that Blueprint widget. Whisper sending from the UI is still deferred until there's a target-selection UI.
+This post describes ChatCore as it stood on August 11. A few things have moved since: the rate limit and history cap listed as "still open" below were finished shortly after; team routing is now wired up through an interface the project layer implements; and in late September I replaced the C++ chat widget with a Blueprint UI on top of the C++ transport layer. The tunneling trick for Enter and Tab now lives in that Blueprint widget. Whisper sending from the UI is still deferred until there's a target-selection UI. The story of that restructure is in [Testing Chat with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing).
 :::
 
 Tumble Teams is a small team-based party game I'm building in Unreal Engine 5 (C++): short, chaotic minigames for 4 to 6 players split into two teams. It's a one-month warm-up project. I have never shipped a multiplayer game, and I want to learn replication, the Gameplay Ability System (GAS), Epic Online Services (EOS), and dedicated server deployment on something small *before* I commit to anything bigger.

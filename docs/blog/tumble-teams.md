@@ -41,7 +41,14 @@ I read Epic's Lyra sample for reference and don't build on top of it. I rebuild 
 
 **Debugging notes and write-ups** (in order of when they happened)
 
+- [Why Enter Wouldn't Open My UE5 Chat Box (and Why It Crashed with Two Players)](./2026-09-10-tumble-teams-chat-focus-bugs)
 - [Why Only the Listen-Server Host Couldn't Move](./2026-09-18-tumble-teams-listen-server-host-cant-move)
+- [Testing Chat with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing)
+- [Swapping in a New Character: Root Motion, Jump Clips, and a Blank BlendSpace](./2026-10-02-tumble-teams-root-motion-and-blendspace)
+- [Stamina and Sprint with GAS](./2026-10-02-tumble-teams-gas-stamina-and-sprint)
+- [Moving Health into GAS, and Head-Up Bars for Every Player](./2026-10-02-tumble-teams-gas-health-and-head-ui)
+- [Server-Side Damage and Hit Detection for Melee Abilities](./2026-10-03-tumble-teams-damage-and-hit-detection)
+- [Why Mixamo Animations Broke on My Character, and the Retargeting Pipeline That Fixed It](./2026-10-03-tumble-teams-mixamo-retargeting)
 
 ## Where it stands
 
@@ -66,3 +73,4 @@ Several bugs in the notes above only appear in one of those two modes, which is 
 - Characters: [Creative Characters FREE](https://www.fab.com/listings/94fd60a2-5659-4fc4-af1d-a8cdd2681c2e) by ithappy, with a few extra icons added following a UECore tutorial.
 - Loading screen: Async Loading Screen plugin by Truong Bui ([Fab](https://fab.com/s/7741aaefc33a)).
 - Font: Paperlogy. The engine only recognizes it if it's imported through the editor and not just copied into a folder.
+- Animations: Mixamo, retargeted as described in the [Mixamo note](./2026-10-03-tumble-teams-mixamo-retargeting).

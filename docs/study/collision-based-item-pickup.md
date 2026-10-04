@@ -33,7 +33,9 @@ virtual void OnItemEndOverlap(
         AActor* OtherActor,
         UPrimitiveComponent* OtherComp,
         int32 OtherBodyIndex) = 0;
-````OverlappedComp` is the item's own collision component, `OtherActor` is what it overlapped (the player), and `OtherComp` is the component on that actor that triggered the overlap.
+```
+
+`OverlappedComp` is the item's own collision component, `OtherActor` is what it overlapped (the player), and `OtherComp` is the component on that actor that triggered the overlap.
 
 ## Giving BaseItem a collision volume
 
@@ -66,7 +68,9 @@ void ABaseItem::OnItemOverlap(UPrimitiveComponent* OverlappedComp, AActor* Other
 		ActivateItem(OtherActor);
 	}
 }
-```I bind with `AddDynamic` because calling `OnComponentBeginOverlap()` directly takes a long parameter list that's tedious to write out by hand.
+```
+
+I bind with `AddDynamic` because calling `OnComponentBeginOverlap()` directly takes a long parameter list that's tedious to write out by hand.
 
 The collision preset decides what triggers the overlap. `OverlapAllDynamic` fires overlap events against moving actors only, which fits "is the player nearby" with no physical push-back. Unreal has other presets for cases that need a real block (`BlockAll`, `NoCollision`, `Pawn`, `Custom`). The player capsule needs a matching `Pawn` preset and a `"Player"` actor tag, and `OtherActor->ActorHasTag("Player")` checks that tag before an overlap counts as a pickup.
 
@@ -84,6 +88,8 @@ void ACoinItem::ActivateItem(AActor* Activator)
 		DestroyItem();
 	}
 }
-```Healing works the same way but restores HP. The call into the character's health system is still a TODO in this version, because it depends on how that system turns out.
+```
+
+Healing works the same way but restores HP. The call into the character's health system is still a TODO in this version, because it depends on how that system turns out.
 
 The mine is different. Instead of resolving on overlap, it starts an `FTimerHandle` for a delayed `Explode()`. It keeps its own `ExplosionRadius` and `ExplosionDamage`, separate from the detection radius that triggered it. Noticing the player and hurting the player don't have to happen at the same distance.
