@@ -4,19 +4,38 @@ import { resolve } from 'node:path'
 
 const SITE_URL = 'https://devcol.net'
 
-const tumbleTeamsPosts: [string, string][] = [
-  ['Overview', 'tumble-teams'],
-  ['Devlog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
-  ['Chat focus bugs', '2026-09-10-tumble-teams-chat-focus-bugs'],
-  ["Host couldn't move", '2026-09-18-tumble-teams-listen-server-host-cant-move'],
-  ['Chat two-player testing', '2026-09-27-tumble-teams-chat-two-player-testing'],
-  ['Root motion and BlendSpace', '2026-10-02-tumble-teams-root-motion-and-blendspace'],
-  ['Stamina and sprint', '2026-10-02-tumble-teams-gas-stamina-and-sprint'],
-  ['Health and head-up UI', '2026-10-02-tumble-teams-gas-health-and-head-ui'],
-  ['Devlog #2: Input and pawn init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
-  ['Damage and hit detection', '2026-10-03-tumble-teams-damage-and-hit-detection'],
-  ['Mixamo retargeting', '2026-10-03-tumble-teams-mixamo-retargeting'],
+type Post = [string, string]
+
+const tumbleTeamsGroups: { text: string; posts: Post[] }[] = [
+  {
+    text: 'Devlogs',
+    posts: [
+      ['Devlog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
+      ['Devlog #2: Input and pawn init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
+    ],
+  },
+  {
+    text: 'Chat & networking',
+    posts: [
+      ['Chat focus bugs', '2026-09-10-tumble-teams-chat-focus-bugs'],
+      ["Host couldn't move", '2026-09-18-tumble-teams-listen-server-host-cant-move'],
+      ['Chat two-player testing', '2026-09-27-tumble-teams-chat-two-player-testing'],
+    ],
+  },
+  {
+    text: 'Character & GAS',
+    posts: [
+      ['Root motion and BlendSpace', '2026-10-02-tumble-teams-root-motion-and-blendspace'],
+      ['Stamina and sprint', '2026-10-02-tumble-teams-gas-stamina-and-sprint'],
+      ['Health and head-up UI', '2026-10-02-tumble-teams-gas-health-and-head-ui'],
+      ['Damage and hit detection', '2026-10-03-tumble-teams-damage-and-hit-detection'],
+      ['Mixamo retargeting', '2026-10-03-tumble-teams-mixamo-retargeting'],
+    ],
+  },
 ]
+
+const postExists = ([, slug]: Post) => existsSync(resolve('docs/blog', `${slug}.md`))
+const postLink = ([text, slug]: Post) => ({ text, link: `/blog/${slug}` })
 
 export default defineConfig({
   title: 'DevCol',
@@ -130,9 +149,12 @@ export default defineConfig({
         },
         {
           text: 'Tumble Teams',
-          items: tumbleTeamsPosts
-            .filter(([, slug]) => existsSync(resolve('docs/blog', `${slug}.md`)))
-            .map(([text, slug]) => ({ text, link: `/blog/${slug}` })),
+          items: [
+            { text: 'Overview', link: '/blog/tumble-teams' },
+            ...tumbleTeamsGroups
+              .map((g) => ({ text: g.text, collapsed: false, items: g.posts.filter(postExists).map(postLink) }))
+              .filter((g) => g.items.length > 0),
+          ],
         },
       ],
     },
