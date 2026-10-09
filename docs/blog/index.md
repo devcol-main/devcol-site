@@ -2,8 +2,7 @@
 
 ## Tumble Teams
 
-An Unreal Engine 5 multiplayer game. Newest first; the [project overview](./tumble-teams) has the same posts in reading order.
-
+An Unreal Engine 5 multiplayer game. 
 - 2026-10-03: [Server-Side Damage and Hit Detection for Melee Abilities](./2026-10-03-tumble-teams-damage-and-hit-detection)
 - 2026-10-03: [Why Mixamo Animations Broke on My Character, and the Retargeting Pipeline That Fixed It](./2026-10-03-tumble-teams-mixamo-retargeting)
 - 2026-10-03: [Tumble Teams Devlog #2: Data-Driven Input and Preparing for GAS in UE5](./2026-10-03-tumble-teams-devlog-02-input-and-pawn-init)
