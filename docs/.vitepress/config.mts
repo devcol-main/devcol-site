@@ -45,6 +45,7 @@ export default defineConfig({
   lastUpdated: true,
 
   head: [
+    ['script', {}, "document.documentElement.classList.add('js')"],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['script', {
       async: '',
