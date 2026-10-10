@@ -951,27 +951,20 @@
 .VPNavBarMenuGroup.active .button::after {
   opacity: 0.6;
 }
-/* Social icons in their brand colors */
+/* Social icons: default color at rest, brand color on hover */
 .VPSocialLink {
-  transition: transform 0.2s var(--ease), filter 0.2s;
+  transition: color 0.2s, transform 0.2s var(--ease);
 }
-.VPSocialLink[href*='youtube'] { color: #ff0000; }
-.VPSocialLink[href*='itch.io'] { color: #fa5c5c; }
-.VPSocialLink[href*='discord'] { color: #5865f2; }
-.VPSocialLink[href*='github'],
-.VPSocialLink[href*='x.com'] { color: #181717; }
-.dark .VPSocialLink[href*='github'],
-.dark .VPSocialLink[href*='x.com'] { color: #ffffff; }
 .VPSocialLink:hover {
   transform: translateY(-2px);
-  filter: brightness(1.15);
 }
-.DocSearch-Button {
-  transition: border-color 0.2s;
-}
-.DocSearch-Button:hover {
-  border-color: var(--accent);
-}
+.VPSocialLink[href*='youtube']:hover { color: #ff0000; }
+.VPSocialLink[href*='itch.io']:hover { color: #fa5c5c; }
+.VPSocialLink[href*='discord']:hover { color: #5865f2; }
+.VPSocialLink[href*='github']:hover,
+.VPSocialLink[href*='x.com']:hover { color: #181717; }
+.dark .VPSocialLink[href*='github']:hover,
+.dark .VPSocialLink[href*='x.com']:hover { color: #ffffff; }
 
 /* ---------- Post list rows ---------- */
 .hs-posts a {
