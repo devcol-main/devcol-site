@@ -8,9 +8,10 @@ import '@fontsource-variable/jetbrains-mono'
 import './custom.css'
 import HeroBackdrop from './HeroBackdrop.vue'
 import HeroCard from './HeroCard.vue'
+import HomeSections from './HomeSections.vue'
 import ProjectGrid from './ProjectGrid.vue'
 
-const REVEAL = '.VPFeature, .project-card, .pg-head, .status-card, .projects-hero'
+const REVEAL = '.VPFeature, .project-card, .pg-head, .status-card, .projects-hero, .hs-posts li'
 const SPOT = '.VPFeature, .project-card'
 
 let observer: IntersectionObserver | undefined
@@ -44,6 +45,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'home-hero-before': () => h(HeroBackdrop),
       'home-hero-image': () => h(HeroCard),
+      'home-features-after': () => h(HomeSections),
     })
   },
   enhanceApp({ app }) {

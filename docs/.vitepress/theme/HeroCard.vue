@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { data as latest } from './latestPost.data'
+import { data as posts } from './posts.data'
+
+const latest = posts[0] ?? { title: 'DevLog', link: '/blog/' }
 </script>
 
 <template>

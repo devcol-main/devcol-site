@@ -10,26 +10,26 @@ const tumbleTeamsGroups: { text: string; posts: Post[] }[] = [
   {
     text: 'DevLogs',
     posts: [
-      ['Devlog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
-      ['Devlog #2: Input and pawn init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
+      ['DevLog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
+      ['DevLog #2: Input and Pawn Init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
     ],
   },
   {
-    text: 'Chat & networking',
+    text: 'Chat & Networking',
     posts: [
-      ['Chat focus bugs', '2026-09-10-tumble-teams-chat-focus-bugs'],
-      ["Host couldn't move", '2026-09-18-tumble-teams-listen-server-host-cant-move'],
-      ['Chat two-player testing', '2026-09-27-tumble-teams-chat-two-player-testing'],
+      ['Chat Focus Bugs', '2026-09-10-tumble-teams-chat-focus-bugs'],
+      ["Host Couldn't Move", '2026-09-18-tumble-teams-listen-server-host-cant-move'],
+      ['Chat Two-Player Testing', '2026-09-27-tumble-teams-chat-two-player-testing'],
     ],
   },
   {
     text: 'Character & GAS',
     posts: [
-      ['Root motion and BlendSpace', '2026-10-02-tumble-teams-root-motion-and-blendspace'],
-      ['Stamina and sprint', '2026-10-02-tumble-teams-gas-stamina-and-sprint'],
-      ['Health and head-up UI', '2026-10-02-tumble-teams-gas-health-and-head-ui'],
-      ['Damage and hit detection', '2026-10-03-tumble-teams-damage-and-hit-detection'],
-      ['Mixamo retargeting', '2026-10-03-tumble-teams-mixamo-retargeting'],
+      ['Root Motion and BlendSpace', '2026-10-02-tumble-teams-root-motion-and-blendspace'],
+      ['Stamina and Sprint', '2026-10-02-tumble-teams-gas-stamina-and-sprint'],
+      ['Health and Head-Up UI', '2026-10-02-tumble-teams-gas-health-and-head-ui'],
+      ['Damage and Hit Detection', '2026-10-03-tumble-teams-damage-and-hit-detection'],
+      ['Mixamo Retargeting', '2026-10-03-tumble-teams-mixamo-retargeting'],
     ],
   },
 ]
@@ -69,6 +69,7 @@ export default defineConfig({
   },
 
   themeConfig: {
+    logo: { src: '/logo.png', alt: 'DevCol logo' },
     nav: [
       { text: 'Projects', link: '/projects/' },
       { text: 'DevLog', link: '/blog/' },
@@ -89,7 +90,7 @@ export default defineConfig({
         {
           text: 'Projects',
           items: [
-            { text: 'All projects', link: '/projects/' },
+            { text: 'All Projects', link: '/projects/' },
           ],
         },
         {
@@ -115,7 +116,7 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Tools (AI-assisted)',
+          text: 'Tools (AI-Assisted)',
           items: [
             { text: 'iCUE Scheduler', link: '/projects/icue-scheduler' },
             { text: 'Brightness Scheduler', link: '/projects/brightness-scheduler' },
@@ -127,7 +128,7 @@ export default defineConfig({
         {
           text: 'Study',
           items: [
-            { text: 'All notes', link: '/study/' },
+            { text: 'All Notes', link: '/study/' },
           ],
         },
         {
@@ -152,7 +153,7 @@ export default defineConfig({
         {
           text: 'DevLog',
           items: [
-            { text: 'All posts', link: '/blog/' },
+            { text: 'All Posts', link: '/blog/' },
             { text: 'Building devcol.net', link: '/blog/2026-09-17-building-devcol-net' },
           ],
         },

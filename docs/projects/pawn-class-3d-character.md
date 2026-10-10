@@ -9,7 +9,7 @@ outline: deep
 
 For this assignment I built a character controller on Unreal's bare `Pawn` class instead of the ready-made `Character` class. I assembled the components myself and routed input through the Enhanced Input System.
 
-<video src="/projects/pawn-class-3d-character-1.mp4" controls muted playsinline style="width: 100%; max-width: 640px; height: auto;"></video>
+<video src="/projects/pawn-class-3d-character-1.mp4" controls autoplay muted loop playsinline style="width: 100%; max-width: 640px; height: auto;"></video>
 
 ## The base requirements
 

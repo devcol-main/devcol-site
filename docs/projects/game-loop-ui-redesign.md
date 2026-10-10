@@ -9,7 +9,7 @@ outline: deep
 
 This project turned a level into a wave-based game loop and added the menus and HUD around it.
 
-<video src="/projects/game-loop-ui-redesign-1.mp4" controls muted playsinline style="width: 100%; max-width: 640px; height: auto;"></video>
+<video src="/projects/game-loop-ui-redesign-1.mp4" controls autoplay muted loop playsinline style="width: 100%; max-width: 640px; height: auto;"></video>
 
 Each level has three waves, with spawn timing and items adjusted per wave. The HUD shows score, time, and health, and it follows the current wave. There's a main menu with start and quit, and a game-over menu with restart and return to the main menu. I changed the fonts and button colors from the UMG defaults.
 
