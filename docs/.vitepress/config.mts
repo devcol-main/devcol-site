@@ -118,6 +118,7 @@ export default defineConfig({
           items: [
             { text: 'iCUE Scheduler', link: '/projects/icue-scheduler' },
             { text: 'Brightness Scheduler', link: '/projects/brightness-scheduler' },
+            { text: 'NewsBriefing', link: '/projects/news-briefing' },
           ],
         },
       ],

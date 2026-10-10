@@ -34,4 +34,8 @@ Small utilities I planned and built with Claude. I wrote the plan and requiremen
 - [iCUE Scheduler](/projects/icue-scheduler): PowerShell, WPF. Switches Corsair iCUE profiles and keyboard brightness by time of day.
 - [Brightness Scheduler](/projects/brightness-scheduler): C#, WPF, .NET 10. Schedules brightness and contrast for laptop screens and external monitors.
 
+#### Automation
+
+- [NewsBriefing](/projects/news-briefing): Claude cloud routine, Slack. A market briefing written and committed every morning at 07:30 KST.
+
 Questions about any of these are welcome on the [Contact](/contact) page.
