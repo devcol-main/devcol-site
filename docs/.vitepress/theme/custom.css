@@ -756,6 +756,32 @@
     --per-view: 3;
   }
 }
+.hs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -4px 0 20px;
+}
+.hs-filters button {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--vp-c-text-2);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.hs-filters button:hover {
+  border-color: var(--line-strong);
+  color: var(--vp-c-text-1);
+}
+.hs-filters button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
 .hs-slider {
   position: relative;
 }

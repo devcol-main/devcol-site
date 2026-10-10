@@ -129,3 +129,15 @@ export const featured: Item[] = [
   '/projects/pawn-class-3d-character',
   '/projects/team8-text-console-rpg',
 ].map((href) => byHref.get(href)!)
+
+// Home page filter tabs. Each tab pulls every project from the listed groups.
+export const categories: { label: string; groups: string[] }[] = [
+  { label: 'Unreal Engine', groups: ['unreal-engine', 'unreal-tutorials'] },
+  { label: 'C++', groups: ['cpp'] },
+  { label: 'Unity', groups: ['unity'] },
+  { label: 'Tools', groups: ['tools'] },
+]
+
+export function projectsIn(groupIds: string[]): Item[] {
+  return groups.filter((g) => groupIds.includes(g.id)).flatMap((g) => g.items)
+}

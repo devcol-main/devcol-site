@@ -1,10 +1,24 @@
 <script setup lang="ts">
 import ProjectCard from './ProjectCard.vue'
-import { featured } from './projects'
+import { categories, featured, projectsIn } from './projects'
 import { data as posts } from './posts.data'
-import { onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 
 const recent = posts.slice(0, 5)
+
+const filter = ref('All')
+const shown = computed(() => {
+  const c = categories.find((c) => c.label === filter.value)
+  return c ? projectsIn(c.groups) : featured
+})
+
+function pick(label: string) {
+  filter.value = label
+  nextTick(() => {
+    track.value?.scrollTo({ left: 0 })
+    update()
+  })
+}
 
 const track = ref<HTMLElement>()
 const atStart = ref(true)
@@ -40,9 +54,22 @@ onMounted(update)
           <a href="/projects/" class="hs-more">All Projects →</a>
         </div>
       </header>
+      <div class="hs-filters" role="tablist" aria-label="Filter projects">
+        <button
+          v-for="label in ['All', ...categories.map((c) => c.label)]"
+          :key="label"
+          type="button"
+          role="tab"
+          :aria-selected="filter === label"
+          :class="{ active: filter === label }"
+          @click="pick(label)"
+        >
+          {{ label }}
+        </button>
+      </div>
       <div class="hs-slider">
         <div ref="track" class="hs-projects" @scroll.passive="update">
-          <ProjectCard v-for="it in featured" :key="it.href" :item="it" />
+          <ProjectCard v-for="it in shown" :key="it.href" :item="it" />
         </div>
         <button v-show="!atStart" type="button" class="hs-edge prev" aria-label="Previous projects" @click="slide(-1)">←</button>
         <button v-show="!atEnd" type="button" class="hs-edge next" aria-label="Next projects" @click="slide(1)">→</button>
