@@ -917,3 +917,118 @@
 :focus-visible {
   outline-color: var(--accent);
 }
+
+/* ---------- Nav hover feedback ---------- */
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .button {
+  position: relative;
+  transition: color 0.2s;
+}
+.VPNavBarMenuLink::after,
+.VPNavBarMenuGroup .button::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.25s var(--ease);
+}
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuGroup .button:hover {
+  color: var(--accent);
+}
+.VPNavBarMenuLink:hover::after,
+.VPNavBarMenuLink.active::after,
+.VPNavBarMenuGroup .button:hover::after,
+.VPNavBarMenuGroup.active .button::after {
+  transform: scaleX(1);
+}
+.VPNavBarMenuLink.active::after,
+.VPNavBarMenuGroup.active .button::after {
+  opacity: 0.6;
+}
+/* Social icons in their brand colors */
+.VPSocialLink {
+  transition: transform 0.2s var(--ease), filter 0.2s;
+}
+.VPSocialLink[href*='youtube'] { color: #ff0000; }
+.VPSocialLink[href*='itch.io'] { color: #fa5c5c; }
+.VPSocialLink[href*='discord'] { color: #5865f2; }
+.VPSocialLink[href*='github'],
+.VPSocialLink[href*='x.com'] { color: #181717; }
+.dark .VPSocialLink[href*='github'],
+.dark .VPSocialLink[href*='x.com'] { color: #ffffff; }
+.VPSocialLink:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+.DocSearch-Button {
+  transition: border-color 0.2s;
+}
+.DocSearch-Button:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- Post list rows ---------- */
+.hs-posts a {
+  position: relative;
+  padding-right: 44px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.hs-posts a::after {
+  content: '→';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  translate: -6px -50%;
+  opacity: 0;
+  color: var(--accent);
+  transition: opacity 0.2s, translate 0.25s var(--ease);
+}
+.hs-posts a:hover {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+.hs-posts a:hover::after {
+  opacity: 1;
+  translate: 0 -50%;
+}
+
+/* ---------- Sidebar ---------- */
+.VPSidebarItem.is-link > .item > .indicator {
+  transition: background-color 0.2s, width 0.2s;
+}
+.VPSidebarItem.is-link > .item:hover > .indicator {
+  background-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.VPSidebarItem.is-active > .item > .indicator {
+  width: 3px;
+}
+.VPSidebarItem.is-link > .item .text {
+  transition: color 0.2s;
+}
+
+/* ---------- Body links ---------- */
+.vp-doc a:not(.header-anchor) {
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.2s, color 0.2s;
+}
+.vp-doc a:not(.header-anchor):hover {
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Press feedback ---------- */
+.VPButton:active,
+.project-card:active,
+.VPHome .VPFeatures .VPFeature:active,
+.hs-nav button:active:not(:disabled),
+.hs-edge:active,
+.hs-filters button:active {
+  scale: 0.97;
+}
