@@ -58,17 +58,17 @@
 
 /* ---------- Dark mode ---------- */
 :root.dark {
-  --accent: #c8ff2e;
+  --accent: #d4f76a;
   --accent-ink: #0b0c0e;
   --accent-2: #ff6a3d;
   --surface: #111317;
   --surface-2: #171a1f;
   --line: rgba(255, 255, 255, 0.09);
   --line-strong: rgba(255, 255, 255, 0.22);
-  --glow: rgba(200, 255, 46, 0.13);
-  --orb-a: rgba(200, 255, 46, 0.16);
+  --glow: rgba(212, 247, 106, 0.13);
+  --orb-a: rgba(212, 247, 106, 0.16);
   --orb-b: rgba(255, 106, 61, 0.13);
-  --name-gradient: linear-gradient(100deg, #c8ff2e 10%, #f2ffc4 80%);
+  --name-gradient: linear-gradient(100deg, #d4f76a 10%, #f0fcc0 80%);
   --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 40px -24px rgba(0, 0, 0, 0.8);
 
   --vp-c-bg: #0a0b0d;
@@ -81,17 +81,17 @@
   --vp-c-divider: rgba(255, 255, 255, 0.09);
   --vp-c-border: rgba(255, 255, 255, 0.14);
   --vp-c-gutter: #000;
-  --vp-c-brand-1: #c8ff2e;
-  --vp-c-brand-2: #b5ee1c;
-  --vp-c-brand-3: #a0d814;
-  --vp-c-brand-soft: rgba(200, 255, 46, 0.14);
-  --vp-button-brand-bg: #c8ff2e;
+  --vp-c-brand-1: #d4f76a;
+  --vp-c-brand-2: #bfe04f;
+  --vp-c-brand-3: #a9c943;
+  --vp-c-brand-soft: rgba(212, 247, 106, 0.14);
+  --vp-button-brand-bg: #d4f76a;
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: #0b0c0e;
-  --vp-button-brand-hover-bg: #d9ff66;
+  --vp-button-brand-hover-bg: #e2fa94;
   --vp-button-brand-hover-border: transparent;
   --vp-button-brand-hover-text: #0b0c0e;
-  --vp-button-brand-active-bg: #b5ee1c;
+  --vp-button-brand-active-bg: #bfe04f;
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-active-text: #0b0c0e;
   --vp-button-alt-bg: rgba(255, 255, 255, 0.06);
@@ -100,7 +100,7 @@
   --vp-button-alt-hover-bg: rgba(255, 255, 255, 0.12);
   --vp-button-alt-hover-border: rgba(255, 255, 255, 0.25);
   --vp-button-alt-hover-text: #fff;
-  --vp-custom-block-tip-bg: rgba(200, 255, 46, 0.07);
+  --vp-custom-block-tip-bg: rgba(212, 247, 106, 0.07);
 }
 
 /* ---------- Home hero tokens ---------- */
@@ -323,13 +323,14 @@
   font-weight: 500;
 }
 .sc-lines a.v {
-  color: var(--accent);
+  color: var(--vp-c-text-1);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-bottom: 1px solid transparent;
   justify-self: start;
-  transition: border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s;
 }
 .sc-lines a.v:hover {
+  color: var(--accent);
   border-color: var(--accent);
 }
 .sc-prompt .k {

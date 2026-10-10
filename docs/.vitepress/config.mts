@@ -8,7 +8,7 @@ type Post = [string, string]
 
 const tumbleTeamsGroups: { text: string; posts: Post[] }[] = [
   {
-    text: 'Devlogs',
+    text: 'DevLogs',
     posts: [
       ['Devlog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
       ['Devlog #2: Input and pawn init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],

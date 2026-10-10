@@ -1,6 +1,6 @@
 ---
 title: "Tumble Teams"
-description: "Overview of Tumble Teams, a one-month Unreal Engine 5 multiplayer warm-up project: what it is, why I'm building it, how the code is organized, and where every devlog and debugging note lives."
+description: "Overview of Tumble Teams, a one-month Unreal Engine 5 multiplayer warm-up project: what it is, why I'm building it, how the code is organized, and where every DevLog and debugging note lives."
 outline: deep
 ---
 
@@ -34,10 +34,10 @@ I read Epic's Lyra sample for reference and don't build on top of it. I rebuild 
 
 ## Reading order
 
-**Devlogs**
+**DevLogs**
 
-- [Devlog #1: Building a Server-Authoritative Chat Plugin in UE5](./2026-08-11-tumble-teams-devlog-01-chatcore)
-- [Devlog #2: Data-Driven Input and Preparing for GAS in UE5](./2026-10-03-tumble-teams-devlog-02-input-and-pawn-init)
+- [DevLog #1: Building a Server-Authoritative Chat Plugin in UE5](./2026-08-11-tumble-teams-devlog-01-chatcore)
+- [DevLog #2: Data-Driven Input and Preparing for GAS in UE5](./2026-10-03-tumble-teams-devlog-02-input-and-pawn-init)
 
 **Debugging notes and write-ups** (in order of when they happened)
 

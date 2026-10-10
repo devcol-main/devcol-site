@@ -33,6 +33,6 @@ Blend Spaces for mid-run jumps and landings, landing sounds, destructible barrel
 
 ## Looking back
 
-I didn't think about architecture or optimization at all. I threw in features to see what worked, and it was fun. I started late on a Sunday night, so I never got to more item types and enemy types. My screen recording also came out blurry, which I want to fix before the next video devlog.
+I didn't think about architecture or optimization at all. I threw in features to see what worked, and it was fun. I started late on a Sunday night, so I never got to more item types and enemy types. My screen recording also came out blurry, which I want to fix before the next video DevLog.
 
 [GitHub](https://github.com/devcol-main/FirstUE5FPS) · [itch.io](https://devcol.itch.io/first-time-unreal-engine5-within-5day) · [Video](https://youtu.be/LYvmCeML3t0)

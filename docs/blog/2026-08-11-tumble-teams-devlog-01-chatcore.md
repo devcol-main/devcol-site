@@ -1,11 +1,11 @@
 ---
-title: "Tumble Teams Devlog #1: Building a Server-Authoritative Chat Plugin in UE5"
+title: "Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5"
 description: "How I built ChatCore, a reusable text chat plugin for Unreal Engine 5 using EOS for identity and replicated RPCs for delivery. Design decisions, the bugs I hit, and what was still left."
 date: 2026-08-11
 outline: deep
 ---
 
-# Tumble Teams Devlog #1: Building a Server-Authoritative Chat Plugin in UE5
+# Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5
 
 ::: info Update (September 27)
 This post describes ChatCore as it stood on August 11. A few things have moved since: the rate limit and history cap listed as "still open" below were finished shortly after; team routing is now wired up through an interface the project layer implements; and in late September I replaced the C++ chat widget with a Blueprint UI on top of the C++ transport layer. The tunneling trick for Enter and Tab now lives in that Blueprint widget. Whisper sending from the UI is still deferred until there's a target-selection UI. The story of that restructure is in [Testing Chat with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing).
@@ -15,7 +15,7 @@ Tumble Teams is a small team-based party game I'm building in Unreal Engine 5 (C
 
 So the priority here is to finish, with code I understand, and content comes second.
 
-This first devlog covers the first real system I built: **ChatCore**, a text chat plugin. It also covers the less comfortable part: building it meant I started the project out of order.
+This first DevLog covers the first real system I built: **ChatCore**, a text chat plugin. It also covers the less comfortable part: building it meant I started the project out of order.
 
 ## Why a chat system first?
 
@@ -201,4 +201,4 @@ I'd build the chat system the same way again, but I'd start it later. A warm-up 
 
 My planning doc now has a rule: before starting anything that isn't on the week's plan, write down what it pushes back. It doesn't stop me from changing course, but I have to say what it costs first.
 
-Next devlog: the input system and the pawn initialization setup I'm building so GAS can plug in later without a rewrite.
+Next DevLog: the input system and the pawn initialization setup I'm building so GAS can plug in later without a rewrite.

@@ -1,13 +1,13 @@
 ---
-title: "Tumble Teams Devlog #2: Data-Driven Input and Preparing for GAS in UE5"
+title: "Tumble Teams DevLog #2: Data-Driven Input and Preparing for GAS in UE5"
 description: "Setting up a tag-based Enhanced Input config, a Lyra-style pawn initialization funnel, and Ability System placement in Unreal Engine 5, before writing a single ability."
 date: 2026-10-03
 outline: deep
 ---
 
-# Tumble Teams Devlog #2: Data-Driven Input and Preparing for GAS in UE5
+# Tumble Teams DevLog #2: Data-Driven Input and Preparing for GAS in UE5
 
-In the [first devlog](./2026-08-11-tumble-teams-devlog-01-chatcore) I built a chat plugin for Tumble Teams, my one-month multiplayer warm-up project in Unreal Engine 5. This post covers the next layer down: how input reaches the character, and how the character gets initialized in a networked game.
+In the [first DevLog](./2026-08-11-tumble-teams-devlog-01-chatcore) I built a chat plugin for Tumble Teams, my one-month multiplayer warm-up project in Unreal Engine 5. This post covers the next layer down: how input reaches the character, and how the character gets initialized in a networked game.
 
 Neither of these is exciting to look at. The Gameplay Ability System (GAS) arrives in week two, and from what I've read, GAS problems usually come from setup and not from the abilities: input bound straight to gameplay functions, state stored in the wrong place, and initialization that runs at the wrong time on clients. So this week I laid that groundwork early.
 
