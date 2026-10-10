@@ -19,7 +19,7 @@ export const groups: Group[] = [
     title: 'Unreal Engine',
     items: [
       {
-        title: 'LuckySeven: A Three-Stage UE5 Team Game',
+        title: 'LuckySeven: A Three-Stage UE5 Team Project',
         href: '/projects/luckyseven-ue5-team-project',
         blurb: 'A six-person ninja action game: a parkour escape, combat with a parry, and a building defense.',
         tags: ['Unreal Engine 5', 'C++', 'Team project'],
@@ -103,6 +103,13 @@ export const groups: Group[] = [
     title: 'Tools (AI-Assisted)',
     note: 'Small utilities I planned and built with Claude. I wrote the plan and requirements, then tested and revised each one until it worked the way I wanted.',
     items: [
+      {
+        title: 'devcol.net',
+        href: '/projects/devcol-net',
+        blurb: 'This website: a VitePress site on GitHub Pages, designed and built with Claude.',
+        tags: ['VitePress', 'Vue', 'GitHub Pages'],
+        img: '/projects/devcol-net-home.jpg',
+      },
       {
         title: 'iCUE Scheduler',
         href: '/projects/icue-scheduler',

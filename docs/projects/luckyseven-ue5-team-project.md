@@ -1,10 +1,10 @@
 ---
-title: "LuckySeven: A Three-Stage UE5 Team Game"
+title: "LuckySeven: A Three-Stage UE5 Team Project"
 outline: deep
 description: A third-person ninja action game built by a six-person team in Unreal Engine 5.5 and C++, with a parkour escape, combat with a parry, and a day and night building defense.
 ---
 
-# LuckySeven: A Three-Stage UE5 Team Game
+# LuckySeven: A Three-Stage UE5 Team Project
 
 *Unreal Engine 5.5 · C++ · Team project*
 
