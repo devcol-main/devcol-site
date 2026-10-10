@@ -99,9 +99,12 @@ Steam 등 글로벌 출시 가능성, 트래픽 0 상태에서 한/영 병행 �
 devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 ├── docs/
 │   ├── .vitepress/config.mts    # 네비/사이드바/로컬검색 설정
+│   ├── .vitepress/theme/        # 커스텀 테마: custom.css(토큰·전역), home/(홈 페이지 컴포넌트+home.css),
+│   │                            #   SiteFooter.vue, site.ts(now building·히어로 문구), *.data.ts(블로그/스터디 목록)
 │   ├── public/CNAME              # devcol.net
-│   ├── index.md                  # 랜딩 페이지 (hero)
-│   ├── blog/                     # 개발일지
+│   ├── index.md                  # 랜딩 페이지 (<HomePage />)
+│   ├── projects/ · study/        # 프로젝트 소개, 스터디 노트
+│   ├── blog/                     # 개발일지 (index.md의 `## 프로젝트명` 아래 목록이 홈 화면 데이터 원본)
 │   │   ├── index.md
 │   │   └── 2026-08-11-hello-devcol.md
 │   └── wiki/                     # 문서형 위키

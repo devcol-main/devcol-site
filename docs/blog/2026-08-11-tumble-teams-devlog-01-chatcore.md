@@ -2,6 +2,7 @@
 title: "Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5"
 description: "How I built ChatCore, a reusable text chat plugin for Unreal Engine 5 using EOS for identity and replicated RPCs for delivery. Design decisions, the bugs I hit, and what was still left."
 date: 2026-08-11
+track: "Server-authoritative chat plugin"
 outline: deep
 ---
 

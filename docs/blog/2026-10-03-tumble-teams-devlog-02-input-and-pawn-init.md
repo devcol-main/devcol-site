@@ -2,6 +2,7 @@
 title: "Tumble Teams DevLog #2: Data-Driven Input and Preparing for GAS in UE5"
 description: "Setting up a tag-based Enhanced Input config, a Lyra-style pawn initialization funnel, and Ability System placement in Unreal Engine 5, before writing a single ability."
 date: 2026-10-03
+track: "Data-driven input, GAS prep"
 outline: deep
 ---
 

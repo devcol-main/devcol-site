@@ -2,6 +2,7 @@
 title: "Moving Health into GAS, and Head-Up Bars for Every Player"
 description: "Migrating character health from a component to GAS attributes, then building replicated, team-aware, occlusion-aware health and stamina bars above every player's head in Unreal Engine 5."
 date: 2026-10-02
+track: "Health in GAS, head-up bars"
 outline: deep
 ---
 

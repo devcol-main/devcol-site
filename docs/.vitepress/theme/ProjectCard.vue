@@ -1,7 +1,16 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { Item } from './projects'
+import { watchVideo } from './home/videos'
 
 defineProps<{ item: Item }>()
+
+const video = ref<HTMLVideoElement>()
+let stop: (() => void) | undefined
+
+// Plays only while on screen; clips with a start time loop from there (see home/videos.ts).
+onMounted(() => { if (video.value) stop = watchVideo(video.value) })
+onBeforeUnmount(() => stop?.())
 
 function initials(title: string) {
   return title
@@ -15,16 +24,18 @@ function initials(title: string) {
 </script>
 
 <template>
-  <a :href="item.href" class="project-card">
+  <a :href="item.href" class="project-card spot has-ticks">
+    <span class="ticks" aria-hidden="true"></span>
     <div class="thumb" :class="{ contain: item.fit === 'contain' }">
       <img v-if="item.img" :src="item.img" :alt="`${item.title} screenshot`" loading="lazy" />
       <video
         v-else-if="item.video"
-        :src="item.video"
+        ref="video"
+        :src="item.start ? `${item.video}#t=${item.start}` : item.video"
         :poster="item.poster"
-        autoplay
+        :data-start="item.start"
+        :loop="!item.start"
         muted
-        loop
         playsinline
         preload="metadata"
       ></video>

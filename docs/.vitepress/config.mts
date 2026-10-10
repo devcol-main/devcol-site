@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { existsSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { links } from './theme/site'
 
 const SITE_URL = 'https://devcol.net'
 
@@ -42,6 +43,8 @@ export default defineConfig({
   description: 'DevCol — development collaboration. Building an indie game with the players, in the open.',
   cleanUrls: true,
   srcExclude: ['wiki/**'],
+  // High-contrast Shiki themes keep code tokens at AA contrast on the site's code background.
+  markdown: { theme: { light: 'github-light-high-contrast', dark: 'github-dark-high-contrast' } },
   lastUpdated: true,
 
   head: [
@@ -171,25 +174,17 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'youtube', link: 'https://www.youtube.com/@devcol' },
-      { 
-        icon: {
-          svg: '<svg role="img" viewBox="0 0 221.11 198.95" xmlns="http://www.w3.org/2000/svg"><title>itch.io</title><path fill="currentColor" d="M28.832 1.228C19.188 6.954.186 28.785.004 34.51v9.478c0 12.014 11.23 22.572 21.424 22.572 12.24 0 22.44-10.146 22.442-22.187 0 12.04 9.85 22.187 22.093 22.187 12.242 0 21.776-10.146 21.776-22.187 0 12.04 10.47 22.187 22.71 22.187h.22c12.24 0 22.72-10.146 22.72-22.187 0 12.04 9.53 22.187 21.77 22.187s22.09-10.146 22.09-22.187c0 12.04 10.2 22.187 22.44 22.187 10.19 0 21.42-10.557 21.42-22.572V34.51c-.19-5.725-19.19-27.556-28.83-33.282-29.97-1.053-50.76-1.234-81.73-1.23C79.59 0 37.36.483 28.83 1.228zm58.753 59.674a25.26 25.26 0 0 1-4.308 5.546 25.588 25.588 0 0 1-17.94 7.32c-6.985 0-13.356-2.8-17.976-7.322-1.67-1.64-2.94-3.394-4.11-5.436v.004c-1.16 2.046-2.79 3.798-4.46 5.44a25.664 25.664 0 0 1-17.97 7.317c-.84 0-1.71-.23-2.42-.47-.98 10.25-1.4 20.04-1.544 27.19v.04c-.02 3.63-.035 6.61-.054 10.75.19 21.51-2.13 69.7 9.48 81.54 17.99 4.2 51.094 6.11 84.31 6.12h.003c33.214-.01 66.32-1.92 84.31-6.11 11.61-11.842 9.29-60.032 9.48-81.535-.017-4.14-.034-7.122-.053-10.75v-.04c-.15-7.142-.565-16.935-1.55-27.183-.71.24-1.587.473-2.43.473a25.68 25.68 0 0 1-17.975-7.316c-1.675-1.645-3.3-3.397-4.463-5.44l-.005-.007c-1.167 2.04-2.438 3.797-4.113 5.436-4.62 4.52-10.99 7.32-17.973 7.32s-13.32-2.8-17.94-7.32a25.428 25.428 0 0 1-4.31-5.546 25.185 25.185 0 0 1-4.266 5.546 25.673 25.673 0 0 1-17.98 7.32c-.244 0-.49-.01-.73-.02h-.008c-.243.01-.486.02-.73.02-6.986 0-13.357-2.8-17.978-7.32a25.16 25.16 0 0 1-4.27-5.544zM69.123 84.775l-.002.008h.02c7.31.016 13.81 0 21.85 8.783 6.34-.663 12.95-.996 19.58-.985h.01c6.63-.01 13.24.33 19.58.99 8.05-8.78 14.54-8.76 21.85-8.78h.02v-.01c3.46 0 17.27 0 26.9 27.04l10.348 37.1c7.665 27.6-2.453 28.28-15.073 28.3-18.72-.69-29.08-14.29-29.08-27.88-10.36 1.7-22.45 2.55-34.535 2.55h-.005c-12.086 0-24.172-.85-34.53-2.55 0 13.59-10.36 27.18-29.078 27.88-12.62-.02-22.74-.7-15.073-28.29l10.34-37.1c9.63-27.04 23.45-27.04 26.9-27.04zm41.44 21.25v.007c-.017.017-19.702 18.096-23.24 24.526l12.89-.516v11.24c0 .527 5.174.313 10.35.074h.007c5.177.24 10.35.453 10.35-.073v-11.24l12.89.514c-3.538-6.43-23.24-24.525-23.24-24.525v-.006l-.002.002z"/></svg>'
-        },
-        link: 'https://devcol.itch.io',
-        ariaLabel: 'Itch.io'      
-      },
-      { icon: 'github', link: 'https://github.com/devcol-main' },
-      { icon: 'discord', link: 'https://discord.gg/7YTgpP8CCt' },
-      { icon: 'x', link: 'https://x.com/DevCol_Main' },
+      { icon: { svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg>' }, link: links.youtube, ariaLabel: 'YouTube' },
+      { icon: { svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>itch.io</title><path d="M4 4h16l1.5 4.5c0 1.4-1.1 2.5-2.4 2.5S16.7 9.9 16.7 8.5c0 1.4-1.1 2.5-2.4 2.5S12 9.9 12 8.5c0 1.4-1.1 2.5-2.4 2.5S7.3 9.9 7.3 8.5c0 1.4-1.1 2.5-2.4 2.5S2.5 9.9 2.5 8.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 11v7.5h16V11M10 18.5v-4h4v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>' }, link: links.itch, ariaLabel: 'itch.io' },
+      { icon: 'github', link: links.github },
+      { icon: { svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Discord</title><path d="M8.5 5.5c-1.8.3-3.3.9-4.5 1.7C2.3 10 1.8 13.2 2.1 16.4c1.5 1.2 3.2 2 4.9 2.4l1-1.8M15.5 5.5c1.8.3 3.3.9 4.5 1.7 1.7 2.8 2.2 6 1.9 9.2-1.5 1.2-3.2 2-4.9 2.4l-1-1.8M7 16.2c3.2 1.4 6.8 1.4 10 0M7.5 7.6c2.9-1 6.1-1 9 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="12.3" r="1.4" fill="currentColor"/><circle cx="15" cy="12.3" r="1.4" fill="currentColor"/></svg>' }, link: links.discord, ariaLabel: 'Discord' },
+      { icon: 'x', link: links.x },
     ],
 
     search: {
       provider: 'local',
     },
 
-    footer: {
-      copyright: 'Copyright © 2026-present DevCol (by in9)',
-    },
+    // The site footer is the SiteFooter component (theme/SiteFooter.vue, layout-bottom slot) on every page.
   },
 })

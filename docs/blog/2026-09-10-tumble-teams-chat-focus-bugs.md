@@ -2,6 +2,7 @@
 title: "Why Enter Wouldn't Open My UE5 Chat Box (and Why It Crashed with Two Players)"
 description: "Three layers of keyboard-focus bugs in an Unreal Engine 5 chat widget: SetInputMode being queued, SetFocus silently falling back, and a stack overflow that only appears when two PIE clients share one Slate instance."
 date: 2026-09-10
+track: "Chat box focus and crash fixes"
 outline: deep
 ---
 

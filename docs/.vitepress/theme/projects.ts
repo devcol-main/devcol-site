@@ -6,6 +6,8 @@ export type Item = {
   img?: string
   video?: string
   poster?: string
+  // Seconds. Loop one segment of the video instead of the whole clip (keeps a title screen out).
+  start?: number
   fit?: 'cover' | 'contain'
   badge?: string
 }
@@ -41,7 +43,8 @@ export const groups: Group[] = [
         blurb: 'A three-wave level structure with a reworked UI.',
         tags: ['Unreal Engine 5', 'C++'],
         video: '/projects/game-loop-ui-redesign-1.mp4',
-        poster: '/projects/game-loop-ui-redesign-1-poster.jpg',
+        poster: '/projects/h-gameloop-poster.jpg',
+        start: 8,
       },
       {
         title: 'Pawn Class 3D Character',
@@ -135,6 +138,17 @@ export const featured: Item[] = [
   '/projects/pawn-class-3d-character',
   '/projects/team8-text-console-rpg',
 ].map((href) => byHref.get(href)!)
+
+// The four stacked cards under "Projects" on the home page, in this order. Press Plane's image is a
+// phone screenshot, so it sits centered ("contain") instead of cropped.
+export const stack: Item[] = (
+  [
+    ['/projects/pawn-class-3d-character', {}],
+    ['/projects/game-loop-ui-redesign', {}],
+    ['/projects/press-plane', { fit: 'contain' }],
+    ['/projects/team8-text-console-rpg', {}],
+  ] as [string, Partial<Item>][]
+).map(([href, override]) => ({ ...byHref.get(href)!, ...override }))
 
 // Home page filter tabs. Each tab pulls every project from the listed groups.
 export const categories: { label: string; groups: string[] }[] = [

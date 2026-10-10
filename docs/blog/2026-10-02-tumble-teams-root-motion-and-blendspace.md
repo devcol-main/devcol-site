@@ -2,6 +2,7 @@
 title: "Swapping in a New Character: Root Motion, Jump Clips, and a Blank BlendSpace"
 description: "Replacing the mannequin with a customizable character in UE5 and fixing what the animation pack broke: root-motion running, jump clips with baked-in height, a Python-built BlendSpace that played nothing, and a backward-run loop that stuttered."
 date: 2026-10-02
+track: "New character: root motion, BlendSpace"
 outline: deep
 ---
 
