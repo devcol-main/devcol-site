@@ -50,6 +50,7 @@ export default defineConfig({
   head: [
     ['script', {}, "document.documentElement.classList.add('js')"],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'naver-site-verification', content: 'a02a938ce2ba6e8e795a9b8a405bacae34a4e997' }],
     ['script', {
       async: '',
       src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4892249986723209',
