@@ -852,6 +852,15 @@
   width: 28px;
   border-radius: 7px;
 }
+.VPNavBarTitle .title > * {
+  transition: transform 0.25s var(--ease);
+}
+.VPNavBarTitle .title:hover .logo {
+  transform: scale(1.12);
+}
+.VPNavBarTitle .title:hover > span {
+  transform: scale(1.06);
+}
 .dark .VPNavBarTitle .logo {
   background: #f2f2ee;
   padding: 2px;
