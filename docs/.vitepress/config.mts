@@ -96,6 +96,7 @@ export default defineConfig({
         {
           text: 'Unreal Engine',
           items: [
+            { text: 'LuckySeven: A Three-Stage UE5 Team Game', link: '/projects/luckyseven-ue5-team-project' },
             { text: 'Game Loop & UI Redesign', link: '/projects/game-loop-ui-redesign' },
             { text: 'Pawn Class 3D Character', link: '/projects/pawn-class-3d-character' },
             { text: 'Rotation, Movement, Randomization, Spawning', link: '/projects/rotation-movement-randomization-spawning' },
