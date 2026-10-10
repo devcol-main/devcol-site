@@ -113,6 +113,13 @@ export default defineConfig({
             { text: 'Press Plane', link: '/projects/press-plane' },
           ],
         },
+        {
+          text: 'Tools (AI-assisted)',
+          items: [
+            { text: 'iCUE Scheduler', link: '/projects/icue-scheduler' },
+            { text: 'Brightness Scheduler', link: '/projects/brightness-scheduler' },
+          ],
+        },
       ],
       '/study/': [
         {

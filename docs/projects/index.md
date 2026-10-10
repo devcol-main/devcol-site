@@ -4,7 +4,7 @@ title: Projects
 
 # Projects
 
-Games and prototypes I've built in Unreal Engine, C++, and Unity. Newest first within each group.
+Games and prototypes I've built in Unreal Engine, C++, and Unity, plus a few small tools I use myself. Newest first within each group.
 
 ## Unreal Engine
 
@@ -24,5 +24,14 @@ Games and prototypes I've built in Unreal Engine, C++, and Unity. Newest first w
 
 - [Rock Paper Scissors - Advance](/projects/rock-paper-scissors-advance): released on Google Play, playable in the browser.
 - [Press Plane](/projects/press-plane): released on Google Play, playable in the browser.
+
+## Tools (AI-assisted)
+
+Small utilities I planned and built with Claude. I wrote the plan and requirements, then tested and revised each one until it worked the way I wanted.
+
+#### Windows
+
+- [iCUE Scheduler](/projects/icue-scheduler): PowerShell, WPF. Switches Corsair iCUE profiles and keyboard brightness by time of day.
+- [Brightness Scheduler](/projects/brightness-scheduler): C#, WPF, .NET 10. Schedules brightness and contrast for laptop screens and external monitors.
 
 Questions about any of these are welcome on the [Contact](/contact) page.
