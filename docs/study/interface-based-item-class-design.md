@@ -53,6 +53,22 @@ public:
 
 Every function takes `AActor*` instead of a more specific type. Casting later costs little, and the interface doesn't need to change when a new kind of actor calls into it. `GetItemType()` returns an `FName` rather than an `FString`, because for a simple type tag `FName` is cheaper to compare and much lighter.
 
+## Using the interface from other code
+
+A function that receives any actor can ask whether it implements the interface, then call it without knowing the concrete class.
+
+```cpp
+if (OtherActor->Implements<UItemInterface>())
+{
+	IItemInterface* Item = Cast<IItemInterface>(OtherActor);
+	Item->ActivateItem(Player);
+}
+```
+
+`Implements<UItemInterface>()` takes the `U` class, the one that exists for the reflection system, while the cast goes to the `I` class that holds the functions. Mixing those two up is a common first mistake with Unreal interfaces.
+
+If the pointer has to be stored as a member, a raw `IItemInterface*` can't be a `UPROPERTY`, so the garbage collector never sees it. `TScriptInterface<IItemInterface>` is the wrapper that can.
+
 ## A shared base item
 
 `ABaseItem` implements the interface with empty bodies, so each concrete item only overrides what it needs.
@@ -179,3 +195,18 @@ public:
 ```
 
 A coin, a heal, and a mine do three different things inside `ActivateItem()`, yet all of them are called the same way through the same interface function. Adding a fourth item later doesn't touch the existing ones.
+
+## Adding a new item type
+
+1. Derive from `ABaseItem`, or from `ACoinItem` if the item gives points.
+2. Set `ItemType` in the constructor.
+3. Override `ActivateItem()` with whatever the item does.
+4. Make a Blueprint of the class, then place it in the level or add it to the [spawn table](/study/item-spawning-and-level-data-management).
+
+Nothing that's already written has to change, which is the point of the design.
+
+## What this interface can't do
+
+It can't be implemented or called from Blueprint. That takes `UINTERFACE(Blueprintable)` and `BlueprintNativeEvent` functions, and Blueprint callers go through the generated `Execute_` functions instead of a plain call. Every item in this project is written in C++, so that isn't needed here, and the pure virtual version is the simpler of the two.
+
+It also doesn't replace inheritance. The interface is the contract that lets different items be treated alike. `ABaseItem` carries what they share: the `ItemType` property, the empty default functions, and `DestroyItem()`. With both, the contract stays short and no item repeats the same boilerplate.

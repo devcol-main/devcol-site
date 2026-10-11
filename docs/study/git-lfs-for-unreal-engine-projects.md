@@ -15,6 +15,18 @@ Instead of storing a large file, LFS puts a small text pointer in Git, with a ha
 
 One limit to know about: GitHub's free plan gives LFS 10 GiB of storage and 10 GiB of bandwidth per month. Past either one, LFS uploads and downloads stop until the next billing cycle. Cloning still works, but you get pointers instead of the actual assets.
 
+## What a pointer file looks like
+
+If a checkout didn't download the real content, opening a tracked file shows this instead of the asset (the hash is shortened):
+
+```
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d7a2146...
+size 84713
+```
+
+Those are three lines: the pointer spec version, the SHA-256 hash of the real file, and its size in bytes. An asset that opens as a few lines of text, or an editor that calls a file corrupt, usually means the pointer was checked out without the real file. `git lfs pull` downloads the real files and replaces the pointers.
+
 ## Setup
 
 ```bash
@@ -52,10 +64,49 @@ git lfs track          # patterns currently tracked
 git lfs ls-files -s    # tracked files, with size
 ```
 
+## Files that were committed before LFS
+
+`git lfs track` only affects files added after the pattern is in `.gitattributes`. A `.uasset` that was already committed stays in the history as an ordinary blob, and the repository stays large. `git lfs migrate info` shows which file types take up the most space, and `git lfs migrate import` rewrites the history so those files become LFS pointers:
+
+```bash
+git lfs migrate import --include="*.uasset,*.umap" --everything
+```
+
+Rewriting history changes every commit hash, so the branch has to be force-pushed and anyone else with a clone has to re-clone. For a repository only one person uses, that's manageable. Back it up first.
+
+## File locking on team projects
+
+Unreal assets are binary, so Git can't merge two people's changes to the same `.umap` or `.uasset`. Whoever pushes second either loses work or has to pick one version. LFS file locking is built for this. Mark the patterns as lockable in `.gitattributes`:
+
+```
+*.umap filter=lfs diff=lfs merge=lfs -text lockable
+```
+
+Lockable files are checked out read-only until someone locks them:
+
+```bash
+git lfs lock Content/Maps/Level1.umap
+# edit and commit, then release it
+git lfs unlock Content/Maps/Level1.umap
+git lfs locks    # who has what locked
+```
+
+The path is an example. Locks only work if everyone on the team uses them, so they fit small teams that agree on the habit.
+
 ## Staying inside the free tier
 
 Start with `.gitignore`, so build artifacts and editor-generated files (`Binaries/`, `Intermediate/`, `Saved/`, `DerivedDataCache/`) never reach LFS. Then `.gitattributes` covers the real assets.
 
 The other thing is avoiding repeated clones and pushes of the same large binaries, since each one counts against the 10 GiB monthly bandwidth. If bandwidth is the limit, sharing the bulky source assets through a free cloud drive and using `fetch` and `pull` for code only cuts LFS traffic a lot.
+
+## Cloning without the large files
+
+To clone a repository without downloading its LFS files, for reading code or for a build step that doesn't need the assets:
+
+```bash
+GIT_LFS_SKIP_SMUDGE=1 git clone <repo-url>
+```
+
+The working tree then holds pointer files, and `git lfs pull` fetches the real ones later.
 
 [Git LFS](https://git-lfs.com/)

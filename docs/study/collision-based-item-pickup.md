@@ -74,6 +74,25 @@ I bind with `AddDynamic` because calling `OnComponentBeginOverlap()` directly ta
 
 The collision preset decides what triggers the overlap. `OverlapAllDynamic` fires overlap events against moving actors only, which fits "is the player nearby" with no physical push-back. Unreal has other presets for cases that need a real block (`BlockAll`, `NoCollision`, `Pawn`, `Custom`). The player capsule needs a matching `Pawn` preset and a `"Player"` actor tag, and `OtherActor->ActorHasTag("Player")` checks that tag before an overlap counts as a pickup.
 
+## When the overlap never fires
+
+Overlap events are easy to set up wrong, and the log says nothing when they don't fire. Three things to check, in this order:
+
+1. **Generate Overlap Events** has to be on for both components, the item's sphere and the player's capsule.
+2. **Neither side can ignore the other.** Each component has a collision response for the other's object type. If either side ignores it, no event fires. If both sides block, you get a blocking hit instead of an overlap. One side set to Overlap is enough, as long as the other doesn't ignore.
+3. **Collision has to be enabled for queries.** A component set to `NoCollision`, or to physics only, never reports overlaps.
+
+The collision section of the Details panel shows each component's object type and its response to every other type, and that's quicker to read than guessing from code.
+
+## Pickups that fire twice
+
+Overlap events belong to components, not to actors. A character usually has a capsule and a skeletal mesh, and if both generate overlap events and respond to the item's collision, one walk into a coin calls `OnItemOverlap` twice. Double points or a double heal are the usual symptoms. Two ways to prevent it:
+
+- Check which component actually overlapped (`OtherComp`) and only react to the capsule.
+- Set a `bPickedUp` flag at the start of `ActivateItem()` and return early if it's already set.
+
+The flag is cheap, and it keeps the function safe no matter how many events arrive.
+
 ## What each item does
 
 With that wiring in place, each item's `ActivateItem()` does its own thing. `ACoinItem` holds the shared "you got points" logic, so `BigCoinItem` and `SmallCoinItem` only set `PointValue` and call `Super::ActivateItem()`.
@@ -93,3 +112,7 @@ void ACoinItem::ActivateItem(AActor* Activator)
 Healing works the same way but restores HP. The call into the character's health system is still a TODO in this version, because it depends on how that system turns out.
 
 The mine is different. Instead of resolving on overlap, it starts an `FTimerHandle` for a delayed `Explode()`. It keeps its own `ExplosionRadius` and `ExplosionDamage`, separate from the detection radius that triggered it. Noticing the player and hurting the player don't have to happen at the same distance.
+
+## Another way to apply the blast
+
+The mine applies damage to whatever is inside its radius. Unreal also has `UGameplayStatics::ApplyRadialDamage()`, which takes an origin, a radius, and a damage amount, finds the actors in range, and applies damage to each one. `ApplyRadialDamageWithFalloff()` does the same with damage that drops off with distance. Both go through `TakeDamage()` like `ApplyDamage()` does, so the character override from [Character Health and Score Management](/study/character-health-and-score-management) works with either approach.
