@@ -27,6 +27,36 @@ Pickups have point lights and particle effects. Ammo floats up and down with an 
 
 The player has a flashlight on F, with a click sound. Footsteps were the fiddly part. Putting the sound directly in the run animation makes it keep playing if you jump mid-run, so I used custom Anim Notifies, called from the Animation Blueprint and blended with a Sound Modulator and random pitch. Rifle fire, empty fire, and the background music also get random pitch through Sound Cues.
 
+## How a few of the pieces work
+
+I used Unreal's built-in tools throughout. Here is what a few of them do, for anyone who hasn't touched them.
+
+**Blend Space and the state machine.** A Blend Space mixes several animations according to one or two input values, usually speed, so Idle, Walk, and Run blend into each other instead of switching abruptly. The state machine decides which group is playing: moving on the ground, jumping, falling, or landing. Each arrow between states has a rule, a condition that has to be true before the animation moves along it.
+
+**State Alias.** An alias stands in for several states at once. A transition drawn from the alias applies to every state it covers, so "any of these can go to Fall" is one arrow instead of one per state. Unreal can also make a transition automatic, firing when the current animation is nearly finished, which suits one-shot clips like a landing.
+
+**Anim Notify.** A notify is an event placed at a specific frame of an animation. When playback reaches that frame it fires, and the Animation Blueprint can respond, for example by playing a footstep sound. The sound is tied to the animation's own frames instead of a separate timer.
+
+**Interp To Movement.** This component moves its actor along a list of points over a set time, and it can loop or ping-pong between them. A pickup that floats up and down needs only two points and a duration.
+
+**Launch Character.** It sets a character's velocity directly, in a direction and strength that you choose. With a random strength added, an exploding enemy knocks the player back a different distance each time.
+
+**Sound Cue.** A Sound Cue is a small graph that plays a sound. Its Modulator node randomizes pitch and volume within a range, so rifle shots and impacts don't sound identical every time.
+
+**Post-Process Volume.** It changes how the whole frame is rendered inside its bounds: exposure, bloom, color, and more. Emissive materials look like they glow mostly because of bloom, and a dark map makes that effect easier to see.
+
+**World-space health bar.** A widget component can draw UI in the 3D world instead of on the screen. In world space it's just another object in the scene, so to stay readable it has to be rotated toward the camera as the camera moves.
+
+## What was hard
+
+Two things made this hard: the five-day limit, and the fact that I'd never used Unreal Engine or Blueprint before. Together they meant that nearly every feature on this page was something I had to learn first and then build.
+
+The footsteps are a good example. Putting the sound directly in the run animation made it keep playing when I jumped mid-run. The fix was a different system I hadn't used yet, custom Anim Notifies called from the Animation Blueprint.
+
+## What was fun
+
+The best part was how little I had to worry about. I wasn't designing a complicated game, and I wasn't thinking about performance, so I could explore and try things just to see whether they worked: a light on the ant because the map is dark, blood and a sound at the exact spot of a hit, ammo that floats.
+
 ## What I cut
 
 Blend Spaces for mid-run jumps and landings, landing sounds, destructible barrels, and physics hazards like swaying bridges. All of it went on the backlog.

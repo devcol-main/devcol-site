@@ -27,6 +27,69 @@ Regular Mode asks almost nothing new of you, because everybody already knows the
 
 Since everyone already knows rock-paper-scissors, I didn't have to teach the rules. The harder problem was making a game people already know fun to keep playing, and deciding how the difficulty should rise as a run goes on. I spent a lot of my time on those two questions, and they're the reason it has three modes with a timer that tightens as you score, and not a single plain match.
 
+## How it works in the code
+
+The modes share one structure. `RPS` is an abstract base class, and `RegularRPS`, `ResponseRPS`, and `ReverseRPS` extend it. The base class holds what every mode needs: the countdown coroutine, the background color, the start and end screens, and the new-high-score effect. Each mode fills in its own opening scene and title text. `InGameSystem` sits in the middle. It tracks which mode is running, handles start, restart, and the tutorial, and it's what calls the AI and the result check. `Player` holds the three buttons, `AI` makes the opponent's pick, `Result` decides the outcome, and `InGameStats` counts wins, draws, and losses separately for each mode.
+
+### The opponent is random
+
+The AI doesn't look at what you did before. It picks a number from 0 to 2, and each number is one hand:
+
+```csharp
+// InGameSystem.cs
+public int RandomGenerator()
+{
+    int min = 0;
+    int max = 2;
+    return Random.Range(min, (max + 1));   // the integer overload excludes the upper bound
+}
+```
+
+In Regular Mode the pick happens only when the countdown ends. `FinalizeDecision()` shows the AI's hand and then calculates the result, so there's nothing to read in advance. In Response and Reverse mode the AI's hand is shown first, and the countdown starts after it.
+
+### Judging is spelled out per mode
+
+`Result.CalculateResult()` switches on the mode and calls one method for each. They compare the two hands directly instead of sharing a rule table. This is the player-wins condition in Response mode, followed by the one in Reverse mode:
+
+```csharp
+// Response (and Regular): the usual rules
+player == ROCK     && ai == SCISSORS
+|| player == PAPER    && ai == ROCK
+|| player == SCISSORS && ai == PAPER
+
+// Reverse: the same hands, flipped
+player == ROCK     && ai == PAPER
+|| player == PAPER    && ai == SCISSORS
+|| player == SCISSORS && ai == ROCK
+```
+
+The snippet shortens the real enum names (`RockPaperScissors.ROCK` and so on). The Reverse rule is just the Response rule with the winner and loser swapped, so each mode's conditions stay easy to read at the cost of some repetition.
+
+### How the timer tightens
+
+Regular Mode always counts down from 3. Response and Reverse mode use a countdown that speeds up. Inside its loop, every frame adds the frame time plus a speed value to the elapsed time:
+
+```csharp
+// RPS.cs
+[SerializeField] protected float gameStartingSpeed = 0.05f;
+[SerializeField] protected float currentGameSpeed = 0.05f;
+protected const float gameSpeedUpValue = 0.005f;
+
+elapsedTime += (Time.deltaTime + currentGameSpeed);   // inside SpeedingCountDownCoroutine
+```
+
+`Level.CheckLevel()` runs after each win in those two modes, using the number of wins in a row. Levels come at 2, 5, 8, 10, and 15 wins. After that the next one comes at 19 wins, then every 3 wins (22, 25, and so on). Each level-up calls `IncreaseGameSpeed()`, which adds 0.005 to the speed value. The "3 seconds" on screen is really a counter filling up faster, so the same count takes less real time. `GameManager` sets `Application.targetFrameRate` to 30. At 30 frames per second, that works out to about:
+
+| Wins in a row | Speed value | Real time for the 3-2-1 |
+|---|---|---|
+| 0 | 0.050 | 1.2 seconds |
+| 15 | 0.075 | 0.9 seconds |
+| 31 | 0.100 | 0.75 seconds |
+
+These are worked out from the default values in the script, not timed in the running game. The speed values are serialized fields, so the scene can override them. A loss calls `ResetGameSpeed()`, which puts the speed back to the starting value for the next run.
+
+The speed value is added per frame rather than per second. The countdown therefore depends on the frame rate, and capping the frame rate is what keeps it consistent between devices.
+
 ## Controls
 
 On a phone you tap. In the browser you can click, or press 1 for Rock, 2 for Paper, and 3 for Scissors. The web build doesn't run well in mobile browsers, so on a phone use the Android app.
