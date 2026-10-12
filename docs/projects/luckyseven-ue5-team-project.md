@@ -10,6 +10,10 @@ description: A third-person ninja action game built by a six-person team in Unre
 
 LuckySeven is the team name we used for a third-person, single-player ninja action game for PC. Six of us built it in Unreal Engine 5.5 with C++ and Blueprints from June 22 to July 24, 2026, as the chapter 3 team project of NBcamp's Unreal track (9th cohort). The project itself is called Ninja in the code.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+<iframe src="https://www.youtube.com/embed/52yfdJO5dR8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
+</div>
+
 The idea fits in one line: move to survive, fight to hunt, and build to get through the night. Each of the three stages is built around one of those:
 
 - **Stage 1, escape.** No fighting. You get through an escape route with parkour and a grappling wire while staying away from monsters.
@@ -137,4 +141,4 @@ Room overlap uses a separate collision channel, `RoomOverlap`, which ignores eve
 
 The environments and effects come from free assets on Fab under the Standard License, including Downtown West Modular Pack by PurePolygons, Abandoned Tunnel by Breakbound Dev, Landscape Pro 2.0 by STF3d, Real Stones Pack 01 by Open World Development, torch assets by CodePhase Games and Apex Wolf, and the SFX Essentials free sample by InspectorJ. Event messaging uses the Gameplay Message Router plugin from Epic's Lyra sample.
 
-[GitHub](https://github.com/NBcampUnrealTrack/9th-Team7-CH3-Project/tree/develop)
+[GitHub](https://github.com/NBcampUnrealTrack/9th-Team7-CH3-Project/tree/develop) · [YouTube](https://youtu.be/52yfdJO5dR8)
