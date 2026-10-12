@@ -4,7 +4,7 @@ title: About
 
 # About DevCol
 
-DevCol is short for "development collaboration." It's a one-person indie game project built with Unreal Engine, and this site is where I keep the record of it: what I build, what breaks, and what I learn from fixing it.
+DevCol is short for "development collaboration." It's my one-person game development project, and this site is where I keep the record of it: what I build, what breaks, and what I learn from fixing it.
 
 I'd rather show the work while it's happening than wait for a launch trailer. The DevLog has progress notes and debugging write-ups, including the mistakes. The Projects section collects the games and prototypes I've finished. Study holds shorter notes on Unreal Engine, C++, and tools that I wanted to remember. Answers to common questions are in the [FAQ](/faq).
 

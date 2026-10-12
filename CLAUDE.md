@@ -6,7 +6,7 @@ Claude Code가 세션 시작 시 자동으로 읽습니다.
 ## 정체성
 
 - **브랜드명**: devcol ("development collaboration" — 플레이어와 제작자가 함께 개발한다는 의미)
-- **개발 분야**: 언리얼 엔진 기반 인디 게임 개발
+- **개발 분야**: 게임 개발
 - **제작 방식**: 웹사이트 및 콘텐츠 작업은 Claude(Cowork / Claude Code)로 진행
 
 ## 현재 보유 채널
