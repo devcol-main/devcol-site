@@ -1138,6 +1138,12 @@
   object-fit: contain;
   border-radius: 8px;
 }
+/* Portrait game clips: show the whole phone-shaped frame instead of cropping it. */
+.frame.contain video {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+}
 /* corner marks on media: white difference blend so they read on any footage */
 .cm {
   position: absolute;

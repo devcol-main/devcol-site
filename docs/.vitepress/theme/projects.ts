@@ -179,6 +179,8 @@ const byHref = new Map(groups.flatMap((g) => g.items).map((it) => [it.href, it])
 
 // Shown on the home page, in this order.
 export const featured: Item[] = [
+  '/projects/stack-up',
+  '/projects/bug-squash',
   '/projects/building-an-unreal-engine-5-fps-in-5-days',
   '/projects/game-loop-ui-redesign',
   '/projects/press-plane',
@@ -187,10 +189,12 @@ export const featured: Item[] = [
   '/projects/team8-text-console-rpg',
 ].map((href) => byHref.get(href)!)
 
-// The four stacked cards under "Projects" on the home page, in this order. Press Plane's image is a
+// The stacked cards under "Projects" on the home page, in this order. Press Plane's image is a
 // phone screenshot, so it sits centered ("contain") instead of cropped.
 export const stack: Item[] = (
   [
+    ['/projects/stack-up', {}],
+    ['/projects/bug-squash', {}],
     ['/projects/pawn-class-3d-character', {}],
     ['/projects/game-loop-ui-redesign', {}],
     ['/projects/press-plane', { fit: 'contain' }],
@@ -203,6 +207,7 @@ export const categories: { label: string; groups: string[] }[] = [
   { label: 'Unreal Engine', groups: ['unreal-engine', 'unreal-tutorials'] },
   { label: 'C++', groups: ['cpp'] },
   { label: 'Unity', groups: ['unity'] },
+  { label: 'Arcade Web', groups: ['arcade-web'] },
   { label: 'Tools', groups: ['tools'] },
 ]
 
