@@ -121,6 +121,14 @@ export default defineConfig({
           ],
         },
         {
+          text: 'Arcade Web',
+          items: [
+            { text: 'Overview', link: '/projects/arcade-web' },
+            { text: 'Stack Up', link: '/projects/stack-up' },
+            { text: 'Bug Squash', link: '/projects/bug-squash' },
+          ],
+        },
+        {
           text: 'Tools (AI-Assisted)',
           items: [
             { text: 'devcol.net', link: '/projects/devcol-net' },

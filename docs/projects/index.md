@@ -1,7 +1,7 @@
 ---
 title: Projects
 layout: page
-description: Games, prototypes, and small tools built in Unreal Engine, C++, and Unity.
+description: Games, prototypes, and small tools built in Unreal Engine, C++, Unity, and TypeScript.
 ---
 
 <ProjectGrid />

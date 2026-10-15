@@ -9,7 +9,7 @@ import { groups } from './projects'
       <p class="eyebrow">Projects</p>
       <h1>Games, prototypes, and the tools I built along the way.</h1>
       <p class="lede">
-        Built in Unreal Engine, C++, and Unity, plus a few small tools I use myself. Newest first within each group.
+        Built in Unreal Engine, C++, Unity, and TypeScript for the browser games, plus a few small tools I use myself. Newest first within each group.
       </p>
     </header>
 

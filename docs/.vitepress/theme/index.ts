@@ -10,6 +10,7 @@ import './custom.css'
 import './home/home.css'
 import HomePage from './home/HomePage.vue'
 import ProjectGrid from './ProjectGrid.vue'
+import GameFrame from './GameFrame.vue'
 import SiteFooter from './SiteFooter.vue'
 
 // Projects page: cards fade up once as they scroll in, then drop the class so hover feels instant.
@@ -116,6 +117,7 @@ export default {
   enhanceApp({ app }) {
     app.component('ProjectGrid', ProjectGrid)
     app.component('HomePage', HomePage)
+    app.component('GameFrame', GameFrame)
   },
   setup() {
     const route = useRoute()
