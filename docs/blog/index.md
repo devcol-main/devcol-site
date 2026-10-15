@@ -22,6 +22,14 @@ An Unreal Engine 5 multiplayer game.
 - 2026-09-10: [Why Enter Wouldn't Open My UE5 Chat Box (and Why It Crashed with Two Players)](./2026-09-10-tumble-teams-chat-focus-bugs)
 - 2026-08-11: [Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5](./2026-08-11-tumble-teams-devlog-01-chatcore)
 
+## Arcade Web
+
+Small browser games built with TypeScript, Canvas 2D, and WebAudio, playable on this site.
+
+- 2026-10-15: [Moving Each Arcade Web Game into Its Own Repository](./2026-10-15-arcade-web-one-repo-per-game)
+- 2026-10-14: [Bug Squash: Rebuilding a Neon Copy as a Retro Terminal](./2026-10-14-arcade-web-bug-squash-terminal-redesign)
+- 2026-10-13: [Building Stack Up in Small Steps with a Three-Agent Loop](./2026-10-13-arcade-web-stack-up)
+
 ## Building devcol.net
 
 How this site itself was put together.

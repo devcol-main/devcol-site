@@ -188,6 +188,15 @@ export default defineConfig({
               .filter((g) => g.items.length > 0),
           ],
         },
+        {
+          text: 'Arcade Web',
+          items: [
+            { text: 'Overview', link: '/blog/arcade-web' },
+            { text: 'Stack Up in Eight Steps', link: '/blog/2026-10-13-arcade-web-stack-up' },
+            { text: 'Bug Squash Terminal Redesign', link: '/blog/2026-10-14-arcade-web-bug-squash-terminal-redesign' },
+            { text: 'One Repository per Game', link: '/blog/2026-10-15-arcade-web-one-repo-per-game' },
+          ],
+        },
       ],
     },
 
