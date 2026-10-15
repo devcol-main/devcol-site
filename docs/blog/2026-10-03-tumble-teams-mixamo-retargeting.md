@@ -4,15 +4,28 @@ description: "Importing Mixamo FBX files straight onto another skeleton in Unrea
 date: 2026-10-03
 track: "Mixamo retargeting pipeline"
 outline: deep
+tags: [UE5, Animation, Retargeting]
+image: /blog/tt-mixamo-c.jpg
 ---
 
 # Why Mixamo Animations Broke on My Character, and the Retargeting Pipeline That Fixed It
 
 I made the same mistake twice. I downloaded Mixamo animations and imported them directly onto my character's skeleton. The import succeeded without errors and the poses were wrecked: bodies bent, lying down, flying off in odd directions. The fix is to import onto Mixamo's own skeleton and retarget with the IK Retargeter, and to keep the Mixamo source assets around.
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-mixamo-c.jpg" alt="Why Mixamo clips imported straight onto my skeleton came out bent, and the IK Retargeter fix" loading="lazy">
+  <img class="img-dark" src="/blog/tt-mixamo-c-dark.jpg" alt="Why Mixamo clips imported straight onto my skeleton came out bent, and the IK Retargeter fix" loading="lazy">
+</figure>
+
 ## Why it breaks
 
 Bone track names (`root`, `Hips`, `head`...) match my character's skeleton, so the import raises no errors. But the values in the file are expressed in **Mixamo's local bone axes**, which differ from my character's. Unreal sees matching names and assigns the values without converting anything.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-mixamo-b.jpg" alt="Hips at frame 0: my character vs a Mixamo clip imported directly" loading="lazy">
+  <img class="img-dark" src="/blog/tt-mixamo-b-dark.jpg" alt="Hips at frame 0: my character vs a Mixamo clip imported directly" loading="lazy">
+  <figcaption>Hips at frame 0: my character vs a Mixamo clip imported directly.</figcaption>
+</figure>
 
 Hips at frame 0, in local space:
 
@@ -28,6 +41,12 @@ On my character the hips' local Y axis is up-and-down; in Mixamo's rig it's Z. A
 My second mistake: after converting the first clip, the Mixamo skeleton and mesh assets disappeared from the project, so the retargeter's source mesh was `None`. They aren't leftovers. **They're the source the retargeter needs**, so keep them after conversion.
 
 ## The pipeline that works
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-mixamo-a.jpg" alt="Mixamo FBX to IK Retargeter, and the direct import that breaks" loading="lazy">
+  <img class="img-dark" src="/blog/tt-mixamo-a-dark.jpg" alt="Mixamo FBX to IK Retargeter, and the direct import that breaks" loading="lazy">
+  <figcaption>Mixamo FBX to IK Retargeter, and the direct import that breaks.</figcaption>
+</figure>
 
 ```
 Mixamo FBX (With Skin, once)     -> own skeleton + mesh  (/Game/External/Mixamo/)

@@ -4,11 +4,16 @@ description: "How the first Arcade Web game went from a single-file browser mock
 date: 2026-10-13
 track: "Stack Up in eight steps"
 outline: deep
+tags: [TypeScript, Canvas 2D, AI Agents]
+image: /blog/stack-up-cover.jpg
 ---
 
 # Building Stack Up in Small Steps with a Three-Agent Loop
 
 [Stack Up](/projects/stack-up) is the first game in [Arcade Web](/projects/arcade-web). It started as a single HTML mockup that already ran the core loop: the sliding block, the cut, Perfect drops, combos, width regrowth, speed, the camera, and game over. The mockup even played itself. It was a good reference and a bad base, so I rebuilt it from scratch in TypeScript and kept the mockup only to look at.
+
+![Stack Up mid-run at 10 floors (left) and the opening screen (right)](/blog/stack-up-cover.jpg)
+*Stack Up mid-run at 10 floors (left) and the opening screen (right).*
 
 ## The loop
 

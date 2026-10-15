@@ -4,6 +4,8 @@ description: "How I built ChatCore, a reusable text chat plugin for Unreal Engin
 date: 2026-08-11
 track: "Server-authoritative chat plugin"
 outline: deep
+tags: [UE5, C++, Networking, EOS]
+image: /blog/tt-chatcore-c.jpg
 ---
 
 # Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5
@@ -13,6 +15,11 @@ This post describes ChatCore as it stood on August 11. A few things have moved s
 :::
 
 Tumble Teams is a small team-based party game I'm building in Unreal Engine 5 (C++): short, chaotic minigames for 4 to 6 players split into two teams. It's a one-month warm-up project. I have never shipped a multiplayer game, and I want to learn replication, the Gameplay Ability System (GAS), Epic Online Services (EOS), and dedicated server deployment on something small *before* I commit to anything bigger.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-chatcore-c.jpg" alt="ChatCore uses EOS to find out who a player is, and replication to deliver messages" loading="lazy">
+  <img class="img-dark" src="/blog/tt-chatcore-c-dark.jpg" alt="ChatCore uses EOS to find out who a player is, and replication to deliver messages" loading="lazy">
+</figure>
 
 So the priority here is to finish, with code I understand, and content comes second.
 
@@ -50,6 +57,12 @@ The `.uplugin` declares `OnlineSubsystem` and `OnlineSubsystemEOS` as plugin dep
 ### EOS for identity, RPCs for transport
 
 EOS offers P2P sockets, and it's tempting to use them for chat. But the players are already connected to the same server through Unreal's normal replication. Opening a second network channel just for text would add complexity without solving any problem I actually have.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-chatcore-a.jpg" alt="ChatCore message flow: EOS display name, Server RPC, validation, Client RPCs" loading="lazy">
+  <img class="img-dark" src="/blog/tt-chatcore-a-dark.jpg" alt="ChatCore message flow: EOS display name, Server RPC, validation, Client RPCs" loading="lazy">
+  <figcaption>ChatCore message flow: EOS display name, Server RPC, validation, Client RPCs.</figcaption>
+</figure>
 
 So the flow is:
 
@@ -132,6 +145,12 @@ That last one is deliberate. Teams are a game rule, so the plugin isn't allowed 
 ## The widget: logic in C++, looks in Blueprint
 
 The UI is split in two:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-chatcore-b.jpg" alt="Bubbling vs tunneling: why Enter and Tab never reached NativeOnKeyDown" loading="lazy">
+  <img class="img-dark" src="/blog/tt-chatcore-b-dark.jpg" alt="Bubbling vs tunneling: why Enter and Tab never reached NativeOnKeyDown" loading="lazy">
+  <figcaption>Bubbling vs tunneling: why Enter and Tab never reached NativeOnKeyDown.</figcaption>
+</figure>
 
 - `UChatWidgetBase` (C++) finds the chat component, binds delegates, and handles input.
 - `WBP_Chat` (Blueprint child) owns the layout, colors, and per-channel styling.

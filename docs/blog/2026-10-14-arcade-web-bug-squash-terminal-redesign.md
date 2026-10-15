@@ -4,11 +4,16 @@ description: "The second Arcade Web game worked on the first pass but looked and
 date: 2026-10-14
 track: "Bug Squash terminal redesign"
 outline: deep
+tags: [TypeScript, Game Design, WebAudio]
+image: /blog/bug-squash-cover.jpg
 ---
 
 # Bug Squash: Rebuilding a Neon Copy as a Retro Terminal
 
 [Bug Squash](/projects/bug-squash) is whack-a-mole with bugs. They pop up in a grid, you squash them before they hide, and you leave the working features alone. It went through the same write, check, review loop as [Stack Up](./2026-10-13-arcade-web-stack-up), in nine steps, all on the same day.
+
+![The terminal version of Bug Squash: a combo in progress (left) and a +10 hit (right)](/blog/bug-squash-cover.jpg)
+*The terminal version of Bug Squash: a combo in progress (left) and a +10 hit (right).*
 
 ## Two steps at the limit
 

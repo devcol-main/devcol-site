@@ -4,11 +4,18 @@ description: "Three layers of keyboard-focus bugs in an Unreal Engine 5 chat wid
 date: 2026-09-10
 track: "Chat box focus and crash fixes"
 outline: deep
+tags: [UE5, UMG, Debugging]
+image: /blog/tt-focus-c.jpg
 ---
 
 # Why Enter Wouldn't Open My UE5 Chat Box (and Why It Crashed with Two Players)
 
 I'm building a chat plugin for Tumble Teams, my multiplayer warm-up project. The chat widget is a C++ base class that grabs keyboard focus so Enter can open the input box. In practice, pressing Enter did nothing, and then, once I tested with two players, the editor crashed. The cause was three separate focus problems stacked on top of each other, and each one hid the next.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-focus-c.jpg" alt="Three layers of focus bugs in a UE5 chat widget, and a crash only two PIE clients could cause" loading="lazy">
+  <img class="img-dark" src="/blog/tt-focus-c-dark.jpg" alt="Three layers of focus bugs in a UE5 chat widget, and a crash only two PIE clients could cause" loading="lazy">
+</figure>
 
 ## Layer 1: the viewport takes focus back
 
@@ -19,6 +26,12 @@ The fix was to override `NativeOnFocusLost` and re-take focus with `SetFocus()`,
 ## Layer 2: something else was overwriting my input mode
 
 The next symptom was subtler: right after the game starts, Enter doesn't open chat, even though the focus code above is in place.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-focus-b.jpg" alt="Two SetInputMode requests in one frame, and only the last one is applied" loading="lazy">
+  <img class="img-dark" src="/blog/tt-focus-b-dark.jpg" alt="Two SetInputMode requests in one frame, and only the last one is applied" loading="lazy">
+  <figcaption>Two SetInputMode requests in one frame, and only the last one is applied.</figcaption>
+</figure>
 
 The culprit was outside the plugin. The project's character class called `SetInputMode(FInputModeGameOnly)` in its own `BeginPlay`, in the same frame my widget's `NativeConstruct` had requested `GameAndUI`. The character's call won.
 
@@ -39,6 +52,12 @@ One more trap from this stage: after hot reloading C++ changes to the base class
 ## Layer 3: two players, one Slate, infinite recursion
 
 Then I ran PIE with two players, and the editor died with `EXCEPTION_STACK_OVERFLOW`. The crash dump showed `NativeOnFocusLost` calling into UMG, into Slate, and back into `NativeOnFocusLost`, hundreds of times.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-focus-a.jpg" alt="Two PIE clients share one FSlateApplication and one focus slot" loading="lazy">
+  <img class="img-dark" src="/blog/tt-focus-a-dark.jpg" alt="Two PIE clients share one FSlateApplication and one focus slot" loading="lazy">
+  <figcaption>Two PIE clients share one FSlateApplication and one focus slot.</figcaption>
+</figure>
 
 In multi-client PIE under one process, each player has their own `PlayerController` and their own chat widget, in separate windows. But the process has a single `FSlateApplication`, and each client's `LocalPlayer` gets `ControllerId` 0, so `SetFocus()` maps both widgets to the **same Slate user focus slot**. When one widget reclaims focus in `NativeOnFocusLost`, it steals it from the other, which immediately reclaims it back, synchronously, forever.
 

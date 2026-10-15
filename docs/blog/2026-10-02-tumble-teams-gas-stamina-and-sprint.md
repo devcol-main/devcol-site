@@ -4,15 +4,28 @@ description: "Building a replicated stamina system on Unreal's Gameplay Ability 
 date: 2026-10-02
 track: "Stamina and sprint with GAS"
 outline: deep
+tags: [UE5, GAS, Networking]
+image: /blog/tt-stamina-c.jpg
 ---
 
 # Stamina and Sprint with GAS
 
 Tumble Teams needed stamina: a pool of 100 spent mostly by movement and attacks. Hold Shift to sprint for 3 per second, fall back to walking when it's empty, and recover from items, recovery zones, and standing (+2 per second) or walking (+1 per second). Walking speed is 250, sprint speed is 600.
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-stamina-c.jpg" alt="One periodic gameplay effect for every stamina rule, and a client-predicted sprint" loading="lazy">
+  <img class="img-dark" src="/blog/tt-stamina-c-dark.jpg" alt="One periodic gameplay effect for every stamina rule, and a client-predicted sprint" loading="lazy">
+</figure>
+
 ## The design
 
 **Stamina is a GAS attribute, not a component.** I first proposed a stamina component like the one used for health at the time, but the project already had `Stamina` and `MaxStamina` in its attribute set, and the upcoming abilities (dive attacks and so on) would spend it through gameplay effects. Keeping one pool means no component-versus-GAS duplication, the ability cost check (`CostGameplayEffectClass`) rejects activation when stamina is short, and the UI listens in one place.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-stamina-a.jpg" alt="Every stamina rule goes through one periodic effect; sprint is predicted through a movement flag" loading="lazy">
+  <img class="img-dark" src="/blog/tt-stamina-a-dark.jpg" alt="Every stamina rule goes through one periodic effect; sprint is predicted through a movement flag" loading="lazy">
+  <figcaption>Every stamina rule goes through one periodic effect; sprint is predicted through a movement flag.</figcaption>
+</figure>
 
 **One effect handles every rule.** A single infinite gameplay effect with a 0.1-second period and a `SetByCaller` value (`Data.Stamina.Rate`) covers sprint drain (-3/s), idle recovery (+2/s), walking recovery (+1/s), and recovery zones (+N/s). Callers pass "change per second" and the effect multiplies by the period. The server checks the character's state every 0.1 seconds and swaps the effect only when the rate changes. Recovery zones apply on entry and remove on exit, stacking on top of the base recovery.
 
@@ -37,6 +50,12 @@ Tumble Teams needed stamina: a pool of 100 spent mostly by movement and attacks.
 ## How I checked it
 
 In PIE, with tick callbacks sampling over time:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-stamina-b.jpg" alt="Stamina measurements in PIE" loading="lazy">
+  <img class="img-dark" src="/blog/tt-stamina-b-dark.jpg" alt="Stamina measurements in PIE" loading="lazy">
+  <figcaption>Stamina measurements in PIE.</figcaption>
+</figure>
 
 | Check | Result |
 |---|---|

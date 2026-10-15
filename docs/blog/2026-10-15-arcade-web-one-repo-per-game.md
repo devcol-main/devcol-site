@@ -4,11 +4,16 @@ description: "Stack Up and Bug Squash started in one shared repository. Notes on
 date: 2026-10-15
 track: "One repository per game"
 outline: deep
+tags: [Git, GitHub, Workflow]
+image: /projects/arcade-web-cover.jpg
 ---
 
 # Moving Each Arcade Web Game into Its Own Repository
 
 [Stack Up](./2026-10-13-arcade-web-stack-up) and [Bug Squash](./2026-10-14-arcade-web-bug-squash-terminal-redesign) were both built in one repository, `Arcade-Web`, with the games under `games/` and the code they share under `shared/`. On the third day I moved each game into its own public repository. Arcade-Web is now just the entry point and the reference copy of the shared formats.
+
+![Stack Up and Bug Squash, the two games that now live in their own repositories](/projects/arcade-web-cover.jpg)
+*Stack Up and Bug Squash, the two games that now live in their own repositories.*
 
 ## Keeping the history
 

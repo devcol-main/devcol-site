@@ -4,11 +4,18 @@ description: "Replacing the mannequin with a customizable character in UE5 and f
 date: 2026-10-02
 track: "New character: root motion, BlendSpace"
 outline: deep
+tags: [UE5, Animation]
+image: /blog/tt-anim-c.jpg
 ---
 
 # Swapping in a New Character: Root Motion, Jump Clips, and a Blank BlendSpace
 
 Today I replaced Tumble Teams' default mannequin with a customizable low-poly character pack and rebuilt the animation setup around it. The most useful habit of the day was measuring bone data over time instead of guessing, because almost every problem turned out to be baked into the animation clips.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-anim-c.jpg" alt="Swapping in a new character: root motion, baked jump height, and a BlendSpace that played nothing" loading="lazy">
+  <img class="img-dark" src="/blog/tt-anim-c-dark.jpg" alt="Swapping in a new character: root motion, baked jump height, and a BlendSpace that played nothing" loading="lazy">
+</figure>
 
 ## No retargeting needed
 
@@ -30,6 +37,12 @@ Sampling `root` over time in the forward run clip showed it moving 0 to 188 cm o
 
 Jump start rose, the fall loop sat at zero, and landing started from 115 cm and dropped. Root height by clip:
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-anim-b.jpg" alt="Root height by jump clip" loading="lazy">
+  <img class="img-dark" src="/blog/tt-anim-b-dark.jpg" alt="Root height by jump clip" loading="lazy">
+  <figcaption>Root height by jump clip.</figcaption>
+</figure>
+
 | Clip | Root Z (cm) |
 |---|---|
 | Jump_Start | 0 to 110 |
@@ -44,6 +57,12 @@ My first fix, the same root lock that worked for running, made things worse: on 
 The fix was rewriting the bone tracks. World hips height is `root Z + hips height`; I clamped anything above the standing height (77.3 cm) and kept the crouches, with the root at zero. Original keys weren't readable through the API, so I sampled each frame with `get_bone_pose_for_time`, converted, and wrote the keys back through the animation data controller. The result: Jump_Start goes 72, 35 (crouch), 77; Jump_Loop stays at 77; Jump_End goes 77, 39, 72. The pack's originals are in git, so this is reversible.
 
 ## Issues 4 to 7: tuning the state machine
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-anim-a.jpg" alt="The jump state machine after tuning priorities, start position and crossfade" loading="lazy">
+  <img class="img-dark" src="/blog/tt-anim-a-dark.jpg" alt="The jump state machine after tuning priorities, start position and crossfade" loading="lazy">
+  <figcaption>The jump state machine after tuning priorities, start position and crossfade.</figcaption>
+</figure>
 
 - **Jump_Start never played.** All six transitions had priority 1, so evaluation order depended on connection order. Giving the Jump transition priority 1 and the rest 2 fixed it.
 - **Jump_Start felt slow.** The first half is a wind-up crouch, but the character leaves the ground on input. Start position 0.3 and play rate 1.6 cut the wind-up.

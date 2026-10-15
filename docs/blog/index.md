@@ -1,4 +1,15 @@
-# DevLog
+---
+title: DevLog
+layout: page
+description: Progress notes, debugging write-ups, and build logs from PSEUDO, Tumble Teams, the Arcade Web games, and this site.
+---
+
+<BlogIndex />
+
+<!--
+Post list read by .vitepress/theme/posts.data.ts (the page shows it as cards through BlogIndex).
+Keep the format: `## Project`, one description line, then `- YYYY-MM-DD: [Title](./slug)` newest first.
+Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jpg`.
 
 ## PSEUDO
 
@@ -35,3 +46,4 @@ Small browser games built with TypeScript, Canvas 2D, and WebAudio, playable on 
 How this site itself was put together.
 
 - 2026-09-17: [Building devcol.net](./2026-09-17-building-devcol-net)
+-->

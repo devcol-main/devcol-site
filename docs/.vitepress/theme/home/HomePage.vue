@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { data as blog } from '../posts.data'
 import { data as notes } from '../study.data'
 import { groups } from '../projects'
-import { heroPhrases, nowBuilding, nowBuildingTags } from '../site'
+import { footage, heroPhrases, nowBuilding, nowBuildingTags } from '../site'
 import AboutScrub from './AboutScrub.vue'
 import ContactCta from './ContactCta.vue'
 import FeatureCards from './FeatureCards.vue'
@@ -70,7 +70,8 @@ onBeforeUnmount(() => {
 <template>
   <div ref="root" class="dc-home" :class="{ 'is-pending': pending }">
     <HeroSection :phrases="phrases" :project="project" :project-link="projectLink" :latest="blog.latest" />
-    <FootageSlot :project="project" :tags="nowBuildingTags" />
+    <!-- Hidden until real footage is set in site.ts (footage.src). -->
+    <FootageSlot v-if="footage.src" :project="project" :tags="nowBuildingTags" />
     <Marquee />
     <FeatureCards :projects="projectCount" :posts="blog.total" :notes="notes.length" :devlog-blurb="devlogBlurb" />
     <AboutScrub />

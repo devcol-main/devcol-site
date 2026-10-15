@@ -4,17 +4,30 @@ description: "Migrating character health from a component to GAS attributes, the
 date: 2026-10-02
 track: "Health in GAS, head-up bars"
 outline: deep
+tags: [UE5, GAS, UI]
+image: /blog/tt-health-c.jpg
 ---
 
 # Moving Health into GAS, and Head-Up Bars for Every Player
 
 After [stamina](./2026-10-02-tumble-teams-gas-stamina-and-sprint) went into the Gameplay Ability System, health was next, along with the UI to show it: segmented bars above every player's head, visible to everyone in multiplayer.
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-health-c.jpg" alt="Health moved into GAS, with segmented, team-aware bars above every player’s head" loading="lazy">
+  <img class="img-dark" src="/blog/tt-health-c-dark.jpg" alt="Health moved into GAS, with segmented, team-aware bars above every player’s head" loading="lazy">
+</figure>
+
 What I wanted: health managed like stamina, bars in ten-point segments (an Overwatch-style look), stamina shown only to your own team, your health and teammates' health in white and enemies' in red, and every bar hidden when its character isn't visible.
 
 ## Health as one attribute
 
 The old `UStatusComponent` is gone from character logic:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-health-a.jpg" alt="Damage, buffs and death all go through the Health attribute on the PlayerState ASC" loading="lazy">
+  <img class="img-dark" src="/blog/tt-health-a-dark.jpg" alt="Damage, buffs and death all go through the Health attribute on the PlayerState ASC" loading="lazy">
+  <figcaption>Damage, buffs and death all go through the Health attribute on the PlayerState ASC.</figcaption>
+</figure>
 
 - **Damage** goes through `TakeDamage` into an instant gameplay effect with a `SetByCaller` delta (negative means damage).
 - **Buffs** raise MaxHealth first and then Health, so the Health clamp doesn't cut the increase.
@@ -47,6 +60,12 @@ The ability system component is reached through a virtual function: the base cha
 Local build notes: a local variable named `Widget` shadowed `UWidgetComponent::Widget` (an error in this project), and editing with deleted classes means closing the editor and building with UBT instead of hot reload.
 
 ## Verification
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-health-b.jpg" alt="Health checks: damage, buff, death, respawn, two-player replication" loading="lazy">
+  <img class="img-dark" src="/blog/tt-health-b-dark.jpg" alt="Health checks: damage, buff, death, respawn, two-player replication" loading="lazy">
+  <figcaption>Health checks: damage, buff, death, respawn, two-player replication.</figcaption>
+</figure>
 
 | Check | Result |
 |---|---|

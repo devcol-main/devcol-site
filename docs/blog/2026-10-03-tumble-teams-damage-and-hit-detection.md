@@ -4,15 +4,28 @@ description: "How I built hit detection for two Unreal Engine 5 melee abilities:
 date: 2026-10-03
 track: "Melee damage and hit detection"
 outline: deep
+tags: [UE5, GAS, Combat]
+image: /blog/tt-damage-c.jpg
 ---
 
 # Server-Side Damage and Hit Detection for Melee Abilities
 
 Tumble Teams has two melee attacks: a drop kick (right-click) and a primary kick (left-click). This is how their hit detection works, why I did it in code instead of animation notifies, and what it costs.
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-damage-c.jpg" alt="Server-side hit detection for two melee kicks: montage frame windows and per-frame sphere sweeps" loading="lazy">
+  <img class="img-dark" src="/blog/tt-damage-c-dark.jpg" alt="Server-side hit detection for two melee kicks: montage frame windows and per-frame sphere sweeps" loading="lazy">
+</figure>
+
 ## Overview
 
 The server reads the **montage's playback position** to know when the hit window is open. During the window, every frame it sweeps a sphere from the attack bone's previous position to its current position and applies **damage (not to teammates)** and **knockback (including teammates)** to anything it overlaps. There are no animation notifies. The logic lives in one struct, `FTumbleSweepHitTracker`, that both abilities share.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-damage-a.jpg" alt="From the click to damage and knockback, with hit decisions on the server only" loading="lazy">
+  <img class="img-dark" src="/blog/tt-damage-a-dark.jpg" alt="From the click to damage and knockback, with hit decisions on the server only" loading="lazy">
+  <figcaption>From the click to damage and knockback, with hit decisions on the server only.</figcaption>
+</figure>
 
 ```
 Input (right/left click) -> PlayerController -> ActivateAbility(tag)
@@ -28,6 +41,12 @@ Input (right/left click) -> PlayerController -> ActivateAbility(tag)
 ### The window comes from the montage
 
 Animations run at 60 fps, so a frame number divided by 60 is seconds. The drop kick's window is the right foot from frame 65 to 95 (about 1.08 to 1.58 s); the primary kick's is the right foot from frame 30 to 60. All of these are `EditDefaultsOnly`, so they can be tuned in the ability Blueprint without touching code.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-damage-b.jpg" alt="Hit windows, damage and knockback for the two kicks" loading="lazy">
+  <img class="img-dark" src="/blog/tt-damage-b-dark.jpg" alt="Hit windows, damage and knockback for the two kicks" loading="lazy">
+  <figcaption>Hit windows, damage and knockback for the two kicks.</figcaption>
+</figure>
 
 I picked frames by measuring bone positions and speeds per frame rather than eyeballing. For the drop kick clip: 0 to 15 standing, 15 to 48 wind-up, **48 to 87 airborne kick** (foot height up to 115, speed up to about 560), 87 to 108 landing, 108 to 150 prone. When I first used the frame numbers from the previous animation, the window landed on the wind-up, so the kick connected with no hit registered.
 

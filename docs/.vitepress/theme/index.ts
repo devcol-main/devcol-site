@@ -12,9 +12,11 @@ import HomePage from './home/HomePage.vue'
 import ProjectGrid from './ProjectGrid.vue'
 import GameFrame from './GameFrame.vue'
 import SiteFooter from './SiteFooter.vue'
+import BackToTop from './BackToTop.vue'
+import BlogIndex from './BlogIndex.vue'
 
 // Projects page: cards fade up once as they scroll in, then drop the class so hover feels instant.
-const REVEAL = '.projects-page .project-card, .projects-page .pg-head, .projects-hero'
+const REVEAL = '.projects-page .project-card, .projects-page .pg-head, .projects-hero, .blog-filters'
 
 let observer: IntersectionObserver | undefined
 
@@ -34,7 +36,7 @@ function initReveal() {
         setTimeout(done, 1200)
       }
     },
-    { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+    { rootMargin: '0px 0px 12% 0px', threshold: 0 },
   )
   document.querySelectorAll<HTMLElement>(REVEAL).forEach((el, i) => {
     el.classList.add('reveal')
@@ -111,13 +113,14 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(SiteFooter),
+      'layout-bottom': () => [h(SiteFooter), h(BackToTop)],
     })
   },
   enhanceApp({ app }) {
     app.component('ProjectGrid', ProjectGrid)
     app.component('HomePage', HomePage)
     app.component('GameFrame', GameFrame)
+    app.component('BlogIndex', BlogIndex)
   },
   setup() {
     const route = useRoute()

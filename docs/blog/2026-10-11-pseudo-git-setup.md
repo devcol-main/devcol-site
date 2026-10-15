@@ -4,11 +4,18 @@ description: "The Git settings I sorted out for PSEUDO before pushing anything: 
 date: 2026-10-11
 track: "Git setup before first push"
 outline: deep
+tags: [Git, Git LFS, UE5]
+image: /blog/pseudo-git-c.jpg
 ---
 
 # Git Setup for a UE5 Project Before the First Push
 
 Before the first push of PSEUDO, I went through the repository's basic settings: `.gitignore`, Git LFS, line endings, a commit message format, and the README. This is what I changed and why. For the general LFS workflow, see my [Git LFS note](/study/git-lfs-for-unreal-engine-projects).
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/pseudo-git-c.jpg" alt="Install Git LFS before cloning, or the assets arrive as pointer files" loading="lazy">
+  <img class="img-dark" src="/blog/pseudo-git-c-dark.jpg" alt="Install Git LFS before cloning, or the assets arrive as pointer files" loading="lazy">
+</figure>
 
 The remote is a **private** GitHub repository. The game is meant for Steam, and the Fab and Marketplace assets in it can't be redistributed, so it has to stay private.
 
@@ -30,6 +37,12 @@ Rider already generates a `.gitignore` that excludes `workspace.xml`. I put it i
 ## Git LFS
 
 I ran `git lfs install` and registered these types in `.gitattributes`:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/pseudo-git-a.jpg" alt="Where each kind of file goes: ignored, regular Git, or Git LFS" loading="lazy">
+  <img class="img-dark" src="/blog/pseudo-git-a-dark.jpg" alt="Where each kind of file goes: ignored, regular Git, or Git LFS" loading="lazy">
+  <figcaption>Where each kind of file goes: ignored, regular Git, or Git LFS.</figcaption>
+</figure>
 
 - Unreal: `*.uasset`, `*.umap`
 - Images: `png jpg jpeg tga psd exr hdr bmp gif dds`
@@ -73,6 +86,12 @@ git config --global init.defaultBranch main
 ## Commit messages
 
 I added a `.gitmessage` template and set it for this repository with `git config commit.template .gitmessage`. The format is `<type>: <summary>`:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/pseudo-git-b.jpg" alt="The commit message template: type and summary" loading="lazy">
+  <img class="img-dark" src="/blog/pseudo-git-b-dark.jpg" alt="The commit message template: type and summary" loading="lazy">
+  <figcaption>The commit message template: type and summary.</figcaption>
+</figure>
 
 | Type | Use |
 |---|---|

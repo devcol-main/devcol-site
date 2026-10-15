@@ -4,11 +4,18 @@ description: "In UE5 PIE the pawn spawned and the camera was right, but WASD and
 date: 2026-10-13
 track: "Player controller tick bug"
 outline: deep
+tags: [UE5, C++, Debugging]
+image: /blog/pseudo-tick-c.jpg
 ---
 
 # Why WASD Did Nothing: A Player Controller with Tick Turned Off
 
 In PIE the pawn spawned, the camera was in the right place, and neither WASD nor the mouse did anything. The mapping context, the input assets and the bindings were all correct. The cause was one line in my `APseudoPlayerController` constructor: `PrimaryActorTick.bCanEverTick = false`. A player controller processes input inside its tick, so with tick off it never reads a key.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/pseudo-tick-c.jpg" alt="Twelve hypotheses later: a player controller processes input in its tick" loading="lazy">
+  <img class="img-dark" src="/blog/pseudo-tick-c-dark.jpg" alt="Twelve hypotheses later: a player controller processes input in its tick" loading="lazy">
+</figure>
 
 ## The setup
 
@@ -44,6 +51,12 @@ Rows 10 and 11 are what narrowed it down. The key was in the active mapping cont
 
 `APlayerController` handles input from its tick: `TickActor`, then `PlayerTick`, then `TickPlayerInput`, which calls `ProcessPlayerInput` and then `UpdateRotation`. With `bCanEverTick = false` the controller never ticks, so two things stop:
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/pseudo-tick-a.jpg" alt="With tick off, the player controller never reaches input processing or rotation updates" loading="lazy">
+  <img class="img-dark" src="/blog/pseudo-tick-a-dark.jpg" alt="With tick off, the player controller never reaches input processing or rotation updates" loading="lazy">
+  <figcaption>With tick off, the player controller never reaches input processing or rotation updates.</figcaption>
+</figure>
+
 - Enhanced Input never evaluates key state, so no action triggers. `IA_Move` stays 0 and `Input_Move` is never called.
 - Control rotation is never updated, so mouse look does nothing even if yaw and pitch values were being added.
 
@@ -69,6 +82,12 @@ APseudoPlayerController::APseudoPlayerController()
 After that, WASD moved the character relative to the camera and the mouse orbited it. I then removed the temporary diagnostic logs. I haven't tested two players (listen server plus client) yet.
 
 ## What I changed in my own rules
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/pseudo-tick-b.jpg" alt="The order I now check when input does nothing" loading="lazy">
+  <img class="img-dark" src="/blog/pseudo-tick-b-dark.jpg" alt="The order I now check when input does nothing" loading="lazy">
+  <figcaption>The order I now check when input does nothing.</figcaption>
+</figure>
 
 - `bCanEverTick = false` stays the default, with exceptions for anything whose engine base class relies on actor tick. `APlayerController` and its subclasses are the first one on that list. I check the base class before turning tick off.
 - A class that needs tick sets it to `true` with a one-line comment saying why, so nobody (me, later) "fixes" it back out of habit.

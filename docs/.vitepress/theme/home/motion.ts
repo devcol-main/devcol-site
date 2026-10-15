@@ -34,19 +34,19 @@ export async function initHomeMotion(root: HTMLElement): Promise<() => void> {
 
     // Section titles
     all('.rv-title').forEach((el) => {
-      gsap.fromTo(el, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease, clearProps: 'transform,opacity', scrollTrigger: { trigger: el, start: 'top 88%' } })
+      gsap.fromTo(el, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease, clearProps: 'transform,opacity', scrollTrigger: { trigger: el, start: 'top bottom+=80' } })
     })
 
     // Staggered reveals for cards and rows
     const rv = all('.rv')
-    gsap.set(rv, { y: 36, opacity: 0 })
+    gsap.set(rv, { y: 24, opacity: 0 })
     ScrollTrigger.batch(rv, {
-      start: 'top 92%',
+      start: 'top bottom+=80',
       once: true,
-      onEnter: (batch) => { gsap.to(batch, { y: 0, opacity: 1, duration: 0.85, ease, stagger: 0.08, clearProps: 'transform,opacity' }) },
+      onEnter: (batch) => { gsap.to(batch, { y: 0, opacity: 1, duration: 0.6, ease, stagger: 0.05, clearProps: 'transform,opacity' }) },
     })
     const slider = one('.hs-projects')
-    if (slider) gsap.fromTo(Array.from(slider.children), { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease, stagger: 0.07, clearProps: 'transform,opacity', scrollTrigger: { trigger: slider, start: 'top 88%' } })
+    if (slider) gsap.fromTo(Array.from(slider.children), { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease, stagger: 0.05, clearProps: 'transform,opacity', scrollTrigger: { trigger: slider, start: 'top bottom+=80' } })
 
     // Word-by-word scrubs (About text, reel title; the pill video counts as one word)
     const scrub = one('.scrub')

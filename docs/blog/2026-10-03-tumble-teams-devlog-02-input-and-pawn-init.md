@@ -4,11 +4,18 @@ description: "Setting up a tag-based Enhanced Input config, a Lyra-style pawn in
 date: 2026-10-03
 track: "Data-driven input, GAS prep"
 outline: deep
+tags: [UE5, Enhanced Input, GAS]
+image: /blog/tt-devlog2-c.jpg
 ---
 
 # Tumble Teams DevLog #2: Data-Driven Input and Preparing for GAS in UE5
 
 In the [first DevLog](./2026-08-11-tumble-teams-devlog-01-chatcore) I built a chat plugin for Tumble Teams, my one-month multiplayer warm-up project in Unreal Engine 5. This post covers the next layer down: how input reaches the character, and how the character gets initialized in a networked game.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-devlog2-c.jpg" alt="Data-driven input and a Lyra-style init funnel, before writing a single ability" loading="lazy">
+  <img class="img-dark" src="/blog/tt-devlog2-c-dark.jpg" alt="Data-driven input and a Lyra-style init funnel, before writing a single ability" loading="lazy">
+</figure>
 
 Neither of these is exciting to look at. The Gameplay Ability System (GAS) arrives in week two, and from what I've read, GAS problems usually come from setup and not from the abilities: input bound straight to gameplay functions, state stored in the wrong place, and initialization that runs at the wrong time on clients. So this week I laid that groundwork early.
 
@@ -27,6 +34,12 @@ That works, but it hardwires "this key does this function." Once abilities exist
 ### Gameplay tags as the middle layer
 
 The fix is to put a gameplay tag between the action and the behavior, and to store the mapping in a data asset:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-devlog2-b.jpg" alt="Binding by gameplay tag instead of straight to a function" loading="lazy">
+  <img class="img-dark" src="/blog/tt-devlog2-b-dark.jpg" alt="Binding by gameplay tag instead of straight to a function" loading="lazy">
+  <figcaption>Binding by gameplay tag instead of straight to a function.</figcaption>
+</figure>
 
 ```cpp
 USTRUCT(BlueprintType)
@@ -126,6 +139,12 @@ If initialization lives in only one of those places, it will sometimes run befor
 ### The funnel pattern
 
 Lyra's answer, which I'm adopting, is to stop guessing the order. Every one of those entry points calls the same function:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-devlog2-a.jpg" alt="Every entry point calls the same initialization check" loading="lazy">
+  <img class="img-dark" src="/blog/tt-devlog2-a-dark.jpg" alt="Every entry point calls the same initialization check" loading="lazy">
+  <figcaption>Every entry point calls the same initialization check.</figcaption>
+</figure>
 
 ```cpp
 void UTumblePawnExtensionComponent::CheckDefaultInitialization()

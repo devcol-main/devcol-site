@@ -4,17 +4,30 @@ description: "A classic Unreal Engine multiplayer trap: BeginPlay runs before Po
 date: 2026-09-18
 track: "Listen-server host movement fix"
 outline: deep
+tags: [UE5, Networking, Debugging]
+image: /blog/tt-host-c.jpg
 ---
 
 # Why Only the Listen-Server Host Couldn't Move
 
 While testing the quick-play match flow with several windows, I hit a bug that only affected one player: **whichever window clicked Quick Play first and became the listen-server host couldn't move its character.** WASD did nothing. Every client that joined afterward moved fine.
 
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-host-c.jpg" alt="Why only the listen-server host couldn’t move: BeginPlay runs before Possess" loading="lazy">
+  <img class="img-dark" src="/blog/tt-host-c-dark.jpg" alt="Why only the listen-server host couldn’t move: BeginPlay runs before Possess" loading="lazy">
+</figure>
+
 (To iterate faster I'd temporarily lowered the game mode's required player count from 4 to 2. That's unrelated to the bug; it only gates when the match starts, not pawn spawning or input.)
 
 ## Diagnosing without a debugger connection
 
 My editor tooling can only introspect the main editor process. The windows I was testing in, launched as separate standalone processes, are separate executables I couldn't query live. So I compared their log files directly (`Saved/Logs/<Project>_N.log`) after the match started.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-host-b.jpg" alt="Log lines only the clients printed after the match started" loading="lazy">
+  <img class="img-dark" src="/blog/tt-host-b-dark.jpg" alt="Log lines only the clients printed after the match started" loading="lazy">
+  <figcaption>Log lines only the clients printed after the match started.</figcaption>
+</figure>
 
 Only the clients logged these two lines right after the match went `InProgress`:
 
@@ -52,6 +65,12 @@ So on the host, which runs spawn and possess locally in that exact order, the ch
 ## The fix
 
 Move the local-only setup to the two places where the controller is guaranteed to exist:
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-host-a.jpg" alt="Spawn order on the host and on clients, and where local input setup moved" loading="lazy">
+  <img class="img-dark" src="/blog/tt-host-a-dark.jpg" alt="Spawn order on the host and on clients, and where local input setup moved" loading="lazy">
+  <figcaption>Spawn order on the host and on clients, and where local input setup moved.</figcaption>
+</figure>
 
 - `PossessedBy`, which covers the server and host path.
 - `OnRep_Controller`, which covers the remote client path (`PossessedBy` only runs with authority).

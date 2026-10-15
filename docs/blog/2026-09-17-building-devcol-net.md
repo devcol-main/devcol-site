@@ -1,11 +1,17 @@
 ---
 title: Building devcol.net
 date: 2026-09-17
+description: "How this site went online: VitePress on GitHub Pages, a GitHub Actions deploy on every push, Cloudflare DNS, and the pages added before applying for AdSense."
+tags: [VitePress, GitHub Pages, Web]
+image: /projects/devcol-net-home.jpg
 ---
 
 # Building devcol.net
 
 This is the first real post on the DevLog. The placeholder that used to sit here said "replace this with real progress notes," so here are the actual notes on getting this site running.
+
+![The devcol.net home page](/projects/devcol-net-home.jpg)
+*The devcol.net home page.*
 
 ## Getting it online
 

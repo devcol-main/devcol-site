@@ -4,11 +4,18 @@ description: "What a second pass on my UE5 chat plugin turned up: notes that dis
 date: 2026-09-27
 track: "Testing chat with two players"
 outline: deep
+tags: [UE5, Networking, Testing]
+image: /blog/tt-chat2p-c.jpg
 ---
 
 # Testing Chat with Two Players
 
 When I came back to finish the chat plugin for Tumble Teams, my notes said it was nearly done. Testing it with two real players showed how much of that wasn't true. This post is the list of what I found, roughly in the order I found it.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-chat2p-c.jpg" alt="Editor Python runs every RPC locally, so chat needs real input in a real PIE session" loading="lazy">
+  <img class="img-dark" src="/blog/tt-chat2p-c-dark.jpg" alt="Editor Python runs every RPC locally, so chat needs real input in a real PIE session" loading="lazy">
+</figure>
 
 ## My notes described code that didn't exist
 
@@ -19,6 +26,12 @@ Now I grep the code for a symbol before trusting a "done" in my notes, and if `g
 ## The Blueprint chat could never reach other players
 
 The Blueprint chat component I'd moved to had `Replicates` set to false, with Server and Client RPC custom events on it. It could never have delivered a message to another client. It also had the client attach its own display name (spoofable), with no length limit and no rate limit.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-chat2p-a.jpg" alt="Blueprint UI on top of the C++ chat component that does the server checks" loading="lazy">
+  <img class="img-dark" src="/blog/tt-chat2p-a-dark.jpg" alt="Blueprint UI on top of the C++ chat component that does the server checks" loading="lazy">
+  <figcaption>Blueprint UI on top of the C++ chat component that does the server checks.</figcaption>
+</figure>
 
 I kept the Blueprint UI and moved sending into the C++ `UChatComponent`: the server stamps the sender's name, enforces the length limit and rate limit, and validates whisper targets. The display name is capped at 20 characters on the server.
 
@@ -31,6 +44,12 @@ I removed validation from the RPC. Every rejection now happens in `_Implementati
 ## "I can only see my own messages" was a bad test
 
 I tested by calling the send function from editor Python in both instances. Each side showed only its own message, and sending from the server-side component reached the host but not the client.
+
+<figure class="theme-img">
+  <img class="img-light" src="/blog/tt-chat2p-b.jpg" alt="Why RPCs called from editor Python always run locally" loading="lazy">
+  <img class="img-dark" src="/blog/tt-chat2p-b-dark.jpg" alt="Why RPCs called from editor Python always run locally" loading="lazy">
+  <figcaption>Why RPCs called from editor Python always run locally.</figcaption>
+</figure>
 
 The cause is that editor Python sets `GAllowActorScriptExecutionInEditor`, which makes `AActor::GetFunctionCallspace` return `Local` unconditionally. Every RPC called from Python executes locally, and the net log confirms it with `GetFunctionCallspace ScriptExecutionInEditor`. The same applies to timer callbacks registered from Python.
 
