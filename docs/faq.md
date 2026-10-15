@@ -12,7 +12,7 @@ One person makes the games and runs the site. Some of the projects and parts of 
 
 ### What are you working on now?
 
-Tumble Teams, a multiplayer game in Unreal Engine 5. The DevLog posts so far cover a server-authoritative chat plugin, health and stamina built on Unreal's Gameplay Ability System, and hit detection for melee attacks. You can find them all on the [Tumble Teams DevLog](/blog/tumble-teams) page.
+PSEUDO, a stylish action RPG in Unreal Engine 5 where a 2d6 dice roll decides the result of your skills, with a multiplayer arena mode. The DevLog so far covers the repository setup and the first framework bug. You can find everything on the [PSEUDO](/blog/pseudo) page. Before it, I built Tumble Teams, a multiplayer warm-up project, and its notes are on the [Tumble Teams](/blog/tumble-teams) page.
 
 ### When is it releasing?
 
@@ -36,7 +36,7 @@ Some of it. Press Plane, Rock Paper Scissors - Advance, NewsBriefing, and this s
 
 ### What are the DevLog, Projects, and Study sections?
 
-The [DevLog](/blog/) has progress notes and debugging write-ups from Tumble Teams, including the mistakes. [Projects](/projects/) collects the games, prototypes, and small tools I've finished. [Study](/study/) holds shorter notes on Unreal Engine, C++, and tools that I wanted to remember.
+The [DevLog](/blog/) has progress notes and debugging write-ups from PSEUDO and Tumble Teams, including the mistakes. [Projects](/projects/) collects the games, prototypes, and small tools I've finished. [Study](/study/) holds shorter notes on Unreal Engine, C++, and tools that I wanted to remember.
 
 ### Does the site collect data or show ads?
 

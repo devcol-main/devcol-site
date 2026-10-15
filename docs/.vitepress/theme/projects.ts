@@ -19,6 +19,13 @@ export const groups: Group[] = [
     title: 'Unreal Engine',
     items: [
       {
+        title: 'PSEUDO',
+        href: '/blog/pseudo',
+        blurb: 'A solo stylish action RPG with a 2d6 dice mechanic and a multiplayer arena mode.',
+        tags: ['Unreal Engine 5', 'C++', 'GAS'],
+        badge: 'In development',
+      },
+      {
         title: 'LuckySeven: A Three-Stage UE5 Team Project',
         href: '/projects/luckyseven-ue5-team-project',
         blurb: 'A six-person ninja action game: a parkour escape, combat with a parry, and a building defense.',

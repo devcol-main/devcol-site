@@ -172,6 +172,14 @@ export default defineConfig({
           ],
         },
         {
+          text: 'PSEUDO',
+          items: [
+            { text: 'Overview', link: '/blog/pseudo' },
+            { text: 'Git Setup Before the First Push', link: '/blog/2026-10-11-pseudo-git-setup' },
+            { text: 'Player Controller Tick Bug', link: '/blog/2026-10-13-pseudo-player-controller-tick-blocks-input' },
+          ],
+        },
+        {
           text: 'Tumble Teams',
           items: [
             { text: 'Overview', link: '/blog/tumble-teams' },

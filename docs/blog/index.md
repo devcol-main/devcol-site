@@ -1,5 +1,12 @@
 # DevLog
 
+## PSEUDO
+
+A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
+
+- 2026-10-13: [Why WASD Did Nothing: A Player Controller with Tick Turned Off](./2026-10-13-pseudo-player-controller-tick-blocks-input)
+- 2026-10-11: [Git Setup for a UE5 Project Before the First Push](./2026-10-11-pseudo-git-setup)
+
 ## Tumble Teams
 
 An Unreal Engine 5 multiplayer game.

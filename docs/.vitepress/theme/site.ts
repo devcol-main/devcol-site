@@ -2,8 +2,8 @@
 
 // The project shown as "now building". Must match a `## Heading` in docs/blog/index.md.
 // To switch projects later, change this and (optionally) the tags below.
-export const nowBuilding = 'Tumble Teams'
-export const nowBuildingTags = ['Unreal Engine 5', 'Multiplayer']
+export const nowBuilding = 'PSEUDO'
+export const nowBuildingTags = ['Unreal Engine 5', 'Action RPG', 'Multiplayer']
 
 // Rotating pill in the hero. "Latest DevLog · <date>" is added after these from the blog index.
 export const heroPhrases = ['Game Developer', 'Unreal Engine 5 · C++', 'Unity · C#', 'AI-Assisted Tools', 'Programmer']
