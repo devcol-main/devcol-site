@@ -24,7 +24,7 @@ I'm not trying to answer it. The game asks, and neither choice at the end is mar
 
 > **Skill earns you the chance to roll. Luck decides the result.**
 
-Every dice skill rolls **2d6**. I picked two dice over one because the sum clusters around 7, so luck pushes you around less, and a bonus that shifts the result feels like effort paying off.
+Every roll is **2d6**. I picked two dice over one because the sum clusters around 7, so luck pushes you around less, and a bonus that shifts the result feels like effort paying off.
 
 | Sum | Result | Chance |
 |---|---|---|
@@ -35,10 +35,12 @@ Every dice skill rolls **2d6**. I picked two dice over one because the sum clust
 | 12 | Critical success | 2.8% |
 
 - **Doubles** (both dice the same) add a bonus effect. That's a 1 in 6 chance, a small hit of reward that comes often. Double sixes are 1 in 36.
-- **Four dice skills on Q / E / R / F**, each with its own cooldown: one for your own stats, one for self buffs, one for enemy stat debuffs, one for enemy skill debuffs (confusion, stop, sleep). They unlock gradually, starting with a single skill in the tutorial.
-- **Perfect dodges and parries shorten the dice cooldowns.** That's the link between skill and luck: better play means more rolls.
+- **Dice are charged, not timed.** Hits fill up to three stored dice (pips), and perfect dodges, parries and on-beat combo inputs fill them much faster. That's the link between skill and luck: better play means more rolls.
+- **One roll key, three types.** Attack buffs you, Curse debuffs an enemy, Guard protects you. A second key cycles between them, and holding the roll key spends all three pips on an All-in roll that applies to every type at once.
 - **The first roll is scripted as a critical success**, so the player sees the best case before anything else.
-- **Bad luck stacks.** Failures build up a counter, and at a set count the next roll is a guaranteed critical success.
+- **Bad rolls can be turned around.** A failure comes with a short Reversal challenge that flips the penalty into a bonus, and failures build a visible stack that raises Luck and, at a set count, guarantees a critical success.
+
+The full rules, with the odds and the reasoning, are on the wiki's [Dice](/wiki/systems/dice) page.
 
 There are two difficulties. *Story* guarantees at least a Normal result. *Real* lowers the odds of good results, strips most of the UI down to the dice faces, and gives enemies dice too.
 
@@ -64,7 +66,7 @@ I'm leaving the story's turns out of this page on purpose.
 
 The full write-up is the framework doc in the repository. The decisions that shape everything else:
 
-- **The Ability System Component and the attribute sets live on the PlayerState**, not the pawn, so they survive pawn swaps. Enemies own their own ASC. There are four attribute sets: Health, Resource, Combat, and Luck.
+- **The Ability System Component and the attribute sets live on the PlayerState**, not the pawn, so they survive pawn swaps. Enemies own their own ASC. Attributes are grouped into sets by the rules they share: primaries, health, combat stats, resistances, status buildup, and Luck on its own so the luck system can grow. The full list is on the wiki's [Stats and Level](/wiki/systems/stats-and-level) page.
 - **One player character class for both MC and SC.** The differences live in a `UPseudoPawnData` data asset, not in subclasses.
 - **Input goes through GameplayTags.** Enhanced Input actions map to `InputTag.*` tags, which feed the ability system.
 - **Single player is a listen server with one player.** I'm designing for server authority and replication from the start, so the multiplayer mode isn't a rewrite later.
@@ -85,12 +87,14 @@ The full write-up is the framework doc in the repository. The decisions that sha
 
 ## Where it stands
 
-The repository has the framework in place: game mode, player controller and state, the ability system component, the four attribute sets, a data-driven input config, a jump ability, and a prototype map where the character moves and the camera orbits. The first bug I had to track down is in the debugging note above.
+The framework is in place (game mode, player controller and state, the ability system component, a data-driven input config), and the first combat systems are in the build: the greatsword's combo graph with perfect inputs, two weapon slots with a swap, hit detection validated on the server, the damage formula with stats, and elements with resistances, status buildup and element shields.
 
-Next up is melee combat, then the dice system.
+Next up is defense (guard, parry, dodge), then the dice system. The design for every system is on the [wiki's Systems pages](/wiki/systems/).
 
 ## Credits
 
 - Characters and animations: Paragon Twinblast and Paragon Kwang, from Fab.
 - Dice model: Classic dice by Andromeda3D, from Fab.
 - "Animated Butterfly" by Artistic_side, licensed under [Creative Commons Attribution 4.0](http://creativecommons.org/licenses/by/4.0/), via [Sketchfab](https://skfb.ly/oFpIO).
+
+Updated 2026-10-20: the code section now reflects the attribute sets in the current design, and "Where it stands" covers the combat systems built since this page was written.

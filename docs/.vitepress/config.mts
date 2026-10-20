@@ -114,6 +114,33 @@ const sidebar: Record<string, SidebarItem[]> = {
       ],
     },
   ],
+  '/wiki/': [
+    {
+      text: 'PSEUDO Wiki',
+      items: [
+        { text: 'Overview', link: '/wiki/' },
+      ],
+    },
+    {
+      text: 'Systems',
+      items: [
+        { text: 'All Systems', link: '/wiki/systems/' },
+        { text: 'Dice', link: '/wiki/systems/dice' },
+        { text: 'Combos and Cancels', link: '/wiki/systems/combo-and-cancels' },
+        { text: 'Defense', link: '/wiki/systems/defense' },
+        { text: 'Weapons', link: '/wiki/systems/weapons' },
+        { text: 'Damage Formula', link: '/wiki/systems/damage-formula' },
+        { text: 'Elements and Reactions', link: '/wiki/systems/elements' },
+        { text: 'Stats and Level', link: '/wiki/systems/stats-and-level' },
+      ],
+    },
+    {
+      text: 'Lore',
+      items: [
+        { text: 'Lore', link: '/wiki/lore/' },
+      ],
+    },
+  ],
   '/blog/': [
     {
       text: 'DevLog',
@@ -151,6 +178,19 @@ const sidebar: Record<string, SidebarItem[]> = {
   ],
 }
 
+// Scheduled pages (scripts/schedule.mjs) are deleted before a CI build, so drop sidebar links to
+// pages that don't exist and groups left empty.
+const pageExists = (link: string) => {
+  const r = link.replace(/^\//, '').replace(/#.*$/, '')
+  return r === '' || r.endsWith('/') ? existsSync(resolve('docs', r, 'index.md')) : existsSync(resolve('docs', `${r}.md`))
+}
+const prune = (items: SidebarItem[] = []): SidebarItem[] =>
+  items
+    .filter((it) => !it.link || pageExists(it.link))
+    .map((it) => (it.items ? { ...it, items: prune(it.items) } : it))
+    .filter((it) => it.link || (it.items && it.items.length > 0))
+for (const key of Object.keys(sidebar)) sidebar[key] = prune(sidebar[key])
+
 // Prev/next links stay inside one top-level sidebar group (e.g. Arcade Web posts only link to other
 // Arcade Web posts). Index pages ("All Posts") and group overviews are not part of the chain.
 type PagerLink = { text: string; link: string }
@@ -176,7 +216,6 @@ export default defineConfig({
   title: 'DevCol',
   description: 'DevCol — development collaboration. Building an indie game with the players, in the open.',
   cleanUrls: true,
-  srcExclude: ['wiki/**'],
   // High-contrast Shiki themes keep code tokens at AA contrast on the site's code background.
   markdown: { theme: { light: 'github-light-high-contrast', dark: 'github-dark-high-contrast' } },
   lastUpdated: true,
@@ -217,10 +256,11 @@ export default defineConfig({
 
   themeConfig: {
     logo: { src: '/logo.png', alt: 'DevCol logo' },
-    nav: [
+    nav: ([
       { text: 'Projects', link: '/projects/' },
       { text: 'DevLog', link: '/blog/' },
       { text: 'Study', link: '/study/' },
+      { text: 'Wiki', link: '/wiki/' },
       {
         text: 'More',
         items: [
@@ -230,7 +270,7 @@ export default defineConfig({
           { text: 'Privacy Policy', link: '/privacy-policy' },
         ],
       },
-    ],
+    ] as { text: string; link?: string; items?: { text: string; link: string }[] }[]).filter((it) => !it.link || pageExists(it.link)),
 
     sidebar,
     socialLinks: [
