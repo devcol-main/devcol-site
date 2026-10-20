@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Daily rebuild at 09:00 KST so pages with `publishAt:` go live on their day without a push.
+  schedule:
+    - cron: '0 0 * * *'
 
 permissions:
   contents: read
@@ -26,7 +29,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run docs:build
+      - run: npm run docs:build:ci
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:

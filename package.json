@@ -5,7 +5,9 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "docs:build:ci": "node scripts/schedule.mjs && vitepress build docs",
+    "schedule": "node scripts/schedule.mjs --dry"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",

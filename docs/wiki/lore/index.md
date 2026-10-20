@@ -1,3 +1,8 @@
+---
+title: "Lore"
+publishAt: 2099-01-01
+---
+
 # Lore
 
-The world, characters, and story aren't settled yet. When they are, they'll be written up here.
+Not written yet. This page stays hidden until it has real content.
