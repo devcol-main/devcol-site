@@ -15,7 +15,7 @@ defineProps<{ project: string; projectLink: string; latest: Post | null }>()
         <span class="k">now building</span>
         <span class="v sc-live"><span class="live-dot" aria-hidden="true"></span><a class="v" :href="projectLink">{{ project }}</a></span>
       </li>
-      <li style="--i: 1"><span class="k">stack</span><a class="v" href="/study/">Unreal Engine 5 · C++ · Unity · C# · AI</a></li>
+      <li style="--i: 1"><span class="k">stack</span><a class="v" href="/study/">Unreal Engine 5 · C++ · Unity · C#</a></li>
       <li v-if="latest" style="--i: 2"><span class="k">latest DevLog</span><a class="v" :href="latest.link">{{ latest.title }}</a></li>
       <li style="--i: 3">
         <span class="k">on Google Play</span>
