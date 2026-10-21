@@ -23,3 +23,4 @@ Good play (perfect dodges, parries, clean combos) charges dice. Spending a die r
 - [Damage Formula: From a Swing to Lost Health](/wiki/systems/damage-formula): every term of the formula, with worked examples and how a hit is validated.
 - [Elements and Reactions](/wiki/systems/elements): ten elements, resistances, status buildup, element shields and the reaction table.
 - [Stats and Level](/wiki/systems/stats-and-level): the five primary stats, how they become combat values, and XP and levels.
+- [Skill Tree: Weapon Trees, Node Types and Tags](/wiki/systems/skill-tree): weapon and common trees, the four node types, and how nodes unlock features through tags.

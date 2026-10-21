@@ -106,11 +106,13 @@ Defense comes first because missing a dodge costs more than missing a hit.
 
 An attack can be cancelled only inside a cancel window, which is a marker on the montage timeline. The marker carries the cancel types it allows: `Cancel.Dodge`, `Cancel.Jump`, `Cancel.Parry`, `Cancel.Dice`, `Cancel.Skill`, `Cancel.Move`. A heavy swing might allow a dodge cancel early and everything only at the end.
 
+For defense, the build ended up simpler than that. Dash and guard cancel an attack at any moment **except the hit frames**, the part of the swing where the weapon is actually dealing damage. The hit window sets a `State.Attack.Committed` tag, and dash and guard are blocked while it's there. A dash pressed during the hit frames isn't dropped; it waits in the input buffer and comes out the moment they end. That's the feel I wanted: you commit to the hit itself, not to the whole animation. The marker-based cancel types stay in the design for later cases, like dice or skills cancelling only late in a swing.
+
 All of this is timed with animation markers, never with timers. PSEUDO has a slow-motion effect on perfect dodges, and a timer would run at the wrong speed during it. An animation marker slows down with the animation, so the rules stay the same in slow motion.
 
 ### Moving during a swing
 
-Melee attack clips have no root motion and play on the full body, so pushing the stick mid-swing makes the legs slide. The rule: movement is blocked or reduced during the swing, movement input during the recovery cancels the combo, and some swings get a short forward step. The greatsword doesn't use an upper/lower body split. Ranged weapons do, so you can walk while shooting.
+Melee attack clips have no root motion and play on the full body, so pushing the stick mid-swing makes the legs slide. The rule as built: movement input is ignored during the swing, and once the combo window opens (`State.Attack.CanMoveCancel`) a real stick push cancels the combo and you walk away. A small push below a threshold doesn't count, so a twitch of the stick doesn't throw away a combo. Some swings will get a short forward step later. The greatsword doesn't use an upper/lower body split. Ranged weapons do, so you can walk while shooting.
 
 ## Skill chords
 
@@ -153,4 +155,6 @@ On PC the mouse wheel click locks on (and switches to the enemy closest to where
 
 ## Status
 
-The combo graph, the runner, transition tags, perfect inputs and the buffer are in the build and tested on a listen server with a second client. The greatsword's five-hit chain works; the heavy branch, the swap attacks and the ranged graphs come with the ranged weapon work.
+The combo graph, the runner, transition tags, perfect inputs and the buffer are in the build and tested on a listen server with a second client. The greatsword's five-hit chain works; the heavy branch, the swap attacks and the ranged graphs come with the ranged weapon work. Dash, guard and movement cancels arrived with the defense work and were tested the same way.
+
+Updated 2026-10-21: added the cancel rules as built (dash and guard cancel anything but the hit frames, movement cancels after the swing).

@@ -30,12 +30,12 @@ Damage = Base
 | 1 | Base | The weapon's base damage | Weapon data asset | Greatsword 10 | Yes |
 | 2 | StatScaling | `1 + (cSTR × STR + cDEX × DEX + cSPI × SPI) / 100` | Coefficients on the weapon, or on one attack | Greatsword: STR 1.0, so STR 10 → ×1.10 | Yes |
 | 3 | Multiplier | How strong this one attack is | The combo node's attack spec | 1.0 on every node for now | Yes |
-| 4 | AdditiveBucket | Every "+x%" bonus, summed | Perfect stack, melee damage bonus from STR, later the dice Attack buff | Melee bonus 0.10 at STR 10 | Yes |
+| 4 | AdditiveBucket | Every "+x%" bonus, summed | Perfect stack, melee damage bonus from STR, the dice Attack buff | Melee bonus 0.10 at STR 10 | Yes |
 | 5 | Crit | A crit roll on the server | Crit chance (from DEX) and crit damage (from LUK) | 7.5% chance, ×1.5 | Yes |
 | 6 | Resist | The target's resistance to the hit's element | Enemy resistance table | Varies per enemy and element | Yes |
 | 7 | Reaction, Mastery | Element reaction multiplier, Elemental Mastery | Reaction table | — | Later |
 | 8 | Armor | `k / (k + Defense)` | Enemy stats table, `k` in project settings | Defense 20, k 100 → ×0.833 | Yes |
-| 9 | DamageTakenMod | Dice Guard results on the target | Buffs and debuffs | — | With dice |
+| 9 | DamageTakenMod | Dice results on the target: Vulnerable (+) or damage reduction (−) | A damage-taken attribute on the target, read live at hit time | 0 | Yes |
 
 ## The rule behind the shape
 
@@ -55,7 +55,13 @@ Each perfect input in a combo adds +0.1 to the bucket, up to +0.5. Taking a hit 
 
 ### Crits
 
-The crit roll happens on the server. Crit chance comes from a base value plus Dexterity, capped by a global maximum. Crit damage starts at ×1.5 and Luck raises it.
+The crit roll happens on the server. Crit chance comes from a base value plus Dexterity, capped by a global maximum. Crit damage starts at ×1.5 and Luck raises it. A dice Attack double (or an All-in double) puts a guaranteed-crit tag on the attacker for the buff's duration, and while it's there the crit roll always succeeds.
+
+### The dice terms
+
+The dice Attack buff is just another entry in the bucket: it adds to the attacker's melee or ranged damage bonus. A bad Attack roll subtracts from the same place, which is why the bucket is allowed to go negative, down to −0.9. That floor means even a terrible roll stacked with other penalties still leaves 10% of the damage.
+
+The damage-taken term is the one value in the formula that's read from the target live at hit time, not snapshotted when the attack started. A Vulnerable debuff that lands mid-swing should count on that swing.
 
 ### Resistance
 
@@ -101,7 +107,9 @@ This trust model is enough for co-op against AI. Before the PvP arena, the serve
 
 ## After the formula
 
-Two things happen alongside the damage:
+Three things happen alongside the damage:
+
+- **Barrier.** A good dice Guard roll gives a barrier. It absorbs health damage one for one after the formula and after any element shield, and it disappears when the last effect that granted it runs out.
 
 - **Element shields.** Some enemies have an element shield. While it's up, hits go to the shield first, at ×2 if the hit is the shield's weakness and ×0.25 otherwise. What breaks through goes to health.
 - **Status buildup.** Elemental hits build a status gauge. When it fills, the status triggers. Poison, for example, deals damage over time per stack and ignores crits, armor and the bucket.
@@ -110,5 +118,6 @@ Both are covered on the [Elements and Reactions](/wiki/systems/elements) page.
 
 ## What's next for the formula
 
-- **Dice**: the Attack buff joins the bucket, and Guard results (Vulnerable on a bad roll, damage reduction on a good one) fill the damage-taken term. See [Dice](/wiki/systems/dice).
 - **Reactions**: the reaction multiplier and Elemental Mastery.
+
+Updated 2026-10-21: the dice hooks are built. The Attack buff is in the bucket (which can now go down to −0.9), the damage-taken term is live, dice can force a crit, and a Guard barrier absorbs damage after the formula.

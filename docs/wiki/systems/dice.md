@@ -14,15 +14,17 @@ All effect sizes on this page are placeholders that live in a DataTable and will
 ## The loop
 
 ```
-Hits, perfect inputs, perfect parries and dodges → pips (max 3)
+Perfect combo inputs, perfect parries, perfect dodges → pips (max 3)
 → spend a pip → roll 2d6 → Attack / Curse / Guard effect
 → a bad roll adds a bad-luck stack → Luck goes up
 → higher Luck widens the perfect-input windows → more perfects → pips come back faster
 ```
 
-A **pip** is one stored die. You hold up to three. Landing hits fills them slowly, and perfect inputs (a combo input on the beat, a parry or dodge at the last moment) fill them fast. That's the link between skill and luck: you don't get better rolls by playing well, you get *more* rolls.
+A **pip** is one stored die. You hold up to three. Only perfect inputs charge them: a combo input on the beat, a parry or a dodge at the last moment. An earlier draft also gave a slow trickle for ordinary hits; I dropped it during implementation because it made pips arrive whether or not you played well. That's the link between skill and luck: you don't get better rolls by playing well, you get *more* rolls.
 
-There's a short minimum cooldown between rolls so the key can't be spammed, but pips, not cooldowns, are what limit you.
+Single player starts with all three pips, so the first fight opens with a roll available. Multiplayer starts with one. If early fights end up feeling empty, there's a setting to grant pips when combat starts, off by default.
+
+There's a 0.5 s minimum cooldown between rolls so the key can't be spammed, but pips, not cooldowns, are what limit you.
 
 ## Why 2d6 and not one die
 
@@ -80,20 +82,26 @@ I'm also tracking a metric for this: if playtesters press the cycle key more tha
 
 | Input | Action |
 |---|---|
-| Roll key, tap | Roll 2d6 of the current type (costs 1 pip) |
-| Roll key, hold | Fills a gauge over about a second, then rolls **All-in** |
-| Release during the hold | Cancels; nothing is spent |
+| Roll key, tap (released within 0.25 s) | Roll 2d6 of the current type (costs 1 pip) |
+| Roll key, hold | Fills a gauge over 1 s, then rolls **All-in** |
+| Release during the hold (after 0.25 s, before 1 s) | Cancels; nothing is spent |
 | Attack, dodge or parry during the hold | Cancels the gauge (you can still move) |
 | Cycle key, tap | Next type |
 | Cycle key, hold | Radial menu of all types (no slow-motion, because of multiplayer) |
 
 With fewer than three pips the hold gauge is greyed out and won't fill.
 
+A roll is a short throw animation, not an instant effect. The pip is spent and the dice are rolled at the throw frame, about half a second in. Dashing, guarding or attacking before that frame cancels the roll and costs nothing, so starting a roll never locks you out of defending.
+
+A Curse roll needs a target: the locked-on enemy, or the soft target if you're not locked on. With neither, the roll is refused and no pip is spent.
+
 ## All-in
 
 All-in spends all three pips on **one** 2d6 roll, and that roll's grade applies to Attack, Curse *and* Guard at once. A Success is a Success three times over. A double gives all three double bonuses.
 
 It's a real all-in: a Critical failure applies all three penalties. That's what makes it a decision rather than a button you press whenever you have three pips. All-in is a skill-tree unlock, not something you start with.
+
+All-in plays its own full-body animation and roots you in place while it does, with a vignette while the gauge fills, a pushed-in camera and a shake on the result. In single player the world also slows to 30% for 0.2 s on the result. In multiplayer it doesn't, because one player's All-in shouldn't slow everyone else. An All-in without a target still works; it just skips the Curse part.
 
 ## When a roll goes badly
 
@@ -115,7 +123,7 @@ The balance target is that the expected value of a Failure, counting the chance 
 
 Every Failure or Critical failure adds a visible **bad-luck stack**, and each stack does two things:
 
-1. **Raises Luck for a while.** Luck widens the timing windows for perfect inputs, which makes the Reversal you were just handed easier to land.
+1. **Raises Luck for a while** (+10 Luck per stack to start). Luck widens the timing windows for perfect inputs, which makes the Reversal you were just handed easier to land.
 2. **Counts toward a guarantee.** At a set number of stacks (three, to start), the next roll is a guaranteed Critical success, and the stack resets.
 
 An earlier draft had a hidden pity counter and a separate "low roll raises Luck" rule. Merging them into one visible stack is simpler to explain and gives the player something to look forward to after a bad streak.
@@ -145,7 +153,7 @@ There are two difficulties, and dice are where they differ most.
 
 A few implementation decisions, because they shape the design:
 
-- **Rolls happen on the server.** Single player runs as a one-player listen server, so the same code serves the multiplayer arena. The client shows the result after it replicates.
+- **Rolls happen on the server.** Single player runs as a one-player listen server, so the same code serves the multiplayer arena. The client predicts the throw animation so the key feels instant, sends the dice type and Curse target with the activation, and the server checks the unlock, the pips and that the target is alive and in range before it rolls at the throw frame. The client shows the result after it replicates.
 - **The random source is a seeded stream** (`FRandomStream`), not a fresh random call each time. With the same seed, you get the same sequence of rolls.
 - **Pips are a Gameplay Ability System attribute** in a dedicated dice attribute set, and each roll's effect is applied as a Gameplay Effect whose magnitude comes from the DataTable row for that type and grade.
 - **The bad-luck stack lives on the server** alongside the roll, so it can't drift between clients.
@@ -153,3 +161,11 @@ A few implementation decisions, because they shape the design:
 ## No real money near the dice
 
 PSEUDO has gambling-shaped mechanics, so one rule is fixed: dice, rolls and re-rolls are never sold. Everything here is earned in play.
+
+## Status
+
+The full loop is in the build as of 2026-10-20 and was tested on a listen server with the client rolling: pip charge from perfect inputs, the tap roll and its cancel before the throw, the guaranteed first Critical success, all 15 grade rows plus the 3 double rows, all three Reversals (the Curse one with a real kill), the bad-luck stack ending in a guaranteed 12, All-in on all three types, and the refused Curse without a target. Effect sizes are still placeholders.
+
+Not done yet: Curse's confusion, stop and sleep are tags without behavior until the reactions work lands, the skill-tree nodes (Advantage, Re-Roll, roll bonus) don't exist yet so all three types and All-in are unlocked by default, and the tap roll roots you because the animation blueprint has no upper-body slot yet. The HUD is a functional placeholder.
+
+Updated 2026-10-21: the dice system is built. Pips now come only from perfect inputs, start pips differ between single player and multiplayer, rolls resolve at the throw frame and can be cancelled before it, Curse needs a target, and All-in roots you and slows the world only in single player.

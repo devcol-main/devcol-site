@@ -35,7 +35,7 @@ Every roll is **2d6**. I picked two dice over one because the sum clusters aroun
 | 12 | Critical success | 2.8% |
 
 - **Doubles** (both dice the same) add a bonus effect. That's a 1 in 6 chance, a small hit of reward that comes often. Double sixes are 1 in 36.
-- **Dice are charged, not timed.** Hits fill up to three stored dice (pips), and perfect dodges, parries and on-beat combo inputs fill them much faster. That's the link between skill and luck: better play means more rolls.
+- **Dice are charged, not timed.** You hold up to three stored dice (pips), and only perfect play fills them: a perfect dodge, a perfect parry or an on-beat combo input. That's the link between skill and luck: better play means more rolls.
 - **One roll key, three types.** Attack buffs you, Curse debuffs an enemy, Guard protects you. A second key cycles between them, and holding the roll key spends all three pips on an All-in roll that applies to every type at once.
 - **The first roll is scripted as a critical success**, so the player sees the best case before anything else.
 - **Bad rolls can be turned around.** A failure comes with a short Reversal challenge that flips the penalty into a bonus, and failures build a visible stack that raises Luck and, at a set count, guarantees a critical success.
@@ -85,16 +85,26 @@ The full write-up is the framework doc in the repository. The decisions that sha
 
 - [Why WASD Did Nothing: A Player Controller with Tick Turned Off](./2026-10-13-pseudo-player-controller-tick-blocks-input)
 
+**Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
+
+- [Putting a MetaHuman Face on a Paragon Body, Part 1: Four Setup Blockers Before Assemble](./2026-10-14-pseudo-metahuman-paragon-1-setup)
+- [Putting a MetaHuman Face on a Paragon Body, Part 2: Making the Face Follow a Head It Wasn't Built For](./2026-10-14-pseudo-metahuman-paragon-2-face-attach)
+- [Putting a MetaHuman Face on a Paragon Body, Part 3: Removing a Head Without Losing the Shirt](./2026-10-14-pseudo-metahuman-paragon-3-headless-mesh)
+- [Putting a MetaHuman Face on a Paragon Body, Part 4: Grooms That Scatter and Hair That Vanishes at Mid Range](./2026-10-15-pseudo-metahuman-paragon-4-grooms)
+- [Putting a MetaHuman Face on a Paragon Body, Part 5: The Coat Stops Flapping and the Braids Won't Calm Down](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair)
+
 ## Where it stands
 
 The framework is in place (game mode, player controller and state, the ability system component, a data-driven input config), and the first combat systems are in the build: the greatsword's combo graph with perfect inputs, two weapon slots with a swap, hit detection validated on the server, the damage formula with stats, and elements with resistances, status buildup and element shields.
 
-Next up is defense (guard, parry, dodge), then the dice system. The design for every system is on the [wiki's Systems pages](/wiki/systems/).
+Since then, defense (dash, guard, parry and their perfect versions, judged on the server by timestamps), the full dice system, lock-on with camera modes and hitstop, a non-combat mode with weapon stowing, and a shared enemy AI framework with a first melee grunt have landed. Next up are hit reactions (groggy, knockback, knockdown) and the skill tree. The design for every system is on the [wiki's Systems pages](/wiki/systems/).
 
 ## Credits
 
 - Characters and animations: Paragon Twinblast and Paragon Kwang, from Fab.
 - Dice model: Classic dice by Andromeda3D, from Fab.
 - "Animated Butterfly" by Artistic_side, licensed under [Creative Commons Attribution 4.0](http://creativecommons.org/licenses/by/4.0/), via [Sketchfab](https://skfb.ly/oFpIO).
+
+Updated 2026-10-21: the dice section now says pips come only from perfect play, "Where it stands" covers defense, dice, lock-on and enemy AI, and the reading order lists the MetaHuman face series.
 
 Updated 2026-10-20: the code section now reflects the attribute sets in the current design, and "Where it stands" covers the combat systems built since this page was written.

@@ -35,12 +35,28 @@ Writing it as one chain matters because every defensive feature becomes "insert 
 | Guard | While held | Damage reduction |
 | Parry | About 200 ms after the press | Lowers the enemy's groggy gauge |
 | **Perfect parry** | About 80 ms before the hit lands | Big groggy damage, a counter attack, **dice pip charge** |
-| Dodge (dash) | About 250 ms of invulnerability | Avoids the hit |
-| **Perfect dodge** | About 100 ms before the hit lands | A counter attack, a short slow motion, **pip charge**, a partial ammo / mana refill |
+| Dodge (dash) | 350 ms of invulnerability | Avoids the hit |
+| **Perfect dodge** | The first 120 ms of the dash | A counter attack, a short slow motion, **pip charge**, a partial ammo / mana refill |
 
 Guard and parry share one button (L1 on a gamepad, E on PC). Pressing it starts the guard and the parry timing check at the same moment, so there's no delay to decide whether you meant to guard or parry. Holding keeps guarding.
 
 Dash is on its own button and comes out on press, never on release, so the perfect-dodge timing stays exact. On PC, keeping Shift held after the dash turns into a sprint.
+
+A dash with no stick input is a backstep in combat and a forward dash out of combat. Stepping back is almost always what you want when an enemy is in your face; out of combat, a dash is just a way to move faster. The dash has a 0.6 s cooldown and covers about 450 units in 0.35 s.
+
+Guarding with the weapon stowed draws the melee weapon instantly, with no draw animation. A guard press that has to wait for a draw is a guard that comes too late.
+
+## How the timing is judged
+
+Parry and dodge windows are a fraction of a second, and in multiplayer the client and server don't agree on what "now" is. If the server judged a parry by checking whether the defender had a guard tag at the moment the hit landed, a client with 80 ms of latency would effectively have an 80 ms shorter window.
+
+So the server judges by **timestamps**, not by state at hit time:
+
+1. When you press dash or guard, your client records the press time on the server's clock and sends it with the ability activation.
+2. The server clamps that time to the last 0.15 s. That's the grace period: it covers ordinary latency and favors the defender, but a client can't claim it pressed guard two seconds ago.
+3. When an enemy hit lands, the server compares the hit time with the stored press times and walks the chain: dash invulnerability (perfect dodge if it's inside the first 120 ms) → perfect parry → parry → held guard → damage.
+
+Because the parry window counts from the press, a quick tap still parries a hit that lands after you let go. Holding the button only matters for the plain guard.
 
 ## What "perfect" earns
 
@@ -72,13 +88,13 @@ Parrying is therefore a way to break a strong enemy, not just a way to survive o
 
 Enemy attacks are tagged as one of three kinds, and the attack shows which:
 
-| Kind | Guard | Parry | Dodge |
-|---|---|---|---|
-| Parryable | Yes | Yes | Yes |
-| Dodge only | No | No | Yes |
-| Unblockable | No | No | Yes, and it's the only option |
+| Kind | Guard | Parry | Perfect parry | Dodge |
+|---|---|---|---|---|
+| Parryable | Yes | Yes | Yes | Yes |
+| Unblockable | No | No | Yes | Yes |
+| Dodge only | No | No | No | Yes |
 
-The point is that the player always knows which defensive tool the moment calls for. A fight shouldn't be a guess about whether a parry would have worked.
+Unblockable attacks punish a held guard and a lazy parry but still reward a perfect one. Dodge-only attacks are the ones where the answer is always to move. The point is that the player always knows which defensive tool the moment calls for. A fight shouldn't be a guess about whether a parry would have worked.
 
 ## Slow motion without slow controls
 
@@ -101,4 +117,14 @@ These are designed but come after the vertical slice:
 
 ## Status
 
-Combat was split into a sequence of issues: combo, hit detection and damage, then defense. The combo and damage work is in the build. Defense is the next combat issue, so this page describes the decided design rather than tested behavior. Dash details (the direction with no stick input, the cooldown, and whether a dash can cancel anything or only inside a window) are decided in that issue, and I'll update this page when they are.
+Dash, guard, parry, perfect parry and perfect dodge are in the build and were tested on a listen server with the client as the defender. Some numbers from that run:
+
+- A dash 0.075 s before the hit was a perfect dodge, 0.125 s an ordinary evade, and 0.358 s took the hit, just past the 0.35 s of invulnerability.
+- A guard tap 0.041 s before the hit was a perfect parry; 0.09 to 0.16 s was a parry; 0.21 s after a released tap took full damage.
+- A held guard took 2.4 instead of 8 (the 0.3 guard multiplier) on three swings in a row.
+
+Dash and guard cancel a combo at any point except the hit frames. A press during the hit frames waits in the input buffer and fires as soon as they end. Taking a hit resets the perfect stack.
+
+What's not done yet: the rewards. A perfect parry or dodge currently sends an event and charges a pip, but the groggy damage, the counter-attack state and the slow motion come with the reactions and game-feel work. The guard pose is a held frame of a greatsword swing and the dash uses borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
+
+Updated 2026-10-21: the defense issue is built. Added the real window lengths, the no-input dash direction, instant draw on guard, how the server judges timing, the corrected unblockable rule (a perfect parry still works) and test results.

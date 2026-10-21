@@ -15,6 +15,11 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-10-15: [Putting a MetaHuman Face on a Paragon Body, Part 5: The Coat Stops Flapping and the Braids Won't Calm Down](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair)
+- 2026-10-15: [Putting a MetaHuman Face on a Paragon Body, Part 4: Grooms That Scatter and Hair That Vanishes at Mid Range](./2026-10-15-pseudo-metahuman-paragon-4-grooms)
+- 2026-10-14: [Putting a MetaHuman Face on a Paragon Body, Part 3: Removing a Head Without Losing the Shirt](./2026-10-14-pseudo-metahuman-paragon-3-headless-mesh)
+- 2026-10-14: [Putting a MetaHuman Face on a Paragon Body, Part 2: Making the Face Follow a Head It Wasn't Built For](./2026-10-14-pseudo-metahuman-paragon-2-face-attach)
+- 2026-10-14: [Putting a MetaHuman Face on a Paragon Body, Part 1: Four Setup Blockers Before Assemble](./2026-10-14-pseudo-metahuman-paragon-1-setup)
 - 2026-10-13: [Why WASD Did Nothing: A Player Controller with Tick Turned Off](./2026-10-13-pseudo-player-controller-tick-blocks-input)
 - 2026-10-11: [Git Setup for a UE5 Project Before the First Push](./2026-10-11-pseudo-git-setup)
 

@@ -132,6 +132,7 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Damage Formula', link: '/wiki/systems/damage-formula' },
         { text: 'Elements and Reactions', link: '/wiki/systems/elements' },
         { text: 'Stats and Level', link: '/wiki/systems/stats-and-level' },
+        { text: 'Skill Tree', link: '/wiki/systems/skill-tree' },
       ],
     },
     {
@@ -155,6 +156,17 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Overview', link: '/blog/pseudo' },
         { text: 'Git Setup Before the First Push', link: '/blog/2026-10-11-pseudo-git-setup' },
         { text: 'Player Controller Tick Bug', link: '/blog/2026-10-13-pseudo-player-controller-tick-blocks-input' },
+        {
+          text: 'MetaHuman Face on Paragon',
+          collapsed: false,
+          items: [
+          { text: 'Part 1: Setup Blockers', link: '/blog/2026-10-14-pseudo-metahuman-paragon-1-setup' },
+          { text: 'Part 2: Face Attach', link: '/blog/2026-10-14-pseudo-metahuman-paragon-2-face-attach' },
+          { text: 'Part 3: Headless Mesh', link: '/blog/2026-10-14-pseudo-metahuman-paragon-3-headless-mesh' },
+          { text: 'Part 4: Grooms', link: '/blog/2026-10-15-pseudo-metahuman-paragon-4-grooms' },
+          { text: 'Part 5: Cloth and Hair', link: '/blog/2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair' },
+          ],
+        },
       ],
     },
     {
