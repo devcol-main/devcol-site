@@ -84,6 +84,10 @@ The full write-up is the framework doc in the repository. The decisions that sha
 **Debugging notes**
 
 - [Why WASD Did Nothing: A Player Controller with Tick Turned Off](./2026-10-13-pseudo-player-controller-tick-blocks-input)
+- [Air Control 0.05: Why My Character Couldn't Change Direction After a Jump](./2026-10-16-pseudo-air-control)
+- [A Greatsword at the Hip and Swings That Hit Nothing](./2026-10-19-pseudo-greatsword-grip-and-hits)
+- [The Server Never Swapped: Ending a Predicted Ability Too Early](./2026-10-19-pseudo-predicted-weapon-swap)
+- [Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn](./2026-10-20-pseudo-first-enemy-camera-and-facing)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 
@@ -97,13 +101,15 @@ The full write-up is the framework doc in the repository. The decisions that sha
 
 The framework is in place (game mode, player controller and state, the ability system component, a data-driven input config), and the first combat systems are in the build: the greatsword's combo graph with perfect inputs, two weapon slots with a swap, hit detection validated on the server, the damage formula with stats, and elements with resistances, status buildup and element shields.
 
-Since then, defense (dash, guard, parry and their perfect versions, judged on the server by timestamps), the full dice system, lock-on with camera modes and hitstop, a non-combat mode with weapon stowing, and a shared enemy AI framework with a first melee grunt have landed. Next up are hit reactions (groggy, knockback, knockdown) and the skill tree. The design for every system is on the [wiki's Systems pages](/wiki/systems/).
+Since then, defense (dash, guard, parry and their perfect versions, judged on the server by timestamps), the full dice system, lock-on with camera modes and hitstop, a non-combat mode with weapon stowing, and a shared enemy AI framework with a first melee grunt have landed. On 2026-10-21 hit reactions (stagger, knockback, down, launch, a groggy gauge, break-fall), the Curse statuses (stop, sleep, confuse), death, and area attacks with a floor warning ring followed. Next up is the skill tree. The design for every system is on the [wiki's Systems pages](/wiki/systems/).
 
 ## Credits
 
 - Characters and animations: Paragon Twinblast and Paragon Kwang, from Fab.
 - Dice model: Classic dice by Andromeda3D, from Fab.
 - "Animated Butterfly" by Artistic_side, licensed under [Creative Commons Attribution 4.0](http://creativecommons.org/licenses/by/4.0/), via [Sketchfab](https://skfb.ly/oFpIO).
+
+Updated 2026-10-21: "Where it stands" now lists hit reactions, the Curse statuses, death and area attacks.
 
 Updated 2026-10-21: the dice section now says pips come only from perfect play, "Where it stands" covers defense, dice, lock-on and enemy AI, and the reading order lists the MetaHuman face series.
 

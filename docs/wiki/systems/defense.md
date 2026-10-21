@@ -1,6 +1,6 @@
 ---
 title: "Defense: Guard, Parry, Dodge and the Perfect Window"
-description: "How PSEUDO resolves an incoming hit: the defender's resolve chain, guard, parry and perfect parry, dash and perfect dodge, what each perfect earns, how Luck widens the windows, groggy, and why slow motion never slows the player's own timing."
+description: "How PSEUDO resolves an incoming hit: the defender's resolve chain, guard, parry and perfect parry, dash and perfect dodge, what each perfect earns, how Luck widens the windows, groggy and hit reactions, break-fall, and why slow motion never slows the player's own timing."
 publishAt: 2026-10-21
 outline: deep
 ---
@@ -23,8 +23,8 @@ just dodge → just guard (parry) → guard → damage → groggy gauge → reac
 2. **Just guard**: you pressed guard at the last moment. The hit is parried.
 3. **Guard**: you were holding guard. Damage is reduced.
 4. **Damage**: nothing stopped it. Health goes down (bosses route this to the body part that was hit).
-5. **Groggy gauge**: the hit builds the target's poise damage.
-6. **Reaction**: stagger, knockback, knockdown or launch, depending on the attack.
+5. **Groggy gauge**: the hit's poise damage fills the target's groggy gauge.
+6. **Reaction**: flinch, stagger, knockback, down or launch, depending on the attack and on how much the target resists.
 
 Writing it as one chain matters because every defensive feature becomes "insert a step" rather than "add a special case." Fall damage uses the same shape: break-fall, then a Luck check, then damage.
 
@@ -33,8 +33,8 @@ Writing it as one chain matters because every defensive feature becomes "insert 
 | Action | Window (draft) | Reward |
 |---|---|---|
 | Guard | While held | Damage reduction |
-| Parry | About 200 ms after the press | Lowers the enemy's groggy gauge |
-| **Perfect parry** | About 80 ms before the hit lands | Big groggy damage, a counter attack, **dice pip charge** |
+| Parry | About 200 ms after the press | Adds 20 to the attacker's groggy gauge |
+| **Perfect parry** | About 80 ms before the hit lands | 50 groggy and a stagger on the attacker, a counter attack, **dice pip charge** |
 | Dodge (dash) | 350 ms of invulnerability | Avoids the hit |
 | **Perfect dodge** | The first 120 ms of the dash | A counter attack, a short slow motion, **pip charge**, a partial ammo / mana refill |
 
@@ -74,15 +74,50 @@ That's the bridge between the dice and defense. A bad dice roll adds a bad-luck 
 
 A Luck check also decides two other things on the defense side: whether fall damage is negated, and whether a status effect is resisted.
 
-## Groggy
+## Groggy and hit reactions
 
-Every attack carries a poise damage value. Enough of it fills the target's groggy gauge and leaves them open. Three things feed it:
+What a hit does to your body is decided on two separate axes, the way Stellar Blade splits balance from super armor.
 
-- **Vitality** raises your own poise, so you're harder to stagger.
-- **Strength** and **Earth** damage raise poise damage on your hits.
-- **Parries** lower the enemy's gauge, and a perfect parry lowers it a lot.
+### Axis 1: the immediate reaction
 
-Parrying is therefore a way to break a strong enemy, not just a way to survive one.
+Every attack carries a reaction tier, and every character has a resistance tier. The tiers, from weakest to strongest:
+
+```
+Flinch < Stagger < Knockback < Down < Launch
+```
+
+If the attack's tier is above the target's resistance, the target gets that reaction. If not, it only flinches: an additive twitch that doesn't interrupt anything. A grunt resists only Flinch, so the greatsword's normal swings stagger it and the finisher knocks it back. A heavy enemy with Launch resistance shrugs off everything short of that.
+
+A real reaction cancels whatever the target was doing: a combo, a guard, a dice roll, a weapon swap or an enemy attack. Nothing else can start while it plays. A hit that an element shield absorbs completely never reaches health, so it doesn't cause a reaction either. The shield works as super armor.
+
+### Axis 2: the groggy gauge
+
+The second axis is a gauge, closer to Sekiro's posture. Every attack has a poise damage value that fills the target's gauge. Other sources fill it too:
+
+| Source | Groggy |
+|---|---|
+| Greatsword normal swing | 10 |
+| Greatsword finisher | 25 |
+| Parry | 20 on the attacker |
+| Perfect parry | 50 on the attacker, plus a stagger |
+| Curse critical success (dice) | 60 |
+
+A full gauge makes the target groggy for 4 seconds: its AI pauses and it takes 50 % more damage. Then the gauge resets. If nothing adds to it for 3 seconds, a partial gauge drains away. That means a groggy break needs steady pressure, and parrying is a way to break a strong enemy, not just a way to survive one. Vitality and Strength will feed the gauge (your own poise and your poise damage) once stats touch it.
+
+The order on the server is fixed: damage, then wake a sleeping target, then groggy, then tier against resistance, then immunity, then the reaction itself.
+
+### Reactions on the player
+
+Players react too, and only the enemy attack's data decides how. The grunt's third swing knocks you down, so even a basic enemy can floor you if you stand in front of it. Two rules keep that from turning into a stun-lock:
+
+- While you're lying down and getting up, you're invulnerable.
+- For 1.5 seconds after getting up, nothing can do more than make you flinch.
+
+### Break-fall
+
+Pressing Jump right as you hit the ground cancels a Down or a Launch: you roll back to your feet instead of lying there. The window is 0.15 seconds, widened by Luck like every other timing window. It's judged the same way as a parry: the client predicts the break-fall at once and sends the press time and its contact time, and the server checks them against its own contact moment. In testing, a press 0.017 seconds before contact was accepted with 0.025 seconds of client lag; a press 0.73 seconds early was a miss and played the normal get-up.
+
+The contact moment for a Down is a marker on the animation, so it lands on the same frame on every machine. I considered ragdolling the player on a Down and dropped it: there's no clean get-up from a ragdoll pose, the body drifts away from the capsule differently on each machine, and the break-fall moment would stop being a fixed frame.
 
 ## Reading enemy attacks
 
@@ -95,6 +130,12 @@ Enemy attacks are tagged as one of three kinds, and the attack shows which:
 | Dodge only | No | No | No | Yes |
 
 Unblockable attacks punish a held guard and a lazy parry but still reward a perfect one. Dodge-only attacks are the ones where the answer is always to move. The point is that the player always knows which defensive tool the moment calls for. A fight shouldn't be a guess about whether a parry would have worked.
+
+### Area attacks and the warning ring
+
+Some enemy attacks hit an area instead of following a weapon. Before one lands, two circles appear on the floor: an outer ring at the full radius and an inner disc that grows until it touches the ring at the moment of impact. Each machine sizes the disc from the attacker's animation as that machine plays it, not from a timer, so the ring stays honest through lag, hitstop and an attack that gets interrupted. Everything in the circle goes through the normal chain above: a dash through it is an evade, a guard takes reduced damage. Enemy area attacks never hit other enemies.
+
+The grunt's slam is the first one. Right now there's only about 0.3 s between the ring appearing and the hit, which is too short to react to, so it needs a longer windup and a larger radius in the tuning pass.
 
 ## Slow motion without slow controls
 
@@ -125,6 +166,8 @@ Dash, guard, parry, perfect parry and perfect dodge are in the build and were te
 
 Dash and guard cancel a combo at any point except the hit frames. A press during the hit frames waits in the input buffer and fires as soon as they end. Taking a hit resets the perfect stack.
 
-What's not done yet: the rewards. A perfect parry or dodge currently sends an event and charges a pip, but the groggy damage, the counter-attack state and the slow motion come with the reactions and game-feel work. The guard pose is a held frame of a greatsword swing and the dash uses borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
+Hit reactions, the groggy gauge (including parry and perfect-parry groggy) and break-fall are in the build as of 2026-10-21 and were tested the same way, on both machines. What's not done yet: the counter-attack state and the perfect-dodge slow motion, and an execution move on a groggy enemy. The Down reaction uses the last frame of a death clip until real knock-down and get-up animations exist. The guard pose is a held frame of a greatsword swing and the dash uses borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
 
 Updated 2026-10-21: the defense issue is built. Added the real window lengths, the no-input dash direction, instant draw on guard, how the server judges timing, the corrected unblockable rule (a perfect parry still works) and test results.
+
+Updated 2026-10-21: hit reactions and groggy are built. Added the two reaction axes, the tier list, the groggy numbers (4 s, +50 % damage taken, 3 s drain), player reactions with get-up invulnerability, break-fall, and enemy area attacks with their warning ring. Fixed the parry rows: parries fill the attacker's gauge, they don't lower it.

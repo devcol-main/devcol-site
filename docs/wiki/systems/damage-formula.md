@@ -101,6 +101,8 @@ Damage only matters if the hit is real, so here's the path before the formula ru
 
 Why the attacker detects instead of the server: on a listen server the server's copy of a remote player is a few frames behind, so a swing that clearly connected on the player's screen could miss on the server. Detecting locally and validating on the server keeps hits honest without making them feel laggy.
 
+Area attacks skip step 1's blade sweep: one sphere query finds every target, and the server checks each against a sphere it rebuilds from its own copy of the attacker. The details are on [Combo and Cancels](/wiki/systems/combo-and-cancels).
+
 I also dropped a check I'd planned: verifying on the server that the hit landed inside the animation's hit window. Because the server copy runs behind, a strict check rejected legitimate early hits. "One hit per target per attack" replaced it.
 
 This trust model is enough for co-op against AI. Before the PvP arena, the server needs more: a check that the impact is near its own copy of the blade's path, timing checks with tolerance, and a hits-per-attack limit.
@@ -121,3 +123,5 @@ Both are covered on the [Elements and Reactions](/wiki/systems/elements) page.
 - **Reactions**: the reaction multiplier and Elemental Mastery.
 
 Updated 2026-10-21: the dice hooks are built. The Attack buff is in the bucket (which can now go down to −0.9), the damage-taken term is live, dice can force a crit, and a Guard barrier absorbs damage after the formula.
+
+Updated 2026-10-21: noted how area attacks replace the blade sweep in hit detection.

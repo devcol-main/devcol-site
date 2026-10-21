@@ -67,6 +67,16 @@ Their double bonuses differ: an Attack double makes every hit a critical for the
 
 The types unlock in order: **Attack** in the tutorial, **Curse** in Stage 1, **Guard** in Stage 2. Each new type arrives once the player is comfortable with the last one.
 
+### What the Curse statuses do
+
+The high Curse grades apply three control statuses. All three run on the server like every other reaction:
+
+- **Stop** freezes the enemy completely: its animation, movement and AI run at time scale 0. Your hits still land during it; it just can't react to them until it thaws.
+- **Sleep** stops every action until something hits it. The wake-up hit deals 1.5 times its damage (4.6 became 6.9 in the test), then the enemy reacts normally.
+- **Confuse** turns the enemy against its own side: it attacks the nearest other enemy. If no other enemy is nearby, it hits itself. A kill made by a confused enemy counts as yours, which is what the Curse Reversal's "1 kill" checks.
+
+A Curse Success also raises the target's damage taken by 20 %, and a Critical success adds 60 to its groggy gauge (see [Defense](/wiki/systems/defense)). When a status would land on a player, Luck gets a resist roll first: at Luck 50, 8 of 12 poison procs were resisted in the test.
+
 ### Why one key instead of four
 
 An earlier draft had four dice skills on Q, E, R and F, each with its own cooldown. It went through two problems:
@@ -166,6 +176,8 @@ PSEUDO has gambling-shaped mechanics, so one rule is fixed: dice, rolls and re-r
 
 The full loop is in the build as of 2026-10-20 and was tested on a listen server with the client rolling: pip charge from perfect inputs, the tap roll and its cancel before the throw, the guaranteed first Critical success, all 15 grade rows plus the 3 double rows, all three Reversals (the Curse one with a real kill), the bad-luck stack ending in a guaranteed 12, All-in on all three types, and the refused Curse without a target. Effect sizes are still placeholders.
 
-Not done yet: Curse's confusion, stop and sleep are tags without behavior until the reactions work lands, the skill-tree nodes (Advantage, Re-Roll, roll bonus) don't exist yet so all three types and All-in are unlocked by default, and the tap roll roots you because the animation blueprint has no upper-body slot yet. The HUD is a functional placeholder.
+Not done yet: the skill-tree nodes (Advantage, Re-Roll, roll bonus) don't exist yet so all three types and All-in are unlocked by default, and the tap roll roots you because the animation blueprint has no upper-body slot yet. The HUD is a functional placeholder.
 
 Updated 2026-10-21: the dice system is built. Pips now come only from perfect inputs, start pips differ between single player and multiplayer, rolls resolve at the throw frame and can be cancelled before it, Curse needs a target, and All-in roots you and slows the world only in single player.
+
+Updated 2026-10-21: Stop, Sleep and Confuse now have their behavior (added a section on what each does), plus the Curse Success damage-taken bonus, the Critical-success groggy damage and Luck resisting statuses on players.

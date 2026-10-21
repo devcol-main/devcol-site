@@ -15,6 +15,10 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-10-20: [Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn](./2026-10-20-pseudo-first-enemy-camera-and-facing)
+- 2026-10-19: [The Server Never Swapped: Ending a Predicted Ability Too Early](./2026-10-19-pseudo-predicted-weapon-swap)
+- 2026-10-19: [A Greatsword at the Hip and Swings That Hit Nothing](./2026-10-19-pseudo-greatsword-grip-and-hits)
+- 2026-10-16: [Air Control 0.05: Why My Character Couldn't Change Direction After a Jump](./2026-10-16-pseudo-air-control)
 - 2026-10-15: [Putting a MetaHuman Face on a Paragon Body, Part 5: The Coat Stops Flapping and the Braids Won't Calm Down](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair)
 - 2026-10-15: [Putting a MetaHuman Face on a Paragon Body, Part 4: Grooms That Scatter and Hair That Vanishes at Mid Range](./2026-10-15-pseudo-metahuman-paragon-4-grooms)
 - 2026-10-14: [Putting a MetaHuman Face on a Paragon Body, Part 3: Removing a Head Without Losing the Shirt](./2026-10-14-pseudo-metahuman-paragon-3-headless-mesh)

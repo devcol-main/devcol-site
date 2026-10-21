@@ -167,6 +167,10 @@ const sidebar: Record<string, SidebarItem[]> = {
           { text: 'Part 5: Cloth and Hair', link: '/blog/2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair' },
           ],
         },
+        { text: 'Air Control 0.05', link: '/blog/2026-10-16-pseudo-air-control' },
+        { text: 'Greatsword Grip and Hits', link: '/blog/2026-10-19-pseudo-greatsword-grip-and-hits' },
+        { text: 'Predicted Weapon Swap', link: '/blog/2026-10-19-pseudo-predicted-weapon-swap' },
+        { text: 'First Enemy: Camera and Facing', link: '/blog/2026-10-20-pseudo-first-enemy-camera-and-facing' },
       ],
     },
     {

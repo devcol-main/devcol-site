@@ -144,6 +144,17 @@ If the current node has no swap transition, the swap key just swaps weapons and 
 
 The same trick handles drawing a weapon. Out of combat nothing is drawn, and an attack press from that state is a **draw attack**: the draw and the first hit are one move.
 
+## Area attacks
+
+Any node can be an area attack. Its attack data has an `AoERadius` and a forward offset; a radius above 0 replaces the blade sweep for that node with one sphere in front of you, checked at the start of the node's hit window. The greatsword finisher is the first one: radius 300 cm, centered 100 cm ahead.
+
+- **Data decides, not lock-on.** An attack is an area attack because its node says so. Lock-on only turns you to face the target, as it does for every attack.
+- **No falloff.** Everyone inside the sphere takes the full hit; nobody outside does. Walls block it: a target needs a clear line from the sphere's center.
+- **Once per target per node.** The finisher has two hit windows, and in the first test the sphere ran twice. The second pass was refused as "already hit", so nothing doubled, but the node now runs its sphere only once.
+- **The server rebuilds the sphere.** The attacking client sends every target it found in one message. The server never takes the client's center: it rebuilds the sphere from its own copy of the attacker and checks each target against it, with 100 cm of tolerance for lag. A cheated hit on a dummy 30 m away was refused with a log line and no damage.
+
+Each target then goes through its own defense chain, so one swing can be parried by one player and land on the enemy next to them. Enemies use the same query for their own area attacks, with a warning ring on the floor (see [Defense](/wiki/systems/defense)).
+
 ## Targeting
 
 Attacks turn the character a little toward an enemy so swings don't whiff on a target slightly to the side.
@@ -158,3 +169,5 @@ On PC the mouse wheel click locks on (and switches to the enemy closest to where
 The combo graph, the runner, transition tags, perfect inputs and the buffer are in the build and tested on a listen server with a second client. The greatsword's five-hit chain works; the heavy branch, the swap attacks and the ranged graphs come with the ranged weapon work. Dash, guard and movement cancels arrived with the defense work and were tested the same way.
 
 Updated 2026-10-21: added the cancel rules as built (dash and guard cancel anything but the hit frames, movement cancels after the swing).
+
+Updated 2026-10-21: the greatsword finisher is now an area attack; added how area nodes work and how the server checks them. The finisher's recovery can now be cancelled by movement like the other swings.
