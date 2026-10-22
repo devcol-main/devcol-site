@@ -116,7 +116,14 @@ export default {
       'layout-bottom': () => [h(SiteFooter), h(BackToTop)],
     })
   },
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
+    // Analytics (public/t.js): a page view per SPA route, plus page_leave for the previous page.
+    // The title updates after the route change, so wait a tick before reading it.
+    if (typeof window !== 'undefined') {
+      router.onAfterRouteChanged = () => {
+        nextTick(() => setTimeout(() => (window as { devcol?: { page(): void } }).devcol?.page(), 0))
+      }
+    }
     app.component('ProjectGrid', ProjectGrid)
     app.component('HomePage', HomePage)
     app.component('GameFrame', GameFrame)

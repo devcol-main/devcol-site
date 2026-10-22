@@ -250,6 +250,8 @@ export default defineConfig({
   head: [
     ['script', {}, "document.documentElement.classList.add('js')"],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    // DevCol analytics (no cookies). Source and minify step: devcol-main/devcol-analytics
+    ['script', { defer: '', src: '/t.js' }],
     ['meta', { name: 'naver-site-verification', content: 'a02a938ce2ba6e8e795a9b8a405bacae34a4e997' }],
     ['script', {
       async: '',
