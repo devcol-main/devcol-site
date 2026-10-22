@@ -287,6 +287,7 @@ export default defineConfig({
           { text: 'About', link: '/about' },
           { text: 'FAQ', link: '/faq' },
           { text: 'Contact', link: '/contact' },
+          { text: 'Site Stats', link: '/stats' },
           { text: 'Privacy Policy', link: '/privacy-policy' },
         ],
       },

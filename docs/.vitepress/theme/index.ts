@@ -14,6 +14,7 @@ import GameFrame from './GameFrame.vue'
 import SiteFooter from './SiteFooter.vue'
 import BackToTop from './BackToTop.vue'
 import BlogIndex from './BlogIndex.vue'
+import SiteStats from './SiteStats.vue'
 
 // Projects page: cards fade up once as they scroll in, then drop the class so hover feels instant.
 const REVEAL = '.projects-page .project-card, .projects-page .pg-head, .projects-hero, .blog-filters'
@@ -128,6 +129,7 @@ export default {
     app.component('HomePage', HomePage)
     app.component('GameFrame', GameFrame)
     app.component('BlogIndex', BlogIndex)
+    app.component('SiteStats', SiteStats)
   },
   setup() {
     const route = useRoute()
