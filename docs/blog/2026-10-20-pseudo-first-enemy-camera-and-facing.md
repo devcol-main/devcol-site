@@ -122,4 +122,4 @@ Both bugs survived the first round of tests for the same reason: the tests were 
 
 - Something passing between the player and the camera (another player, an enemy, an enemy's weapon).
 - An enemy that starts turned away from its target.
-- And, after a related bug found the same day, a fight the listen-server host's camera **can't see**. Off-screen characters skip some work by default, and server-side hit detection can't afford that. That one gets its own post.
+- And, after a related bug found the same day, a fight the listen-server host's camera **can't see**. Off-screen characters skip some work by default, and server-side hit detection can't afford that. That one gets [its own post](./2026-10-20-pseudo-offscreen-enemy-hits).

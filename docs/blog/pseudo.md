@@ -88,6 +88,8 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [A Greatsword at the Hip and Swings That Hit Nothing](./2026-10-19-pseudo-greatsword-grip-and-hits)
 - [The Server Never Swapped: Ending a Predicted Ability Too Early](./2026-10-19-pseudo-predicted-weapon-swap)
 - [Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn](./2026-10-20-pseudo-first-enemy-camera-and-facing)
+- [Hits That Only Landed When the Host Was Watching](./2026-10-20-pseudo-offscreen-enemy-hits)
+- [A Guard That Never Let Go: WaitInputRelease in UE 5.8](./2026-10-20-pseudo-guard-input-release)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

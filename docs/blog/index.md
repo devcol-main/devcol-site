@@ -15,6 +15,8 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-10-20: [A Guard That Never Let Go: WaitInputRelease in UE 5.8](./2026-10-20-pseudo-guard-input-release)
+- 2026-10-20: [Hits That Only Landed When the Host Was Watching](./2026-10-20-pseudo-offscreen-enemy-hits)
 - 2026-10-20: [Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn](./2026-10-20-pseudo-first-enemy-camera-and-facing)
 - 2026-10-19: [The Server Never Swapped: Ending a Predicted Ability Too Early](./2026-10-19-pseudo-predicted-weapon-swap)
 - 2026-10-19: [A Greatsword at the Hip and Swings That Hit Nothing](./2026-10-19-pseudo-greatsword-grip-and-hits)
