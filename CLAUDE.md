@@ -119,6 +119,12 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 
 로컬 개발: `npm install` → `npm run docs:dev` (localhost:5173)
 
+### 애널리틱스 (devcol-main/devcol-analytics)
+
+- 사이트 전체에 `docs/public/t.js`(쿠키 없는 자체 애널리틱스)가 로드된다. 이 파일은 devcol-analytics 리포의 `client/t.js`를 압축한 결과물이므로 **여기서 직접 고치지 말고** 그쪽에서 `npm run build:client`로 다시 만든다.
+- **새 게임을 `docs/public/games/`에 추가할 때는 `docs/GAME-ANALYTICS.md` 체크리스트를 따른다.** (스크립트 태그 1줄 + `stage_clear`/`game_over` 호출 2곳. 서버와 대시보드는 고치지 않는다.)
+- 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
+
 ---
 
 ## 진행 상태 (04-로드맵.md)

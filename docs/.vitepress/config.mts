@@ -234,6 +234,8 @@ export default defineConfig({
   title: 'DevCol',
   description: 'DevCol — development collaboration. Building an indie game with the players, in the open.',
   cleanUrls: true,
+  // Internal docs kept next to the pages they describe, not published.
+  srcExclude: ['GAME-ANALYTICS.md'],
   // High-contrast Shiki themes keep code tokens at AA contrast on the site's code background.
   markdown: { theme: { light: 'github-light-high-contrast', dark: 'github-dark-high-contrast' } },
   lastUpdated: true,
