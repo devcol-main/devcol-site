@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-10-22: [A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off](./2026-10-22-pseudo-menu-lumen-exposure-warning)
+- 2026-10-22: [Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change](./2026-10-22-pseudo-menu-start-no-control)
+- 2026-10-20: [The Hit Cue That Was Never Registered: GameplayCueName and a Blueprint Child](./2026-10-20-pseudo-hit-cue-never-plays)
 - 2026-10-20: [A Guard That Never Let Go: WaitInputRelease in UE 5.8](./2026-10-20-pseudo-guard-input-release)
 - 2026-10-20: [Hits That Only Landed When the Host Was Watching](./2026-10-20-pseudo-offscreen-enemy-hits)
 - 2026-10-20: [Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn](./2026-10-20-pseudo-first-enemy-camera-and-facing)

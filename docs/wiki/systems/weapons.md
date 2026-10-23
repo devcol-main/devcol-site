@@ -51,13 +51,25 @@ Each ranged weapon spends something different, so they don't play the same:
 
 | Weapon | Resource | Refill | Feel |
 |---|---|---|---|
-| Dual pistols | Ammo | Refills on its own after a short delay | Fast, runs dry fast |
+| Dual pistols | Ammo | Basic ammo: 24 rounds, +1 every 0.5 s, also while firing | Fast, runs dry fast |
 | Bow | None | — | Each shot costs draw time |
 | Magic | Mana | Refills over time | Each spell costs mana |
 
-There's no reload key. A reload button adds a chore without adding a decision, and the delay-then-refill rule already makes you pace your shots. A perfect dodge refills part of your ammo or mana, which ties the ranged weapons into the same "play well, get resources" loop as the dice.
+There's no reload key. A reload button adds a chore without adding a decision, and a steady trickle of rounds already makes you pace your shots. The trickle keeps running while you fire, so holding the trigger never locks you out completely; you just fall back to the regen rate. A perfect dodge refills basic ammo to full, which ties the ranged weapons into the same "play well, get resources" loop as the dice. Special ammo types keep their own stock and don't refill that way. Mana will get the same treatment when magic exists.
 
 Refills run on world time, so they slow down with everything else during slow motion. That keeps slow motion from becoming an infinite ammo window.
+
+## Ranged mode
+
+With the pistols drawn you are always aiming: the character strafes, a crosshair appears, and shots go out from the camera center. That's a different stance from melee, so a few melee rules don't carry over.
+
+- **One fire button.** Left mouse (square on a gamepad) fires the selected ammo type. Holding it is automatic fire; charge types, such as a laser, charge while held and fire on release.
+- **E / L1 picks the next ammo type.** On melee that button is guard and parry. In ranged mode there's no guard or parry, and no skill chord on that button either. The cycle includes basic ammo and skips special types that are empty. The mouse wheel or the touchpad cycles too.
+- **No lock-on.** Drawing the pistols drops any lock. Holding the lock-on key for 0.2 s opens an **ammo wheel** instead: unlocked types with their stock, empty ones greyed out; you point at one and release to pick it. In single player the world slows to 0.2 while the wheel is open. In multiplayer it doesn't, because slowing time for one player would slow it for everyone.
+
+This is the second version of the ranged controls. The redesign put everything on one trigger and one selector, because the point of the mode is to keep shooting while you move, not to juggle keys.
+
+Each ammo type is a data asset (`UPseudoAmmoType`) that also carries its feedback: crosshair color and shape, the ammo count and icon, a pop-up and pulse on switching, switch and fire sounds, and a tint on the pistols. Muzzle flash and a tracer play from the muzzle sockets on every machine. The hit itself is still traced from the camera, on the server, so what you see in the crosshair is what gets hit.
 
 ## Weapons as data
 
@@ -103,4 +115,6 @@ Getting the weapon back out has no separate button. **An attack press while stow
 
 ## Status
 
-The weapon data assets, the greatsword mesh, the two slots, the swap ability and the stowed weapon on the back are in the build and tested with a host and a client. Auto stow and the draw attack are implemented and tested on a branch that isn't merged yet. The dual pistols exist as data; their attacks, ammo and the swap attacks come with the ranged work.
+The weapon data assets, the greatsword mesh, the two slots, the swap ability and the stowed weapon on the back are in the build and tested with a host and a client. Auto stow and the draw attack are implemented and tested on a branch that isn't merged yet. Ranged mode (one fire button, ammo cycling, the ammo wheel, regen while firing, the perfect-dodge refill and the muzzle effects) was built on 2026-10-22. The pistol meshes are still part of the body mesh, so the pistol tint waits for the mesh split.
+
+Updated 2026-10-24: added the ranged mode section (always aiming, one fire button, ammo type cycling and the ammo wheel, no lock-on with pistols) and the current ammo numbers; a perfect dodge now refills basic ammo to full.

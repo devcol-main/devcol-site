@@ -36,11 +36,13 @@ Writing it as one chain matters because every defensive feature becomes "insert 
 | Parry | About 200 ms after the press | Adds 20 to the attacker's groggy gauge |
 | **Perfect parry** | About 80 ms before the hit lands | 50 groggy and a stagger on the attacker, a counter attack, **dice pip charge** |
 | Dodge (dash) | 350 ms of invulnerability | Avoids the hit |
-| **Perfect dodge** | The first 120 ms of the dash | A counter attack, a short slow motion, **pip charge**, a partial ammo / mana refill |
+| **Perfect dodge** | The first 120 ms of the dash | A counter attack, a short slow motion, **pip charge**, basic pistol ammo refilled to full |
 
 Guard and parry share one button (L1 on a gamepad, E on PC). Pressing it starts the guard and the parry timing check at the same moment, so there's no delay to decide whether you meant to guard or parry. Holding keeps guarding.
 
-Dash is on its own button and comes out on press, never on release, so the perfect-dodge timing stays exact. On PC, keeping Shift held after the dash turns into a sprint.
+Dash and sprint share one button (Shift on PC, circle / B on a gamepad), Souls style. A tap shorter than 0.2 s is a dash, and the dash starts **on release**. Holding past 0.2 s is a sprint with no dash at all. L3 also sprints on a gamepad.
+
+I first had it the other way: dash on press, and holding Shift after the dash turned into a sprint. The timing was exact, but every sprint began with a dash you didn't ask for. Dashing on release would normally cost precision for the perfect dodge, so the server takes the **release time** as the dash start (step 1 below) and the 120 ms window is measured from there. The grace clamp didn't change.
 
 A dash with no stick input is a backstep in combat and a forward dash out of combat. Stepping back is almost always what you want when an enemy is in your face; out of combat, a dash is just a way to move faster. The dash has a 0.6 s cooldown and covers about 450 units in 0.35 s.
 
@@ -52,7 +54,7 @@ Parry and dodge windows are a fraction of a second, and in multiplayer the clien
 
 So the server judges by **timestamps**, not by state at hit time:
 
-1. When you press dash or guard, your client records the press time on the server's clock and sends it with the ability activation.
+1. When you press guard, or release the dash tap, your client records that time on the server's clock and sends it with the ability activation.
 2. The server clamps that time to the last 0.15 s. That's the grace period: it covers ordinary latency and favors the defender, but a client can't claim it pressed guard two seconds ago.
 3. When an enemy hit lands, the server compares the hit time with the stored press times and walks the chain: dash invulnerability (perfect dodge if it's inside the first 120 ms) → perfect parry → parry → held guard → damage.
 
@@ -171,3 +173,5 @@ Hit reactions, the groggy gauge (including parry and perfect-parry groggy) and b
 Updated 2026-10-21: the defense issue is built. Added the real window lengths, the no-input dash direction, instant draw on guard, how the server judges timing, the corrected unblockable rule (a perfect parry still works) and test results.
 
 Updated 2026-10-21: hit reactions and groggy are built. Added the two reaction axes, the tier list, the groggy numbers (4 s, +50 % damage taken, 3 s drain), player reactions with get-up invulnerability, break-fall, and enemy area attacks with their warning ring. Fixed the parry rows: parries fill the attacker's gauge, they don't lower it.
+
+Updated 2026-10-24: dash and sprint now share one button (tap = dash on release, hold = sprint with no dash); the dash is judged from the release time. A perfect dodge now refills basic pistol ammo to full instead of a partial ammo / mana refill.

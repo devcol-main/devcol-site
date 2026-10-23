@@ -90,6 +90,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn](./2026-10-20-pseudo-first-enemy-camera-and-facing)
 - [Hits That Only Landed When the Host Was Watching](./2026-10-20-pseudo-offscreen-enemy-hits)
 - [A Guard That Never Let Go: WaitInputRelease in UE 5.8](./2026-10-20-pseudo-guard-input-release)
+- [The Hit Cue That Was Never Registered: GameplayCueName and a Blueprint Child](./2026-10-20-pseudo-hit-cue-never-plays)
+- [Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change](./2026-10-22-pseudo-menu-start-no-control)
+- [A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off](./2026-10-22-pseudo-menu-lumen-exposure-warning)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

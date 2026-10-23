@@ -175,6 +175,9 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'First Enemy: Camera and Facing', link: '/blog/2026-10-20-pseudo-first-enemy-camera-and-facing' },
         { text: 'Off-Screen Enemy Hits', link: '/blog/2026-10-20-pseudo-offscreen-enemy-hits' },
         { text: 'Guard Input Release', link: '/blog/2026-10-20-pseudo-guard-input-release' },
+        { text: 'Hit Cue Never Plays', link: '/blog/2026-10-20-pseudo-hit-cue-never-plays' },
+        { text: 'No Control After Menu Start', link: '/blog/2026-10-22-pseudo-menu-start-no-control' },
+        { text: 'Menu Lumen Warning', link: '/blog/2026-10-22-pseudo-menu-lumen-exposure-warning' },
       ],
     },
     {
