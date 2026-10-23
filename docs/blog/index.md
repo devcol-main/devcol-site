@@ -56,5 +56,6 @@ Small browser games built with TypeScript, Canvas 2D, and WebAudio, playable on 
 
 How this site itself was put together.
 
+- 2026-10-23: [Cookie-Free Analytics for devcol.net on Cloudflare Workers](./2026-10-23-devcol-analytics)
 - 2026-09-17: [Building devcol.net](./2026-09-17-building-devcol-net)
 -->

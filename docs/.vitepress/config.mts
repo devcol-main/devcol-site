@@ -149,6 +149,7 @@ const sidebar: Record<string, SidebarItem[]> = {
       items: [
         { text: 'All Posts', link: '/blog/' },
         { text: 'Building devcol.net', link: '/blog/2026-09-17-building-devcol-net' },
+        { text: 'Cookie-Free Analytics', link: '/blog/2026-10-23-devcol-analytics' },
       ],
     },
     {
