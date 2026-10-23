@@ -8,6 +8,10 @@ export const nowBuildingTags = ['Unreal Engine 5', 'Action RPG', 'Multiplayer']
 // Rotating pill in the hero. "Latest DevLog · <date>" is added after these from the blog index.
 export const heroPhrases = ['Game Developer', 'Unreal Engine 5 · C++', 'Unity · C#', 'AI-Assisted Tools', 'Programmer']
 
+// The person behind the site. Shown in the byline on DevLog and Study pages and in the page's
+// structured data (schema.org author), both pointing at /about.
+export const author = { name: 'In Goo Lee', handle: 'in9', link: '/about' }
+
 export const links = {
   discord: 'https://discord.gg/7YTgpP8CCt',
   youtube: 'https://www.youtube.com/@devcol',

@@ -1,4 +1,5 @@
 ---
+noindex: true
 title: Site Stats
 description: Public, aggregated numbers for devcol.net and the Arcade Web games, from DevCol's own cookie-free analytics.
 ---

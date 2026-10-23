@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
-import { existsSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { links } from './theme/site'
+import { execFileSync } from 'node:child_process'
+import { author, links } from './theme/site'
 
 const SITE_URL = 'https://devcol.net'
 
@@ -242,11 +243,39 @@ export default defineConfig({
 
   transformPageData(pageData) {
     const route = pageData.relativePath.replace(/\.md$/, '').replace(/(^|\/)index$/, '$1')
+    const fm = pageData.frontmatter
+    const head: [string, Record<string, string>, string?][] = []
+
+    // `noindex: true` keeps thin utility pages (contact, stats) out of search without hiding them from visitors.
+    if (fm.noindex) head.push(['meta', { name: 'robots', content: 'noindex, follow' }])
+
+    // Articles (DevLog, Study) get schema.org author/date metadata pointing at /about.
+    const section = route.split('/')[0]
+    if ((section === 'blog' || section === 'study') && !route.endsWith('/') && route !== section && !fm.layout) {
+      const isPost = !!fm.date
+      // gray-matter parses an unquoted `date: 2026-10-13` into a Date; keep the YYYY-MM-DD form.
+      const published = fm.date instanceof Date ? fm.date.toISOString().slice(0, 10) : fm.date ? String(fm.date).slice(0, 10) : ''
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': isPost ? 'BlogPosting' : 'TechArticle',
+        headline: fm.title ?? pageData.title,
+        description: fm.description ?? '',
+        url: `${SITE_URL}/${route}`,
+        ...(published ? { datePublished: published } : {}),
+        ...(pageData.lastUpdated ? { dateModified: new Date(pageData.lastUpdated).toISOString().slice(0, 10) } : {}),
+        ...(fm.image ? { image: `${SITE_URL}${fm.image}` } : {}),
+        author: { '@type': 'Person', name: author.name, alternateName: author.handle, url: `${SITE_URL}${author.link}` },
+        publisher: { '@type': 'Organization', name: 'DevCol', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` } },
+      }
+      head.push(['script', { type: 'application/ld+json' }, JSON.stringify(ld)])
+    }
+    if (head.length) fm.head = [...(fm.head ?? []), ...head]
+
     const p = pager.get(route)
     if (!p) return
     // An explicit `prev:` / `next:` in a page's frontmatter still wins.
-    pageData.frontmatter.prev ??= p.prev
-    pageData.frontmatter.next ??= p.next
+    fm.prev ??= p.prev
+    fm.next ??= p.next
   },
 
   head: [
@@ -263,14 +292,28 @@ export default defineConfig({
   ],
 
   async buildEnd(siteConfig) {
-    const urls = siteConfig.pages.map((page) => {
+    // sitemap.xml with <lastmod>: the page's last git commit date (CI checks out full history), else the
+    // frontmatter `date`, else the file's mtime. Pages marked `noindex: true` are left out.
+    const frontmatterOf = (file: string) => readFileSync(file, 'utf-8').match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? ''
+    const gitDate = (file: string) => {
+      try {
+        return execFileSync('git', ['log', '-1', '--format=%cI', '--', file], { cwd: siteConfig.srcDir, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim()
+      } catch {
+        return ''
+      }
+    }
+    const entries = siteConfig.pages.flatMap((page) => {
+      const file = resolve(siteConfig.srcDir, page)
+      const fm = frontmatterOf(file)
+      if (/^noindex:\s*true/m.test(fm)) return []
       let route = page.replace(/\.md$/, '')
       route = route === 'index' ? '' : route.endsWith('/index') ? route.slice(0, -'index'.length) : route
-      return `${SITE_URL}/${route}`
+      const iso = gitDate(file) || fm.match(/^date:\s*["']?(\d{4}-\d{2}-\d{2})/m)?.[1] || statSync(file).mtime.toISOString()
+      return [{ loc: `${SITE_URL}/${route}`, lastmod: iso.slice(0, 10) }]
     })
 
-    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-      .map((url) => `  <url><loc>${url}</loc></url>`)
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries
+      .map((e) => `  <url><loc>${e.loc}</loc><lastmod>${e.lastmod}</lastmod></url>`)
       .join('\n')}\n</urlset>\n`
 
     writeFileSync(resolve(siteConfig.outDir, 'sitemap.xml'), xml, 'utf-8')
