@@ -2,7 +2,7 @@
 title: "Putting the Ability System Component on the PlayerState"
 description: "Why PSEUDO keeps the Gameplay Ability System component and attribute sets on the PlayerState instead of the character: owner vs avatar, initializing the ASC on both server and client, Mixed vs Minimal replication, swapping pawns without losing state, how to group attributes into sets, and the AttributeSet checklist I follow."
 date: 2026-10-13
-publishAt: 2026-11-01
+publishAt: 2026-10-29
 outline: deep
 ---
 

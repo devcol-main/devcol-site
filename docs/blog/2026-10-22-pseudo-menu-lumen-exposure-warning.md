@@ -2,7 +2,7 @@
 title: "A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off"
 description: "PSEUDO's main menu showed red on-screen text about Lumen cached lighting being clipped and r.EyeAdaptation.CachedLightingPreExposure. I traced the message to the eye adaptation pass in UE 5.8, worked out the exposure window it checks, and fixed it with one unbound post process volume instead of a project-wide setting."
 date: 2026-10-22
-publishAt: 2026-10-31
+publishAt: 2026-10-29
 track: "Menu Lumen exposure warning"
 outline: deep
 tags: [UE5, Rendering, Lumen, Debugging]

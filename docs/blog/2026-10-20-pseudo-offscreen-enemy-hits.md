@@ -2,7 +2,7 @@
 title: "Hits That Only Landed When the Host Was Watching"
 description: "On a listen server, PSEUDO's melee grunt stopped hitting anyone the moment the host looked away. The server wasn't refreshing bones for meshes it didn't render, so the weapon-socket sweep went from the same point to the same point every frame. One mesh setting fixed it."
 date: 2026-10-20
-publishAt: 2026-10-29
+publishAt: 2026-10-28
 track: "Off-screen enemy hits"
 outline: deep
 tags: [UE5, Animation, Networking, GAS, Debugging]

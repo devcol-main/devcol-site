@@ -2,7 +2,7 @@
 title: "One Character Class, Two Roles: Pawn Data and Input Tags"
 description: "How PSEUDO runs a hub character and a combat character on one C++ class: a pawn data asset that holds abilities, input, animation layers and meshes, game modes that pick it, Enhanced Input routed through gameplay tags into the ability system, and mapping contexts per role. Plus what this buys: unlocks, per-stage weapon restrictions and rebinding without touching input code."
 date: 2026-10-13
-publishAt: 2026-11-02
+publishAt: 2026-10-30
 outline: deep
 ---
 

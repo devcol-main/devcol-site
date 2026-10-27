@@ -1,7 +1,7 @@
 ---
 title: "Lore"
 description: "PSEUDO's world, symbols and tone: the premise, the questions the game asks, and the butterfly signal system. Written without the story's twists."
-publishAt: 2026-11-03
+publishAt: 2026-10-31
 ---
 
 # Lore

@@ -2,7 +2,7 @@
 title: "A Guard That Never Let Go: WaitInputRelease in UE 5.8"
 description: "In PSEUDO, letting go of the guard button didn't end the guard. The Gameplay Ability System's WaitInputRelease task listens for a replicated input event that the ability system component no longer sends by itself, so the ability stayed active forever. The fix is a small ASC override, the same one Lyra uses."
 date: 2026-10-20
-publishAt: 2026-10-29
+publishAt: 2026-10-28
 track: "Guard input release"
 outline: deep
 tags: [UE5, GAS, Input, Networking, Debugging]

@@ -2,7 +2,7 @@
 title: "Hard vs Soft References in Gameplay Data Assets"
 description: "When a data asset should hold a TObjectPtr and when it should hold a TSoftObjectPtr in Unreal Engine 5: what each one loads and when, the reference-chain problem, who should own the async load, a fallback rule for a missed preload, and why I made combo montages soft in PSEUDO before the second weapon existed."
 date: 2026-10-16
-publishAt: 2026-11-01
+publishAt: 2026-10-30
 outline: deep
 ---
 

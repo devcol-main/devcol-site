@@ -2,7 +2,7 @@
 title: "Numbers in Spreadsheets, References in Data Assets"
 description: "How I split gameplay data in an Unreal Engine 5 project: numbers in Excel/CSV imported as DataTables, asset references and structure in Primary Data Assets, global rules in Developer Settings, and row IDs to join them. The data flow, the row-ID convention, rules for keeping CSV sheets importable, validation, and the open questions."
 date: 2026-10-13
-publishAt: 2026-11-02
+publishAt: 2026-10-30
 outline: deep
 ---
 

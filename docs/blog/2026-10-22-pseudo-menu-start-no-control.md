@@ -2,7 +2,7 @@
 title: "Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change"
 description: "After pressing Start on PSEUDO's main menu, the player arrived in the hub and couldn't move or attack. The menu's FInputModeUIOnly had told the game viewport to ignore game input, and the viewport outlives OpenLevel. Why the input stack looked healthy, why Python input injection couldn't reproduce it, and the four-line fix."
 date: 2026-10-22
-publishAt: 2026-10-31
+publishAt: 2026-10-29
 track: "No control after menu start"
 outline: deep
 tags: [UE5, Input, UI, Networking, Debugging]

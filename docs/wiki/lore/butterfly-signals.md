@@ -1,7 +1,7 @@
 ---
 title: "Butterflies: The Signal System"
 description: "Why the butterfly is PSEUDO's central motif and how butterflies carry information in play: count, brightness and motion first, then three signal colors (ice, amber, ember). The butterflies for each dice grade, doubles, perfect-combo streaks and stage clears, the accessibility rules, and why an earlier seven-color scheme was dropped."
-publishAt: 2026-11-03
+publishAt: 2026-10-31
 outline: deep
 ---
 

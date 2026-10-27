@@ -2,7 +2,7 @@
 title: "The Hit Cue That Was Never Registered: GameplayCueName and a Blueprint Child"
 description: "In PSEUDO, the melee hit cue was routed by the Gameplay Ability System but never ran on any machine. A Blueprint cue notify inherited its tag from a native parent, the engine's tag derivation left its GameplayCueName empty, and the cue manager never registered it. Here's how I found it and the small override that fixed it."
 date: 2026-10-20
-publishAt: 2026-10-30
+publishAt: 2026-10-29
 track: "Hit cue never plays"
 outline: deep
 tags: [UE5, GAS, Gameplay Cues, Debugging]

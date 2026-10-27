@@ -1,7 +1,7 @@
 ---
 title: "World and Tone"
 description: "The world PSEUDO is set in and the tone it aims for: a main character who lost his work to AI and logs in to a game, the avatar he plays, the hub and the stages, the questions the game asks without answering, its references, and the art direction. No story twists."
-publishAt: 2026-11-03
+publishAt: 2026-10-31
 outline: deep
 ---
 
