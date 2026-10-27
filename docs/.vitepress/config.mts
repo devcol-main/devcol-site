@@ -105,6 +105,10 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Item Spawning and Level Data Management', link: '/study/item-spawning-and-level-data-management' },
         { text: 'Character Health and Score Management', link: '/study/character-health-and-score-management' },
         { text: 'Controlling Game Flow with a Game Loop', link: '/study/game-loop-and-flow-control' },
+        { text: 'ASC on the PlayerState', link: '/study/ability-system-component-on-the-player-state' },
+        { text: 'Pawn Data and Input Tags', link: '/study/pawn-data-and-input-tags' },
+        { text: 'CSV DataTables vs Data Assets', link: '/study/csv-datatables-vs-data-assets' },
+        { text: 'Hard vs Soft References', link: '/study/hard-vs-soft-references-for-data-assets' },
       ],
     },
     {
@@ -139,7 +143,9 @@ const sidebar: Record<string, SidebarItem[]> = {
     {
       text: 'Lore',
       items: [
-        { text: 'Lore', link: '/wiki/lore/' },
+        { text: 'All Lore', link: '/wiki/lore/' },
+        { text: 'World and Tone', link: '/wiki/lore/world-and-tone' },
+        { text: 'Butterfly Signals', link: '/wiki/lore/butterfly-signals' },
       ],
     },
   ],
