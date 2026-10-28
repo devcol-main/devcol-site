@@ -80,6 +80,7 @@ The full write-up is the framework doc in the repository. The decisions that sha
 **DevLogs**
 
 - [Git Setup for a UE5 Project Before the First Push](./2026-10-11-pseudo-git-setup)
+- [Planning a First Steam Release Backwards: Fees, Waiting Periods and Fixed Dates](./2026-10-22-pseudo-steam-release-backwards)
 
 **Debugging notes**
 

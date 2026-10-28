@@ -17,6 +17,7 @@ Notes from learning Unreal Engine, C++, and the tools around them. Most of these
 - [One Character Class, Two Roles: Pawn Data and Input Tags](/study/pawn-data-and-input-tags): one pawn class driven by a data asset, with input routed through gameplay tags.
 - [Numbers in Spreadsheets, References in Data Assets](/study/csv-datatables-vs-data-assets): CSV DataTables for numbers, DataAssets for structure, joined by row IDs.
 - [Hard vs Soft References in Gameplay Data Assets](/study/hard-vs-soft-references-for-data-assets): what each reference loads, and who should own the load.
+- [Linked Anim Layers for Weapon Modes](/study/linked-anim-layers-for-weapon-modes): one Anim Blueprint calling an Anim Layer Interface, a layer Blueprint per weapon, and a direct offline retarget for the second moveset.
 
 ## Git
 

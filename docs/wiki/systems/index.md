@@ -24,3 +24,6 @@ Good play (perfect dodges, parries, clean combos) charges dice. Spending a die r
 - [Elements and Reactions](/wiki/systems/elements): ten elements, resistances, status buildup, element shields and the reaction table.
 - [Stats and Level](/wiki/systems/stats-and-level): the five primary stats, how they become combat values, and XP and levels.
 - [Skill Tree: Weapon Trees, Node Types and Tags](/wiki/systems/skill-tree): weapon and common trees, the four node types, and how nodes unlock features through tags.
+- [Camera: States, Modes and Staying Off Walls](/wiki/systems/camera): per-state camera values, tag-driven camera modes, collision with walls and characters, and the side-view override.
+- [Enemies: One AI Framework, Data for Everything Else](/wiki/systems/enemy-ai): the shared State Tree, data-driven attack selection, attacks as one shared ability, the roster, and how bosses add phases.
+- [Movement and Level Metrics: Measuring Before Building](/wiki/systems/level-metrics): measured jump, sprint, dash and slope limits, and the gap, height and space rules every level follows.

@@ -15,6 +15,7 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-10-22: [Planning a First Steam Release Backwards: Fees, Waiting Periods and Fixed Dates](./2026-10-22-pseudo-steam-release-backwards)
 - 2026-10-22: [A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off](./2026-10-22-pseudo-menu-lumen-exposure-warning)
 - 2026-10-22: [Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change](./2026-10-22-pseudo-menu-start-no-control)
 - 2026-10-20: [The Hit Cue That Was Never Registered: GameplayCueName and a Blueprint Child](./2026-10-20-pseudo-hit-cue-never-plays)

@@ -109,6 +109,7 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Pawn Data and Input Tags', link: '/study/pawn-data-and-input-tags' },
         { text: 'CSV DataTables vs Data Assets', link: '/study/csv-datatables-vs-data-assets' },
         { text: 'Hard vs Soft References', link: '/study/hard-vs-soft-references-for-data-assets' },
+        { text: 'Linked Anim Layers for Weapon Modes', link: '/study/linked-anim-layers-for-weapon-modes' },
       ],
     },
     {
@@ -138,6 +139,9 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Elements and Reactions', link: '/wiki/systems/elements' },
         { text: 'Stats and Level', link: '/wiki/systems/stats-and-level' },
         { text: 'Skill Tree', link: '/wiki/systems/skill-tree' },
+        { text: 'Camera', link: '/wiki/systems/camera' },
+        { text: 'Enemies and AI', link: '/wiki/systems/enemy-ai' },
+        { text: 'Movement and Level Metrics', link: '/wiki/systems/level-metrics' },
       ],
     },
     {
@@ -146,6 +150,7 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'All Lore', link: '/wiki/lore/' },
         { text: 'World and Tone', link: '/wiki/lore/world-and-tone' },
         { text: 'Butterfly Signals', link: '/wiki/lore/butterfly-signals' },
+        { text: 'Symbols and Motifs', link: '/wiki/lore/symbols-and-motifs' },
       ],
     },
   ],
@@ -184,6 +189,7 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Hit Cue Never Plays', link: '/blog/2026-10-20-pseudo-hit-cue-never-plays' },
         { text: 'No Control After Menu Start', link: '/blog/2026-10-22-pseudo-menu-start-no-control' },
         { text: 'Menu Lumen Warning', link: '/blog/2026-10-22-pseudo-menu-lumen-exposure-warning' },
+        { text: 'Planning a Steam Release Backwards', link: '/blog/2026-10-22-pseudo-steam-release-backwards' },
       ],
     },
     {

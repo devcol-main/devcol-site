@@ -12,3 +12,4 @@ The world PSEUDO is set in, the symbols it uses, and how it should feel. These p
 
 - [World and Tone](/wiki/lore/world-and-tone): the main character, his avatar, the hub and the stages, the questions behind the game, its references and its art direction.
 - [Butterflies: The Signal System](/wiki/lore/butterfly-signals): why the butterfly is the central motif and how count, brightness, motion and three colors turn it into in-game feedback.
+- [Symbols and Motifs](/wiki/lore/symbols-and-motifs): the animals and marks borrowed from lucid-dreaming symbolism, where each appears, why they're drawn as line art, and the main character's two eye colors.
