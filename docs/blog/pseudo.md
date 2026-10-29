@@ -94,6 +94,7 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [The Hit Cue That Was Never Registered: GameplayCueName and a Blueprint Child](./2026-10-20-pseudo-hit-cue-never-plays)
 - [Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change](./2026-10-22-pseudo-menu-start-no-control)
 - [A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off](./2026-10-22-pseudo-menu-lumen-exposure-warning)
+- [A Groggy Gauge That Never Filled: When Zero Means Off and the Log Says Nothing](./2026-10-23-pseudo-player-groggy-never-triggers)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 
@@ -111,7 +112,7 @@ Since then, defense (dash, guard, parry and their perfect versions, judged on th
 
 ## Credits
 
-- Characters and animations: Paragon Twinblast and Paragon Kwang, from Fab.
+- Characters and animations: Paragon Twinblast, Paragon Kwang and Paragon Rampage, from Fab.
 - Dice model: Classic dice by Andromeda3D, from Fab.
 - "Animated Butterfly" by Artistic_side, licensed under [Creative Commons Attribution 4.0](http://creativecommons.org/licenses/by/4.0/), via [Sketchfab](https://skfb.ly/oFpIO).
 

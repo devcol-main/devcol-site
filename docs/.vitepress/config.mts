@@ -142,6 +142,8 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Camera', link: '/wiki/systems/camera' },
         { text: 'Enemies and AI', link: '/wiki/systems/enemy-ai' },
         { text: 'Movement and Level Metrics', link: '/wiki/systems/level-metrics' },
+        { text: 'Boss Sheets and Rampage', link: '/wiki/systems/rampage' },
+        { text: 'Controls', link: '/wiki/systems/controls' },
       ],
     },
     {
@@ -189,6 +191,7 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'Hit Cue Never Plays', link: '/blog/2026-10-20-pseudo-hit-cue-never-plays' },
         { text: 'No Control After Menu Start', link: '/blog/2026-10-22-pseudo-menu-start-no-control' },
         { text: 'Menu Lumen Warning', link: '/blog/2026-10-22-pseudo-menu-lumen-exposure-warning' },
+        { text: 'Player Groggy Never Triggers', link: '/blog/2026-10-23-pseudo-player-groggy-never-triggers' },
         { text: 'Planning a Steam Release Backwards', link: '/blog/2026-10-22-pseudo-steam-release-backwards' },
       ],
     },

@@ -27,3 +27,5 @@ Good play (perfect dodges, parries, clean combos) charges dice. Spending a die r
 - [Camera: States, Modes and Staying Off Walls](/wiki/systems/camera): per-state camera values, tag-driven camera modes, collision with walls and characters, and the side-view override.
 - [Enemies: One AI Framework, Data for Everything Else](/wiki/systems/enemy-ai): the shared State Tree, data-driven attack selection, attacks as one shared ability, the roster, and how bosses add phases.
 - [Movement and Level Metrics: Measuring Before Building](/wiki/systems/level-metrics): measured jump, sprint, dash and slope limits, and the gap, height and space rules every level follows.
+- [Boss Sheets and the First Boss, Rampage](/wiki/systems/rampage): planning a boss on one sheet before building it, and Rampage's phases, patterns, part-break shield and playtest problems.
+- [Controls: Keyboard, Gamepad and Remapping](/wiki/systems/controls): the full keyboard and gamepad layout per weapon state, the tap-versus-hold rules, and what can be remapped.
