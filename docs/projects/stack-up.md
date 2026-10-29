@@ -1,6 +1,6 @@
 ---
 title: Stack Up
-description: "A one-button neon tower stacking game you can play in the browser. Rules, scoring, tips, the code behind the game loop and rules, and interview questions the project answers. Built with TypeScript, Canvas 2D, and WebAudio."
+description: "A one-button neon tower stacking game you can play in the browser. Rules, scoring, tips, the code behind the game loop and rules, and questions worth thinking through. Built with TypeScript, Canvas 2D, and WebAudio."
 outline: deep
 ---
 
@@ -348,75 +348,123 @@ It's also how the GIF in the README is made: a small bot plays a seeded run in h
 
 The game pauses when you switch tabs, redraws when the frame is resized, caps the pixel ratio at 2, and keeps touch drags from scrolling the page while you play. Every `localStorage` read and write is wrapped in `try/catch`, so the game still runs in a private window or with storage blocked; it just forgets your best score. It uses no game engine, no framework, and no CDN, so everything it needs ships in the build, including the Geist font.
 
-## Interview questions this project answers
+## Questions to think about
 
 <figure class="theme-img">
-  <img class="img-light" src="/projects/stack-up/stack-up-interview.jpg" alt="Six topics: game loop and time, deterministic logic, canvas performance, Web Audio timing, input and mobile, robustness" loading="lazy">
-  <img class="img-dark" src="/projects/stack-up/stack-up-interview-dark.jpg" alt="Six topics: game loop and time, deterministic logic, canvas performance, Web Audio timing, input and mobile, robustness" loading="lazy">
-  <figcaption>The topics a small browser game touches, and that come up in front-end and game programming interviews.</figcaption>
+  <img class="img-light" src="/projects/stack-up/stack-up-questions.jpg" alt="Six topics: game loop and time, deterministic logic, canvas performance, Web Audio timing, input and mobile, robustness" loading="lazy">
+  <img class="img-dark" src="/projects/stack-up/stack-up-questions-dark.jpg" alt="Six topics: game loop and time, deterministic logic, canvas performance, Web Audio timing, input and mobile, robustness" loading="lazy">
+  <figcaption>Six areas where a small browser game runs into real engineering questions.</figcaption>
 </figure>
 
-These are questions that come up in front-end and gameplay programming interviews, answered with what this project actually does.
+Building even a one-button game raises questions that go well beyond the game itself. Try answering each one yourself first, then open the notes to compare with what Stack Up does.
 
 ### Game loop and time
 
 **Why use `requestAnimationFrame` instead of `setInterval` for the game loop?**
+
+::: details Notes from Stack Up
 `requestAnimationFrame` runs right before the browser paints, at the display's refresh rate, and stops when the tab is hidden. A `setInterval` loop drifts against the display, can run twice between paints or not at all, and keeps burning battery in background tabs.
+:::
 
 **Fixed or variable time step? What does this game use?**
+
+::: details Notes from Stack Up
 A variable step: each frame moves the block by `speed × dt`. That is simple and fine here because the only continuous motion is one block moving at constant speed, and the important decision (the drop) is an instant event, not something that depends on integration accuracy. Physics-heavy games usually prefer a fixed step with an accumulator so results don't depend on frame rate.
+:::
 
 **Why clamp `dt`, and why return 0 on the first frame after resuming?**
+
+::: details Notes from Stack Up
 After a long frame (a GC pause, a slow device) an unclamped `dt` would teleport the block across the screen. Capping it at 0.05 s means the game slows down for a moment instead of skipping. After a hidden tab comes back, the gap since the last frame could be minutes; resetting the reference timestamp makes that first frame a zero step instead.
+:::
 
 ### Deterministic logic and testing
 
 **How do you make game logic unit-testable?**
+
+::: details Notes from Stack Up
 Keep the rules free of side effects. The core has no DOM, canvas, audio or storage. It takes inputs (`update(dt)`, `drop()`), owns its state, and reports what happened as events. Randomness and time are injected. Tests can then drive a whole game with a loop and assert on the score, the blocks and the event log.
+:::
 
 **What does a seeded random number generator give you?**
+
+::: details Notes from Stack Up
 Reproducibility. With `Math.random()` a bug that depends on the starting side or colors can't be replayed. With a seeded generator (mulberry32 here, a few lines and fast), the same seed and inputs always produce the same run, which makes bugs reproducible, tests stable, and media captures repeatable. It is also the base for a daily challenge where everyone plays the same sequence.
+:::
 
 **Why do positions use normalized units instead of pixels?**
+
+::: details Notes from Stack Up
 The rules say "the block is 0.55 of the play area wide", not "300 px". That keeps the logic independent of screen size and pixel ratio, so a phone and a 4K monitor play the same game, and only the view converts to pixels.
+:::
 
 ### Canvas performance
 
 **Why avoid `shadowBlur` every frame, and what is the alternative?**
+
+::: details Notes from Stack Up
 A canvas shadow is a Gaussian blur computed on every draw call, and its cost grows with the blur radius and the area. Drawn for every block every frame, it is a common cause of dropped frames on mobile. The alternative is to pre-render the glowing shape once to an offscreen canvas and copy it with `drawImage`, which is cheap and GPU-friendly.
+:::
 
 **How do you draw a pre-rendered sprite at many different widths?**
+
+::: details Notes from Stack Up
 Slice it. The ends of the block (with their rounded glow) are copied at their natural size, and only the flat middle section is stretched. Rounding slice edges to whole device pixels avoids visible seams.
+:::
 
 **What is object pooling and why use it in JavaScript?**
+
+::: details Notes from Stack Up
 Particles are created and destroyed constantly. Allocating a new object for each one creates garbage, and garbage collection pauses show up as stutter. A pool allocates a fixed number of particle objects up front and reuses them, so the frame loop allocates almost nothing.
+:::
 
 **How do you handle high-DPI screens?**
+
+::: details Notes from Stack Up
 Size the canvas backing store to CSS size × `devicePixelRatio` and scale the context, so lines stay sharp. Stack Up caps the ratio at 2: a 3x phone would otherwise render 2.25 times as many pixels as at 2x for a difference that is hard to see.
+:::
 
 ### Web Audio timing
 
 **Why not play music notes from the frame loop?**
+
+::: details Notes from Stack Up
 Frame timing jitters by several milliseconds and stops in background tabs, and the ear notices rhythm errors quickly. Web Audio has its own high-precision clock (`AudioContext.currentTime`). The usual pattern, used here, is a lookahead scheduler: a coarse timer wakes up often and schedules every note due in the next fraction of a second at an exact audio-clock time.
+:::
 
 **Why does audio only start after the first tap?**
+
+::: details Notes from Stack Up
 Browsers block audible playback until the user interacts with the page. The audio context is created or resumed inside the first pointer or key handler; before that, the game is silent but fully playable.
+:::
 
 **How do you make sound without audio files?**
+
+::: details Notes from Stack Up
 Oscillators (square, sawtooth, triangle, sine) shaped with gain envelopes and filters, plus a short noise buffer for hi-hats and impacts. For a small arcade game that is enough for a full soundtrack, keeps the download tiny, and allows effects like a pitch that rises with the combo.
+:::
 
 ### Input and mobile
 
 **How do you handle mouse, touch and pen with one code path?**
+
+::: details Notes from Stack Up
 Pointer Events. `pointerdown` covers all three. Combined with `touch-action: none` on the canvas, the browser won't treat a tap as a scroll or a double-tap zoom, so input feels immediate.
+:::
 
 ### Robustness
 
 **What can go wrong with `localStorage`?**
+
+::: details Notes from Stack Up
 It can throw: in some private modes, when storage is full, when cookies are blocked, or inside sandboxed iframes. It also holds whatever an older version wrote. Every access here is wrapped in `try/catch`, stored values are validated when read, and the game falls back to defaults instead of crashing.
+:::
 
 **How would you add an online leaderboard to this?**
+
+::: details Notes from Stack Up
 The game already talks to a `LeaderboardService` interface, not to `localStorage` directly. A server implementation would replace the local one without touching the game. The hard part is trust: scores come from the client, so a real leaderboard needs server-side checks such as plausibility limits or replay validation using the seeded, deterministic core.
+:::
 
 ---
 
