@@ -1,17 +1,17 @@
 /* ==========================================================================
-   DevCol theme. Dark-first near-black with off-white ink, ultramarine accent.
-   Amber is only for status markers (In development dot, "latest" tag).
-   Tokens here drive the whole site; the home page layout lives in home.css.
+   DevCol theme (design K). Paper and ink with one red accent, the colour of the logo's hook.
+   Light is the default; dark is charcoal, not black. Tokens here drive the whole site;
+   the home page layout lives in home/home.css.
    ========================================================================== */
 
 /* ---------- Tokens: shared ---------- */
 :root {
-  --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
-  --font-wordmark: 'Outfit', system-ui, sans-serif;
-  --vp-font-family-base: 'Geist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --radius: 18px;
-  --radius-sm: 10px;
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-wordmark: 'Archivo Variable', system-ui, sans-serif;
+  --vp-font-family-base: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius: 14px;
+  --radius-sm: 8px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -24,143 +24,148 @@
   --z-backdrop: -1;
   --z-raise: 2;
   --z-grain: 50;
-  --amber-fill: #f2b43c;
-  --amber-on: #1e1400;
+  --red: #d2463f;
+  --amber-fill: var(--red);
+  --amber-on: #ffffff;
   --vp-layout-max-width: 1440px;
 }
 
 /* ---------- Tokens: light ---------- */
 :root {
-  --accent: #2a40d8;
+  --accent: #b93d37;
   --accent-ink: #ffffff;
-  --amber: #8a5800;
-  --hero-orb-opacity: 0.55;
-  --surface: #f8f9fe;
-  --surface-2: #eceff9;
-  --line: rgba(14, 16, 32, 0.09);
-  --line-strong: rgba(14, 16, 32, 0.17);
-  --line-hover: rgba(14, 16, 32, 0.52);
-  --orb-a: rgba(120, 100, 255, 0.26);
-  --orb-b: rgba(70, 140, 255, 0.24);
-  --orb-c: rgba(60, 200, 255, 0.18);
-  --glow: rgba(70, 92, 240, 0.1);
-  --glow-b: rgba(40, 170, 240, 0.07);
-  --glow-strong: rgba(70, 92, 240, 0.12);
-  --cursor-glow: rgba(80, 100, 255, 0.12);
-  --wash-a: rgba(120, 110, 255, 0.12);
-  --wash-b: rgba(70, 150, 255, 0.11);
-  --wash-c: rgba(50, 190, 255, 0.09);
-  --tint-surface: color-mix(in srgb, #3c4cff 4%, var(--vp-c-bg));
-  --cell-bg: color-mix(in srgb, var(--surface) 80%, transparent);
-  --tick: #0e1020;
-  --card-glow: rgba(90, 100, 240, 0.22);
-  --card-shadow: 0 1px 2px rgba(20, 24, 60, 0.05), 0 18px 36px -26px rgba(20, 24, 60, 0.3);
-  --lift-shadow: 0 1px 2px rgba(20, 24, 60, 0.06), 0 30px 50px -30px rgba(20, 24, 60, 0.38);
-  --btn-bg: #0e1020;
-  --btn-text: #eef0f8;
-  --grain-opacity: 0.03;
-  --reel-video-opacity: 0.4;
+  --amber: #b93d37;
+  --paper: #f4f3ef;
+  --paper-2: #eae8e2;
+  --paper-3: #e3e0d6;
+  --surface: #fdfcfa;
+  --surface-2: #eae8e2;
+  --band: #121212;
+  --band-ink: #f4f3ef;
+  --band-ink-2: #a9a69f;
+  --line: rgba(18, 18, 18, 0.12);
+  --line-strong: rgba(18, 18, 18, 0.3);
+  --line-hover: #121212;
+  --grid: rgba(18, 18, 18, 0.055);
+  --grid-hot: rgba(18, 18, 18, 0.16);
+  --orb-a: transparent;
+  --orb-b: transparent;
+  --orb-c: transparent;
+  --glow: transparent;
+  --glow-b: transparent;
+  --glow-strong: transparent;
+  --cursor-glow: transparent;
+  --wash-a: transparent;
+  --wash-b: transparent;
+  --wash-c: transparent;
+  --tint-surface: var(--paper-2);
+  --cell-bg: var(--surface);
+  --tick: #121212;
+  --card-glow: transparent;
+  --card-shadow: none;
+  --lift-shadow: none;
+  --btn-bg: #121212;
+  --btn-text: #f4f3ef;
+  --grain-opacity: 0;
+  --hero-orb-opacity: 0;
+  --xcur-ink: #121212;
+  --xcur-paper: #ffffff;
 
-  --vp-c-bg: #eef0f8;
-  --vp-c-bg-alt: #e6e9f4;
-  --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #eceff9;
-  --vp-c-text-1: #0e1020;
-  --vp-c-text-2: #3c4159;
-  --vp-c-text-3: #5a607c;
-  --vp-c-divider: rgba(14, 16, 32, 0.13);
-  --vp-c-border: rgba(14, 16, 32, 0.22);
-  --vp-c-gutter: #dde1f0;
-  --vp-c-brand-1: #2a40d8;
-  --vp-c-brand-2: #2236c0;
-  --vp-c-brand-3: #3248e0;
-  --vp-c-brand-soft: rgba(42, 64, 216, 0.12);
-  --vp-button-brand-bg: #2a40d8;
-  --vp-button-brand-border: transparent;
-  --vp-button-brand-text: #ffffff;
-  --vp-button-brand-hover-bg: #2236c0;
-  --vp-button-brand-hover-border: transparent;
+  --vp-c-bg: #f4f3ef;
+  --vp-c-bg-alt: #eae8e2;
+  --vp-c-bg-elv: #fdfcfa;
+  --vp-c-bg-soft: #eae8e2;
+  --vp-c-text-1: #121212;
+  --vp-c-text-2: #45433f;
+  --vp-c-text-3: #75726c;
+  --vp-c-divider: rgba(18, 18, 18, 0.13);
+  --vp-c-border: rgba(18, 18, 18, 0.22);
+  --vp-c-gutter: #e3e0d6;
+  --vp-c-brand-1: #b93d37;
+  --vp-c-brand-2: #9e332e;
+  --vp-c-brand-3: #d2463f;
+  --vp-c-brand-soft: rgba(210, 70, 63, 0.12);
+  --vp-button-brand-bg: #121212;
+  --vp-button-brand-border: #121212;
+  --vp-button-brand-text: #f4f3ef;
+  --vp-button-brand-hover-bg: #d2463f;
+  --vp-button-brand-hover-border: #121212;
   --vp-button-brand-hover-text: #ffffff;
-  --vp-button-brand-active-bg: #1c2ea8;
-  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-bg: #b93d37;
+  --vp-button-brand-active-border: #121212;
   --vp-button-brand-active-text: #ffffff;
-  --vp-button-alt-bg: rgba(14, 16, 32, 0.05);
-  --vp-button-alt-border: rgba(14, 16, 32, 0.17);
-  --vp-button-alt-text: #0e1020;
-  --vp-button-alt-hover-bg: rgba(14, 16, 32, 0.09);
-  --vp-button-alt-hover-border: rgba(14, 16, 32, 0.52);
-  --vp-button-alt-hover-text: #0e1020;
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-border: #121212;
+  --vp-button-alt-text: #121212;
+  --vp-button-alt-hover-bg: #121212;
+  --vp-button-alt-hover-border: #d2463f;
+  --vp-button-alt-hover-text: #f4f3ef;
   --vp-code-block-bg: var(--surface);
-  --vp-code-bg: rgba(42, 64, 216, 0.08);
-  --vp-code-color: #2236c0;
+  --vp-code-bg: rgba(18, 18, 18, 0.06);
+  --vp-code-color: #121212;
   --vp-sidebar-bg-color: var(--vp-c-bg-alt);
   color-scheme: light;
 }
 
 /* ---------- Tokens: dark ---------- */
 :root.dark {
-  --accent: #8f9cff;
-  --accent-ink: #0b0d1a;
-  --amber: #f2b43c;
-  --hero-orb-opacity: 0.5;
-  --surface: #0e1020;
-  --surface-2: #151933;
-  --line: rgba(160, 172, 230, 0.1);
-  --line-strong: rgba(160, 172, 230, 0.2);
-  --line-hover: rgba(214, 220, 250, 0.5);
-  --orb-a: rgba(92, 72, 255, 0.4);
-  --orb-b: rgba(36, 104, 255, 0.32);
-  --orb-c: rgba(30, 210, 255, 0.16);
-  --glow: rgba(96, 128, 255, 0.14);
-  --glow-b: rgba(40, 190, 255, 0.08);
-  --glow-strong: rgba(110, 128, 255, 0.18);
-  --cursor-glow: rgba(96, 128, 255, 0.14);
-  --wash-a: rgba(80, 76, 255, 0.14);
-  --wash-b: rgba(30, 130, 255, 0.11);
-  --wash-c: rgba(30, 200, 255, 0.08);
-  --tint-surface: color-mix(in srgb, #3c4cff 8%, var(--vp-c-bg));
-  --cell-bg: color-mix(in srgb, var(--vp-c-bg) 84%, transparent);
-  --tick: #eceef6;
-  --card-glow: rgba(70, 90, 255, 0.3);
-  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 24px 48px -28px rgba(0, 0, 0, 0.9);
-  --lift-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 30px 60px -30px rgba(0, 0, 0, 1);
-  --btn-bg: #eceef6;
-  --btn-text: #07080f;
-  --grain-opacity: 0.04;
-  --reel-video-opacity: 0.55;
+  --accent: #ee7a73;
+  --accent-ink: #131312;
+  --amber: #ee7a73;
+  --red: #e4605a;
+  --paper: #131312;
+  --paper-2: #1b1b19;
+  --paper-3: #232320;
+  --surface: #1a1a18;
+  --surface-2: #1b1b19;
+  --band: #efede8;
+  --band-ink: #131312;
+  --band-ink-2: #55534e;
+  --line: rgba(239, 237, 232, 0.11);
+  --line-strong: rgba(239, 237, 232, 0.3);
+  --line-hover: #efede8;
+  --grid: rgba(239, 237, 232, 0.045);
+  --grid-hot: rgba(239, 237, 232, 0.14);
+  --tint-surface: var(--paper-2);
+  --cell-bg: var(--surface);
+  --tick: #efede8;
+  --btn-bg: #efede8;
+  --btn-text: #131312;
+  --xcur-ink: #efede8;
+  --xcur-paper: #131312;
 
-  --vp-c-bg: #07080f;
-  --vp-c-bg-alt: #0b0d1a;
-  --vp-c-bg-elv: #121528;
-  --vp-c-bg-soft: #0e1020;
-  --vp-c-text-1: #eceef6;
-  --vp-c-text-2: #b2b7cb;
-  --vp-c-text-3: #8d93aa;
-  --vp-c-divider: rgba(160, 172, 230, 0.16);
-  --vp-c-border: rgba(160, 172, 230, 0.24);
-  --vp-c-gutter: #04050a;
-  --vp-c-brand-1: #8f9cff;
-  --vp-c-brand-2: #aab4ff;
-  --vp-c-brand-3: #6f7ef0;
-  --vp-c-brand-soft: rgba(143, 156, 255, 0.16);
-  --vp-button-brand-bg: #8f9cff;
-  --vp-button-brand-border: transparent;
-  --vp-button-brand-text: #0b0d1a;
-  --vp-button-brand-hover-bg: #aab4ff;
-  --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: #0b0d1a;
-  --vp-button-brand-active-bg: #7a88f5;
-  --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: #0b0d1a;
-  --vp-button-alt-bg: rgba(236, 238, 246, 0.06);
-  --vp-button-alt-border: rgba(160, 172, 230, 0.2);
-  --vp-button-alt-text: #eceef6;
-  --vp-button-alt-hover-bg: rgba(236, 238, 246, 0.1);
-  --vp-button-alt-hover-border: rgba(214, 220, 250, 0.5);
-  --vp-button-alt-hover-text: #eceef6;
+  --vp-c-bg: #131312;
+  --vp-c-bg-alt: #1b1b19;
+  --vp-c-bg-elv: #1a1a18;
+  --vp-c-bg-soft: #1b1b19;
+  --vp-c-text-1: #efede8;
+  --vp-c-text-2: #bdbab3;
+  --vp-c-text-3: #8c8981;
+  --vp-c-divider: rgba(239, 237, 232, 0.14);
+  --vp-c-border: rgba(239, 237, 232, 0.24);
+  --vp-c-gutter: #0d0d0c;
+  --vp-c-brand-1: #ee7a73;
+  --vp-c-brand-2: #f4948e;
+  --vp-c-brand-3: #e4605a;
+  --vp-c-brand-soft: rgba(228, 96, 90, 0.16);
+  --vp-button-brand-bg: #efede8;
+  --vp-button-brand-border: #efede8;
+  --vp-button-brand-text: #131312;
+  --vp-button-brand-hover-bg: #e4605a;
+  --vp-button-brand-hover-border: #efede8;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-active-bg: #d2463f;
+  --vp-button-brand-active-border: #efede8;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-border: #efede8;
+  --vp-button-alt-text: #efede8;
+  --vp-button-alt-hover-bg: #efede8;
+  --vp-button-alt-hover-border: #e4605a;
+  --vp-button-alt-hover-text: #131312;
   --vp-code-block-bg: var(--surface);
-  --vp-code-bg: rgba(143, 156, 255, 0.12);
-  --vp-code-color: #aab4ff;
+  --vp-code-bg: rgba(239, 237, 232, 0.08);
+  --vp-code-color: #efede8;
   color-scheme: dark;
 }
 
@@ -287,6 +292,11 @@ body::after {
 .VPNavBar:not(.home.top) .divider-line {
   background: var(--line);
 }
+/* The home page recolours <body> per section; the nav keeps the paper colour. */
+.VPNavBar.home.top {
+  background: var(--vp-c-bg);
+}
+
 /* Non-sidebar pages: keep the nav on the same 1200px column as the page content */
 @media (min-width: 768px) {
   .VPNavBar:not(.has-sidebar) .wrapper {
@@ -304,46 +314,176 @@ body::after {
   --vp-input-switch-bg-color: var(--surface-2);
   --vp-input-border-color: var(--line-strong);
 }
-/* Wordmark: Outfit 700 plus a round white logo chip */
+/* Wordmark plus the inline mark (LogoMark.vue in the nav-bar-title-before slot). The png logo stays
+   in config for structured data but is hidden here. */
 .VPNavBarTitle .title {
-  gap: 10px;
+  gap: 9px;
   font-family: var(--font-wordmark);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 19px;
   letter-spacing: -0.01em;
 }
 .VPNavBarTitle .logo {
-  box-sizing: border-box;
-  flex: none;
-  width: 34px;
+  display: none;
+}
+.nav-mark {
+  width: 24px;
   height: 34px;
-  margin: 0;
-  padding: 3px;
-  border-radius: 999px;
-  background: #fff;
-  object-fit: contain;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-  transition: scale var(--t-move) var(--ease-out);
+  flex: none;
 }
-/* Quick damped wobble plus a slight scale-up. rotate and scale are separate properties, so the
-   scale eases back on leave while the wobble only plays on enter. */
-@keyframes logo-wobble {
-  0% { rotate: 0deg; }
-  18% { rotate: -9deg; }
-  38% { rotate: 7deg; }
-  58% { rotate: -4deg; }
-  78% { rotate: 2deg; }
-  100% { rotate: 0deg; }
+.VPNavBarTitle .title:active .nav-mark {
+  scale: 0.94;
+  transition: scale var(--t-press) var(--ease-out);
 }
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .VPNavBarTitle .title:hover .logo {
-    scale: 1.08;
-    animation: logo-wobble 620ms var(--ease-out);
+
+/* ---------- The mark (LogoMark.vue): drop animation, hover lift ---------- */
+.mark {
+  display: block;
+  overflow: visible;
+  color: var(--vp-c-text-1);
+}
+.mark .sway {
+  transform-box: view-box;
+  transform-origin: 101px 0px;
+}
+.mark .patch {
+  transition: opacity 120ms;
+}
+.js .mark:not(.scrubbed) .lift {
+  transform: translateY(-190px);
+}
+.mark.drop .lift {
+  animation: mark-drop 1100ms cubic-bezier(0.3, 0.9, 0.35, 1.05) 250ms both;
+}
+.mark.drop .sway {
+  animation: mark-swing 1600ms ease-out 1250ms;
+}
+.mark.landed .patch {
+  opacity: 0;
+}
+.js .mark.landed .lift,
+.mark.landed .lift {
+  animation: none;
+  transform: none;
+  transition: transform 380ms var(--ease-out);
+}
+.mark.landed .sway {
+  transition: transform 420ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .lift-on-hover:hover .mark.landed .lift,
+  .VPNavBarTitle .title:hover .mark.landed .lift {
+    transform: translateY(-7px);
   }
 }
-.VPNavBarTitle .title:active .logo {
-  scale: 0.94;
-  transition-duration: var(--t-press);
+@keyframes mark-drop { from { transform: translateY(-190px); } to { transform: translateY(0); } }
+@keyframes mark-swing { 0% { transform: rotate(0); } 18% { transform: rotate(1.6deg); } 40% { transform: rotate(-1deg); } 62% { transform: rotate(0.45deg); } 82% { transform: rotate(-0.15deg); } 100% { transform: rotate(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .js .mark .lift { transform: none; animation: none; }
+  .mark .patch { opacity: 0; }
+}
+
+/* ---------- Graph-paper surfaces: faint grid, darker in a circle around the pointer ---------- */
+.gridded {
+  position: relative;
+  isolation: isolate;
+}
+.gridded::before,
+.gridded::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(var(--g) 1px, transparent 1px), linear-gradient(90deg, var(--g) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+.gridded::before {
+  --g: var(--grid);
+}
+.gridded::after {
+  --g: var(--grid-hot);
+  opacity: 0;
+  transition: opacity 300ms;
+  -webkit-mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 70%);
+  mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 70%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .gridded:hover::after {
+    opacity: 1;
+  }
+}
+
+/* ---------- Reading progress (index.ts): a red line under the nav ---------- */
+.read-progress {
+  position: fixed;
+  left: 0;
+  top: calc(var(--vp-nav-height) - 2px);
+  z-index: var(--vp-z-index-nav);
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* ---------- Crosshair cursor (index.ts): four arms that breathe, black or white by the surface under it ---------- */
+.xcur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms;
+  --gap: 5px;
+}
+.xcur.on {
+  opacity: 1;
+}
+.xcur .arm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 7px;
+  margin: -1px 0 0 -1px;
+  background: #121212;
+  box-shadow: 0 0 0 1px #fff;
+  border-radius: 1px;
+  transition: transform 90ms ease-out, background-color 120ms, box-shadow 120ms;
+}
+.xcur.light .arm {
+  background: #fff;
+  box-shadow: 0 0 0 1px #121212;
+}
+.xcur .dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 1px #121212;
+}
+.xcur .a1 { transform: rotate(0deg) translateY(calc(-1 * var(--gap) - 7px)); }
+.xcur .a2 { transform: rotate(90deg) translateY(calc(-1 * var(--gap) - 7px)); }
+.xcur .a3 { transform: rotate(180deg) translateY(calc(-1 * var(--gap) - 7px)); }
+.xcur .a4 { transform: rotate(270deg) translateY(calc(-1 * var(--gap) - 7px)); }
+@media (hover: hover) and (pointer: fine) {
+  .js.xcur-on a,
+  .js.xcur-on button,
+  .js.xcur-on [role='button'],
+  .js.xcur-on summary,
+  .js.xcur-on .VPSwitch {
+    cursor: none;
+  }
 }
 
 /* Menu links: one shared pill slides to the hovered or focused link (JS sets --pill-x / --pill-w and
@@ -362,8 +502,8 @@ body::after {
   width: var(--pill-w, 0px);
   border-radius: 999px;
   pointer-events: none;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 14%, transparent);
+  background: color-mix(in srgb, var(--vp-c-text-1) 7%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--vp-c-text-1) 10%, transparent);
   opacity: 0;
   transform: translate3d(var(--pill-x, 0px), -50%, 0);
   transition: transform 340ms cubic-bezier(0.34, 1.32, 0.64, 1), width 340ms cubic-bezier(0.34, 1.32, 0.64, 1), opacity 180ms ease;
@@ -411,7 +551,7 @@ body::after {
 }
 .VPNavBarMenuLink:hover,
 .VPNavBarMenuGroup .button:hover {
-  color: var(--accent);
+  color: var(--vp-c-text-1);
 }
 .VPNavBarMenu.has-pill .VPNavBarMenuLink:hover:not(.active),
 .VPNavBarMenu.has-pill .VPNavBarMenuGroup:not(.active) .button:hover {
@@ -474,23 +614,14 @@ body::after {
   gap: 10px;
   margin: 0 0 14px;
   font-family: var(--font-wordmark);
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 800;
+  font-size: 22px;
   letter-spacing: -0.01em;
 }
-.foot-brand .chip {
-  display: grid;
-  place-items: center;
+.foot-brand .mark {
+  width: 22px;
+  height: 31px;
   flex: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-}
-.foot-brand img {
-  width: 28px;
-  height: 28px;
 }
 .foot p {
   margin: 0;
@@ -522,12 +653,12 @@ body::after {
 .foot ul a {
   padding-bottom: 2px;
   color: var(--vp-c-text-2);
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  background: linear-gradient(var(--red), var(--red)) 0 100% / 0 1px no-repeat;
   transition: color var(--t-hover) ease, background-size var(--t-move) var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
   .foot ul a:hover {
-    color: var(--accent);
+    color: var(--vp-c-text-1);
     background-size: 100% 1px;
   }
 }
@@ -898,22 +1029,19 @@ body::after {
   z-index: 25;
   right: calc(20px + env(safe-area-inset-right));
   bottom: calc(20px + env(safe-area-inset-bottom));
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   border: 1px solid var(--line-strong);
-  background: color-mix(in srgb, var(--vp-c-bg-elv) 82%, transparent);
-  -webkit-backdrop-filter: saturate(150%) blur(12px);
-  backdrop-filter: saturate(150%) blur(12px);
-  box-shadow: var(--card-shadow);
+  background: var(--surface);
   color: var(--vp-c-text-1);
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px) scale(0.92);
-  transition: opacity var(--t-move) var(--ease-out), transform var(--t-move) var(--ease-out), visibility 0s linear var(--t-move), border-color var(--t-hover) ease, scale var(--t-press) var(--ease-out);
+  transform: translateY(12px);
+  transition: opacity var(--t-move) var(--ease-out), transform var(--t-move) var(--ease-out), visibility 0s linear var(--t-move), border-color var(--t-hover) ease, background-color var(--t-hover) ease, color var(--t-hover) ease;
 }
 .back-to-top.on {
   opacity: 1;
@@ -927,42 +1055,23 @@ body::after {
     bottom: calc(28px + env(safe-area-inset-bottom));
   }
 }
-.btt-ring {
-  position: absolute;
-  inset: -1px;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  transform: rotate(-90deg);
-  pointer-events: none;
-}
-.btt-track,
-.btt-fill {
-  fill: none;
-  stroke-width: 2;
-}
-.btt-track {
-  stroke: transparent;
-}
-.btt-fill {
-  stroke: var(--accent);
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.12s linear;
-}
 .btt-arrow {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   transition: transform var(--t-hover) var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
   .back-to-top:hover {
-    border-color: var(--line-hover);
+    background: var(--vp-c-text-1);
+    color: var(--vp-c-bg);
+    border-color: var(--red);
   }
   .back-to-top:hover .btt-arrow {
     transform: translateY(-2px);
   }
 }
 .back-to-top:active {
-  scale: 0.92;
+  scale: 0.94;
 }
 .back-to-top:focus-visible {
   outline: 2px solid var(--accent);
@@ -1006,9 +1115,9 @@ html:has(.VPSidebar.open) .back-to-top {
   scale: 0.96;
 }
 .blog-chip[aria-pressed='true'] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-ink);
+  background: var(--vp-c-text-1);
+  border-color: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
 }
 .blog-chip:focus-visible {
   outline: 2px solid var(--accent);

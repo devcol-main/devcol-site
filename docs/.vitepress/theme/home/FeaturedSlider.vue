@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref } from 'vue'
 import ProjectCard from '../ProjectCard.vue'
-import { categories, featured, projectsIn } from '../projects'
+import { allProjects, categories, projectsIn } from '../projects'
 import Arrow from './Arrow.vue'
 import { loadGsap, prefersReducedMotion } from './gsap'
 
 const filter = ref('All')
 const shown = computed(() => {
   const c = categories.find((c) => c.label === filter.value)
-  return c ? projectsIn(c.groups) : featured
+  return c ? projectsIn(c.groups) : allProjects
 })
 
 const track = ref<HTMLElement>()
@@ -49,7 +49,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="projects" class="section tight-top zone-projects" aria-labelledby="fp-title">
+  <section id="projects" class="section tight-top zone-projects" data-bg="paper" aria-labelledby="fp-title">
     <div class="wrap">
       <header class="fp-head">
         <div>

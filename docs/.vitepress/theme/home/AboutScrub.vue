@@ -6,7 +6,7 @@ const words = "I'd rather show the work while it's happening than wait for a lau
 </script>
 
 <template>
-  <section class="section tight-top zone-about" aria-labelledby="about-label">
+  <section class="section tight-top zone-about" data-bg="paper-3" aria-labelledby="about-label">
     <div class="wrap about-grid">
       <p id="about-label" class="sec-label">About</p>
       <div>

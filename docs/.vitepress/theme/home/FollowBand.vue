@@ -15,14 +15,14 @@ const channels = [
 <template>
   <section class="band-a" aria-labelledby="community-title">
     <div class="wrap">
-      <div>
-        <h2 id="community-title">Follow the build on Discord.</h2>
-        <p>Questions about a DevLog post, bugs you spot, or ideas for {{ project }}. That's where I read them.</p>
+      <div class="rv">
+        <h2 id="community-title">Follow us<em>.</em></h2>
+        <p>Questions about a DevLog post, bugs you spot, or ideas for {{ project }}. Discord is where I read them.</p>
         <div class="actions">
           <a class="btn" :href="links.discord">Join the Discord<span class="ico" aria-hidden="true"><Arrow kind="right" :width="1.6" /></span></a>
         </div>
       </div>
-      <ul class="channels" aria-label="Other channels">
+      <ul class="channels rv" aria-label="Other channels">
         <li v-for="c in channels" :key="c.label">
           <a :href="c.href"><span class="lbl">{{ c.label }}</span> <span class="mono">{{ c.handle }} <Arrow kind="diag" /></span></a>
         </li>
