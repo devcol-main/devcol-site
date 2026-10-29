@@ -189,18 +189,12 @@ export const featured: Item[] = [
   '/projects/team8-text-console-rpg',
 ].map((href) => byHref.get(href)!)
 
-// The stacked cards under "Projects" on the home page, in this order. Press Plane's image is a
-// phone screenshot, so it sits centered ("contain") instead of cropped.
-export const stack: Item[] = (
-  [
-    ['/projects/stack-up', {}],
-    ['/projects/bug-squash', {}],
-    ['/projects/pawn-class-3d-character', {}],
-    ['/projects/game-loop-ui-redesign', {}],
-    ['/projects/press-plane', { fit: 'contain' }],
-    ['/projects/team8-text-console-rpg', {}],
-  ] as [string, Partial<Item>][]
-).map(([href, override]) => ({ ...byHref.get(href)!, ...override }))
+// The stacked cards under "Projects" on the home page, in this order. Four cards; the sticky stack gets
+// heavy past that.
+export const stack: Item[] = ['/projects/stack-up', '/projects/bug-squash', '/projects/pawn-class-3d-character', '/projects/game-loop-ui-redesign'].map((href) => byHref.get(href)!)
+
+// Every project for the "All" tab of the Featured slider: the featured ones first, then the rest in groups order.
+export const allProjects: Item[] = [...featured, ...groups.flatMap((g) => g.items).filter((it) => !featured.includes(it))]
 
 // Home page filter tabs. Each tab pulls every project from the listed groups.
 export const categories: { label: string; groups: string[] }[] = [

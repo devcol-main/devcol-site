@@ -13,7 +13,7 @@ const short = (tag: string) => tag.replace('Unreal Engine 5', 'UE5')
 </script>
 
 <template>
-  <section id="work" class="section zone-work" aria-labelledby="work-title">
+  <section id="work" class="section zone-work" data-bg="paper-2" aria-labelledby="work-title">
     <div class="wrap">
       <div class="sec-head">
         <div>

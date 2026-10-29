@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import type { Post } from '../posts.data'
 import { links } from '../site'
 import { prefersReducedMotion } from './gsap'
 import Arrow from './Arrow.vue'
-import HeroStatusCard from './HeroStatusCard.vue'
+import LogoMark from '../LogoMark.vue'
 
-const props = defineProps<{ phrases: string[]; project: string; projectLink: string; latest: Post | null }>()
+const props = defineProps<{ phrases: string[] }>()
 
 const rot = ref<HTMLElement>()
-const backdrop = ref<HTMLElement>()
+const section = ref<HTMLElement>()
+const coords = ref('x 0000 · y 0000')
 let cleanup: (() => void)[] = []
 
 onMounted(() => {
   if (prefersReducedMotion()) return
 
-  // Rotating pill: the width eases to the current phrase so the pill hugs each word.
+  // Rotating line: the width eases to the current phrase.
   const el = rot.value
   const items = el ? Array.from(el.querySelectorAll<HTMLElement>('.rot-item')) : []
   if (el && items.length > 1) {
@@ -46,23 +46,29 @@ onMounted(() => {
     cleanup.push(() => { stop(); document.removeEventListener('visibilitychange', onVis) })
   }
 
-  // Backdrop glow follows the mouse
-  const bd = backdrop.value
-  if (bd && window.matchMedia('(hover: hover)').matches) {
+  // Pointer over the hero: the coordinate readout, and the hook leans toward the pointer once the logo has landed.
+  const sec = section.value
+  if (sec && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     let raf = 0
     const onMove = (e: PointerEvent) => {
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
-        const r = bd.getBoundingClientRect()
-        if (r.bottom < 0) return
-        bd.style.setProperty('--px', `${e.clientX - r.left}px`)
-        bd.style.setProperty('--py', `${e.clientY - r.top}px`)
-        bd.style.setProperty('--nx', (e.clientX / window.innerWidth).toFixed(3))
-        bd.style.setProperty('--ny', (e.clientY / window.innerHeight).toFixed(3))
+        const r = sec.getBoundingClientRect()
+        const x = Math.round(e.clientX - r.left), y = Math.round(e.clientY - r.top)
+        coords.value = `x ${String(x).padStart(4, '0')} · y ${String(y).padStart(4, '0')}`
+        const mark = sec.querySelector<SVGSVGElement>('.mark.landed')
+        const sway = mark?.querySelector<SVGGElement>('.sway')
+        if (!mark || !sway) return
+        const m = mark.getBoundingClientRect()
+        const px = m.left + m.width * ((145 - 44) / 158), py = m.top
+        const a = (Math.atan2(e.clientX - px, Math.max(40, e.clientY - py)) * 180) / Math.PI
+        sway.style.transform = `rotate(${Math.max(-7, Math.min(7, a * 0.12))}deg)`
       })
     }
-    window.addEventListener('pointermove', onMove, { passive: true })
-    cleanup.push(() => { cancelAnimationFrame(raf); window.removeEventListener('pointermove', onMove) })
+    const onLeave = () => { sec.querySelector<SVGGElement>('.mark .sway')?.style.removeProperty('transform') }
+    sec.addEventListener('pointermove', onMove, { passive: true })
+    sec.addEventListener('pointerleave', onLeave)
+    cleanup.push(() => { cancelAnimationFrame(raf); sec.removeEventListener('pointermove', onMove); sec.removeEventListener('pointerleave', onLeave) })
   }
 })
 
@@ -73,16 +79,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="hero" aria-labelledby="hero-title">
-    <div ref="backdrop" class="hero-backdrop" aria-hidden="true">
-      <div class="hb-grid"></div>
-      <div class="hb-orbs"><div class="hb-orb hb-orb-a"></div><div class="hb-orb hb-orb-b"></div><div class="hb-orb hb-orb-c"></div></div>
-      <div class="hb-cursor"></div>
-    </div>
-
+  <section ref="section" class="hero gridded" data-bg="paper" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow hero-in">
+        <p class="eyebrow mono hero-in">
           <span class="pill-dot" aria-hidden="true"></span>
           <span ref="rot" class="rot" aria-live="off">
             <span class="sr-only">{{ props.phrases.join('. ') }}.</span>
@@ -99,12 +99,10 @@ onBeforeUnmount(() => {
           <a class="arrow-link hero-tertiary" :href="links.discord">Join the Discord <Arrow kind="diag" /></a>
         </div>
       </div>
-
-      <div class="hero-media hero-in">
-        <div class="shell">
-          <HeroStatusCard :project="project" :project-link="projectLink" :latest="latest" />
-        </div>
+      <div class="hero-media hero-in mark-wrap lift-on-hover" aria-hidden="true">
+        <LogoMark id="hero" mode="drop" />
       </div>
     </div>
+    <p class="coords mono" aria-hidden="true">{{ coords }}</p>
   </section>
 </template>

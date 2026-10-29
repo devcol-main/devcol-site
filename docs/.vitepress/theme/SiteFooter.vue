@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSidebar } from 'vitepress/theme-without-fonts'
-import { withBase } from 'vitepress'
 import { links } from './site'
+import LogoMark from './LogoMark.vue'
 
 const { hasSidebar } = useSidebar()
 </script>
@@ -11,7 +11,7 @@ const { hasSidebar } = useSidebar()
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <p class="foot-brand"><span class="chip"><img :src="withBase('/logo.png')" alt="" width="28" height="28" /></span>DevCol</p>
+          <p class="foot-brand"><LogoMark id="foot" mode="still" />DevCol</p>
           <p>One developer, one indie game, and a public record of how it gets built. DevLogs, project write-ups, and technical notes.</p>
         </div>
         <div>

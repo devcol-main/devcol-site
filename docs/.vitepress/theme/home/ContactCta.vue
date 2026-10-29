@@ -3,10 +3,10 @@ import Arrow from './Arrow.vue'
 </script>
 
 <template>
-  <section class="section tight-top" aria-labelledby="cta-title">
+  <section class="section tight-top" data-bg="paper-2" aria-labelledby="cta-title">
     <div class="wrap">
-      <div class="cta-band spot rv-band">
-        <div class="hb-grid" aria-hidden="true"></div>
+      <div class="cta-band gridded has-ticks rv-band">
+        <span class="ticks" aria-hidden="true"></span>
         <div>
           <p class="sec-label">Contact</p>
           <h2 id="cta-title">Contact us</h2>
