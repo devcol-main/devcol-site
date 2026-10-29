@@ -104,6 +104,7 @@ Stack Up uses no game engine and no framework. It is about 3,000 lines of TypeSc
 
 The whole game runs inside one `requestAnimationFrame` callback. The order matters: the rules move first, then their events are handled, then the screen is drawn, so the picture always shows the state the rules just produced.
 
+::: details Show code · src/main.ts
 ```ts
 // src/main.ts (abridged)
 const clock = new FrameClock(UI_CONFIG.maxFrameDt); // maxFrameDt = 0.05 s
@@ -124,9 +125,11 @@ const frame = (now: number): void => {
 };
 requestAnimationFrame(frame);
 ```
+:::
 
 The clock is a tiny class with no DOM in it, so it is tested on its own. It turns timestamps into a time step, returns 0 while the tab is hidden, starts fresh after the tab comes back so the block does not jump, and caps a single step at 0.05 seconds:
 
+::: details Show code · src/ui/frameClock.ts
 ```ts
 // src/ui/frameClock.ts
 tick(nowMs: number): number {
@@ -139,6 +142,7 @@ tick(nowMs: number): number {
   return dt > this.maxDt ? this.maxDt : dt;
 }
 ```
+:::
 
 ### The rules in code
 
@@ -150,6 +154,7 @@ tick(nowMs: number): number {
 
 Everything in the Scoring section comes from one method, `StackUpLogic.drop()`. Positions are in screen widths (the play area is 1.0 wide), so the rules do not care about pixels or devices:
 
+::: details Show code · src/core/StackUpLogic.ts
 ```ts
 // src/core/StackUpLogic.ts (abridged)
 drop(): void {
@@ -193,9 +198,11 @@ drop(): void {
   // … perfect, regrow and milestone events, then the next moving block
 }
 ```
+:::
 
 Every number in that method is a named value in one config object, which is where balancing happens:
 
+::: details Show code · src/core/config.ts
 ```ts
 // src/core/config.ts
 export const DEFAULT_CONFIG: StackUpConfig = {
@@ -212,6 +219,7 @@ export const DEFAULT_CONFIG: StackUpConfig = {
   // …
 };
 ```
+:::
 
 Events go into a queue and are handed out in one call per frame. That keeps the order fixed (a cut always comes before its landing, a milestone always last), and it means the core never calls into rendering or audio code it should not know about.
 
@@ -225,6 +233,7 @@ Events go into a queue and are handed out in one call per frame. That keeps the 
 
 The neon look is a starfield and gradient background with glowing blocks. `shadowBlur` on a canvas is a real blur, and doing it for every block on every frame is one of the easiest ways to drop frames on a phone. So each block color is drawn once to an offscreen canvas, glow included, and only rebuilt when the size or the pixel ratio changes:
 
+::: details Show code · src/view/glowSprites.ts
 ```ts
 // src/view/glowSprites.ts (abridged): runs on resize, not per frame
 this.sheets = BLOCK_STYLES.map((st) => {
@@ -239,6 +248,7 @@ this.sheets = BLOCK_STYLES.map((st) => {
   return surface;
 });
 ```
+:::
 
 Blocks change width all the time, so the sprite is drawn in three slices, like a nine-slice image cut only horizontally: the two glowing ends are copied as they are and the middle is stretched. Edges are rounded to whole device pixels so no seam shows between slices. Particles for cuts and Perfects come from a fixed pool that is reused instead of being created and thrown away.
 
@@ -254,6 +264,7 @@ Every sound is synthesized with WebAudio oscillators and noise, including the ba
 
 Music cannot be driven from `requestAnimationFrame`: frames stop when the tab is hidden and stutter when the page is busy. Instead a timer wakes up every 80 ms and books every note that falls within the next 0.3 seconds on the audio clock, which keeps perfect time even if the timer itself is late:
 
+::: details Show code · src/audio/AudioManager.ts
 ```ts
 // src/audio/AudioManager.ts (abridged)
 private scheduleBgm(): void {
@@ -272,9 +283,11 @@ private scheduleBgm(): void {
   this.bgmNextTime = next;
 }
 ```
+:::
 
 The sound effects follow the same event stream as the visuals. A pure function maps each event to a sound, and Perfect notes climb a major pentatonic scale with the streak:
 
+::: details Show code · src/audio/audioLogic.ts
 ```ts
 // src/audio/audioLogic.ts
 export function comboToStep(combo: number, maxStep = AUDIO_CONFIG.perfectMaxStep): number {
@@ -288,6 +301,7 @@ export function stepToFreq(step: number, base = 523.25 /* C5 */, scale = [0, 2, 
   return base * Math.pow(2, (scale[s % scale.length]! + 12 * octave) / 12);
 }
 ```
+:::
 
 Browsers only allow audio after a user gesture, so the audio context is created and resumed on the first tap or key press, and the game stays silent until then.
 
@@ -301,6 +315,7 @@ Browsers only allow audio after a user gesture, so the audio context is created 
 
 The rules live in plain TypeScript that knows nothing about the page, the canvas, or audio. Randomness comes from a seeded generator that is passed in, and time comes in as a delta, so the same seed and the same inputs always give the same run:
 
+::: details Show code · src/core/rng.ts
 ```ts
 // src/core/rng.ts — mulberry32, returns a number in [0, 1)
 export function createRng(seed: number): Rng {
@@ -314,9 +329,11 @@ export function createRng(seed: number): Rng {
   };
 }
 ```
+:::
 
 That is what lets the rules be covered by unit tests (215 of them, across rules, scoring, regrow, milestones, audio mapping, layout and storage). A test can play a whole game in a few lines:
 
+::: details Show code · tests/StackUpLogic.test.ts
 ```ts
 // tests/StackUpLogic.test.ts
 it('same seed and inputs produce the same event sequence including milestones', () => {
@@ -335,6 +352,7 @@ it('same seed and inputs produce the same event sequence including milestones', 
   expect(run(7)).toContain('milestone');
 });
 ```
+:::
 
 It's also how the GIF in the README is made: a small bot plays a seeded run in headless Chrome, pressing Space when the moving block lines up, and the frames are captured and encoded with ffmpeg.
 
