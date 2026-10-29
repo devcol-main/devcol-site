@@ -12,14 +12,14 @@ This is the site you're reading. It holds the DevLog, the project write-ups, and
 
 This page covers how the site is put together, how the home page fills itself in from the DevLog, and how the October 2026 redesign went, including the design skills I used and the things that broke.
 
-![The devcol.net home page in dark mode](/projects/devcol-net-home.jpg)
+![The devcol.net home page, October 30, 2026](/projects/devcol-net-home.jpg)
 
 ## What it's built with
 
 - **VitePress** generates the pages from Markdown. The home page, the navigation, and the footer are a custom theme written as Vue components.
 - **GitHub Pages** hosts it. A GitHub Actions workflow runs `npm ci` and the VitePress build on Node 24, then deploys on every push to `main`. The repository has an `.nvmrc` so my local Node version matches the one the workflow uses.
 - **Cloudflare** holds the domain and DNS. GitHub issues the TLS certificate. The domain, about $12 a year, is the only recurring cost.
-- **Fonts** (Space Grotesk, Geist, JetBrains Mono, and Outfit for the logo text) are installed as npm packages and bundled with the site instead of loaded from a font service.
+- **Fonts** (Archivo for text and headings, IBM Plex Mono for labels and dates) are installed as npm packages and bundled with the site instead of loaded from a font service.
 - **GSAP and its ScrollTrigger plugin** drive the scroll effects. They're loaded only on the home page, after the page is already on screen, so the other pages don't download them at all.
 
 The sitemap is generated at build time, a `robots.txt` points to it, and search is VitePress's built-in local search.
@@ -42,13 +42,13 @@ A VitePress data loader reads that file line by line at build time. A `##` line 
 Which project counts as "now building" is one setting in the theme:
 
 ```ts
-export const nowBuilding = 'Tumble Teams'
-export const nowBuildingTags = ['Unreal Engine 5', 'Multiplayer']
+export const nowBuilding = 'PSEUDO'
+export const nowBuildingTags = ['Unreal Engine 5', 'Action RPG', 'Multiplayer']
 ```
 
 The name has to match a heading in the DevLog index. When I move on to the next game, I add a new heading to the index, change these two lines, and the home page follows. The project count comes from the same list that draws the Projects page, and the study note count is the number of Markdown files in the Study folder.
 
-## The redesign
+## The first redesign
 
 I had installed a set of design skills for Claude Code and wanted to use them to upgrade the site's design. Before this, the site had a cream-and-orange light mode and a black-and-lime dark mode, a status card in the style of a terminal, and four numbered cards on the home page. I liked several things about it, mainly the light that follows the mouse across the cards and the small reactions when you hover over or press a button, and I wanted to keep those.
 
@@ -116,7 +116,29 @@ After that came a long list of small changes. The colors on the first screen wer
 
 D's video-inside-the-headline idea came back as a section in the middle of the page: "Show the work while it's happening." The line comes from a sentence on my About page. The video behind it is a calm stretch of my Pawn project clip, slowed to half speed, darkened, and slightly blurred, and the small one inside the text is a few seconds of running gameplay from another project.
 
-In the end the accent color is a blue, amber marks things that are in progress, and the only red left on the page is the hook in the logo.
+In the end the accent color was a blue, amber marked things that were in progress, and the only red on the page was the hook in the logo. That version lasted about three weeks.
+
+## The second redesign
+
+The blue theme never matched the logo, which is black with a red hook. At the end of October I started a new round of drafts with one rule: the colors come from the logo. White, black, and a little red.
+
+The other rule was to avoid the look that dark, neon, gradient-heavy pages have picked up from being generated so often. So the new drafts have no glowing orbs, no gradient text, and no glass panels. The background is an off-white paper with faint graph-paper lines, the type is Archivo set tight, and the labels are in a monospace font. The lines of the grid get a little darker in a circle around the mouse, which replaced the colored spotlight from the blue version.
+
+Two drafts came out of that. **I** kept the page structure and only changed colors, fonts, and the CSS animation. **J** added new parts: the logo drawn in code and assembled on load by its own hook, a PSEUDO timeline laid out like the Sequencer in Unreal Engine, and a project index with a preview that follows the mouse. I liked both and asked for a merge that kept J's colors and hero, brought back several sections from the blue version in the new colors, and dropped the Sequencer timeline for the vertical build track.
+
+What's on the page now, top to bottom: the hero with the logo assembling, the ticker, the four cards, Now building with the build track, "Show the work while it's happening." with a small logo in the sentence that assembles as you scroll, the latest posts with a project filter and four study notes, four stacked project cards, the About line, the Featured Projects slider with every project in it, the Follow band, and Contact.
+
+A few smaller things I asked for along the way:
+
+- The red is `#d2463f`, a step softer than the logo's original `#e3262e`, picked from a sheet of four candidates on both the light and dark backgrounds. The logo files were changed to match.
+- The cursor turns into a crosshair over anything clickable. Its four arms breathe in and out and spread when you click. It's black on light surfaces and white on dark ones, with a thin outline in the opposite color so it reads on photos.
+- A thin red line under the menu shows how far down the page you are.
+- The page background shifts between three shades of paper as you scroll from section to section.
+- Buttons change their border as well as their background on hover. The "Follow the build on Discord" heading became "Follow us."
+- The back-to-top button is a plain arrow again. I tried a hook-shaped one and it was too cute.
+
+The drop animation for the logo is one CSS keyframe on the back square and the hook; the two squares have a small hole cut where the other passes over, and a patch covers each hole until the pieces meet. The same SVG is used in the navigation, the hero, the sentence in the middle of the page, and the footer.
+
 
 ## Problems along the way
 
@@ -144,4 +166,4 @@ The [first DevLog post](/blog/2026-09-17-building-devcol-net) covers the earlier
 
 ## What's next
 
-The video frame under the first screen still says "Tumble Teams footage · coming soon". It will get real gameplay footage later. A Korean version of the site is planned for later, under its own `/ko/` path.
+The home page has no gameplay footage yet; the project cards use clips from older projects. PSEUDO footage goes in when there is something worth showing. A Korean version of the site is planned for later, under its own `/ko/` path.

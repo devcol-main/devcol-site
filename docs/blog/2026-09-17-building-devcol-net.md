@@ -1,7 +1,7 @@
 ---
 title: Building devcol.net
 date: 2026-09-17
-description: "How this site went online: VitePress on GitHub Pages, a GitHub Actions deploy on every push, Cloudflare DNS, and the pages added before applying for AdSense."
+description: "How this site went online: VitePress on GitHub Pages, a GitHub Actions deploy on every push, Cloudflare DNS, and the pages added before applying for AdSense. Updated with the October 2026 redesign."
 tags: [VitePress, GitHub Pages, Web]
 image: /projects/devcol-net-home.jpg
 ---
@@ -11,7 +11,7 @@ image: /projects/devcol-net-home.jpg
 This is the first real post on the DevLog. The placeholder that used to sit here said "replace this with real progress notes," so here are the actual notes on getting this site running.
 
 ![The devcol.net home page](/projects/devcol-net-home.jpg)
-*The devcol.net home page.*
+*The devcol.net home page as of October 30, 2026.*
 
 ## Getting it online
 
@@ -38,6 +38,14 @@ I also got the itch.io embeds wrong the first time. The embed code on a game's p
 
 VitePress doesn't generate a sitemap, so a `buildEnd` hook in the config writes `sitemap.xml` from the page list. There's a `robots.txt` that points to it. I verified the domain in Google Search Console with a DNS TXT record in Cloudflare and submitted the sitemap. The first submission showed "Couldn't fetch" with type "Unknown". The file was reachable and valid, and it cleared on its own a day later.
 
-## Next
+## Update, October 2026
 
-Three more projects were Korean-only, and I've now translated them. The wiki's Lore and Systems pages are still empty, so they're hidden until there's something to put in them.
+The site has changed a lot since this post. The short version:
+
+- The home page was redesigned twice. The first pass in early October added the build track, the stacked project cards, and the scroll effects, with a blue accent. The second pass at the end of the month took the colors from the logo instead: an off-white paper background, near-black text, and red only where something needs to stand out. The logo is now drawn in code and assembles itself when the page loads. The full story, including the drafts I didn't pick, is on the [devcol.net project page](/projects/devcol-net).
+- The Projects section grew from the four moved-over pages to sixteen, including two browser games that run on this site, [Stack Up](/projects/stack-up) and [Bug Squash](/projects/bug-squash), and the small Windows tools I built with Claude.
+- The DevLog switched from Tumble Teams to [PSEUDO](/blog/pseudo), the Unreal Engine 5 action RPG I'm building now. The home page reads the DevLog index at build time, so the "Now building" section follows whatever project has the newest posts.
+- The site has its own [cookie-free analytics](/blog/2026-10-23-devcol-analytics) on Cloudflare Workers, and the numbers are public on the [Stats](/stats) page.
+- The wiki's Lore section now has pages. Systems is still empty and still hidden from the navigation.
+
+The things in the "Things that broke" list above are all still fixed. The itch.io icon, the expired Discord invite, and the embeds haven't come back to bite me.
