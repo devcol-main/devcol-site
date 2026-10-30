@@ -123,6 +123,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 
 - 사이트 전체에 `docs/public/t.js`(쿠키 없는 자체 애널리틱스)가 로드된다. 이 파일은 devcol-analytics 리포의 `client/t.js`를 압축한 결과물이므로 **여기서 직접 고치지 말고** 그쪽에서 `npm run build:client`로 다시 만든다.
 - **새 게임을 `docs/public/games/`에 추가할 때는 `docs/GAME-ANALYTICS.md` 체크리스트를 따른다.** (스크립트 태그 1줄 + `stage_clear`/`game_over` 호출 2곳. 서버와 대시보드는 고치지 않는다.)
+- 게임 온라인 리더보드(`a.devcol.net/lb`, 서버는 같은 devcol-analytics)에 새 게임을 붙일 때는 `docs/GAME-LEADERBOARD.md`를 따른다. 리더보드에서 보내거나 저장하는 항목이 바뀌면 `privacy-policy.md`의 Online Leaderboard 절도 같이 고친다.
 - 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
 
 ---
