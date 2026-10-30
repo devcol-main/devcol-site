@@ -4,13 +4,13 @@ title: Privacy Policy
 
 # Privacy Policy
 
-**Last updated: October 23, 2026**
+**Last updated: October 30, 2026**
 
 This Privacy Policy describes how DevCol ("we," "us," or "this site," reachable at [devcol.net](https://devcol.net)) handles information when you visit.
 
 ## Information We Collect
 
-DevCol does not require you to create an account or submit personal information to read the site. We do not knowingly collect personal information from visitors under the age of 13.
+DevCol does not require you to create an account or submit personal information to read the site. The only thing you can choose to publish is a nickname on the online game leaderboard (see below). We do not knowingly collect personal information from visitors under the age of 13.
 
 ## Cookies and Third-Party Services
 
@@ -34,11 +34,24 @@ DevCol runs its own small analytics service (source code: [devcol-analytics](htt
 
 ## Browser Games
 
-The games under [Arcade Web](/projects/arcade-web) (such as Stack Up and Bug Squash) save a few things in your browser's local storage so they work the next time you visit: your best score, a local Top 10, the nickname you type, a randomly generated player ID, and settings like sound volume and reduced motion. This data stays on your device. The games do not send it to us or to anyone else (the anonymous gameplay events described under Site Analytics do not include your nickname, player ID, or saved Top 10), and you can remove it with the reset option in each game or by clearing your browser's site data.
+The games under [Arcade Web](/projects/arcade-web) (such as Stack Up and Bug Squash) save a few things in your browser's local storage so they work the next time you visit: your best score, a local copy of your scores, the nickname you type, a randomly generated player ID, an online leaderboard key (described below), and settings like sound volume and reduced motion. The player ID never leaves your device. You can remove the local data with the reset option in each game or by clearing your browser's site data.
+
+## Online Leaderboard
+
+The games share an online Top 10 on devcol.net. There is no account or login. Submitting a score is optional: nothing is sent until you press Submit after a game.
+
+- **What is sent when you submit**: the game name, the nickname you typed, your score, a few game numbers (for example floors reached or best combo), and how long the run took. The anonymous gameplay events under Site Analytics are separate and do not include your nickname.
+- **What is published**: your nickname (or `Player` followed by four digits, see below), your best score in each game, those game numbers, and the date. Only your best score per game is kept.
+- **Leaderboard key**: on your first submit the server creates a random key and gives it to your browser, which stores it in local storage. The server keeps only a one-way hash of it. The key links your later scores to the same entry and lets you delete your scores yourself. It is not linked to your player ID, your IP address, or any account.
+- **What is not stored**: your IP address, your full browser user-agent string, and cookies. To limit abuse (for example too many submits per minute), the server counts requests using the same daily-changing one-way hash described under Site Analytics; those counters are deleted within a day.
+- **Nickname checks**: nicknames may only use letters, Korean (Hangul) characters, numbers and single spaces, 2 to 12 characters. Each new nickname is checked against a word list and, for names that pass, by an automated text classifier (Cloudflare Workers AI, run by Cloudflare on our behalf; only the nickname is sent to it, and the result is cached so the same name is not sent again). A name that fails any check is published as `Player####` instead and is not attached to your entry; the checked names themselves are kept, without any link to who typed them, so the same name is not checked twice. If three different people report a name (each report is stored with the same daily-changing one-way hash, not an IP address), it is also replaced with `Player####` until it is reviewed. DevCol may hide, rename, or remove entries and block players that abuse the leaderboard.
+- **Retention**: an entry and its key are deleted 12 months after that player's last submit. Reports are deleted after 90 days.
+- **Deleting your scores**: open Options in any of the games and choose **Online scores → Delete mine**. This removes your entries from every game and deletes your key. If you cleared your browser data and lost the key, contact us (see [Contact](/contact)) with the game, the name shown, the score, and roughly when you played, and we will delete the entry.
+- **Where it is stored**: Cloudflare (Workers and D1), the same service as the site analytics. Source code: [devcol-analytics](https://github.com/devcol-main/devcol-analytics).
 
 ## Data We Do Not Collect
 
-We do not sell your personal data. We do not collect payment information, passwords, or account credentials, as the site has no login system.
+We do not sell your personal data. We do not collect payment information, passwords, or account credentials, as the site has no login system. Please do not use your real name or other personal details as a leaderboard nickname.
 
 ## Your Rights
 
