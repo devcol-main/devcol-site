@@ -2,7 +2,7 @@
 title: "Switch Ammo, Press Fire, Nothing Happens: Three Bugs Behind One Report"
 description: "After switching ammo on PSEUDO's dual pistols, a fire press sometimes did nothing. It turned out to be three separate problems: a stance gate that dropped presses silently, an ammo cycle that didn't count as combat input, and a fire ability that stayed active forever when its montage was cut during the blend-out."
 date: 2026-11-04
-publishAt: 2026-11-09
+publishAt: 2026-11-05
 track: "Ammo switch lost presses"
 outline: deep
 tags: [UE5, GAS, Animation, Input, Debugging]

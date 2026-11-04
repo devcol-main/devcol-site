@@ -2,7 +2,7 @@
 title: "Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds"
 description: "Knocked back with PSEUDO's dual pistols drawn, the player kicked a leg up to hip height while the torso stayed upright and aiming. The first fix handled the torso, an upper-body aim pose layered over the hit reaction. The leg was foot IK planting the feet while the knockback pushed the body 600 cm."
 date: 2026-11-04
-publishAt: 2026-11-10
+publishAt: 2026-11-06
 track: "Pistol knockback breaks the legs"
 outline: deep
 tags: [UE5, Animation, IK, Anim Blueprint, Debugging]

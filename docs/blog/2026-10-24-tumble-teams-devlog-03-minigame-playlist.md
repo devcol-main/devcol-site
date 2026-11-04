@@ -2,7 +2,7 @@
 title: "Tumble Teams DevLog #3: Five Minigames on One Match Flow"
 description: "Turning Tumble Teams into a lobby, minigame, result loop with a five-minigame playlist in Unreal Engine 5: a shared server-side match flow, per-minigame rules objects, GAS abilities and effects, greybox maps, and an honest list of what still hasn't been played."
 date: 2026-10-24
-publishAt: 2026-11-08
+publishAt: 2026-11-04
 track: "Match flow, minigame playlist"
 outline: deep
 tags: [UE5, GAS, Multiplayer]

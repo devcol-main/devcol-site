@@ -2,7 +2,7 @@
 title: "A Lock-On That Waited for the Release: Moving the Decision to the Press"
 description: "Clicking the mouse wheel to lock on in PSEUDO often did nothing. The click was judged on release, inside a 0.3 s tap window, and a stiff wheel button easily stays down longer than that. Why clean 1-frame test taps looked perfect, the fix that locks on the press, and a second report that turned out not to be the code."
 date: 2026-11-01
-publishAt: 2026-11-06
+publishAt: 2026-11-04
 track: "Lock-on click"
 outline: deep
 tags: [UE5, Input, Lock-On, Debugging]

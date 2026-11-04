@@ -2,7 +2,7 @@
 title: "A Coat That Shattered Only After a Fresh Spawn: Anim Drive, and the Test That Hid It"
 description: "The player's coat in PSEUDO kept breaking into dark jagged shards around the legs, even after two rounds of cloth fixes. The cause was the Chaos cloth anim drive holding the coat folded from the moment of spawn, and every earlier test had missed it because swapping the mesh in PIE restarts the cloth simulation from a clean pose."
 date: 2026-11-01
-publishAt: 2026-11-06
+publishAt: 2026-11-04
 track: "Coat shards"
 outline: deep
 tags: [UE5, Chaos Cloth, Animation, Debugging]

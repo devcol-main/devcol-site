@@ -2,7 +2,7 @@
 title: "The Coat Wasn't Clipping, the Idle Was: A Thigh in Front of the Coat"
 description: "Right after spawning in PSEUDO, the player's thigh poked out in front of the coat. Three cloth-side fixes changed nothing, because with the simulation turned off the animation pose itself put the thigh there. The one-check test that settles cloth versus animation, a 10-degree edit to the idle, and loosening the coat's swing to 60 degrees."
 date: 2026-11-01
-publishAt: 2026-11-07
+publishAt: 2026-11-05
 track: "Coat through the thigh"
 outline: deep
 tags: [UE5, Chaos Cloth, Animation, Python, Debugging]

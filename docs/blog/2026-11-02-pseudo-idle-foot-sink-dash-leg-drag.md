@@ -2,7 +2,7 @@
 title: "Three Foot Bugs, Three Causes: A Sunken Idle Foot, a Dragging Dash Leg and a Foot That Hovered"
 description: "In PSEUDO the idle left foot sat inside the floor, the dash dragged one leg far behind the body, and after a dash a foot hovered. They looked like one foot IK problem. They were a clip edited the day before, a bad dash pose frame, and Foot Placement still planting feet while a static pose slid the body."
 date: 2026-11-02
-publishAt: 2026-11-07
+publishAt: 2026-11-05
 track: "Idle foot sink and dash leg drag"
 outline: deep
 tags: [UE5, Animation, IK, Debugging]

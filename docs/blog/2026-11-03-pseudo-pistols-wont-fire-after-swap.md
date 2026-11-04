@@ -2,7 +2,7 @@
 title: "The Pistols That Wouldn't Fire: A Bug I Couldn't Reproduce and the Auto-Stow It Pointed To"
 description: "Empty the pistols, swap to the greatsword, wait for the ammo to refill, switch back: the gun doesn't fire. Two PIE runs couldn't make the pistols fail. They showed something else: the greatsword stows itself while you wait, and one swap from stowed brings the greatsword back, not the pistols."
 date: 2026-11-03
-publishAt: 2026-11-08
+publishAt: 2026-11-05
 track: "Pistols don't fire after a swap"
 outline: deep
 tags: [UE5, GAS, Input, Weapons, Debugging]
