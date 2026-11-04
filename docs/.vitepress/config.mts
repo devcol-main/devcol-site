@@ -14,6 +14,7 @@ const tumbleTeamsGroups: { text: string; posts: Post[] }[] = [
     posts: [
       ['DevLog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
       ['DevLog #2: Input and Pawn Init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
+      ['DevLog #3: Minigame Playlist', '2026-10-24-tumble-teams-devlog-03-minigame-playlist'],
     ],
   },
   {
@@ -192,6 +193,15 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: 'No Control After Menu Start', link: '/blog/2026-10-22-pseudo-menu-start-no-control' },
         { text: 'Menu Lumen Warning', link: '/blog/2026-10-22-pseudo-menu-lumen-exposure-warning' },
         { text: 'Player Groggy Never Triggers', link: '/blog/2026-10-23-pseudo-player-groggy-never-triggers' },
+        { text: "Lock-On Click on Press", link: '/blog/2026-11-01-pseudo-lock-on-click-on-press' },
+        { text: "Coat Shards After Spawn", link: '/blog/2026-11-01-pseudo-coat-shards-anim-drive' },
+        { text: "Coat Through the Thigh", link: '/blog/2026-11-01-pseudo-coat-through-thigh-relaxed-idle' },
+        { text: "Idle Foot Sink and Dash Leg Drag", link: '/blog/2026-11-02-pseudo-idle-foot-sink-dash-leg-drag' },
+        { text: "Pistols Won't Fire After a Swap", link: '/blog/2026-11-03-pseudo-pistols-wont-fire-after-swap' },
+        { text: "Ammo Switch Lost Presses", link: '/blog/2026-11-04-pseudo-ammo-switch-lost-presses' },
+        { text: "Ammo Switch Gun Dip", link: '/blog/2026-11-04-pseudo-ammo-switch-gun-dip' },
+        { text: "Fire Blend-Out False Stuck", link: '/blog/2026-11-04-pseudo-fire-blend-out-false-stuck' },
+        { text: "Pistol Knockback Breaks the Legs", link: '/blog/2026-11-04-pseudo-pistol-knockback-broken-legs' },
         { text: 'Planning a Steam Release Backwards', link: '/blog/2026-10-22-pseudo-steam-release-backwards' },
       ],
     },

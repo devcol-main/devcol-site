@@ -2,7 +2,7 @@
 title: "The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen"
 description: "Switching away from the Laser or the heavy machine gun in PSEUDO lowered the pistols and raised them again. The cause was an exit clip chained into an enter clip. Replacing them with a direct blend took three tries, and each failed try taught me something about how UE5 montages blend in."
 date: 2026-11-04
-publishAt: 2026-12-31
+publishAt: 2026-11-09
 track: "Ammo switch blend"
 outline: deep
 tags: [UE5, Animation, Montages, Debugging]

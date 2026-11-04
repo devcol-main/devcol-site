@@ -2,7 +2,7 @@
 title: "My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out"
 description: "A safety check added to PSEUDO's fire ability treated 'montage not playing' as a stuck fire. Montage_IsPlaying turns false when the blend-out starts, while the round is still running, so a press in that window ended a healthy round, fired nothing, and let the next shot skip the fire cadence."
 date: 2026-11-04
-publishAt: 2026-12-31
+publishAt: 2026-11-10
 track: "Fire blend-out false stuck"
 outline: deep
 tags: [UE5, GAS, Animation, Input, Debugging]
