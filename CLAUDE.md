@@ -125,6 +125,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - **새 게임을 `docs/public/games/`에 추가할 때는 `docs/GAME-ANALYTICS.md` 체크리스트를 따른다.** (스크립트 태그 1줄 + `stage_clear`/`game_over` 호출 2곳. 서버와 대시보드는 고치지 않는다.)
 - 게임 온라인 리더보드(`a.devcol.net/lb`, 서버는 같은 devcol-analytics)에 새 게임을 붙일 때는 `docs/GAME-LEADERBOARD.md`를 따른다. 리더보드에서 보내거나 저장하는 항목이 바뀌면 `privacy-policy.md`의 Online Leaderboard 절도 같이 고친다.
 - 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
+- **자동 포스팅**: `automation/autopost/`(로컬 Mac LaunchAgent). PSEUDO DBG 노트·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
 
 ---
 
