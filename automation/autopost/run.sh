@@ -1,6 +1,6 @@
 #!/bin/bash
 # devcol.net autopost: turn new PSEUDO / TumbleTeams notes into scheduled DevLog posts.
-# Runs from launchd (see install.sh) or by hand: ./run.sh
+# Runs from a scheduler or by hand: ./run.sh   (--force: run even if today already succeeded)
 # Works in its own clones under $DEVCOL_AUTOPOST_HOME, so your working copies are never touched.
 set -uo pipefail
 
@@ -19,6 +19,12 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/opt/homebrew/bin:/usr/local/b
 notify() { osascript -e "display notification \"$1\" with title \"devcol autopost\"" >/dev/null 2>&1 || true; }
 fail() { echo "FAIL: $1"; notify "Failed: $1 (log: $LOG)"; exit 1; }
 
+TODAY=$(TZ=Asia/Seoul date +%F)
+DONE="$HOME_DIR/last-success"
+# Several triggers may call this in one day (09:00, 21:00 retry, on wake/login); only the first success counts.
+if [ "${1:-}" != "--force" ] && [ "$(cat "$DONE" 2>/dev/null)" = "$TODAY" ]; then
+  echo "=== $(date '+%F %T') already ran today ($TODAY), skipping"; exit 0
+fi
 echo "=== $(date '+%F %T') start"
 LOCK="$HOME_DIR/.lock"
 mkdir "$LOCK" 2>/dev/null || { echo "another run is active, exiting"; exit 0; }
@@ -62,12 +68,13 @@ DEVCOL_SRC="$SRC" "$CLAUDE_BIN" -p "$PROMPT" \
 
 # 4. Gate: only push new commits that build.
 if [ "$(git rev-parse HEAD)" = "$BEFORE" ]; then
-  echo "no new commits"; echo "=== $(date '+%F %T') done (nothing new)"; exit 0
+  echo "no new commits"; echo "$TODAY" > "$DONE"; echo "=== $(date '+%F %T') done (nothing new)"; exit 0
 fi
 [ -z "$(git status --porcelain)" ] || fail "uncommitted changes left behind"
 npm run docs:build >/dev/null || fail "docs:build failed; nothing pushed"
 git push -q origin main || fail "push"
 N=$(git diff --name-only --diff-filter=A "$BEFORE" HEAD -- docs/blog | wc -l | tr -d ' ')
 echo "pushed $N new post(s): $(git log --format=%s -1)"
+echo "$TODAY" > "$DONE"
 notify "Queued $N new post(s)"
 echo "=== $(date '+%F %T') done"
