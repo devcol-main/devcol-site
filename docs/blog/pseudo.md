@@ -95,6 +95,15 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change](./2026-10-22-pseudo-menu-start-no-control)
 - [A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off](./2026-10-22-pseudo-menu-lumen-exposure-warning)
 - [A Groggy Gauge That Never Filled: When Zero Means Off and the Log Says Nothing](./2026-10-23-pseudo-player-groggy-never-triggers)
+- [A Lock-On That Waited for the Release: Moving the Decision to the Press](./2026-11-01-pseudo-lock-on-click-on-press)
+- [A Coat That Shattered Only After a Fresh Spawn: Anim Drive, and the Test That Hid It](./2026-11-01-pseudo-coat-shards-anim-drive)
+- [The Coat Wasn't Clipping, the Idle Was: A Thigh in Front of the Coat](./2026-11-01-pseudo-coat-through-thigh-relaxed-idle)
+- [Three Foot Bugs, Three Causes: A Sunken Idle Foot, a Dragging Dash Leg and a Foot That Hovered](./2026-11-02-pseudo-idle-foot-sink-dash-leg-drag)
+- [The Pistols That Wouldn't Fire: A Bug I Couldn't Reproduce and the Auto-Stow It Pointed To](./2026-11-03-pseudo-pistols-wont-fire-after-swap)
+- [Switch Ammo, Press Fire, Nothing Happens: Three Bugs Behind One Report](./2026-11-04-pseudo-ammo-switch-lost-presses)
+- [The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen](./2026-11-04-pseudo-ammo-switch-gun-dip)
+- [My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out](./2026-11-04-pseudo-fire-blend-out-false-stuck)
+- [Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds](./2026-11-04-pseudo-pistol-knockback-broken-legs)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

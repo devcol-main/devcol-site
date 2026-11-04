@@ -15,6 +15,15 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-04: [Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds](./2026-11-04-pseudo-pistol-knockback-broken-legs)
+- 2026-11-04: [My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out](./2026-11-04-pseudo-fire-blend-out-false-stuck)
+- 2026-11-04: [The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen](./2026-11-04-pseudo-ammo-switch-gun-dip)
+- 2026-11-04: [Switch Ammo, Press Fire, Nothing Happens: Three Bugs Behind One Report](./2026-11-04-pseudo-ammo-switch-lost-presses)
+- 2026-11-03: [The Pistols That Wouldn't Fire: A Bug I Couldn't Reproduce and the Auto-Stow It Pointed To](./2026-11-03-pseudo-pistols-wont-fire-after-swap)
+- 2026-11-02: [Three Foot Bugs, Three Causes: A Sunken Idle Foot, a Dragging Dash Leg and a Foot That Hovered](./2026-11-02-pseudo-idle-foot-sink-dash-leg-drag)
+- 2026-11-01: [The Coat Wasn't Clipping, the Idle Was: A Thigh in Front of the Coat](./2026-11-01-pseudo-coat-through-thigh-relaxed-idle)
+- 2026-11-01: [A Coat That Shattered Only After a Fresh Spawn: Anim Drive, and the Test That Hid It](./2026-11-01-pseudo-coat-shards-anim-drive)
+- 2026-11-01: [A Lock-On That Waited for the Release: Moving the Decision to the Press](./2026-11-01-pseudo-lock-on-click-on-press)
 - 2026-10-23: [A Groggy Gauge That Never Filled: When Zero Means Off and the Log Says Nothing](./2026-10-23-pseudo-player-groggy-never-triggers)
 - 2026-10-22: [Planning a First Steam Release Backwards: Fees, Waiting Periods and Fixed Dates](./2026-10-22-pseudo-steam-release-backwards)
 - 2026-10-22: [A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off](./2026-10-22-pseudo-menu-lumen-exposure-warning)
@@ -38,6 +47,7 @@ A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
 An Unreal Engine 5 multiplayer game.
 
+- 2026-10-24: [Tumble Teams DevLog #3: Five Minigames on One Match Flow](./2026-10-24-tumble-teams-devlog-03-minigame-playlist)
 - 2026-10-03: [Server-Side Damage and Hit Detection for Melee Abilities](./2026-10-03-tumble-teams-damage-and-hit-detection)
 - 2026-10-03: [Why Mixamo Animations Broke on My Character, and the Retargeting Pipeline That Fixed It](./2026-10-03-tumble-teams-mixamo-retargeting)
 - 2026-10-03: [Tumble Teams DevLog #2: Data-Driven Input and Preparing for GAS in UE5](./2026-10-03-tumble-teams-devlog-02-input-and-pawn-init)

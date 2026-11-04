@@ -2,7 +2,7 @@
 title: "A Groggy Gauge That Never Filled: When Zero Means Off and the Log Says Nothing"
 description: "Changing the player's groggy duration in PSEUDO had no visible effect, and the log had no groggy lines for the player at all. The code was fine: a data asset was missing one value whose default of 0 means 'never groggy', and the function returned before it logged anything."
 date: 2026-10-23
-publishAt: 2026-11-05
+publishAt: 2026-11-04
 track: "Player groggy never triggers"
 outline: deep
 tags: [UE5, GAS, Data Assets, Debugging]

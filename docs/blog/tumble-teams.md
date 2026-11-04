@@ -38,6 +38,7 @@ I read Epic's Lyra sample for reference and don't build on top of it. I rebuild 
 
 - [DevLog #1: Building a Server-Authoritative Chat Plugin in UE5](./2026-08-11-tumble-teams-devlog-01-chatcore)
 - [DevLog #2: Data-Driven Input and Preparing for GAS in UE5](./2026-10-03-tumble-teams-devlog-02-input-and-pawn-init)
+- [DevLog #3: Five Minigames on One Match Flow](./2026-10-24-tumble-teams-devlog-03-minigame-playlist)
 
 **Debugging notes and write-ups** (in order of when they happened)
 
