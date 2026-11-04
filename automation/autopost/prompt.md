@@ -4,7 +4,7 @@ You are the devcol.net autopost run. You turn new development notes from two gam
 - Site repo (your working directory, already on an up-to-date `main`): `docs/blog/`, `docs/.vitepress/config.mts`, `automation/autopost/ledger.md`.
 - PSEUDO source (blobless clone, no checkout): `$DEVCOL_SRC/pseudo`. Read with `git -C "$DEVCOL_SRC/pseudo" show "origin/main:<path>"`, list with `git -C "$DEVCOL_SRC/pseudo" ls-tree -r --name-only origin/main`.
 - TumbleTeams source (same kind of clone): `$DEVCOL_SRC/tumbleteams`.
-The value of `$DEVCOL_SRC` is given at the end of this prompt.
+The value of `$DEVCOL_SRC` (and today's date) is given by whoever started this run: the scheduled task instructions or the end of this prompt. Use the expanded absolute path in commands.
 
 ## 1. Find what's new
 Read `automation/autopost/ledger.md`. Anything listed there is done.
