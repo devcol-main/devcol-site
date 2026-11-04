@@ -104,6 +104,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen](./2026-11-04-pseudo-ammo-switch-gun-dip)
 - [My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out](./2026-11-04-pseudo-fire-blend-out-false-stuck)
 - [Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds](./2026-11-04-pseudo-pistol-knockback-broken-legs)
+- [Bringing Back the Dash Pose: A Smoother Blend-Out That Cut the Dash Short](./2026-11-05-pseudo-dash-pose-blend-out-cuts-dash)
+- [A Beam That Started Off the Gun: Stale Bones on a Player the Client Wasn't Drawing](./2026-11-05-pseudo-remote-shot-stale-muzzle)
+- [Distortion Effects That Drew Nothing: r.RefractionQuality and Medium Scalability](./2026-11-05-pseudo-distortion-effects-draw-nothing)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

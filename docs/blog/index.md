@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-05: [Distortion Effects That Drew Nothing: r.RefractionQuality and Medium Scalability](./2026-11-05-pseudo-distortion-effects-draw-nothing)
+- 2026-11-05: [A Beam That Started Off the Gun: Stale Bones on a Player the Client Wasn't Drawing](./2026-11-05-pseudo-remote-shot-stale-muzzle)
+- 2026-11-05: [Bringing Back the Dash Pose: A Smoother Blend-Out That Cut the Dash Short](./2026-11-05-pseudo-dash-pose-blend-out-cuts-dash)
 - 2026-11-04: [Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds](./2026-11-04-pseudo-pistol-knockback-broken-legs)
 - 2026-11-04: [My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out](./2026-11-04-pseudo-fire-blend-out-false-stuck)
 - 2026-11-04: [The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen](./2026-11-04-pseudo-ammo-switch-gun-dip)

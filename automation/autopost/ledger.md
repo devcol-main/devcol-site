@@ -12,3 +12,11 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 
 ## Handled after the cut-off
 
+- PSEUDO: Documents/Debugging/DBG-031 Forward Dash Pose Cuts The Dash And Sinks The Feet (2026-11-05).md -> 2026-11-05-pseudo-dash-pose-blend-out-cuts-dash
+- PSEUDO: Documents/Debugging/DBG-032 Remote Shot Starts At A Stale Muzzle (2026-11-05).md -> 2026-11-05-pseudo-remote-shot-stale-muzzle
+- PSEUDO: Documents/Debugging/DBG-033 Distortion Effects Draw Nothing (2026-11-05).md -> 2026-11-05-pseudo-distortion-effects-draw-nothing
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-05) -> nothing to post
+
+## Wiki follow-ups
+
+- /wiki/systems/defense: "Where it stands" says the dash uses borrowed evade animations; the forward dash now holds a one-frame sprint pose (TB_Dash_Pose), only back/left/right use evade clips (DBG-031).
