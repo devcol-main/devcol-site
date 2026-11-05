@@ -107,6 +107,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Bringing Back the Dash Pose: A Smoother Blend-Out That Cut the Dash Short](./2026-11-05-pseudo-dash-pose-blend-out-cuts-dash)
 - [A Beam That Started Off the Gun: Stale Bones on a Player the Client Wasn't Drawing](./2026-11-05-pseudo-remote-shot-stale-muzzle)
 - [Distortion Effects That Drew Nothing: r.RefractionQuality and Medium Scalability](./2026-11-05-pseudo-distortion-effects-draw-nothing)
+- [A Dash That Cut the Player in Half: A Distortion Ribbon Edge-On to the Camera](./2026-11-05-pseudo-dash-distortion-cuts-body)
+- [A Burn Status With No Flames, and a Re-Activate That Crashed the Editor](./2026-11-05-pseudo-burn-status-recursion-crash)
+- [The Same Trap From the Front: A Sword Distortion Pair That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

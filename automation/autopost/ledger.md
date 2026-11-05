@@ -16,6 +16,10 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 - PSEUDO: Documents/Debugging/DBG-032 Remote Shot Starts At A Stale Muzzle (2026-11-05).md -> 2026-11-05-pseudo-remote-shot-stale-muzzle
 - PSEUDO: Documents/Debugging/DBG-033 Distortion Effects Draw Nothing (2026-11-05).md -> 2026-11-05-pseudo-distortion-effects-draw-nothing
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-05) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-034 Dash Distortion Cuts The Body In Half (2026-11-05).md -> 2026-11-05-pseudo-dash-distortion-cuts-body
+- PSEUDO: Documents/Debugging/DBG-035 Burn Status Never Activates And Crashes The Editor (2026-11-05).md -> 2026-11-05-pseudo-burn-status-recursion-crash
+- PSEUDO: Documents/Debugging/DBG-036 Pack Distortion Pair Cuts The Body From The Front (2026-11-05).md -> 2026-11-05-pseudo-sword-distortion-cuts-body-front
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-06) -> nothing to post
 
 ## Wiki follow-ups
 
