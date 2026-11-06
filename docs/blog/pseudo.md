@@ -110,6 +110,7 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [A Dash That Cut the Player in Half: A Distortion Ribbon Edge-On to the Camera](./2026-11-05-pseudo-dash-distortion-cuts-body)
 - [A Burn Status With No Flames, and a Re-Activate That Crashed the Editor](./2026-11-05-pseudo-burn-status-recursion-crash)
 - [The Same Trap From the Front: A Sword Distortion Pair That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)
+- [Two Enemies Nothing Could Hurt: A Missing Physics Asset and a Two-Phase Hit Test](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

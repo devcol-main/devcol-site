@@ -20,6 +20,8 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 - PSEUDO: Documents/Debugging/DBG-035 Burn Status Never Activates And Crashes The Editor (2026-11-05).md -> 2026-11-05-pseudo-burn-status-recursion-crash
 - PSEUDO: Documents/Debugging/DBG-036 Pack Distortion Pair Cuts The Body From The Front (2026-11-05).md -> 2026-11-05-pseudo-sword-distortion-cuts-body-front
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-06) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-037 Buff Enemies Cannot Be Hit Without A Physics Asset (2026-11-06).md -> 2026-11-06-pseudo-buff-enemies-no-physics-asset
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-07) -> nothing to post
 
 ## Wiki follow-ups
 

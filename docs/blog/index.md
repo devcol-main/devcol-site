@@ -15,6 +15,7 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-06: [Two Enemies Nothing Could Hurt: A Missing Physics Asset and a Two-Phase Hit Test](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
 - 2026-11-05: [The Same Trap From the Front: A Sword Distortion Pair That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)
 - 2026-11-05: [A Burn Status With No Flames, and a Re-Activate That Crashed the Editor](./2026-11-05-pseudo-burn-status-recursion-crash)
 - 2026-11-05: [A Dash That Cut the Player in Half: A Distortion Ribbon Edge-On to the Camera](./2026-11-05-pseudo-dash-distortion-cuts-body)
