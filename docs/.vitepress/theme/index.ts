@@ -163,7 +163,7 @@ function initCrosshair() {
   requestAnimationFrame(breathe)
 }
 
-// Reading progress: a red line under the nav bar.
+// Reading progress: a red line at the bottom of the viewport.
 function initProgress() {
   const bar = document.createElement('div')
   bar.className = 'read-progress'
