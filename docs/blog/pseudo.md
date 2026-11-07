@@ -111,6 +111,7 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [A Burn Status With No Flames, and a Re-Activate That Crashed the Editor](./2026-11-05-pseudo-burn-status-recursion-crash)
 - [The Same Trap From the Front: A Sword Distortion Pair That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)
 - [Two Enemies Nothing Could Hurt: A Missing Physics Asset and a Two-Phase Hit Test](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
+- [A Status Look the Client Never Showed: Replicated Tags That Arrive Before BeginPlay](./2026-11-07-pseudo-status-look-missing-on-client)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

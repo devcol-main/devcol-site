@@ -22,6 +22,9 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-06) -> nothing to post
 - PSEUDO: Documents/Debugging/DBG-037 Buff Enemies Cannot Be Hit Without A Physics Asset (2026-11-06).md -> 2026-11-06-pseudo-buff-enemies-no-physics-asset
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-07) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-038 Grenade Aim Tears The Coat Shoulder And Fades The Body (2026-11-07).md -> PENDING, not done: status Open (clip fix not saved yet); re-check every run and post once it is resolved
+- PSEUDO: Documents/Debugging/DBG-039 Status Look Missing On Client When Status Already Running (2026-11-07).md -> 2026-11-07-pseudo-status-look-missing-on-client
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-08) -> nothing to post
 
 ## Wiki follow-ups
 

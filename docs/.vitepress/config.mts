@@ -209,6 +209,7 @@ const sidebar: Record<string, SidebarItem[]> = {
         { text: "Burn Status Recursion Crash", link: '/blog/2026-11-05-pseudo-burn-status-recursion-crash' },
         { text: "Sword Distortion From the Front", link: '/blog/2026-11-05-pseudo-sword-distortion-cuts-body-front' },
         { text: "Enemies With No Physics Asset", link: '/blog/2026-11-06-pseudo-buff-enemies-no-physics-asset' },
+        { text: "Status Look Missing on Client", link: '/blog/2026-11-07-pseudo-status-look-missing-on-client' },
         { text: 'Planning a Steam Release Backwards', link: '/blog/2026-10-22-pseudo-steam-release-backwards' },
       ],
     },
