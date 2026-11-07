@@ -25,9 +25,25 @@ Rules:
 - Leave out internal issue numbers, branch names, local machine paths, secrets, hostnames, people other than the developer, and unreleased dates or deadlines.
 - Never mention AI tools, agents, Claude, automation runs, "away"/"overnight" runs, or how the code or notes were produced. This is a hard rule from the TumbleTeams repo and applies to both games.
 - File name: `docs/blog/<note date>-pseudo-<slug>.md` or `docs/blog/<date>-tumble-teams-<slug>.md`.
-- Front matter: `title`, `description`, `date` (the note's date), `publishAt`, `track` (short label), `outline: deep`, `tags`. No `image:` unless you have one.
+- Front matter: `title`, `description`, `date` (the note's date), `publishAt`, `track` (short label), `image` (the cover from step 2b), `outline: deep`, `tags`.
 - Link to existing wiki pages (`docs/wiki/systems/*.md`) with absolute links like `/wiki/systems/weapons` when they fit, and to related posts with `./<slug>`.
 - If the note shows a wiki page is now wrong, do not edit the wiki. Add a line under "## Wiki follow-ups" at the end of the ledger instead.
+
+## 2b. Cover image
+Every post gets a cover so it shows a picture on the home page and the DevLog index.
+- Name: `pseudo-<short>-c` or `tt-<short>-c`, where `<short>` is one or two words from the slug (`pseudo-physics-asset-c`). Check `docs/public/blog/` first; the name must be new.
+- Run: `node scripts/cover.mjs <name> --label "PSEUDO · DEBUGGING" --title "<line 1>|<line 2>" --caption "<one sentence>"`. For TumbleTeams use `--label "TUMBLE TEAMS · DEVLOG"`. It writes `docs/public/blog/<name>.jpg` and `<name>-dark.jpg`.
+- Title: the cause or the fix in 2 short lines (at most about 12 characters each, 3 lines only if unavoidable). The last line is drawn in the accent color, so put the key term there. Use words or code identifiers that appear in the post, e.g. `Tick|= false`, `No Physics|Asset`, `Stale|Bones`. No invented numbers.
+- Caption: one plain sentence, at most about 90 characters, saying what went wrong and why, taken from the post.
+- In the post: set `image: /blog/<name>.jpg` in the front matter and put this right after the opening paragraph (the summary paragraph under the `#` heading), with the caption as `alt`:
+  ```html
+  <figure class="theme-img">
+    <img class="img-light" src="/blog/<name>.jpg" alt="<caption>" loading="lazy">
+    <img class="img-dark" src="/blog/<name>-dark.jpg" alt="<caption>" loading="lazy">
+  </figure>
+  ```
+- Open the light jpg and look at it. If a title line is cut off or the text overlaps the shape, shorten the title and run the script again (same name overwrites).
+- If the script fails (no Playwright, font error), do not block the post: leave out `image:` and the figure, and say so in the final summary.
 
 ## 3. Schedule
 Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt`: two per day at most, starting on the later of tomorrow and the day after the last date already in the queue. Order by source date, oldest first.
