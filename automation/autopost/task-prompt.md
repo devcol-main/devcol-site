@@ -1,4 +1,4 @@
-# Scheduled task prompt (copy everything below the line into the Claude app's scheduled task)
+# (Legacy, not in use since 2026-11-04) Mac Claude app scheduled task prompt — the live task runs in the cloud, see cloud-task-prompt.md
 
 ---
 
