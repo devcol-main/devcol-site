@@ -14,8 +14,12 @@ const tabs = computed(() => [
 ])
 const filter = ref('All')
 const list = computed(() => (filter.value === 'All' ? props.posts : props.posts.filter((p) => p.project === filter.value)))
-// The newest post with an image gets the big card; the next six go in the list.
-const feat = computed(() => list.value.find((p) => p.image) ?? list.value[0])
+// The newest post gets the big card (its own image, the project cover, or a typographic tile);
+// the next six go in the list.
+const projectCover: Record<string, string> = { 'Arcade Web': '/projects/arcade-web-cover.jpg' }
+const feat = computed(() => list.value[0])
+const featImg = computed(() => feat.value?.image || projectCover[feat.value?.project ?? ''] || '')
+const initials = (name: string) => name.replace(/[^A-Za-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('')
 const rows = computed(() => list.value.filter((p) => p !== feat.value).slice(0, 6))
 
 // Four study notes: the newest Unreal Engine notes (last in index order), else the first four.
@@ -53,10 +57,15 @@ async function pick(name: string) {
         <a v-if="feat" class="dl-feat has-ticks rv" :href="feat.link">
           <span class="ticks" aria-hidden="true"></span>
           <div class="img">
-            <picture v-if="feat.image">
-              <source v-if="feat.imageDark" :srcset="feat.imageDark" media="(prefers-color-scheme: dark)" />
-              <img :src="feat.image" alt="" loading="lazy" />
+            <picture v-if="featImg">
+              <source v-if="feat.image && feat.imageDark" :srcset="feat.imageDark" media="(prefers-color-scheme: dark)" />
+              <img :src="featImg" alt="" loading="lazy" />
             </picture>
+            <div v-else class="thumb-fallback post-fallback" aria-hidden="true">
+              <span class="pf-project mono">{{ feat.project }}</span>
+              <span class="pf-mark">{{ feat.devlog ? feat.devlog.replace('DevLog ', '') : initials(feat.project) }}</span>
+              <span class="pf-tag mono">{{ feat.tags[0] ?? 'DevLog' }}</span>
+            </div>
           </div>
           <div class="body">
             <p class="meta mono"><time :datetime="feat.date">{{ feat.date }}</time><span>{{ feat.project }}</span></p>

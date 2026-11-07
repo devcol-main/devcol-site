@@ -80,7 +80,7 @@ case "$MODE" in
 DEVCOL_SRC=$SRC
 Today (Asia/Seoul): $TODAY"
     DEVCOL_SRC="$SRC" "$CLAUDE_BIN" -p "$PROMPT" --permission-mode acceptEdits \
-      --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "Bash(git:*)" "Bash(npm run:*)" "Bash(node scripts/schedule.mjs:*)" "Bash(ls:*)" "Bash(date:*)" "Bash(TZ=Asia/Seoul date:*)" \
+      --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "Bash(git:*)" "Bash(npm run:*)" "Bash(node scripts/schedule.mjs:*)" "Bash(node scripts/cover.mjs:*)" "Bash(ls:*)" "Bash(date:*)" "Bash(TZ=Asia/Seoul date:*)" \
       --disallowedTools "Bash(git push:*)" "Bash(git reset:*)" "WebFetch" "WebSearch" >>"$LOG" 2>&1 \
       || fail "claude run exited with an error"
     finish ;;

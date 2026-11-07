@@ -5,6 +5,7 @@ claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)�
 - PSEUDO의 `Documents/Debugging/DBG-*.md`와 TumbleTeams의 `Documents/Devlogs/`·새 커밋을 확인한다.
 - 새 노트를 영어 DevLog 글로 써서 `publishAt` 큐(하루 최대 2개)에 넣고, `docs:build` 통과 후 main에 push한다.
 - 사이트 공개는 기존 GitHub Actions 일일 빌드가 날짜에 맞춰 처리한다.
+- 글마다 커버 이미지(라이트/다크 jpg)를 `scripts/cover.mjs`로 만들어 넣는다(Playwright 필요, 실패하면 이미지 없이 올리고 요약에 적는다).
 - 새 글이 생기면 휴대폰 푸시 알림, 새 노트가 없으면 조용히 끝난다.
 
 | 파일 | 역할 |
