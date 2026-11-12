@@ -1,0 +1,23 @@
+Copyright (c) 2026-present DevCol (by in9). All rights reserved.
+
+This repository is public so the site's source can be read. Being public does
+not grant a license. Unless a file or folder says otherwise, no permission is
+given to copy, modify, redistribute, rehost, sell, or publish any part of it,
+including:
+
+  - the games under docs/public/games/ (code, art, sound, and design)
+  - the site's articles, documentation, images, and other written content
+  - the site's theme and source code
+
+This includes collecting the content for, or using it as training data for,
+machine learning or AI models.
+
+You may link to devcol.net and quote short excerpts with attribution and a
+link back to the original page.
+
+Third-party components keep their own licenses and are not covered by the
+notice above. These include fonts bundled with the games (see the licenses/
+folder next to each game under docs/public/games/) and the npm packages listed
+in package.json.
+
+For any other use, ask first: https://devcol.net/contact
