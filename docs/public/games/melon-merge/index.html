@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Melon Merge</title>
+<!-- devcol.net 애널리틱스 (사이트 루트의 /t.js). 사이트 밖(로컬 dev)에서는 404여도 게임에 영향 없음 -->
+<script defer src="/t.js"></script>
+<link rel="icon" type="image/png" href="./assets/devcol-logo-COrzzs1X.png">
+<style>html,body{overscroll-behavior:none;touch-action:none;background:#cfebf5;height:100%;margin:0;overflow:hidden}#game{touch-action:none;outline:none;width:100%;height:100%;display:block;position:fixed;top:0;bottom:0;left:0;right:0}</style>
+  <script type="module" crossorigin src="./assets/index-C8CX2Z1X.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CeuXE3Nu.css">
+</head>
+<body>
+<canvas id="game" tabindex="-1"></canvas>
+<div id="ui" class="ui" data-phase="title">
+  <!-- 점수/NEXT 칩은 캔버스가 그린다. 칩 줄의 왼쪽 빈 곳에 음소거/옵션 버튼만 둔다. -->
+  <div class="topbar">
+    <button id="mute" class="icon-btn" type="button" data-ui aria-label="Mute sound" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+        <path d="M4 9.5h3.6L12 5.8v12.4l-4.4-3.7H4z" fill="currentColor"/>
+        <g class="waves" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M15.2 9.2a4 4 0 0 1 0 5.6"/>
+          <path d="M17.6 6.8a7.4 7.4 0 0 1 0 10.4"/>
+        </g>
+        <path class="cross" d="M15.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button id="options-btn" class="icon-btn" type="button" data-ui aria-label="Options">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="6.6" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2.6 2.55"/>
+        <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- 파워업 버튼 줄: 상자 바로 아래. 위치/크기는 캔버스 레이아웃(powerRow*)과 같은 사각형 (MelonMergeUi.setLayout). -->
+  <div class="power-row">
+    <button id="power-shake" class="power-btn" type="button" data-ui data-kind="shake" disabled aria-label="Shake the crate (0 left)">
+      <span class="power-badge" aria-hidden="true">0</span>
+      <svg class="power-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="8.5" y="11.5" width="15" height="13" rx="2.4" fill="#E2B987" stroke="#B8864F" stroke-width="1.6"/>
+        <path d="M8.8 16.2h14.4M8.8 20.4h14.4" fill="none" stroke="#CFA06A" stroke-width="1.4"/>
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 18H2M4.2 15.4L2 18l2.2 2.6"/>
+          <path d="M26 18h4M27.8 15.4L30 18l-2.2 2.6"/>
+        </g>
+      </svg>
+      <span class="power-label">SHAKE</span>
+    </button>
+    <button id="power-ripen" class="power-btn" type="button" data-ui data-kind="ripen" disabled aria-pressed="false" aria-label="Ripen a fruit (0 left)">
+      <span class="power-badge" aria-hidden="true">0</span>
+      <svg class="power-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <circle cx="14" cy="19.5" r="8.6" fill="#FF8A5B" stroke="#D9623A" stroke-width="1.4"/>
+        <path d="M9.6 17.2a5.4 5.4 0 0 1 3.4-3.2" fill="none" stroke="#FFD9C2" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M14 11.2c0-2 .6-3.4 1.8-4.4" fill="none" stroke="#7A4B2A" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M15.6 8.6c1.2-3 4.2-3.8 6.6-3.2-.3 2.9-2.9 4.6-6.6 3.2z" fill="#4DB26B" stroke="#2F8C4C" stroke-width="1.1" stroke-linejoin="round"/>
+        <path d="M26 11l1.1 3 3 1.1-3 1.1L26 19.2l-1.1-3-3-1.1 3-1.1z" fill="#F6C945" stroke="#C98A00" stroke-width="1" stroke-linejoin="round"/>
+      </svg>
+      <span class="power-label">RIPEN</span>
+    </button>
+  </div>
+  <div id="ripen-hint" class="ripen-hint" role="status" aria-live="polite" hidden>Tap a fruit to ripen</div>
+
+  <!-- 상자 영역(캔버스가 그린 상자와 같은 사각형). 타이틀/게임 오버 화면은 이 안에 뜬다. -->
+  <div class="stage">
+    <section class="screen title-screen">
+      <div class="card title-card">
+        <img class="brand-logo" src="./assets/devcol-logo-COrzzs1X.png" alt="DevCol logo" width="256" height="256" draggable="false">
+        <h1 class="title">MELON MERGE</h1>
+        <p class="sub">Drop fruits. Match two to grow them. Reach the watermelon.</p>
+        <p class="sub sub-small">Stuck? SHAKE the crate or RIPEN a fruit.</p>
+        <div id="title-best" class="title-best" hidden>BEST 0</div>
+        <p class="tap-hint">Tap to start</p>
+      </div>
+    </section>
+
+    <section class="screen over-screen">
+      <div class="over-title">GAME OVER</div>
+      <div id="final-score" class="final-score">0</div>
+      <div id="best" class="best">BEST 0</div>
+      <div id="new-best" class="new-best" hidden>NEW BEST</div>
+      <div class="overflowed">The crate overflowed</div>
+      <form id="nick-form" class="nick-form" data-ui autocomplete="off">
+        <!-- maxlength는 main.ts가 UI_CONFIG.nicknameMaxLength로 다시 설정한다 -->
+        <input id="nick" class="nick" type="text" maxlength="12" placeholder="Nickname" aria-label="Nickname" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button class="submit" type="submit">Submit</button>
+      </form>
+      <ol id="board" class="board" data-ui aria-label="Top 10"></ol>
+      <button id="retry" class="retry" type="button">Tap to retry</button>
+    </section>
+  </div>
+
+  <div id="options" class="options" data-ui hidden>
+    <div class="options-panel card" role="dialog" aria-modal="true" aria-labelledby="options-title">
+      <h2 id="options-title" class="options-title">OPTIONS</h2>
+      <div class="options-scroll">
+        <div class="opt-row"><span class="opt-label" id="lbl-sound">Sound (all)</span><button id="opt-sound" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-sound">On</button></div>
+        <div class="opt-row"><span class="opt-label" id="lbl-bgm">BGM</span><button id="opt-bgm" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-bgm">On</button></div>
+        <div class="opt-row"><label class="opt-label" for="opt-bgm-vol">BGM Volume</label><input id="opt-bgm-vol" class="opt-range" type="range" min="0" max="100" step="1" value="25"></div>
+        <div class="opt-row"><span class="opt-label" id="lbl-sfx">SFX</span><button id="opt-sfx" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-sfx">On</button></div>
+        <div class="opt-row"><label class="opt-label" for="opt-sfx-vol">SFX Volume</label><input id="opt-sfx-vol" class="opt-range" type="range" min="0" max="100" step="1" value="80"></div>
+        <div class="opt-row"><span class="opt-label" id="lbl-rm">Reduced motion</span><button id="opt-rm" class="opt-toggle" type="button" aria-pressed="false" aria-labelledby="lbl-rm">Off</button></div>
+        <div class="opt-row"><span class="opt-label" id="lbl-reset">Scores &amp; settings</span><button id="opt-reset" class="opt-toggle opt-danger" type="button">Reset data</button></div>
+        <section class="powerups" aria-labelledby="powerups-title">
+          <h3 id="powerups-title" class="fruits-title">Powerups</h3>
+          <ul class="powerup-list">
+            <li><strong>SHAKE (Q):</strong> jolt the crate to reshuffle the fruit.</li>
+            <li><strong>RIPEN (E):</strong> pick a fruit and grow it one size.</li>
+            <li>Earn more by scoring.</li>
+          </ul>
+        </section>
+        <section class="fruits" aria-labelledby="fruits-title">
+          <h3 id="fruits-title" class="fruits-title">Fruits</h3>
+          <ol id="fruit-list" class="fruit-list"></ol>
+        </section>
+      </div>
+      <button id="opt-close" class="opt-close" type="button">Close</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

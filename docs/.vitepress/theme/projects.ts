@@ -137,6 +137,15 @@ export const groups: Group[] = [
         fit: 'contain',
         badge: 'Play in browser',
       },
+      {
+        title: 'Melon Merge',
+        href: '/projects/melon-merge',
+        blurb: 'A fruit merging puzzle with hand-rolled physics. Merge two of a kind and grow a watermelon before the crate overflows.',
+        tags: ['TypeScript', 'Canvas 2D', 'WebAudio'],
+        img: '/projects/melon-merge-1.jpg',
+        fit: 'contain',
+        badge: 'Play in browser',
+      },
     ],
   },
   {

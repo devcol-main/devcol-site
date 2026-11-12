@@ -1,6 +1,6 @@
 ---
 title: Arcade Web
-description: "Small browser games built with TypeScript, Canvas 2D, and WebAudio, with no engine and no audio files. Stack Up and Bug Squash, and how they fit together."
+description: "Small browser games built with TypeScript, Canvas 2D, and WebAudio, with no engine and no audio files. Stack Up, Bug Squash and Melon Merge, and how they fit together."
 outline: deep
 ---
 
@@ -18,8 +18,9 @@ They're built without a game engine or a framework. Rendering is Canvas 2D, ever
 |---|---|---|
 | **Stack Up** | One button. A block slides back and forth, you tap to drop it, and whatever overhangs the tower gets sliced off. | [Play Stack Up](/projects/stack-up) |
 | **Bug Squash** | Whack-a-mole in a retro terminal. Squash bugs before they hide, and don't touch the working features. | [Play Bug Squash](/projects/bug-squash) |
+| **Melon Merge** | A fruit merging puzzle. Drop fruit into a crate, merge two of a kind into the next bigger one, and grow a watermelon before it overflows. | [Play Melon Merge](/projects/melon-merge) |
 
-![Stack Up gameplay: a neon tower with a PERFECT combo popup](/projects/stack-up-gameplay.png){width=240} ![Bug Squash gameplay: beetles and a gear in a green terminal grid](/projects/bug-squash-gameplay.png){width=240}
+![Stack Up gameplay: a neon tower with a PERFECT combo popup](/projects/stack-up-gameplay.png){width=240} ![Bug Squash gameplay: beetles and a gear in a green terminal grid](/projects/bug-squash-gameplay.png){width=240} ![Melon Merge gameplay: fruit piled in a wooden crate](/projects/melon-merge-gameplay.jpg){width=240}
 
 ## One look per game
 

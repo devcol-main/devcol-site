@@ -486,4 +486,4 @@ The game already talks to a `LeaderboardService` interface, not to `localStorage
 
 ---
 
-Stack Up is part of [Arcade Web](/projects/arcade-web), together with [Bug Squash](/projects/bug-squash). The code is under the Apache 2.0 license, and the Geist font is bundled under the SIL Open Font License.
+Stack Up is part of [Arcade Web](/projects/arcade-web), together with [Bug Squash](/projects/bug-squash) and [Melon Merge](/projects/melon-merge). The code is under the Apache 2.0 license, and the Geist font is bundled under the SIL Open Font License.
