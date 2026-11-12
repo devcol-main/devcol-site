@@ -74,6 +74,14 @@ Steam 등 글로벌 출시 가능성, 트래픽 0 상태에서 한/영 병행 �
 지금 규모(devlog + 문서형 위키)엔 Docusaurus의 버전관리/i18n이 오버엔지니어링.
 분기점: 패치별 문서 버전 분리가 실질적으로 필요해지는 시점.
 
+### 리포 공개 유지 + All rights reserved, AI 학습 크롤러만 차단 [2026-11-12]
+- **리포는 public 유지.** 브라우저 게임은 어차피 빌드된 JS가 devcol.net에서 그대로 내려가므로 private 전환은 보호 효과가 거의 없음. 유료(GitHub Pro $4/월)나 호스팅 이전(Cloudflare Pages)도 하지 않음. 원본 게임 소스 리포는 private 권장.
+- **`LICENSE`는 All rights reserved.** 게임·글·테마의 복제·재배포·재호스팅과 AI 학습 데이터 사용을 금지하고, 폰트(각 게임 `licenses/`)와 npm 패키지는 각자의 라이선스를 따른다. 푸터·README·FAQ에도 같은 문구가 있다.
+- **`docs/public/robots.txt`는 학습 전용 크롤러만 Disallow**(GPTBot, ClaudeBot, anthropic-ai, CCBot, Google-Extended, Applebot-Extended, meta-externalagent, Bytespider, Amazonbot, cohere-training-data-crawler).
+  검색엔진(Googlebot·Bingbot), 애드센스(Mediapartners-Google), 출처 링크를 다는 AI 검색 봇(OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot, Claude-User)은 **절대 막지 않는다**. 막으면 유입이 줄고 애드센스 심사에 지장이 생긴다.
+- **Cloudflare "Block AI bots" 토글은 쓰지 않는다.** 검색용 봇까지 막을 수 있어 robots.txt로 직접 고른다.
+- 한계: robots.txt는 규칙을 지키는 크롤러에만 통한다. 도용되면 LICENSE를 근거로 DMCA 신고한다.
+
 ---
 
 ## 기술 스택 & 인프라
