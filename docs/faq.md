@@ -30,7 +30,7 @@ On a phone, use the Android app. The browser versions are meant for trying a gam
 
 ### Is the code public?
 
-Some of it. Press Plane, Rock Paper Scissors - Advance, NewsBriefing, and this site have repositories on GitHub under [devcol-main](https://github.com/devcol-main), and each project page links to its own. Check a repository's license before reusing its code.
+Some of it. Press Plane, Rock Paper Scissors - Advance, NewsBriefing, and this site have repositories on GitHub under [devcol-main](https://github.com/devcol-main), and each project page links to its own. Check a repository's license before reusing its code. This site's repository, including the browser games it hosts, is all rights reserved: you can read it, but not copy or rehost it.
 
 ## The site
 
