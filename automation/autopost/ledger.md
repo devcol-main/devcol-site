@@ -29,3 +29,7 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 ## Wiki follow-ups
 
 - /wiki/systems/defense: "Where it stands" says the dash uses borrowed evade animations; the forward dash now holds a one-frame sprint pose (TB_Dash_Pose), only back/left/right use evade clips (DBG-031).
+
+## Screenshots wanted
+
+## Maintenance log
