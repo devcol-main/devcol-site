@@ -24,7 +24,9 @@ claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)�
 | humanizer | github.com/blader/humanizer (MIT, b48c832) | `.claude/skills/humanizer/` | 영어 |
 | humanize-korean (+ `/humanize`, `/humanize-scan`, `/humanize-redo`) | github.com/epoko77-ai/im-not-ai (MIT, b37e020) | `.claude/skills/humanize-*`, `.claude/agents/humanize-*.md`, `korean-ai-tell-taxonomist.md` | 한국어 |
 
-im-not-ai는 `CLAUDE_HOME=<repo>/.claude ./install.sh --copy --claude-only`로 복사 설치했다. 업데이트도 같은 방식으로 다시 설치한다(전역 `~/.claude`가 아니라 저장소에 있어야 클라우드 예약 작업 세션에서도 보인다). 작업 폴더 `_workspace/`는 `.gitignore`에 있다.
+**업데이트**: `.github/workflows/update-skills.yml`이 매주 월요일 03:17(KST)에 두 원본 저장소를 확인한다. 바뀌었으면 `scripts/update-skills.sh`로 다시 설치하고 샘플로 동작을 점검한 뒤, `bot/update-skills` 브랜치로 **PR을 연다**(main에 직접 넣지 않음). 머지하면 다음 자동 포스팅부터 반영된다. 설치된 커밋은 `.claude/skills/UPSTREAM.lock`에 기록된다. 수동 실행: Actions 탭 → "Update writing skills" → Run workflow, 또는 로컬에서 `bash scripts/update-skills.sh`.
+
+작업 폴더 `_workspace/`는 `.gitignore`에 있다.
 
 ## 확인·관리
 
