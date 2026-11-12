@@ -133,7 +133,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - **새 게임을 `docs/public/games/`에 추가할 때는 `docs/GAME-ANALYTICS.md` 체크리스트를 따른다.** (스크립트 태그 1줄 + `stage_clear`/`game_over` 호출 2곳. 서버와 대시보드는 고치지 않는다.)
 - 게임 온라인 리더보드(`a.devcol.net/lb`, 서버는 같은 devcol-analytics)에 새 게임을 붙일 때는 `docs/GAME-LEADERBOARD.md`를 따른다. 리더보드에서 보내거나 저장하는 항목이 바뀌면 `privacy-policy.md`의 Online Leaderboard 절도 같이 고친다.
 - 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
-- **자동 포스팅**: `automation/autopost/`(claude.ai 클라우드 예약 작업 "devcol autopost", 매일 08:45 KST, 맥 꺼져 있어도 실행. 2026-11-04 전환, 맥 앱 방식은 폐기). PSEUDO DBG 노트·이슈 기록(`Documents/Issues`)·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
+- **자동 포스팅**: `automation/autopost/`(claude.ai 클라우드 예약 작업 "devcol autopost", 매일 08:45 KST, 맥 꺼져 있어도 실행. 2026-11-04 전환, 맥 앱 방식은 폐기). PSEUDO DBG 노트·이슈 기록(`Documents/Issues`)·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 이슈 글(기능·시스템 단위만, 잡무·내부 정보 제외)은 프로젝트당 하루 3개, 디버깅 글과 다른 프로젝트 글은 개수 제한 없이 다음 날 공개. 글의 `date`는 실제 공개일(`publishAt`과 같은 날), 작업일은 `workedOn`. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
 - **문체 교정 스킬**: `.claude/skills/`에 humanizer(영어, blader/humanizer)와 humanize-korean(한글, epoko77-ai/im-not-ai)을 프로젝트 단위로 설치. 자동 포스팅은 글 본문 언어로 둘 중 하나를 골라 한 번 다듬는다(`prompt.md` 2a). 원본 업데이트는 `.github/workflows/update-skills.yml`이 매주 확인해 PR로 올린다(직접 고치지 말고 `scripts/update-skills.sh`로 재설치, 버전은 `.claude/skills/UPSTREAM.lock`).
 
 ---
@@ -147,7 +147,11 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - [x] DevLog 자동 포스팅 — 클라우드 예약 작업, 매일 08:45 KST (2026-11-04)
 - [x] 자동 포스팅 문체 교정 — 영어 humanizer / 한글 im-not-ai 자동 선택, 스킬 업데이트는 매주 PR로 (2026-11-12)
 - [x] 사이트 구조 개편 — 상단 탭 드롭다운, PSEUDO Wiki 분리(`/wiki/pseudo/`, 옛 주소 리다이렉트), DevLog 카테고리 사이드바(`category:` 자동 생성)·Debugging 태그 필터, Arcade 탭(`/arcade/`) 신설 (2026-11-12)
+- [x] DevLog 날짜·제목·링크 정리 — `date`를 실제 공개일로, 작업일은 `workedOn`(바이라인에 둘 다 표시). 26개 글 제목에 UE5·API 용어 추가, 30개 글에 Unreal Engine 공식 문서 링크 52개. About/FAQ의 AI 표기를 사이트 전체 고지로 변경 (2026-11-12)
+- [x] 자동 포스팅 확장 — PSEUDO 이슈 기록(`Documents/Issues`)을 빌드 로그 글로 추가(프로젝트당 하루 3개), 고정 소제목 금지·노트에 맞춘 구조 (2026-11-12)
 - [ ] **애드센스 승인 준비** — Privacy Policy/About/Contact 페이지, 플레이스홀더 제거, 콘텐츠 볼륨 확보, Search Console 등록 ← **다음 작업 (2026-08-22 최우선으로 전환)**
+  - 2026-11-12 **"Low value content"로 다시 반려.** 필수 페이지·분량(107페이지)은 충족. 반려 문구가 "user interest"와 "consistent presence on the web"을 요구하는데 유입이 거의 0이고 DevLog 51개 중 50개가 10~11월에 몰려 공개됨. 구글은 트래픽 기준을 공개하지 않으므로 원인은 추정.
+  - 남은 일: Search Console에서 색인 수와 "크롤링됨 - 색인 안 됨" 확인, 외부 채널(Reddit·X·유튜브)로 실제 유입 확보, 글에 실제 스크린샷·영상 추가. 재신청 시점은 미정.
 - [ ] Discord 채널 구성 — 개발일지, 피드백, 투표 채널 세팅 및 활동 시작
 - [ ] X(트위터) 활동 시작, 레딧 개설/활동 — r/IndieDev, r/unrealengine 등
 - [ ] 유튜브 영어화 — 영어 타이틀·설명·자막. 영상 설명에 devcol.net / Discord / X 링크 항상 포함
