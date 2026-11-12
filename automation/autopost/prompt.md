@@ -11,7 +11,12 @@ Read `automation/autopost/ledger.md`. Anything listed there is done.
 - PSEUDO: new files in `Documents/Debugging/` named `DBG-NNN ...md` with a number above the highest handled one. Skip `DBG-000 Template.md` and `Debug_Backlog.md`. Skip a note whose status is not fixed/resolved yet (leave it out of the ledger so a later run picks it up).
 - PSEUDO issue records: files in `Documents/Issues/` named `ISS-NNN ...md` that are not in the ledger yet. These are the build records of features and systems. Go through them in number order, oldest first, and take the ones that qualify (see "Issue records" in step 2): three issue posts per run for a project. This count is per project and separate from everything else; debugging posts and other projects do not use it up. The same rule applies to any other project that has a folder of issue records. Every record you look at gets a ledger line, posted or skipped, so no later run reads it again; a record that is not finished yet gets no line.
 - TumbleTeams: new files in `Documents/Devlogs/`, or, if there are none, a substantial body of new commits on `origin/main` since the last handled commit (a new feature or system, not routine fixes).
-If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW`.
+
+Before writing, decide what the posts are. The site was refused by AdSense for "low value content", so a post a reader outside the project can use is worth more than several that only record what happened.
+- **Group first (debugging notes and TumbleTeams).** If two or more unhandled notes are about the same system or the same root cause (for example several distortion bugs, or several bugs in one component), write ONE post that covers them together and list every note in the ledger with the same slug. Also check the existing posts: if a new note is a small follow-up to a post that is already published, add a dated "Update" section to that post instead of writing a new one (ledger: `-> updated <slug>`). Issue records follow their own folding rule in step 2 and are not merged beyond it.
+- **Value gate (every source, issue records included).** Ask: would a UE5 developer who has never heard of this game learn something they can apply? If the honest answer is no (a typo-level fix, a project-only asset mix-up, a note under about 300 words with no general cause), do not post it. Ledger: `-> skipped: no general lesson`. Do not pad a thin note to reach a length.
+- **Nothing new from the sources?** Then do the maintenance work in section 4b instead. Only if that has nothing to do either, change nothing and finish by printing `NOTHING NEW`.
+
 Per run: three issue posts per project, plus every new resolved debugging note, plus everything new from other projects. Only issue posts are counted. If the run is getting long (more than about eight posts in total), stop writing, leave the rest out of the ledger, and the next run picks it up.
 
 ## 2. Write the posts
@@ -34,13 +39,24 @@ Issue records (`Documents/Issues/ISS-NNN ...md`):
 - File name `docs/blog/<publishAt date>-pseudo-<slug>.md`. `workedOn` is the date the work was finished if the record states it, otherwise leave `workedOn` out. Cover label `PSEUDO · BUILD LOG`.
 
 Shape (the site must not read as one template filled in many times):
-- Let the note decide the structure. Pick the shape that fits: a straight timeline, cause first and then how it was found, a comparison of two attempts, a short note for a small bug, a question-and-answer walk-through.
+- Pick the shape that fits the material, and do not use the same shape as the most recent post on the site if another one fits:
+  - **Problem and fix**: for one bug with a general cause. Lead with the general problem, then the investigation.
+  - **How it works**: explain the engine behavior or the system design the note depends on, with the bug as the worked example.
+  - **Several bugs, one lesson**: for a grouped post. Organize by the shared cause, not note by note.
+  - **Progress devlog** (TumbleTeams, an issue record, or a body of commits): what was built, why it was designed that way, what was cut.
 - Write headings that name the specific thing ("Why `Montage_IsPlaying` was still true during the blend-out"), not generic labels. Do not use "The symptom", "What I ruled out", "The cause", "The fix", "Checking it" or "What I took from it" as headings, and do not reuse the heading set of the previous three posts in `docs/blog/` (check them).
 - A "ruled out" table only when there were at least three real hypotheses. Otherwise write it as prose.
 - Length follows the note: 500 to 1,800 words. Do not pad a small bug.
 - Title: say the problem in plain words and include the exact thing someone would search for: the API, class, console variable or error text from the note, plus "UE5" or the engine version when it fits (e.g. "`WaitInputRelease` never fires in UE 5.8: a guard that never let go").
-- If the note references screenshots or clips that exist in the source repo, copy the useful ones to `docs/public/blog/` and show them with a one-line caption. Never fabricate an image of the game.
+- Real images: if the source note references screenshots or clips that exist in the source repo, copy the still images into `docs/public/blog/` (new names, `pseudo-<short>-NN.jpg|png`) and use them with a caption that says what to look at. Never invent, generate or reuse an unrelated image. If the post would clearly be better with a screenshot that does not exist (a visual bug, a before/after), add a line under "## Screenshots wanted" at the end of the ledger: the post slug and what to capture.
 - External references: when the bug turns on an engine feature, link the official documentation page for it (1 to 3 links, inline where the feature is first explained). Only use a URL you opened and confirmed in this run. If you cannot confirm one, leave the link out.
+
+Written for a reader outside the project:
+- Title and description name the general problem in the words someone would search for (engine feature, API name, visible symptom), not the game's internal names. The game is the example, not the subject.
+- The opening paragraph says what the reader will be able to do or avoid after reading. Give the one-line answer early; do not hold it back for the end.
+- Explain every project-specific class, tag or asset the first time it appears, in one clause, or replace it with a generic description.
+- Include a section the reader can apply directly: how to tell if their project has the same problem, and the fix in a form that does not depend on this game's code.
+- Do not repeat the summary in three places, and do not add filler sections.
 
 Rules:
 - English, first person, plain and concrete. No hype.
@@ -57,7 +73,7 @@ Rules:
 - `sidebar` is the label in the sidebar: Title Case, about 2-6 words (e.g. `"Guard Input Release"`).
 - Every debugging post keeps `Debugging` in `tags`; the DevLog topic filter (`/blog/?tag=Debugging`) relies on it.
 - Link to existing wiki pages (`docs/wiki/pseudo/systems/*.md`) with absolute links like `/wiki/pseudo/systems/weapons` when they fit, and to related posts with `./<slug>`.
-- If the note shows a wiki page is now wrong, do not edit the wiki. Add a line under "## Wiki follow-ups" at the end of the ledger instead.
+- If the note shows a wiki page is now wrong, fix it as described in section 4b in the same commit.
 
 ## 2a. Humanize pass (pick the skill by language)
 After a post's draft is written and before its cover, run one editing pass over the post file. Choose the skill by the language of the post body (ignore front matter, code and identifiers): mostly Hangul → Korean, otherwise English. Do not ask anyone; decide and go.
@@ -97,7 +113,15 @@ For every new post:
 - The DevLog sidebar is generated from `docs/blog/index.md` and each post's `category` / `sidebar` front matter. Do not edit `docs/.vitepress/config.mts` for new posts.
 Then append one line per handled source to the "Handled after the cut-off" list in `automation/autopost/ledger.md`, skipped sources included, with the reason.
 
+## 4b. Maintenance (every run, small)
+The site also has to show that it is looked after, not only appended to. Do at most ONE of these per run, the first that applies, and record it under "## Maintenance log" at the end of the ledger (date, what changed):
+1. **Wiki follow-ups.** Take the oldest open line under "## Wiki follow-ups" in the ledger. Correct only the sentences in that `docs/wiki/` page that the source note proves wrong, using facts from the sources, and remove the line from the list. Do not rewrite or restyle the rest of the page.
+2. **Link the new posts in.** On the wiki system page and the one or two older posts most related to today's posts, add a link where a reader would want it (a sentence in context or a "Related" line), if one is not already there.
+3. **Hub pages.** In `docs/blog/pseudo.md` and `docs/blog/tumble-teams.md`, keep the reading order grouped by topic (animation, networking, GAS, rendering, ...) with a one-line description per post instead of one long chronological list. Move at most one group per run.
+4. **Old posts** (only on a run with no new post). Pick the oldest PSEUDO debugging post that has not been revised (check the maintenance log), and bring it up to the "written for a reader outside the project" rules in section 2: a search-worded title and description, a first paragraph with the answer, a section the reader can apply. Keep the file name and URL, keep every fact, add nothing that is not in the post or its source note. Or, if two old posts cover the same root cause, say so in both and cross-link them. One post per run.
+Do not create new pages in this section, and never change `publishAt`, `date` or `workedOn` of an existing post.
+
 ## 5. Check and commit
 - Run `npm run docs:build`. It must pass. Fix your own pages until it does; never edit unrelated files to make it pass.
-- `git add -A docs automation/autopost/ledger.md` and commit on `main` with a message like `Autopost: add N PSEUDO debugging posts (DBG-031..033), scheduled Nov 7-8`. Do not push; the wrapper script pushes after its own build check.
-- Finish by printing a short summary: each new file, its title, its publishAt, and anything you were unsure about.
+- `git add -A docs automation/autopost/ledger.md` and commit on `main` with a message like `Autopost: add N PSEUDO posts (DBG-034, DBG-036, 2 build logs), scheduled Nov 15` or, on a maintenance-only run, `Autopost: maintenance (wiki defense page, DBG-031)`. Do not push; the wrapper script pushes after its own build check.
+- Finish by printing a short summary: each new file, its title, its publishAt, the maintenance step you did, and anything you were unsure about.
