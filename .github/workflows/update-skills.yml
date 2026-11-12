@@ -14,10 +14,16 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v7
       - id: sync
-        run: echo "result=$(bash scripts/update-skills.sh | tail -1)" >> "$GITHUB_OUTPUT"
+        run: |
+          bash scripts/update-skills.sh | tee sync.log
+          echo "result=$(tail -1 sync.log)" >> "$GITHUB_OUTPUT"
+          rm sync.log
       - if: steps.sync.outputs.result == 'changed'
         env:
           GH_TOKEN: ${{ github.token }}
