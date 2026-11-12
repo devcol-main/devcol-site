@@ -5,6 +5,8 @@ date: 2026-11-05
 workedOn: 2026-11-01
 publishAt: 2026-11-05
 track: "Coat through the thigh"
+category: "Debugging / Animation & Cloth"
+sidebar: "Coat Through the Thigh"
 outline: deep
 tags: [UE5, Chaos Cloth, Animation, Python, Debugging]
 ---

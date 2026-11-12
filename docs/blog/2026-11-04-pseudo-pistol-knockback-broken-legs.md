@@ -5,13 +5,15 @@ date: 2026-11-06
 workedOn: 2026-11-04
 publishAt: 2026-11-06
 track: "Pistol knockback breaks the legs"
+category: "Debugging / Animation & Cloth"
+sidebar: "Pistol Knockback Breaks the Legs"
 outline: deep
 tags: [UE5, Animation, IK, Anim Blueprint, Debugging]
 ---
 
 # Knocked Back With Pistols Out: An Aiming Torso, Foot IK and a UE5 Hit Reaction Fix That Took Two Rounds
 
-When an enemy knocks the player back in PSEUDO, the whole body curls and gets pushed away (the reaction tiers are on the [Defense](/wiki/systems/defense) page). With the greatsword drawn, that's what happens. With the dual pistols drawn, I got a screenshot of something else: pistols still aimed forward, and the left leg kicked up to hip height.
+When an enemy knocks the player back in PSEUDO, the whole body curls and gets pushed away (the reaction tiers are on the [Defense](/wiki/pseudo/systems/defense) page). With the greatsword drawn, that's what happens. With the dual pistols drawn, I got a screenshot of something else: pistols still aimed forward, and the left leg kicked up to hip height.
 
 I fixed it, called it done, and it was still broken. This post covers both rounds, because the first round was a real fix for a real problem, just not the one in the screenshot.
 

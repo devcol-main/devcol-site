@@ -4,6 +4,8 @@ description: "In UE5 PIE the pawn spawned and the camera was right, but WASD and
 date: 2026-10-15
 workedOn: 2026-10-13
 track: "Player controller tick bug"
+category: "Debugging / Input & GAS"
+sidebar: "Player Controller Tick Bug"
 outline: deep
 tags: [UE5, C++, Debugging]
 image: /blog/pseudo-tick-c.jpg

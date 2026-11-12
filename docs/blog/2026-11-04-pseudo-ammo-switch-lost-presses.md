@@ -5,13 +5,15 @@ date: 2026-11-05
 workedOn: 2026-11-04
 publishAt: 2026-11-05
 track: "Ammo switch lost presses"
+category: "Debugging / Input & GAS"
+sidebar: "Ammo Switch Lost Presses"
 outline: deep
 tags: [UE5, GAS, Animation, Input, Debugging]
 ---
 
 # Switch Ammo, Press Fire, Nothing Happens: Three UE5 GAS Bugs Behind One Report
 
-PSEUDO's dual pistols have one fire button and several ammo types. The E key (L1 on a gamepad) cycles to the next type, and holding the lock-on key opens an ammo wheel. The [Weapons](/wiki/systems/weapons) page has the design. Some ammo types also come with a stance: picking the Laser or the heavy machine gun (HMG) summons a big gun with an enter animation, and the elemental types (Fire, Ice, Poison) raise the pistols into a charge pose first.
+PSEUDO's dual pistols have one fire button and several ammo types. The E key (L1 on a gamepad) cycles to the next type, and holding the lock-on key opens an ammo wheel. The [Weapons](/wiki/pseudo/systems/weapons) page has the design. Some ammo types also come with a stance: picking the Laser or the heavy machine gun (HMG) summons a big gun with an enter animation, and the elemental types (Fire, Ice, Poison) raise the pistols into a charge pose first.
 
 The report came from a play session:
 

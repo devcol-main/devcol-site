@@ -5,6 +5,8 @@ date: 2026-11-12
 workedOn: 2026-11-07
 publishAt: 2026-11-12
 track: "Status look missing on client"
+category: "Debugging / Networking"
+sidebar: "Status Look Missing on Client"
 image: /blog/pseudo-status-look-c.jpg
 outline: deep
 tags: [UE5, GAS, Networking, VFX, Debugging]
@@ -12,7 +14,7 @@ tags: [UE5, GAS, Networking, VFX, Debugging]
 
 # A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay
 
-Enemies in PSEUDO show their status on the body: Poison, Slow and Burn each get a [Niagara](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine) system on the mesh plus a material overlay. The [Elements](/wiki/systems/elements) page has what the statuses do in play. A component on every non-dedicated machine, `UPseudoStatusLookComponent`, follows the replicated status tags and shows or hides the looks. It holds no gameplay state, it only reacts to tags. I'd already had [one bug in this component with Burn](./2026-11-05-pseudo-burn-status-recursion-crash). This one was about timing, and it only happened on a client.
+Enemies in PSEUDO show their status on the body: Poison, Slow and Burn each get a [Niagara](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine) system on the mesh plus a material overlay. The [Elements](/wiki/pseudo/systems/elements) page has what the statuses do in play. A component on every non-dedicated machine, `UPseudoStatusLookComponent`, follows the replicated status tags and shows or hides the looks. It holds no gameplay state, it only reacts to tags. I'd already had [one bug in this component with Burn](./2026-11-05-pseudo-burn-status-recursion-crash). This one was about timing, and it only happened on a client.
 
 <figure class="theme-img">
   <img class="img-light" src="/blog/pseudo-status-look-c.jpg" alt="The status tags reached the client before the look component started listening." loading="lazy">

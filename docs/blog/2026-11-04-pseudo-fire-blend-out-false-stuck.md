@@ -5,6 +5,8 @@ date: 2026-11-06
 workedOn: 2026-11-04
 publishAt: 2026-11-06
 track: "Fire blend-out false stuck"
+category: "Debugging / Input & GAS"
+sidebar: "Fire Blend-Out False Stuck"
 outline: deep
 tags: [UE5, GAS, Animation, Input, Debugging]
 ---

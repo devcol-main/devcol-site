@@ -4,6 +4,8 @@ description: "The Git settings I sorted out for PSEUDO before pushing anything: 
 date: 2026-10-15
 workedOn: 2026-10-11
 track: "Git setup before first push"
+category: "Planning & Setup"
+sidebar: "Git Setup Before the First Push"
 outline: deep
 tags: [Git, Git LFS, UE5]
 image: /blog/pseudo-git-c.jpg

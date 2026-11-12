@@ -5,6 +5,8 @@ date: 2026-10-24
 workedOn: 2026-10-14
 publishAt: 2026-10-24
 track: "MetaHuman face, part 1"
+category: "MetaHuman on Paragon"
+sidebar: "Part 1: Setup Blockers"
 outline: deep
 tags: [UE5, MetaHuman, Debugging]
 image: /blog/pseudo-mhface-2.png

@@ -5,6 +5,8 @@ date: 2026-10-26
 workedOn: 2026-10-15
 publishAt: 2026-10-26
 track: "MetaHuman face, part 4"
+category: "MetaHuman on Paragon"
+sidebar: "Part 4: Grooms"
 outline: deep
 tags: [UE5, MetaHuman, Groom, Debugging]
 image: /blog/pseudo-mhface-13.png

@@ -4,6 +4,8 @@ description: "A classic Unreal Engine multiplayer trap: BeginPlay runs before Po
 date: 2026-10-03
 workedOn: 2026-09-18
 track: "Listen-server host movement fix"
+category: "Chat & Networking"
+sidebar: "Host Couldn't Move"
 outline: deep
 tags: [UE5, Networking, Debugging]
 image: /blog/tt-host-c.jpg

@@ -4,6 +4,8 @@ description: "What a second pass on my UE5 chat plugin turned up: notes that dis
 date: 2026-10-05
 workedOn: 2026-09-27
 track: "Testing chat with two players"
+category: "Chat & Networking"
+sidebar: "Chat Two-Player Testing"
 outline: deep
 tags: [UE5, Networking, Testing]
 image: /blog/tt-chat2p-c.jpg

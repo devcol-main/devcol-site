@@ -4,6 +4,8 @@ description: "Replacing the mannequin with a customizable character in UE5 and f
 date: 2026-10-05
 workedOn: 2026-10-02
 track: "New character: root motion, BlendSpace"
+category: "Character & GAS"
+sidebar: "Root Motion and BlendSpace"
 outline: deep
 tags: [UE5, Animation]
 image: /blog/tt-anim-c.jpg

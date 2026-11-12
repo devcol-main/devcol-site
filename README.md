@@ -126,6 +126,6 @@ Push to `main` → [GitHub Actions](.github/workflows/deploy.yml) builds and dep
 [![X](https://img.shields.io/badge/X-@DevCol__Main-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/DevCol_Main)
 [![itch.io](https://img.shields.io/badge/itch.io-devcol-fa5c5c?style=for-the-badge&logo=itchdotio&logoColor=white)](https://devcol.itch.io)
 
-<sub>© DevCol · Site content and game designs belong to DevCol.</sub>
+<sub>© DevCol. All rights reserved. The repository is public to read, not to reuse. See [LICENSE](LICENSE).</sub>
 
 </div>

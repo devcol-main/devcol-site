@@ -5,6 +5,8 @@ date: 2026-11-04
 workedOn: 2026-10-24
 publishAt: 2026-11-04
 track: "Match flow, minigame playlist"
+category: "DevLogs"
+sidebar: "DevLog #3: Minigame Playlist"
 outline: deep
 tags: [UE5, GAS, Multiplayer]
 ---

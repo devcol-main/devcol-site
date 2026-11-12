@@ -5,6 +5,8 @@ date: 2026-11-04
 workedOn: 2026-11-01
 publishAt: 2026-11-04
 track: "Coat shards"
+category: "Debugging / Animation & Cloth"
+sidebar: "Coat Shards After Spawn"
 outline: deep
 tags: [UE5, Chaos Cloth, Animation, Debugging]
 ---

@@ -5,6 +5,8 @@ date: 2026-11-03
 workedOn: 2026-10-22
 publishAt: 2026-11-03
 track: "Steam release schedule"
+category: "Planning & Setup"
+sidebar: "Planning a Steam Release Backwards"
 outline: deep
 tags: [Steam, Steamworks, Planning, PSEUDO]
 ---

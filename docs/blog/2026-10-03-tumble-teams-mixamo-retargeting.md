@@ -4,6 +4,8 @@ description: "Importing Mixamo FBX files straight onto another skeleton in Unrea
 date: 2026-10-05
 workedOn: 2026-10-03
 track: "Mixamo retargeting pipeline"
+category: "Character & GAS"
+sidebar: "Mixamo Retargeting"
 outline: deep
 tags: [UE5, Animation, Retargeting]
 image: /blog/tt-mixamo-c.jpg

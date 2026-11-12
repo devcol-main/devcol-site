@@ -5,6 +5,8 @@ date: 2026-10-29
 workedOn: 2026-10-22
 publishAt: 2026-10-29
 track: "No control after menu start"
+category: "Debugging / Input & GAS"
+sidebar: "No Control After Menu Start"
 outline: deep
 tags: [UE5, Input, UI, Networking, Debugging]
 ---

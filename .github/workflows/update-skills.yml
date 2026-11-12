@@ -1,0 +1,48 @@
+name: Update writing skills
+
+# Weekly check of blader/humanizer and epoko77-ai/im-not-ai.
+# If either changed, re-install into .claude/ and open a PR (never pushes to main).
+on:
+  schedule:
+    - cron: '17 18 * * 0'   # Mondays 03:17 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - id: sync
+        run: |
+          bash scripts/update-skills.sh | tee sync.log
+          echo "result=$(tail -1 sync.log)" >> "$GITHUB_OUTPUT"
+          rm sync.log
+      - if: steps.sync.outputs.result == 'changed'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BR=bot/update-skills
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BR"
+          git add -A .claude
+          git commit -m "Update writing skills from upstream"
+          git push -f origin "$BR"
+          {
+            echo "Upstream commits now installed:"
+            echo '```'; cat .claude/skills/UPSTREAM.lock; echo '```'
+            echo
+            echo "Review the SKILL.md diffs before merging: the autopost run follows these files unattended."
+            echo
+            git diff --stat HEAD~1 -- .claude
+          } > body.md
+          gh pr view "$BR" --json number >/dev/null 2>&1 \
+            && gh pr edit "$BR" --body-file body.md \
+            || gh pr create --head "$BR" --base main --title "Update writing skills (humanizer, im-not-ai)" --body-file body.md

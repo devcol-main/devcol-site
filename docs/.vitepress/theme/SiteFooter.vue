@@ -33,7 +33,7 @@ const { hasSidebar } = useSidebar()
           </ul>
         </div>
       </div>
-      <div class="foot-bottom">Copyright &copy; 2026-present DevCol (by in9)</div>
+      <div class="foot-bottom">Copyright &copy; 2026-present DevCol (by in9). All rights reserved.</div>
     </div>
   </footer>
 </template>

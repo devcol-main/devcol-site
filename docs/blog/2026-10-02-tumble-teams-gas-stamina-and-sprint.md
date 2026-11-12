@@ -4,6 +4,8 @@ description: "Building a replicated stamina system on Unreal's Gameplay Ability 
 date: 2026-10-05
 workedOn: 2026-10-02
 track: "Stamina and sprint with GAS"
+category: "Character & GAS"
+sidebar: "Stamina and Sprint"
 outline: deep
 tags: [UE5, GAS, Networking]
 image: /blog/tt-stamina-c.jpg

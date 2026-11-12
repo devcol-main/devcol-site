@@ -5,13 +5,15 @@ date: 2026-11-04
 workedOn: 2026-10-23
 publishAt: 2026-11-04
 track: "Player groggy never triggers"
+category: "Debugging / Input & GAS"
+sidebar: "Player Groggy Never Triggers"
 outline: deep
 tags: [UE5, GAS, Data Assets, Debugging]
 ---
 
 # A Groggy Gauge That Never Filled: A UE5 Data Asset Where 0 Means Off and the Log Says Nothing
 
-PSEUDO has a groggy gauge, close to Sekiro's posture: every attack carries a poise value that fills the target's gauge, and a full gauge leaves the target stunned and taking 50 % more damage for a few seconds. (The design is on the [Defense](/wiki/systems/defense) page.) The gauge works on players as well as enemies, so an enemy that keeps landing hits can break you too.
+PSEUDO has a groggy gauge, close to Sekiro's posture: every attack carries a poise value that fills the target's gauge, and a full gauge leaves the target stunned and taking 50 % more damage for a few seconds. (The design is on the [Defense](/wiki/pseudo/systems/defense) page.) The gauge works on players as well as enemies, so an enemy that keeps landing hits can break you too.
 
 I wanted the player's groggy to be shorter than an enemy's, so I opened the player's pawn data asset and set Reactions → Groggy Duration to 2.0. Then I let a training dummy beat on me in PIE. I took staggers and knockdowns, but I was never groggy, short or long.
 

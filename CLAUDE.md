@@ -74,6 +74,14 @@ Steam 등 글로벌 출시 가능성, 트래픽 0 상태에서 한/영 병행 �
 지금 규모(devlog + 문서형 위키)엔 Docusaurus의 버전관리/i18n이 오버엔지니어링.
 분기점: 패치별 문서 버전 분리가 실질적으로 필요해지는 시점.
 
+### 리포 공개 유지 + All rights reserved, AI 학습 크롤러만 차단 [2026-11-12]
+- **리포는 public 유지.** 브라우저 게임은 어차피 빌드된 JS가 devcol.net에서 그대로 내려가므로 private 전환은 보호 효과가 거의 없음. 유료(GitHub Pro $4/월)나 호스팅 이전(Cloudflare Pages)도 하지 않음. 원본 게임 소스 리포는 private 권장.
+- **`LICENSE`는 All rights reserved.** 게임·글·테마의 복제·재배포·재호스팅과 AI 학습 데이터 사용을 금지하고, 폰트(각 게임 `licenses/`)와 npm 패키지는 각자의 라이선스를 따른다. 푸터·README·FAQ에도 같은 문구가 있다.
+- **`docs/public/robots.txt`는 학습 전용 크롤러만 Disallow**(GPTBot, ClaudeBot, anthropic-ai, CCBot, Google-Extended, Applebot-Extended, meta-externalagent, Bytespider, Amazonbot, cohere-training-data-crawler).
+  검색엔진(Googlebot·Bingbot), 애드센스(Mediapartners-Google), 출처 링크를 다는 AI 검색 봇(OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot, Claude-User)은 **절대 막지 않는다**. 막으면 유입이 줄고 애드센스 심사에 지장이 생긴다.
+- **Cloudflare "Block AI bots" 토글은 쓰지 않는다.** 검색용 봇까지 막을 수 있어 robots.txt로 직접 고른다.
+- 한계: robots.txt는 규칙을 지키는 크롤러에만 통한다. 도용되면 LICENSE를 근거로 DMCA 신고한다.
+
 ---
 
 ## 기술 스택 & 인프라
@@ -104,14 +112,14 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 │   ├── public/CNAME              # devcol.net
 │   ├── index.md                  # 랜딩 페이지 (<HomePage />)
 │   ├── projects/ · study/        # 프로젝트 소개, 스터디 노트
-│   ├── blog/                     # 개발일지 (index.md의 `## 프로젝트명` 아래 목록이 홈 화면 데이터 원본)
-│   │   ├── index.md
-│   │   └── 2026-08-11-hello-devcol.md
-│   └── wiki/                     # 문서형 위키
-│       ├── index.md
-│       ├── faq.md
-│       ├── lore/index.md
-│       └── systems/index.md
+│   ├── blog/                     # 개발일지 (index.md의 `## 프로젝트명` 아래 목록이 홈 화면·사이드바 데이터 원본)
+│   │   ├── index.md              #   사이드바 그룹은 각 글의 `category:`("Debugging / Networking"처럼 한 단계 중첩), 라벨은 `sidebar:`
+│   │   └── YYYY-MM-DD-*.md
+│   ├── arcade/                   # 웹에서 바로 플레이하는 게임 (index + 게임별 플레이 페이지, theme/arcade.ts가 목록)
+│   └── wiki/                     # 문서형 위키 (게임별 분리)
+│       ├── index.md              #   위키 허브
+│       └── pseudo/               #   PSEUDO Wiki: index.md, systems/, lore/
+│                                 #   (옛 /wiki/systems·/wiki/lore 주소는 public/wiki/의 리다이렉트 HTML)
 ├── .github/workflows/deploy.yml  # main push 시 자동 빌드·배포
 ├── package.json                  # docs:dev / docs:build / docs:preview
 └── README.md
@@ -126,6 +134,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - 게임 온라인 리더보드(`a.devcol.net/lb`, 서버는 같은 devcol-analytics)에 새 게임을 붙일 때는 `docs/GAME-LEADERBOARD.md`를 따른다. 리더보드에서 보내거나 저장하는 항목이 바뀌면 `privacy-policy.md`의 Online Leaderboard 절도 같이 고친다.
 - 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
 - **자동 포스팅**: `automation/autopost/`(claude.ai 클라우드 예약 작업 "devcol autopost", 매일 08:45 KST, 맥 꺼져 있어도 실행. 2026-11-04 전환, 맥 앱 방식은 폐기). PSEUDO DBG 노트·이슈 기록(`Documents/Issues`)·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
+- **문체 교정 스킬**: `.claude/skills/`에 humanizer(영어, blader/humanizer)와 humanize-korean(한글, epoko77-ai/im-not-ai)을 프로젝트 단위로 설치. 자동 포스팅은 글 본문 언어로 둘 중 하나를 골라 한 번 다듬는다(`prompt.md` 2a). 원본 업데이트는 `.github/workflows/update-skills.yml`이 매주 확인해 PR로 올린다(직접 고치지 말고 `scripts/update-skills.sh`로 재설치, 버전은 `.claude/skills/UPSTREAM.lock`).
 
 ---
 
@@ -135,6 +144,9 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - [x] 정적 사이트 제작 — VitePress + GitHub Pages + devcol.net 연결 (devlog + wiki, 커뮤니티/투표 기능 미포함)
 - [x] Discord 서버 개설 — discord.gg/BK4bvy8qS
 - [x] X(트위터) 계정 개설 — @DevCol_Main
+- [x] DevLog 자동 포스팅 — 클라우드 예약 작업, 매일 08:45 KST (2026-11-04)
+- [x] 자동 포스팅 문체 교정 — 영어 humanizer / 한글 im-not-ai 자동 선택, 스킬 업데이트는 매주 PR로 (2026-11-12)
+- [x] 사이트 구조 개편 — 상단 탭 드롭다운, PSEUDO Wiki 분리(`/wiki/pseudo/`, 옛 주소 리다이렉트), DevLog 카테고리 사이드바(`category:` 자동 생성)·Debugging 태그 필터, Arcade 탭(`/arcade/`) 신설 (2026-11-12)
 - [ ] **애드센스 승인 준비** — Privacy Policy/About/Contact 페이지, 플레이스홀더 제거, 콘텐츠 볼륨 확보, Search Console 등록 ← **다음 작업 (2026-08-22 최우선으로 전환)**
 - [ ] Discord 채널 구성 — 개발일지, 피드백, 투표 채널 세팅 및 활동 시작
 - [ ] X(트위터) 활동 시작, 레딧 개설/활동 — r/IndieDev, r/unrealengine 등

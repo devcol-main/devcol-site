@@ -5,13 +5,15 @@ date: 2026-11-07
 workedOn: 2026-11-05
 publishAt: 2026-11-07
 track: "Remote shot stale muzzle"
+category: "Debugging / Networking"
+sidebar: "Remote Shot Stale Muzzle"
 outline: deep
 tags: [UE5, Networking, Animation, VFX, Debugging]
 ---
 
 # A Beam That Started Off the Gun: Stale Bones on Off-Screen Remote Players in UE5
 
-PSEUDO's dual pistols fire several ammo types, and the big ones (the Laser and the heavy machine gun, HMG) summon a larger gun. The [Weapons](/wiki/systems/weapons) page has the design. The hit itself is traced from the camera on the server. The feedback, meaning the muzzle flash, the tracer and the laser beam, is played by a gameplay cue on every machine, and each machine reads the muzzle socket from the shooter's mesh to know where to start it.
+PSEUDO's dual pistols fire several ammo types, and the big ones (the Laser and the heavy machine gun, HMG) summon a larger gun. The [Weapons](/wiki/pseudo/systems/weapons) page has the design. The hit itself is traced from the camera on the server. The feedback, meaning the muzzle flash, the tracer and the laser beam, is played by a gameplay cue on every machine, and each machine reads the muzzle socket from the shooter's mesh to know where to start it.
 
 During a play session I noticed that on the client's screen, the host's Laser beam started at a point well away from the host's gun, about 290 cm. In that screenshot the host was outside the client's view.
 

@@ -2,4 +2,5 @@ node_modules/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
 docs/.vitepress/*.timestamp-*.mjs
-.DS_Store
+.DS_Store_workspace/
+__pycache__/

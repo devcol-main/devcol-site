@@ -5,6 +5,8 @@ date: 2026-10-28
 workedOn: 2026-10-19
 publishAt: 2026-10-28
 track: "Predicted weapon swap"
+category: "Debugging / Networking"
+sidebar: "Predicted Weapon Swap"
 outline: deep
 tags: [UE5, GAS, Networking, C++, Debugging]
 ---

@@ -4,6 +4,8 @@ description: "Three layers of keyboard-focus bugs in an Unreal Engine 5 chat wid
 date: 2026-10-05
 workedOn: 2026-09-10
 track: "Chat box focus and crash fixes"
+category: "Chat & Networking"
+sidebar: "Chat Focus Bugs"
 outline: deep
 tags: [UE5, UMG, Debugging]
 image: /blog/tt-focus-c.jpg

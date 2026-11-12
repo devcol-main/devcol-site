@@ -28,7 +28,7 @@ Issue records (`Documents/Issues/ISS-NNN ...md`):
 - If a later record redesigned the same feature, write one post about the feature as it ended up, mention the earlier attempt briefly, and list both records in the ledger against that post.
 - Folding: a small related record (under about 600 words, same feature as the one you are writing) goes into the same post. Do not merge larger records; give each its own post and link them with `./<slug>`. A feature with three or more posts is a series: name the parts in the titles ("Pet Drone, Part 2: ...").
 - Length 800 to 2,500 words, never more. A long record is not retold in full: keep the design, the decisions and the one or two problems worth reading, drop the step-by-step log.
-- If a wiki page (`docs/wiki/systems/*.md`) already describes the rules, link it and do not repeat it; the post is about how it was built. Link related debugging posts the same way.
+- If a wiki page (`docs/wiki/pseudo/systems/*.md`) already describes the rules, link it and do not repeat it; the post is about how it was built. Link related debugging posts the same way.
 - Strip everything internal: issue and PR numbers (`ISS-134`, `#134`), branch names, work modes (Learning/Delegate), completion-criteria wording, "the user decided ..." and the dates of those decisions, run reports, overnight/away runs, agents and models. Decisions are written in the first person ("I chose the dash-start check because ...").
 - Mermaid diagrams from the record may be kept if they still make sense after the internal names are removed.
 - File name `docs/blog/<publishAt date>-pseudo-<slug>.md`. `workedOn` is the date the work was finished if the record states it, otherwise leave `workedOn` out. Cover label `PSEUDO · BUILD LOG`.
@@ -48,9 +48,28 @@ Rules:
 - Leave out internal issue numbers, branch names, local machine paths, secrets, hostnames, people other than the developer, and unreleased dates or deadlines.
 - Never mention AI tools, agents, Claude, automation runs, "away"/"overnight" runs, or how the code or notes were produced. This is a hard rule from the TumbleTeams repo and applies to both games. The site-wide disclosure lives on `/about` (DevLog posts are drafted with AI assistance from the developer's notes); never write anything in a post that contradicts it, such as claiming the text was written by hand.
 - File name: `docs/blog/<note date>-pseudo-<slug>.md` or `docs/blog/<date>-tumble-teams-<slug>.md`.
-- Front matter: `title`, `description`, `date` (same day as `publishAt`: the day the post goes live), `workedOn` (the note's date; the byline shows it as "Work from ..."), `publishAt`, `track` (short label), `image` (the cover from step 2b), `outline: deep`, `tags`.
-- Link to existing wiki pages (`docs/wiki/systems/*.md`) with absolute links like `/wiki/systems/weapons` when they fit, and to related posts with `./<slug>`.
+- Front matter: `title`, `description`, `date` (same day as `publishAt`: the day the post goes live), `workedOn` (the note's date; the byline shows it as "Work from ..."), `publishAt`, `track` (short label), `category`, `sidebar`, `image` (the cover from step 2b), `outline: deep`, `tags`.
+- `category` places the post in the DevLog sidebar. Use exactly one of these values (a new value creates a new sidebar group, so only add one when none fits):
+  - PSEUDO debugging notes: `"Debugging / Input & GAS"`, `"Debugging / Animation & Cloth"`, `"Debugging / Networking"`, `"Debugging / VFX & Rendering"`, `"Debugging / Movement & Combat"`. Pick the area of the root cause, not of the symptom.
+  - PSEUDO issue posts (build logs): `"Build Logs"`, or the feature's own group when it is a series (e.g. `"Pet Drone"`).
+  - Other PSEUDO non-debugging posts: `"Planning & Setup"`. A multi-part series gets its own group (e.g. `"MetaHuman on Paragon"`).
+  - TumbleTeams: `"DevLogs"` (numbered DevLog #N posts), `"Chat & Networking"`, `"Character & GAS"`.
+- `sidebar` is the label in the sidebar: Title Case, about 2-6 words (e.g. `"Guard Input Release"`).
+- Every debugging post keeps `Debugging` in `tags`; the DevLog topic filter (`/blog/?tag=Debugging`) relies on it.
+- Link to existing wiki pages (`docs/wiki/pseudo/systems/*.md`) with absolute links like `/wiki/pseudo/systems/weapons` when they fit, and to related posts with `./<slug>`.
 - If the note shows a wiki page is now wrong, do not edit the wiki. Add a line under "## Wiki follow-ups" at the end of the ledger instead.
+
+## 2a. Humanize pass (pick the skill by language)
+After a post's draft is written and before its cover, run one editing pass over the post file. Choose the skill by the language of the post body (ignore front matter, code and identifiers): mostly Hangul → Korean, otherwise English. Do not ask anyone; decide and go.
+- **English** → read `.claude/skills/humanizer/SKILL.md` (relative to the site repo) and apply it in its "File mode". Voice sample = the style reference posts listed above.
+- **Korean** → read `.claude/skills/humanize-korean/SKILL.md` and follow it with genre `블로그`, letting `route_hint` pick the route (no `--strict`). Its `_workspace/` folder is git-ignored; leave it there. Put the final text back into the post file.
+- If the skill file is missing or its steps fail, keep the draft as it is and say so in the final summary. Never block a post on this step.
+
+Limits that win over anything the skill says:
+- Change prose only. Front matter, headings' anchors, code blocks, inline code, identifiers, tables of facts, numbers, log lines, links and the `<figure>` HTML stay byte-for-byte.
+- Add no facts, details, reactions or opinions that are not in the sources. Where the skill would add a specific detail, write a simpler sentence instead.
+- All rules in section 2 still apply after the pass (no AI/automation mentions, no internal numbers or paths).
+- Re-read the result against the source note once: if a claim was dropped or changed, restore it.
 
 ## 2b. Cover image
 Every post gets a cover so it shows a picture on the home page and the DevLog index.
@@ -75,7 +94,7 @@ Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each 
 For every new post:
 - `docs/blog/index.md`: add `- YYYY-MM-DD: [Title](./slug)` under the right `## PSEUDO` or `## Tumble Teams` heading, newest first (date = the post's `date`, i.e. its `publishAt` day).
 - `docs/blog/pseudo.md` "Reading order" (debugging notes, chronological; issue posts go under a "Build logs" sub-list there, create it on first use) or `docs/blog/tumble-teams.md` reading order.
-- `docs/.vitepress/config.mts`: PSEUDO posts go in the PSEUDO sidebar list, in order, with a short `text`; issue posts go in a collapsed `Build Logs` group inside it (create it on first use, same shape as the `MetaHuman Face on Paragon` group). TumbleTeams posts go in `tumbleTeamsGroups`.
+- The DevLog sidebar is generated from `docs/blog/index.md` and each post's `category` / `sidebar` front matter. Do not edit `docs/.vitepress/config.mts` for new posts.
 Then append one line per handled source to the "Handled after the cut-off" list in `automation/autopost/ledger.md`, skipped sources included, with the reason.
 
 ## 5. Check and commit

@@ -5,6 +5,8 @@ date: 2026-11-09
 workedOn: 2026-11-05
 publishAt: 2026-11-09
 track: "Dash distortion cuts the body"
+category: "Debugging / VFX & Rendering"
+sidebar: "Dash Distortion Cuts the Body"
 outline: deep
 tags: [UE5, VFX, Niagara, Rendering, Animation, Debugging]
 ---
@@ -21,7 +23,7 @@ The same day, looking at screenshots from a play session, I saw the left half of
 - **Expected**: the whole body stays visible in every dash section, from every camera angle.
 - **Observed**: at some angles, half the body is gone for part of the dash.
 
-The [Defense](/wiki/systems/defense) page has the dash rules; nothing about them changed here. This was purely a visual problem.
+The [Defense](/wiki/pseudo/systems/defense) page has the dash rules; nothing about them changed here. This was purely a visual problem.
 
 ## What I ruled out
 

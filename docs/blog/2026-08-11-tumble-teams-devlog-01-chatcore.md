@@ -4,6 +4,8 @@ description: "How I built ChatCore, a reusable text chat plugin for Unreal Engin
 date: 2026-10-03
 workedOn: 2026-08-11
 track: "Server-authoritative chat plugin"
+category: "DevLogs"
+sidebar: "DevLog #1: ChatCore"
 outline: deep
 tags: [UE5, C++, Networking, EOS]
 image: /blog/tt-chatcore-c.jpg

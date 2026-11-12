@@ -4,6 +4,8 @@ description: "How I built hit detection for two Unreal Engine 5 melee abilities:
 date: 2026-10-05
 workedOn: 2026-10-03
 track: "Melee damage and hit detection"
+category: "Character & GAS"
+sidebar: "Damage and Hit Detection"
 outline: deep
 tags: [UE5, GAS, Combat]
 image: /blog/tt-damage-c.jpg

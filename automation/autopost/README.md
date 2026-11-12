@@ -6,6 +6,7 @@ claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)�
 - PSEUDO의 `Documents/Issues/ISS-*.md`(기능·시스템 작업 기록)도 번호순으로 빌드 로그 글로 쓴다. 잡무 기록(일괄 수정·정리·빌드 수정 등)과 DBG 글로 이미 다룬 것은 건너뛰고, 이슈 번호·브랜치·작업 모드·overnight 기록 같은 내부 정보는 뺀다.
 - 새 노트를 영어 DevLog 글로 써서 `publishAt` 큐(이슈 글은 프로젝트당 하루 3개, 디버깅 글과 다른 프로젝트 글은 개수 제한 없이 다음 날 공개)에 넣고, `docs:build` 통과 후 main에 push한다.
 - 사이트 공개는 기존 GitHub Actions 일일 빌드가 날짜에 맞춰 처리한다.
+- 글을 쓴 뒤 문체 다듬기 1회: 영어 글은 `humanizer`, 한글 글은 `humanize-korean`(im-not-ai) 스킬을 본문 언어로 자동 선택한다(`prompt.md` 2a). 두 스킬은 `.claude/skills/`에 프로젝트 단위로 설치돼 있다.
 - 글마다 커버 이미지(라이트/다크 jpg)를 `scripts/cover.mjs`로 만들어 넣는다(Playwright 필요, 실패하면 이미지 없이 올리고 요약에 적는다).
 - 새 글이 생기면 휴대폰 푸시 알림, 새 노트가 없으면 조용히 끝난다.
 
@@ -16,6 +17,17 @@ claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)�
 | `cloud-task-prompt.md` | **클라우드 예약 작업의 지시문 사본** (작업 설정을 바꾸면 여기도 맞춰 둔다) |
 | `task-prompt.md` | (구) 맥 Claude 앱 예약 작업용 지시문. 지금은 쓰지 않음 |
 | `run.sh`, `setup.sh` | (구) 터미널·launchd용 대안. 지금은 쓰지 않음 |
+
+## 설치된 문체 스킬 (2026-11-12)
+
+| 스킬 | 출처 | 위치 | 언어 |
+|---|---|---|---|
+| humanizer | github.com/blader/humanizer (MIT, b48c832) | `.claude/skills/humanizer/` | 영어 |
+| humanize-korean (+ `/humanize`, `/humanize-scan`, `/humanize-redo`) | github.com/epoko77-ai/im-not-ai (MIT, b37e020) | `.claude/skills/humanize-*`, `.claude/agents/humanize-*.md`, `korean-ai-tell-taxonomist.md` | 한국어 |
+
+**업데이트**: `.github/workflows/update-skills.yml`이 매주 월요일 03:17(KST)에 두 원본 저장소를 확인한다. 바뀌었으면 `scripts/update-skills.sh`로 다시 설치하고 샘플로 동작을 점검한 뒤, `bot/update-skills` 브랜치로 **PR을 연다**(main에 직접 넣지 않음). 머지하면 다음 자동 포스팅부터 반영된다. 설치된 커밋은 `.claude/skills/UPSTREAM.lock`에 기록된다. 수동 실행: Actions 탭 → "Update writing skills" → Run workflow, 또는 로컬에서 `bash scripts/update-skills.sh`.
+
+작업 폴더 `_workspace/`는 `.gitignore`에 있다.
 
 ## 확인·관리
 

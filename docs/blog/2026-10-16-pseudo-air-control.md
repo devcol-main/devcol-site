@@ -5,6 +5,8 @@ date: 2026-10-27
 workedOn: 2026-10-16
 publishAt: 2026-10-27
 track: "Air control"
+category: "Debugging / Movement & Combat"
+sidebar: "Air Control 0.05"
 outline: deep
 tags: [UE5, Character Movement, Debugging]
 image: /blog/pseudo-aircontrol-1.png
@@ -106,7 +108,7 @@ Verified by playing it: reversing in the air and right after landing both work. 
 
 High air control is a design choice, not a correctness fix. Realistic platformers keep it low, so a jump commits you. Character-action games usually go high, because the player needs to correct position around enemies mid-air. PSEUDO is the second kind.
 
-It's also not final. The ground dash has since landed with the [defense work](/wiki/systems/defense), and an air dash is planned as a skill tree unlock. Once there's a dedicated air movement option, plain air control may come down a bit so the dash has a clear job. I've noted it as a value to revisit then, not a constant.
+It's also not final. The ground dash has since landed with the [defense work](/wiki/pseudo/systems/defense), and an air dash is planned as a skill tree unlock. Once there's a dedicated air movement option, plain air control may come down a bit so the dash has a clear job. I've noted it as a value to revisit then, not a constant.
 
 ## What I took away
 

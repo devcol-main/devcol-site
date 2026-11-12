@@ -5,6 +5,8 @@ date: 2026-10-29
 workedOn: 2026-10-22
 publishAt: 2026-10-29
 track: "Menu Lumen exposure warning"
+category: "Debugging / VFX & Rendering"
+sidebar: "Menu Lumen Warning"
 outline: deep
 tags: [UE5, Rendering, Lumen, Debugging]
 ---

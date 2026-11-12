@@ -5,13 +5,15 @@ date: 2026-11-05
 workedOn: 2026-11-03
 publishAt: 2026-11-05
 track: "Pistols don't fire after a swap"
+category: "Debugging / Input & GAS"
+sidebar: "Pistols Won't Fire After a Swap"
 outline: deep
 tags: [UE5, GAS, Input, Weapons, Debugging]
 ---
 
 # The Pistols That Wouldn't Fire: A Bug I Couldn't Reproduce and the Auto-Stow It Pointed To
 
-PSEUDO's player carries a greatsword and dual pistols and swaps between them with one key (the [Weapons](/wiki/systems/weapons) page has the details). The pistols' basic ammo refills on its own over time. So a natural thing to do is: shoot the basic ammo dry, swap to the greatsword, wait for the ammo to come back, then swap back and keep shooting.
+PSEUDO's player carries a greatsword and dual pistols and swaps between them with one key (the [Weapons](/wiki/pseudo/systems/weapons) page has the details). The pistols' basic ammo refills on its own over time. So a natural thing to do is: shoot the basic ammo dry, swap to the greatsword, wait for the ammo to come back, then swap back and keep shooting.
 
 That's what I did while playing, and when I switched back, left click didn't shoot.
 

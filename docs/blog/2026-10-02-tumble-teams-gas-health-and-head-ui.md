@@ -4,6 +4,8 @@ description: "Migrating character health from a component to GAS attributes, the
 date: 2026-10-05
 workedOn: 2026-10-02
 track: "Health in GAS, head-up bars"
+category: "Character & GAS"
+sidebar: "Health and Head-Up UI"
 outline: deep
 tags: [UE5, GAS, UI]
 image: /blog/tt-health-c.jpg

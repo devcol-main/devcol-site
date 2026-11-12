@@ -5,6 +5,8 @@ date: 2026-11-05
 workedOn: 2026-11-02
 publishAt: 2026-11-05
 track: "Idle foot sink and dash leg drag"
+category: "Debugging / Animation & Cloth"
+sidebar: "Idle Foot Sink and Dash Leg Drag"
 outline: deep
 tags: [UE5, Animation, IK, Debugging]
 ---
@@ -87,6 +89,6 @@ One leftover went on the polish list: during the unarmed dash's 0.3 s blend-out,
 
 **Foot IK preserves the clip's mistakes.** I'd been treating Foot Placement as a safety net that keeps feet on the floor. It keeps feet at the height the animation asked for, relative to the floor. A clip with a foot under the ground stays under the ground.
 
-**Static poses that move the body need foot IK off.** A pose clip that slides the character across the floor while Foot Placement plants the feet will stretch a leg, and the plant can outlive the pose. The `DisableFootIK` curve is now the rule for any such clip. The [Defense](/wiki/systems/defense) page has what the dash does in gameplay; this was purely about how it looks.
+**Static poses that move the body need foot IK off.** A pose clip that slides the character across the floor while Foot Placement plants the feet will stretch a leg, and the plant can outlive the pose. The `DisableFootIK` curve is now the rule for any such clip. The [Defense](/wiki/pseudo/systems/defense) page has what the dash does in gameplay; this was purely about how it looks.
 
 **Measure, don't eyeball.** A per-frame socket probe with a floor trace turned "a foot floats a bit" into "+5.9 cm, 58 cm behind the pelvis, and it's the right foot, not the left". That number pointed straight at the plant lock.

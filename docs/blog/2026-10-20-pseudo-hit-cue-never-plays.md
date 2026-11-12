@@ -5,6 +5,8 @@ date: 2026-10-29
 workedOn: 2026-10-20
 publishAt: 2026-10-29
 track: "Hit cue never plays"
+category: "Debugging / Input & GAS"
+sidebar: "Hit Cue Never Plays"
 outline: deep
 tags: [UE5, GAS, Gameplay Cues, Debugging]
 ---

@@ -5,13 +5,15 @@ date: 2026-11-07
 workedOn: 2026-11-05
 publishAt: 2026-11-07
 track: "Dash pose cuts the dash"
+category: "Debugging / Animation & Cloth"
+sidebar: "Dash Pose Cuts the Dash"
 outline: deep
 tags: [UE5, GAS, Animation, IK, Debugging]
 ---
 
 # Bringing Back the Dash Pose: A Longer Montage Blend-Out That Ended the UE5 Dash Ability Early
 
-PSEUDO's dash covers about 450 units in 0.35 s, with 350 ms of invulnerability (the [Defense](/wiki/systems/defense) page has the rules). For a while the forward dash played a static pose: a single frame taken from a sprint clip, `TB_Dash_Pose`, held while root motion moves the character. A few days ago I had three foot bugs around that dash, written up in [Three Foot Bugs, Three Causes](./2026-11-02-pseudo-idle-foot-sink-dash-leg-drag), and soon after the forward dash was switched to a borrowed evade clip instead.
+PSEUDO's dash covers about 450 units in 0.35 s, with 350 ms of invulnerability (the [Defense](/wiki/pseudo/systems/defense) page has the rules). For a while the forward dash played a static pose: a single frame taken from a sprint clip, `TB_Dash_Pose`, held while root motion moves the character. A few days ago I had three foot bugs around that dash, written up in [Three Foot Bugs, Three Causes](./2026-11-02-pseudo-idle-foot-sink-dash-leg-drag), and soon after the forward dash was switched to a borrowed evade clip instead.
 
 I wanted the one-frame pose back for the forward dash, without bringing the old foot problems back with it. The old [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine), `AM_TB_Dash`, was still in the project with the same section layout, so the obvious change was to point the pawn's `DashMontage` at it again.
 

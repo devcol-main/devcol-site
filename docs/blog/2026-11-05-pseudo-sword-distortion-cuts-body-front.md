@@ -5,6 +5,8 @@ date: 2026-11-10
 workedOn: 2026-11-05
 publishAt: 2026-11-10
 track: "Sword distortion cuts the body"
+category: "Debugging / VFX & Rendering"
+sidebar: "Sword Distortion From the Front"
 outline: deep
 tags: [UE5, VFX, Niagara, Rendering, Debugging]
 ---
