@@ -55,7 +55,7 @@ Every post gets a cover so it shows a picture on the home page and the DevLog in
 - If the script fails (no Playwright, font error), do not block the post: leave out `image:` and the figure, and say so in the final summary.
 
 ## 3. Schedule
-Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt`: one post per day, on Mondays, Wednesdays and Fridays only (three a week at most), on the first such free day after both today and the last date already in the queue. Order by source date, oldest first. A slow, steady cadence matters more than clearing the backlog.
+Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt` on the earliest day from tomorrow that still has room, in source-date order, oldest first. Room per day: normally one post. While there is a backlog, up to three posts per day until it is gone. There is a backlog when the queue already holds posts dated after tomorrow, or when this run's new posts would not all fit at one per day by the day after tomorrow, or when resolved notes are left over for the next run.
 
 ## 4. Wire them in
 For every new post:
