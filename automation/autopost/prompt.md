@@ -11,7 +11,7 @@ Read `automation/autopost/ledger.md`. Anything listed there is done.
 - PSEUDO: new files in `Documents/Debugging/` named `DBG-NNN ...md` with a number above the highest handled one. Skip `DBG-000 Template.md` and `Debug_Backlog.md`. Skip a note whose status is not fixed/resolved yet (leave it out of the ledger so a later run picks it up).
 - PSEUDO issue records: files in `Documents/Issues/` named `ISS-NNN ...md` that are not in the ledger yet. These are the build records of features and systems. Go through them in number order, oldest first, and take the ones that qualify (see "Issue records" in step 2) until the run's three posts are filled. Debugging notes and TumbleTeams come first; issue posts fill what is left of the three. Every record you look at gets a ledger line, posted or skipped, so no later run reads it again; a record that is not finished yet gets no line.
 - TumbleTeams: new files in `Documents/Devlogs/`, or, if there are none, a substantial body of new commits on `origin/main` since the last handled commit (a new feature or system, not routine fixes). At most one TumbleTeams post per run.
-If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW` (after the `LOW QUEUE` line from step 5, which applies here too).
+If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW`.
 Write at most 3 posts per run; leave the rest for the next run.
 
 ## 2. Write the posts
@@ -81,5 +81,4 @@ Then append one line per handled source to the "Handled after the cut-off" list 
 ## 5. Check and commit
 - Run `npm run docs:build`. It must pass. Fix your own pages until it does; never edit unrelated files to make it pass.
 - `git add -A docs automation/autopost/ledger.md` and commit on `main` with a message like `Autopost: add N PSEUDO debugging posts (DBG-031..033), scheduled Nov 7-8`. Do not push; the wrapper script pushes after its own build check.
-- Count the issue records still waiting: files in `Documents/Issues/` that are not in the ledger, are finished, and do not look like chores by their title. If fewer than 10 are left, the final summary and the final reply of the whole run must begin with the line `LOW QUEUE: <N> issue records left to post` (also when nothing was posted in this run).
 - Finish by printing a short summary: each new file, its title, its publishAt, and anything you were unsure about.
