@@ -29,6 +29,18 @@ Rules:
 - Link to existing wiki pages (`docs/wiki/systems/*.md`) with absolute links like `/wiki/systems/weapons` when they fit, and to related posts with `./<slug>`.
 - If the note shows a wiki page is now wrong, do not edit the wiki. Add a line under "## Wiki follow-ups" at the end of the ledger instead.
 
+## 2a. Humanize pass (pick the skill by language)
+After a post's draft is written and before its cover, run one editing pass over the post file. Choose the skill by the language of the post body (ignore front matter, code and identifiers): mostly Hangul → Korean, otherwise English. Do not ask anyone; decide and go.
+- **English** → read `.claude/skills/humanizer/SKILL.md` (relative to the site repo) and apply it in its "File mode". Voice sample = the style reference posts listed above.
+- **Korean** → read `.claude/skills/humanize-korean/SKILL.md` and follow it with genre `블로그`, letting `route_hint` pick the route (no `--strict`). Its `_workspace/` folder is git-ignored; leave it there. Put the final text back into the post file.
+- If the skill file is missing or its steps fail, keep the draft as it is and say so in the final summary. Never block a post on this step.
+
+Limits that win over anything the skill says:
+- Change prose only. Front matter, headings' anchors, code blocks, inline code, identifiers, tables of facts, numbers, log lines, links and the `<figure>` HTML stay byte-for-byte.
+- Add no facts, details, reactions or opinions that are not in the sources. Where the skill would add a specific detail, write a simpler sentence instead.
+- All rules in section 2 still apply after the pass (no AI/automation mentions, no internal numbers or paths).
+- Re-read the result against the source note once: if a claim was dropped or changed, restore it.
+
 ## 2b. Cover image
 Every post gets a cover so it shows a picture on the home page and the DevLog index.
 - Name: `pseudo-<short>-c` or `tt-<short>-c`, where `<short>` is one or two words from the slug (`pseudo-physics-asset-c`). Check `docs/public/blog/` first; the name must be new.
