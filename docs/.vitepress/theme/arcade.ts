@@ -23,4 +23,13 @@ export const games: Item[] = [
     fit: 'contain',
     badge: 'Play now',
   },
+  {
+    title: 'Melon Merge',
+    href: '/arcade/melon-merge',
+    blurb: 'Drop fruit into a wooden crate. Two of a kind merge into the next bigger one, all the way up to a watermelon.',
+    tags: ['Tap or keyboard', 'Mobile', 'Desktop'],
+    img: '/projects/melon-merge-1.jpg',
+    fit: 'contain',
+    badge: 'Play now',
+  },
 ]

@@ -79,4 +79,4 @@ All the sound is generated in the browser. The soundtrack is an 8-bar chiptune l
 
 The rules sit in a core that takes taps and elapsed time and returns a list of events: caught, missed, feature tapped, board expanded, game over. Rendering, audio, and the HUD all react to that list. Randomness is seeded, so the same seed and the same inputs give the same game, and the project has 487 automated tests over the rules, the difficulty curve, input mapping, layout, and audio scheduling. The production build is about 164 KB, font and logo included.
 
-Bug Squash is part of [Arcade Web](/projects/arcade-web), together with [Stack Up](/projects/stack-up). The code is under the Apache 2.0 license, and JetBrains Mono is bundled under the SIL Open Font License.
+Bug Squash is part of [Arcade Web](/projects/arcade-web), together with [Stack Up](/projects/stack-up) and [Melon Merge](/projects/melon-merge). The code is under the Apache 2.0 license, and JetBrains Mono is bundled under the SIL Open Font License.
