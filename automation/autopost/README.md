@@ -4,7 +4,7 @@ claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)�
 
 - PSEUDO의 `Documents/Debugging/DBG-*.md`와 TumbleTeams의 `Documents/Devlogs/`·새 커밋을 확인한다.
 - PSEUDO의 `Documents/Issues/ISS-*.md`(기능·시스템 작업 기록)도 번호순으로 빌드 로그 글로 쓴다. 잡무 기록(일괄 수정·정리·빌드 수정 등)과 DBG 글로 이미 다룬 것은 건너뛰고, 이슈 번호·브랜치·작업 모드·overnight 기록 같은 내부 정보는 뺀다.
-- 새 노트를 영어 DevLog 글로 써서 `publishAt` 큐(종류 합쳐 하루 최대 3개)에 넣고, `docs:build` 통과 후 main에 push한다.
+- 새 노트를 영어 DevLog 글로 써서 `publishAt` 큐(이슈 글은 프로젝트당 하루 3개, 디버깅 글과 다른 프로젝트 글은 개수 제한 없이 다음 날 공개)에 넣고, `docs:build` 통과 후 main에 push한다.
 - 사이트 공개는 기존 GitHub Actions 일일 빌드가 날짜에 맞춰 처리한다.
 - 글마다 커버 이미지(라이트/다크 jpg)를 `scripts/cover.mjs`로 만들어 넣는다(Playwright 필요, 실패하면 이미지 없이 올리고 요약에 적는다).
 - 새 글이 생기면 휴대폰 푸시 알림, 새 노트가 없으면 조용히 끝난다.
@@ -21,13 +21,13 @@ claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)�
 
 - 실행 기록: claude.ai 예약 작업 목록의 "devcol autopost" → 실행 기록(History). 각 실행은 새 세션에서 시작한다.
 - 저장소 접근: GitHub `devcol-main/devcol-site`(push), `pseudo`·`tumbleteams`(읽기). 접근이 끊기면 작업이 오류를 그대로 보고하고 멈춘다.
-- 하루 한 번만 돈다. 놓친 날은 없지만, 실행이 실패하면 다음 날 실행이 밀린 노트를 한꺼번에(최대 3개) 처리한다.
+- 하루 한 번만 돈다. 놓친 날은 없지만, 실행이 실패하면 다음 날 실행이 밀린 노트를 한꺼번에 처리한다.
 - **맥 Claude 앱의 예전 예약 작업(09·21시)은 꺼 둔다.** 같이 돌아도 `ledger.md` 덕분에 대개 "새 노트 없음"으로 끝나지만, 같은 시간대에 겹치면 push 충돌이 날 수 있다.
 
 ## 안전장치
 
 - `docs:build`가 실패하면 push하지 않는다. push는 빌드가 통과한 뒤 마지막 단계에서만 한다.
-- 한 번에 최대 3개 글, 공개는 하루 3개까지(DBG·TumbleTeams 먼저, 남는 자리에 이슈 글). 글 구조는 노트에 맞춰 매번 다르게 쓴다(고정 소제목 금지). 아직 Fixed가 아닌 DBG 노트는 다음 실행으로 넘긴다.
+- 이슈 글만 프로젝트당 하루 3개로 센다. 디버깅 글·TumbleTeams 등은 세지 않고 있는 대로 올린다. 한 실행이 8개 안팎을 넘기면 나머지는 다음 실행으로 넘긴다. 글 구조는 노트에 맞춰 매번 다르게 쓴다(고정 소제목 금지). 아직 Fixed가 아닌 DBG 노트는 다음 실행으로 넘긴다.
 - `date`는 공개일(`publishAt`과 같은 날), 노트 날짜는 `workedOn`.
 - 글 안에서는 AI·자동화 언급 금지(사이트 전체 고지는 `/about`에 있음), 내부 이슈 번호·로컬 경로·미공개 일정 제외(`prompt.md`).
 - 위키가 낡은 걸 발견하면 위키를 고치지 않고 `ledger.md`의 "Wiki follow-ups"에 적는다.
