@@ -168,7 +168,7 @@ Dash, guard, parry, perfect parry and perfect dodge are in the build and were te
 
 Dash and guard cancel a combo at any point except the hit frames. A press during the hit frames waits in the input buffer and fires as soon as they end. Taking a hit resets the perfect stack.
 
-Hit reactions, the groggy gauge (including parry and perfect-parry groggy) and break-fall are in the build as of 2026-10-21 and were tested the same way, on both machines. What's not done yet: the counter-attack state and the perfect-dodge slow motion, and an execution move on a groggy enemy. The Down reaction uses the last frame of a death clip until real knock-down and get-up animations exist. The guard pose is a held frame of a greatsword swing and the dash uses borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
+Hit reactions, the groggy gauge (including parry and perfect-parry groggy) and break-fall are in the build as of 2026-10-21 and were tested the same way, on both machines. What's not done yet: the counter-attack state and the perfect-dodge slow motion, and an execution move on a groggy enemy. The Down reaction uses the last frame of a death clip until real knock-down and get-up animations exist. The guard pose is a held frame of a greatsword swing. The forward dash holds a single sprint pose; the back, left and right dashes still use borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
 
 Updated 2026-10-21: the defense issue is built. Added the real window lengths, the no-input dash direction, instant draw on guard, how the server judges timing, the corrected unblockable rule (a perfect parry still works) and test results.
 

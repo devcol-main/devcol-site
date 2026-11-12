@@ -12,7 +12,15 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 
 ## PSEUDO issue records (Documents/Issues)
 
-None handled yet. Start from the lowest number. Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: reason>`
+Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: reason>`. Records not listed (e.g. ISS-008, still open) are picked up by a later run.
+
+- PSEUDO: Documents/Issues/ISS-004 Anim Layers.md -> skipped: no general lesson (130-word asset list)
+- PSEUDO: Documents/Issues/ISS-005 Face Swap.md -> skipped: covered by the MetaHuman on Paragon series (2026-10-14/15 posts)
+- PSEUDO: Documents/Issues/ISS-006 Foot IK.md -> skipped: no general lesson beyond 2026-11-02-pseudo-idle-foot-sink-dash-leg-drag (under 300 words)
+- PSEUDO: Documents/Issues/ISS-007 Melee Combo.md -> 2026-11-14-pseudo-melee-combo-graph-build
+- PSEUDO: Documents/Issues/ISS-016 Weapon Core.md -> 2026-11-14-pseudo-melee-hit-detection-build (folded)
+- PSEUDO: Documents/Issues/ISS-017 Hit Pipeline A.md -> 2026-11-14-pseudo-melee-hit-detection-build
+- PSEUDO: Documents/Issues/ISS-018 Stats and Data B1.md -> 2026-11-14-pseudo-data-driven-stats-mmc
 
 ## Handled after the cut-off
 
@@ -29,11 +37,15 @@ None handled yet. Start from the lowest number. Format: `- PSEUDO: Documents/Iss
 - PSEUDO: Documents/Debugging/DBG-038 Grenade Aim Tears The Coat Shoulder And Fades The Body (2026-11-07).md -> PENDING, not done: status Open (clip fix not saved yet); re-check every run and post once it is resolved
 - PSEUDO: Documents/Debugging/DBG-039 Status Look Missing On Client When Status Already Running (2026-11-07).md -> 2026-11-07-pseudo-status-look-missing-on-client
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-08) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-038 still Open (checked 2026-11-13) -> stays PENDING
+- PSEUDO: Documents/Debugging/DBG-040 Portal View Hitch (2026-11-12).md -> 2026-11-12-pseudo-gc-hitch-at-61-seconds
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-13) -> nothing to post
 
 ## Wiki follow-ups
 
-- /wiki/systems/defense: "Where it stands" says the dash uses borrowed evade animations; the forward dash now holds a one-frame sprint pose (TB_Dash_Pose), only back/left/right use evade clips (DBG-031).
 
 ## Screenshots wanted
 
 ## Maintenance log
+
+- 2026-11-13: wiki follow-up done: /wiki/pseudo/systems/defense "Status" now says the forward dash holds a single sprint pose and only back/left/right use borrowed evade clips (DBG-031).

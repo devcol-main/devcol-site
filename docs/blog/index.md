@@ -15,6 +15,10 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-14: [Data-Driven RPG Stats in UE5 GAS: Curve Tables, Modifier Magnitude Calculations and One Infinite Effect](./2026-11-14-pseudo-data-driven-stats-mmc)
+- 2026-11-14: [Melee Hit Detection in UE5 With GAS Target Data: Blade Sweeps, Physics Asset Bones and Server Validation](./2026-11-14-pseudo-melee-hit-detection-build)
+- 2026-11-14: [Building a UE5 Melee Combo With One Gameplay Ability: A Combo Graph, Montage Sections and a Predicted Advance](./2026-11-14-pseudo-melee-combo-graph-build)
+- 2026-11-14: [A Hitch That Always Hit at 61 Seconds: UE5 Garbage Collection, Not the Content on Screen](./2026-11-12-pseudo-gc-hitch-at-61-seconds)
 - 2026-11-12: [A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay](./2026-11-07-pseudo-status-look-missing-on-client)
 - 2026-11-11: [Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
 - 2026-11-10: [The Same Trap From the Front: A Niagara Refraction Trail That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)

@@ -112,6 +112,13 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [The Same Trap From the Front: A Niagara Refraction Trail That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)
 - [Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
 - [A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay](./2026-11-07-pseudo-status-look-missing-on-client)
+- [A Hitch That Always Hit at 61 Seconds: UE5 Garbage Collection, Not the Content on Screen](./2026-11-12-pseudo-gc-hitch-at-61-seconds)
+
+**Build logs**
+
+- [Building a UE5 Melee Combo With One Gameplay Ability: A Combo Graph, Montage Sections and a Predicted Advance](./2026-11-14-pseudo-melee-combo-graph-build)
+- [Melee Hit Detection in UE5 With GAS Target Data: Blade Sweeps, Physics Asset Bones and Server Validation](./2026-11-14-pseudo-melee-hit-detection-build)
+- [Data-Driven RPG Stats in UE5 GAS: Curve Tables, Modifier Magnitude Calculations and One Infinite Effect](./2026-11-14-pseudo-data-driven-stats-mmc)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 
