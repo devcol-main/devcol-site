@@ -23,4 +23,13 @@ export const games: Item[] = [
     fit: 'contain',
     badge: 'Play now',
   },
+  {
+    title: 'Bukang Run',
+    href: '/arcade/bukang-run',
+    blurb: 'A three-lane swimming runner. Guide the shark out of a Busan harbor canal past nets, pumps and camera flashes.',
+    tags: ['Swipe or keyboard', 'Mobile', 'Desktop'],
+    img: '/projects/bukang-run-gameplay.png',
+    fit: 'contain',
+    badge: 'Play now',
+  },
 ]

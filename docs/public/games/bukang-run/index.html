@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes, viewport-fit=cover">
+    <title>탈출! 북항이</title>
+    <script defer src="/t.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #0b1b2b; overflow: hidden; touch-action: none; -webkit-user-select: none; user-select: none; }
+      #unity-container { position: fixed; inset: 0; width: 100%; height: 100%; }
+      #unity-canvas { width: 100%; height: 100%; display: block; background: #0b1b2b; }
+      #unity-loading { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #cfe6ff; font: 16px/1.4 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+      #unity-bar { width: 60%; max-width: 320px; height: 8px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; margin-top: 12px; }
+      #unity-fill { width: 0%; height: 100%; background: #6fc3ff; transition: width .15s; }
+      #unity-warning { position: fixed; left: 50%; bottom: 8px; transform: translateX(-50%); color: #fff; font: 13px sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="unity-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+    </div>
+    <div id="unity-loading">
+      <div>탈출! 북항이 불러오는 중…</div>
+      <div id="unity-bar"><div id="unity-fill"></div></div>
+    </div>
+    <div id="unity-warning"></div>
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+      var loading = document.querySelector("#unity-loading");
+      var fill = document.querySelector("#unity-fill");
+      var warning = document.querySelector("#unity-warning");
+
+      function unityShowBanner(msg, type) {
+        warning.textContent = msg;
+        if (type !== 'error') setTimeout(function () { warning.textContent = ''; }, 5000);
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/WebGL.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/WebGL.data.unityweb",
+        frameworkUrl: buildUrl + "/WebGL.framework.js.unityweb",
+        codeUrl: buildUrl + "/WebGL.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "devcol",
+        productName: "BukangRun",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2)
+      };
+
+      function resize() {
+        var dpr = config.devicePixelRatio;
+        canvas.width = Math.round(window.innerWidth * dpr);
+        canvas.height = Math.round(window.innerHeight * dpr);
+      }
+      window.addEventListener("resize", resize);
+      resize();
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = function () {
+        createUnityInstance(canvas, config, function (p) { fill.style.width = (100 * p) + "%"; })
+          .then(function (inst) { window.unityInstance = inst; loading.style.display = "none"; })
+          .catch(function (m) { alert(m); });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

@@ -103,6 +103,15 @@ export const groups: Group[] = [
         img: '/projects/press-plane-1.png',
         badge: 'Released',
       },
+      {
+        title: 'Bukang Run',
+        href: '/projects/bukang-run',
+        blurb: 'A three-lane swimming runner about the shark that spent 34 days in a Busan harbor canal.',
+        tags: ['Unity 6', 'WebGL', 'Android'],
+        img: '/projects/bukang-run-gameplay.png',
+        fit: 'contain',
+        badge: 'Play in browser',
+      },
     ],
   },
   {
