@@ -25,8 +25,14 @@ Rules:
 - Leave out internal issue numbers, branch names, local machine paths, secrets, hostnames, people other than the developer, and unreleased dates or deadlines.
 - Never mention AI tools, agents, Claude, automation runs, "away"/"overnight" runs, or how the code or notes were produced. This is a hard rule from the TumbleTeams repo and applies to both games.
 - File name: `docs/blog/<note date>-pseudo-<slug>.md` or `docs/blog/<date>-tumble-teams-<slug>.md`.
-- Front matter: `title`, `description`, `date` (the note's date), `publishAt`, `track` (short label), `image` (the cover from step 2b), `outline: deep`, `tags`.
-- Link to existing wiki pages (`docs/wiki/systems/*.md`) with absolute links like `/wiki/systems/weapons` when they fit, and to related posts with `./<slug>`.
+- Front matter: `title`, `description`, `date` (the note's date), `publishAt`, `track` (short label), `category`, `sidebar`, `image` (the cover from step 2b), `outline: deep`, `tags`.
+- `category` places the post in the DevLog sidebar. Use exactly one of these values (a new value creates a new sidebar group, so only add one when none fits):
+  - PSEUDO debugging notes: `"Debugging / Input & GAS"`, `"Debugging / Animation & Cloth"`, `"Debugging / Networking"`, `"Debugging / VFX & Rendering"`, `"Debugging / Movement & Combat"`. Pick the area of the root cause, not of the symptom.
+  - PSEUDO non-debugging posts: `"Planning & Setup"`. A multi-part series gets its own group (e.g. `"MetaHuman on Paragon"`).
+  - TumbleTeams: `"DevLogs"` (numbered DevLog #N posts), `"Chat & Networking"`, `"Character & GAS"`.
+- `sidebar` is the label in the sidebar: Title Case, about 2-6 words (e.g. `"Guard Input Release"`).
+- Every debugging post keeps `Debugging` in `tags`; the DevLog topic filter (`/blog/?tag=Debugging`) relies on it.
+- Link to existing wiki pages (`docs/wiki/pseudo/systems/*.md`) with absolute links like `/wiki/pseudo/systems/weapons` when they fit, and to related posts with `./<slug>`.
 - If the note shows a wiki page is now wrong, do not edit the wiki. Add a line under "## Wiki follow-ups" at the end of the ledger instead.
 
 ## 2a. Humanize pass (pick the skill by language)
@@ -64,7 +70,7 @@ Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each 
 For every new post:
 - `docs/blog/index.md`: add `- YYYY-MM-DD: [Title](./slug)` under the right `## PSEUDO` or `## Tumble Teams` heading, newest first (date = the post's `date`).
 - `docs/blog/pseudo.md` "Reading order" (debugging notes, chronological) or `docs/blog/tumble-teams.md` reading order.
-- `docs/.vitepress/config.mts`: PSEUDO posts go in the PSEUDO sidebar list, in order, with a short `text`. TumbleTeams posts go in `tumbleTeamsGroups`.
+- The DevLog sidebar is generated from `docs/blog/index.md` and each post's `category` / `sidebar` front matter. Do not edit `docs/.vitepress/config.mts` for new posts.
 Then append one line per handled source to the "Handled after the cut-off" list in `automation/autopost/ledger.md`, skipped sources included, with the reason.
 
 ## 5. Check and commit

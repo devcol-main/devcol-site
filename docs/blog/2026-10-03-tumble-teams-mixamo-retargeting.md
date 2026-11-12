@@ -3,6 +3,8 @@ title: "Why Mixamo Animations Broke on My Character, and the Retargeting Pipelin
 description: "Importing Mixamo FBX files straight onto another skeleton in Unreal Engine 5 gives broken poses, even though bone names match. Why it happens, why you can't undo it, and the IK Retargeter pipeline with numeric verification."
 date: 2026-10-03
 track: "Mixamo retargeting pipeline"
+category: "Character & GAS"
+sidebar: "Mixamo Retargeting"
 outline: deep
 tags: [UE5, Animation, Retargeting]
 image: /blog/tt-mixamo-c.jpg

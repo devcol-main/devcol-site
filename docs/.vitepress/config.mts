@@ -6,41 +6,52 @@ import { author, links } from './theme/site'
 
 const SITE_URL = 'https://devcol.net'
 
-type Post = [string, string]
-
-const tumbleTeamsGroups: { text: string; posts: Post[] }[] = [
-  {
-    text: 'DevLogs',
-    posts: [
-      ['DevLog #1: ChatCore', '2026-08-11-tumble-teams-devlog-01-chatcore'],
-      ['DevLog #2: Input and Pawn Init', '2026-10-03-tumble-teams-devlog-02-input-and-pawn-init'],
-      ['DevLog #3: Minigame Playlist', '2026-10-24-tumble-teams-devlog-03-minigame-playlist'],
-    ],
-  },
-  {
-    text: 'Chat & Networking',
-    posts: [
-      ['Chat Focus Bugs', '2026-09-10-tumble-teams-chat-focus-bugs'],
-      ["Host Couldn't Move", '2026-09-18-tumble-teams-listen-server-host-cant-move'],
-      ['Chat Two-Player Testing', '2026-09-27-tumble-teams-chat-two-player-testing'],
-    ],
-  },
-  {
-    text: 'Character & GAS',
-    posts: [
-      ['Root Motion and BlendSpace', '2026-10-02-tumble-teams-root-motion-and-blendspace'],
-      ['Stamina and Sprint', '2026-10-02-tumble-teams-gas-stamina-and-sprint'],
-      ['Health and Head-Up UI', '2026-10-02-tumble-teams-gas-health-and-head-ui'],
-      ['Damage and Hit Detection', '2026-10-03-tumble-teams-damage-and-hit-detection'],
-      ['Mixamo Retargeting', '2026-10-03-tumble-teams-mixamo-retargeting'],
-    ],
-  },
-]
-
-const postExists = ([, slug]: Post) => existsSync(resolve('docs/blog', `${slug}.md`))
-const postLink = ([text, slug]: Post) => ({ text, link: `/blog/${slug}` })
-
 type SidebarItem = { text: string; link?: string; collapsed?: boolean; items?: SidebarItem[] }
+
+// DevLog sidebar, built from blog/index.md (the `## Project` lists) and each post's frontmatter:
+// `category:` picks the group ("Debugging / Networking" nests one level), `sidebar:` the label
+// (else `track:`, else the title). Posts run oldest first inside a group.
+const CATEGORY_ORDER = ['DevLogs', 'Planning & Setup', 'MetaHuman on Paragon', 'Debugging', 'Chat & Networking', 'Character & GAS']
+const BLOG_DIR = resolve('docs/blog')
+const unquote = (v = '') => v.trim().replace(/^(["'])(.*)\1$/, '$2')
+const fmField = (fm: string, key: string) => unquote(fm.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm'))?.[1])
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
+function blogSidebar(): SidebarItem[] {
+  const projects: { name: string; posts: { slug: string; title: string }[] }[] = []
+  for (const line of readFileSync(resolve(BLOG_DIR, 'index.md'), 'utf-8').split(/\r?\n/)) {
+    const h = line.match(/^##\s+(.+?)\s*$/)
+    if (h) projects.push({ name: h[1], posts: [] })
+    const m = line.match(/^- \d{4}-\d{2}-\d{2}: \[(.+?)\]\(\.\/(.+?)\)/)
+    if (m && projects.length && existsSync(resolve(BLOG_DIR, `${m[2]}.md`))) projects.at(-1)!.posts.push({ title: m[1], slug: m[2] })
+  }
+  const rank = (c: string) => (CATEGORY_ORDER.indexOf(c) + 1 || CATEGORY_ORDER.length + 1)
+  const groups: SidebarItem[] = [{ text: 'DevLog', items: [{ text: 'All Posts', link: '/blog/' }] }]
+  for (const proj of projects) {
+    if (!proj.posts.length) continue
+    const items: SidebarItem[] = []
+    if (existsSync(resolve(BLOG_DIR, `${slugify(proj.name)}.md`))) items.push({ text: 'Overview', link: `/blog/${slugify(proj.name)}` })
+    const cats = new Map<string, SidebarItem[]>()
+    const loose: SidebarItem[] = []
+    for (const post of [...proj.posts].reverse()) {
+      const fm = readFileSync(resolve(BLOG_DIR, `${post.slug}.md`), 'utf-8').match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? ''
+      const item = { text: fmField(fm, 'sidebar') || fmField(fm, 'track') || post.title, link: `/blog/${post.slug}` }
+      const [top, sub] = fmField(fm, 'category').split(/\s*\/\s*/)
+      if (!top) { loose.push(item); continue }
+      if (!cats.has(top)) cats.set(top, [])
+      const list = cats.get(top)!
+      if (!sub) { list.push(item); continue }
+      let child = list.find((it) => it.text === sub && it.items)
+      if (!child) list.push((child = { text: sub, collapsed: true, items: [] }))
+      child.items!.push(item)
+    }
+    items.push(...loose)
+    for (const [text, list] of [...cats].sort((x, y) => rank(x[0]) - rank(y[0]))) items.push({ text, collapsed: false, items: list })
+    groups.push({ text: proj.name, items })
+  }
+  return groups
+}
+
 
 const sidebar: Record<string, SidebarItem[]> = {
   '/projects/': [
@@ -123,121 +134,55 @@ const sidebar: Record<string, SidebarItem[]> = {
   ],
   '/wiki/': [
     {
+      text: 'Wiki',
+      items: [
+        { text: 'All Wikis', link: '/wiki/' },
+      ],
+    },
+    {
       text: 'PSEUDO Wiki',
       items: [
-        { text: 'Overview', link: '/wiki/' },
-      ],
-    },
-    {
-      text: 'Systems',
-      items: [
-        { text: 'All Systems', link: '/wiki/systems/' },
-        { text: 'Dice', link: '/wiki/systems/dice' },
-        { text: 'Combos and Cancels', link: '/wiki/systems/combo-and-cancels' },
-        { text: 'Defense', link: '/wiki/systems/defense' },
-        { text: 'Weapons', link: '/wiki/systems/weapons' },
-        { text: 'Damage Formula', link: '/wiki/systems/damage-formula' },
-        { text: 'Elements and Reactions', link: '/wiki/systems/elements' },
-        { text: 'Stats and Level', link: '/wiki/systems/stats-and-level' },
-        { text: 'Skill Tree', link: '/wiki/systems/skill-tree' },
-        { text: 'Camera', link: '/wiki/systems/camera' },
-        { text: 'Enemies and AI', link: '/wiki/systems/enemy-ai' },
-        { text: 'Movement and Level Metrics', link: '/wiki/systems/level-metrics' },
-        { text: 'Boss Sheets and Rampage', link: '/wiki/systems/rampage' },
-        { text: 'Controls', link: '/wiki/systems/controls' },
-      ],
-    },
-    {
-      text: 'Lore',
-      items: [
-        { text: 'All Lore', link: '/wiki/lore/' },
-        { text: 'World and Tone', link: '/wiki/lore/world-and-tone' },
-        { text: 'Butterfly Signals', link: '/wiki/lore/butterfly-signals' },
-        { text: 'Symbols and Motifs', link: '/wiki/lore/symbols-and-motifs' },
-      ],
-    },
-  ],
-  '/blog/': [
-    {
-      text: 'DevLog',
-      items: [
-        { text: 'All Posts', link: '/blog/' },
-        { text: 'Building devcol.net', link: '/blog/2026-09-17-building-devcol-net' },
-        { text: 'Cookie-Free Analytics', link: '/blog/2026-10-23-devcol-analytics' },
-      ],
-    },
-    {
-      text: 'PSEUDO',
-      items: [
-        { text: 'Overview', link: '/blog/pseudo' },
-        { text: 'Git Setup Before the First Push', link: '/blog/2026-10-11-pseudo-git-setup' },
-        { text: 'Player Controller Tick Bug', link: '/blog/2026-10-13-pseudo-player-controller-tick-blocks-input' },
+        { text: 'Overview', link: '/wiki/pseudo/' },
         {
-          text: 'MetaHuman Face on Paragon',
+          text: 'Systems',
           collapsed: false,
           items: [
-          { text: 'Part 1: Setup Blockers', link: '/blog/2026-10-14-pseudo-metahuman-paragon-1-setup' },
-          { text: 'Part 2: Face Attach', link: '/blog/2026-10-14-pseudo-metahuman-paragon-2-face-attach' },
-          { text: 'Part 3: Headless Mesh', link: '/blog/2026-10-14-pseudo-metahuman-paragon-3-headless-mesh' },
-          { text: 'Part 4: Grooms', link: '/blog/2026-10-15-pseudo-metahuman-paragon-4-grooms' },
-          { text: 'Part 5: Cloth and Hair', link: '/blog/2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair' },
+            { text: 'All Systems', link: '/wiki/pseudo/systems/' },
+            { text: 'Dice', link: '/wiki/pseudo/systems/dice' },
+            { text: 'Combos and Cancels', link: '/wiki/pseudo/systems/combo-and-cancels' },
+            { text: 'Defense', link: '/wiki/pseudo/systems/defense' },
+            { text: 'Weapons', link: '/wiki/pseudo/systems/weapons' },
+            { text: 'Damage Formula', link: '/wiki/pseudo/systems/damage-formula' },
+            { text: 'Elements and Reactions', link: '/wiki/pseudo/systems/elements' },
+            { text: 'Stats and Level', link: '/wiki/pseudo/systems/stats-and-level' },
+            { text: 'Skill Tree', link: '/wiki/pseudo/systems/skill-tree' },
+            { text: 'Camera', link: '/wiki/pseudo/systems/camera' },
+            { text: 'Enemies and AI', link: '/wiki/pseudo/systems/enemy-ai' },
+            { text: 'Movement and Level Metrics', link: '/wiki/pseudo/systems/level-metrics' },
+            { text: 'Boss Sheets and Rampage', link: '/wiki/pseudo/systems/rampage' },
+            { text: 'Controls', link: '/wiki/pseudo/systems/controls' },
           ],
         },
-        { text: 'Air Control 0.05', link: '/blog/2026-10-16-pseudo-air-control' },
-        { text: 'Greatsword Grip and Hits', link: '/blog/2026-10-19-pseudo-greatsword-grip-and-hits' },
-        { text: 'Predicted Weapon Swap', link: '/blog/2026-10-19-pseudo-predicted-weapon-swap' },
-        { text: 'First Enemy: Camera and Facing', link: '/blog/2026-10-20-pseudo-first-enemy-camera-and-facing' },
-        { text: 'Off-Screen Enemy Hits', link: '/blog/2026-10-20-pseudo-offscreen-enemy-hits' },
-        { text: 'Guard Input Release', link: '/blog/2026-10-20-pseudo-guard-input-release' },
-        { text: 'Hit Cue Never Plays', link: '/blog/2026-10-20-pseudo-hit-cue-never-plays' },
-        { text: 'No Control After Menu Start', link: '/blog/2026-10-22-pseudo-menu-start-no-control' },
-        { text: 'Menu Lumen Warning', link: '/blog/2026-10-22-pseudo-menu-lumen-exposure-warning' },
-        { text: 'Player Groggy Never Triggers', link: '/blog/2026-10-23-pseudo-player-groggy-never-triggers' },
-        { text: "Lock-On Click on Press", link: '/blog/2026-11-01-pseudo-lock-on-click-on-press' },
-        { text: "Coat Shards After Spawn", link: '/blog/2026-11-01-pseudo-coat-shards-anim-drive' },
-        { text: "Coat Through the Thigh", link: '/blog/2026-11-01-pseudo-coat-through-thigh-relaxed-idle' },
-        { text: "Idle Foot Sink and Dash Leg Drag", link: '/blog/2026-11-02-pseudo-idle-foot-sink-dash-leg-drag' },
-        { text: "Pistols Won't Fire After a Swap", link: '/blog/2026-11-03-pseudo-pistols-wont-fire-after-swap' },
-        { text: "Ammo Switch Lost Presses", link: '/blog/2026-11-04-pseudo-ammo-switch-lost-presses' },
-        { text: "Ammo Switch Gun Dip", link: '/blog/2026-11-04-pseudo-ammo-switch-gun-dip' },
-        { text: "Fire Blend-Out False Stuck", link: '/blog/2026-11-04-pseudo-fire-blend-out-false-stuck' },
-        { text: "Pistol Knockback Breaks the Legs", link: '/blog/2026-11-04-pseudo-pistol-knockback-broken-legs' },
-        { text: "Dash Pose Cuts the Dash", link: '/blog/2026-11-05-pseudo-dash-pose-blend-out-cuts-dash' },
-        { text: "Remote Shot Stale Muzzle", link: '/blog/2026-11-05-pseudo-remote-shot-stale-muzzle' },
-        { text: "Distortion Draws Nothing", link: '/blog/2026-11-05-pseudo-distortion-effects-draw-nothing' },
-        { text: "Dash Distortion Cuts the Body", link: '/blog/2026-11-05-pseudo-dash-distortion-cuts-body' },
-        { text: "Burn Status Recursion Crash", link: '/blog/2026-11-05-pseudo-burn-status-recursion-crash' },
-        { text: "Sword Distortion From the Front", link: '/blog/2026-11-05-pseudo-sword-distortion-cuts-body-front' },
-        { text: "Enemies With No Physics Asset", link: '/blog/2026-11-06-pseudo-buff-enemies-no-physics-asset' },
-        { text: "Status Look Missing on Client", link: '/blog/2026-11-07-pseudo-status-look-missing-on-client' },
-        { text: 'Planning a Steam Release Backwards', link: '/blog/2026-10-22-pseudo-steam-release-backwards' },
-      ],
-    },
-    {
-      text: 'Tumble Teams',
-      items: [
-        { text: 'Overview', link: '/blog/tumble-teams' },
-        ...tumbleTeamsGroups
-          .map((g) => ({ text: g.text, collapsed: false, items: g.posts.filter(postExists).map(postLink) }))
-          .filter((g) => g.items.length > 0),
-      ],
-    },
-    {
-      text: 'Arcade Web',
-      items: [
-        { text: 'Overview', link: '/blog/arcade-web' },
-        { text: 'Stack Up in Eight Steps', link: '/blog/2026-10-13-arcade-web-stack-up' },
-        { text: 'Bug Squash Terminal Redesign', link: '/blog/2026-10-14-arcade-web-bug-squash-terminal-redesign' },
-        { text: 'One Repository per Game', link: '/blog/2026-10-15-arcade-web-one-repo-per-game' },
+        {
+          text: 'Lore',
+          collapsed: false,
+          items: [
+            { text: 'All Lore', link: '/wiki/pseudo/lore/' },
+            { text: 'World and Tone', link: '/wiki/pseudo/lore/world-and-tone' },
+            { text: 'Butterfly Signals', link: '/wiki/pseudo/lore/butterfly-signals' },
+            { text: 'Symbols and Motifs', link: '/wiki/pseudo/lore/symbols-and-motifs' },
+          ],
+        },
       ],
     },
   ],
+  '/blog/': blogSidebar(),
 }
 
 // Scheduled pages (scripts/schedule.mjs) are deleted before a CI build, so drop sidebar links to
 // pages that don't exist and groups left empty.
 const pageExists = (link: string) => {
-  const r = link.replace(/^\//, '').replace(/#.*$/, '')
+  const r = link.replace(/^\//, '').replace(/[?#].*$/, '')
   return r === '' || r.endsWith('/') ? existsSync(resolve('docs', r, 'index.md')) : existsSync(resolve('docs', `${r}.md`))
 }
 const prune = (items: SidebarItem[] = []): SidebarItem[] =>
@@ -246,6 +191,98 @@ const prune = (items: SidebarItem[] = []): SidebarItem[] =>
     .map((it) => (it.items ? { ...it, items: prune(it.items) } : it))
     .filter((it) => it.link || (it.items && it.items.length > 0))
 for (const key of Object.keys(sidebar)) sidebar[key] = prune(sidebar[key])
+
+// Top nav. Every main tab opens a dropdown; the first entry goes to the section's index page.
+// Links to pages that don't exist yet (scheduled) are dropped, and so are sections left empty.
+type NavItem = { text: string; link?: string; activeMatch?: string; items?: NavItem[] }
+const pruneNav = (items: NavItem[]): NavItem[] =>
+  items
+    .filter((it) => !it.link || pageExists(it.link))
+    .map((it) => (it.items ? { ...it, items: pruneNav(it.items) } : it))
+    .filter((it) => it.link || (it.items && it.items.length > 0))
+const nav = pruneNav([
+  {
+    text: 'Projects',
+    activeMatch: '^/projects/',
+    items: [
+      { text: 'All Projects', link: '/projects/' },
+      {
+        text: 'By Category',
+        items: [
+          { text: 'Unreal Engine', link: '/projects/#unreal-engine' },
+          { text: 'Unreal Engine Tutorials', link: '/projects/#unreal-tutorials' },
+          { text: 'C++', link: '/projects/#cpp' },
+          { text: 'Unity', link: '/projects/#unity' },
+          { text: 'Arcade Web', link: '/projects/#arcade-web' },
+          { text: 'Tools (AI-Assisted)', link: '/projects/#tools' },
+        ],
+      },
+    ],
+  },
+  {
+    text: 'DevLog',
+    activeMatch: '^/blog/',
+    items: [
+      { text: 'All Posts', link: '/blog/' },
+      {
+        text: 'By Project',
+        items: [
+          { text: 'PSEUDO', link: '/blog/pseudo' },
+          { text: 'Tumble Teams', link: '/blog/tumble-teams' },
+          { text: 'Arcade Web', link: '/blog/arcade-web' },
+          { text: 'Building devcol.net', link: '/blog/#building-devcol-net' },
+        ],
+      },
+      {
+        text: 'By Topic',
+        items: [{ text: 'Debugging Notes', link: '/blog/?tag=Debugging' }],
+      },
+    ],
+  },
+  {
+    text: 'Study',
+    activeMatch: '^/study/',
+    items: [
+      { text: 'All Notes', link: '/study/' },
+      { text: 'Unreal Engine', link: '/study/#unreal-engine' },
+      { text: 'Git', link: '/study/#git' },
+    ],
+  },
+  {
+    text: 'Wiki',
+    activeMatch: '^/wiki/',
+    items: [
+      { text: 'All Wikis', link: '/wiki/' },
+      {
+        text: 'PSEUDO Wiki',
+        items: [
+          { text: 'Overview', link: '/wiki/pseudo/' },
+          { text: 'Systems', link: '/wiki/pseudo/systems/' },
+          { text: 'Lore', link: '/wiki/pseudo/lore/' },
+        ],
+      },
+    ],
+  },
+  {
+    text: 'Arcade',
+    activeMatch: '^/arcade/',
+    items: [
+      { text: 'All Games', link: '/arcade/' },
+      { text: 'Stack Up', link: '/arcade/stack-up' },
+      { text: 'Bug Squash', link: '/arcade/bug-squash' },
+    ],
+  },
+  {
+    text: 'More',
+    items: [
+      { text: 'About', link: '/about' },
+      { text: 'FAQ', link: '/faq' },
+      { text: 'Contact', link: '/contact' },
+      { text: 'Site Stats', link: '/stats' },
+      { text: 'Privacy Policy', link: '/privacy-policy' },
+    ],
+  },
+])
 
 // Prev/next links stay inside one top-level sidebar group (e.g. Arcade Web posts only link to other
 // Arcade Web posts). Index pages ("All Posts") and group overviews are not part of the chain.
@@ -358,22 +395,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: { src: '/logo.png', alt: 'DevCol logo' },
-    nav: ([
-      { text: 'Projects', link: '/projects/' },
-      { text: 'DevLog', link: '/blog/' },
-      { text: 'Study', link: '/study/' },
-      { text: 'Wiki', link: '/wiki/' },
-      {
-        text: 'More',
-        items: [
-          { text: 'About', link: '/about' },
-          { text: 'FAQ', link: '/faq' },
-          { text: 'Contact', link: '/contact' },
-          { text: 'Site Stats', link: '/stats' },
-          { text: 'Privacy Policy', link: '/privacy-policy' },
-        ],
-      },
-    ] as { text: string; link?: string; items?: { text: string; link: string }[] }[]).filter((it) => !it.link || pageExists(it.link)),
+    nav,
 
     sidebar,
     socialLinks: [

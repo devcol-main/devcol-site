@@ -9,6 +9,7 @@ import './custom.css'
 import './home/home.css'
 import HomePage from './home/HomePage.vue'
 import ProjectGrid from './ProjectGrid.vue'
+import ArcadeGrid from './ArcadeGrid.vue'
 import GameFrame from './GameFrame.vue'
 import SiteFooter from './SiteFooter.vue'
 import BackToTop from './BackToTop.vue'
@@ -197,9 +198,12 @@ export default {
     if (typeof window !== 'undefined') {
       router.onAfterRouteChanged = () => {
         nextTick(() => setTimeout(() => (window as { devcol?: { page(): void } }).devcol?.page(), 0))
+        // Same-page links that only change the query (DevLog topic filter) listen for this.
+        window.dispatchEvent(new Event('devcol:route'))
       }
     }
     app.component('ProjectGrid', ProjectGrid)
+    app.component('ArcadeGrid', ArcadeGrid)
     app.component('HomePage', HomePage)
     app.component('GameFrame', GameFrame)
     app.component('BlogIndex', BlogIndex)

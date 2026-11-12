@@ -127,7 +127,7 @@ Without a limit, a fast weapon reapplies its aura every hit and triggers a react
 
 When several sources want to set the element of the same hit, the order is: **skill-tree augment > dice imbue > weapon default**. A pet's element stays on the pet's own hits.
 
-See [Dice](/wiki/systems/dice) for how rolls are graded.
+See [Dice](/wiki/pseudo/systems/dice) for how rolls are graded.
 
 ## Status
 

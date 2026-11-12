@@ -4,13 +4,15 @@ description: "In PSEUDO, letting go of the guard button didn't end the guard. Th
 date: 2026-10-20
 publishAt: 2026-10-28
 track: "Guard input release"
+category: "Debugging / Input & GAS"
+sidebar: "Guard Input Release"
 outline: deep
 tags: [UE5, GAS, Input, Networking, Debugging]
 ---
 
 # A Guard That Never Let Go: WaitInputRelease in UE 5.8
 
-Guard in PSEUDO is a hold ability. Pressing the button starts the guard and the parry timing check at the same moment, holding keeps you guarding, and letting go ends it. The [Defense](/wiki/systems/defense) page has the design. The implementation is a Gameplay Ability that applies a `State.Guarding` tag, tells the server-side defense component that the character is guarding, and then waits for the button to be released.
+Guard in PSEUDO is a hold ability. Pressing the button starts the guard and the parry timing check at the same moment, holding keeps you guarding, and letting go ends it. The [Defense](/wiki/pseudo/systems/defense) page has the design. The implementation is a Gameplay Ability that applies a `State.Guarding` tag, tells the server-side defense component that the character is guarding, and then waits for the button to be released.
 
 During the same listen-server session that turned up [hits that only landed while the host was watching](./2026-10-20-pseudo-offscreen-enemy-hits), the "waits for the button to be released" part turned out not to work at all.
 

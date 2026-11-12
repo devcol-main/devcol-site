@@ -7,7 +7,7 @@ outline: deep
 
 # Symbols and Motifs: Animals, Marks and Two Different Eyes
 
-PSEUDO is about the line between a life and the game someone logs in to every day (the setup is in [World and Tone](/wiki/lore/world-and-tone)). I wanted that line to be visible without anyone ever explaining it. So the game borrows a small set of animals and marks that lucid-dreaming and dream-yoga communities use for "the boundary between waking and dreaming", and repeats them at the moments that matter.
+PSEUDO is about the line between a life and the game someone logs in to every day (the setup is in [World and Tone](/wiki/pseudo/lore/world-and-tone)). I wanted that line to be visible without anyone ever explaining it. So the game borrows a small set of animals and marks that lucid-dreaming and dream-yoga communities use for "the boundary between waking and dreaming", and repeats them at the moments that matter.
 
 This page lists them, where they show up, and the rules that keep them from turning into decoration. Like the rest of the Lore section, it stops before the story turns.
 
@@ -32,7 +32,7 @@ It turned out to be the better choice anyway. One drawn, glowing style ties ever
 | **Owl** | The eye that sees in the dark; wisdom; waking up | Statues in the hub (save point, shop); a flash in the eyes at the instant of a perfect dodge or parry; the scan effect that reveals a boss's weak spots |
 | **Cat** | Intuition, independence, the unconscious, the unseen | The hub's mascot; hints at where hidden objects are; now and then, behavior that's slightly off |
 
-The butterfly is the core and the only one I treat as essential. It has its own page with the full signal rules: [Butterflies: The Signal System](/wiki/lore/butterfly-signals).
+The butterfly is the core and the only one I treat as essential. It has its own page with the full signal rules: [Butterflies: The Signal System](/wiki/pseudo/lore/butterfly-signals).
 
 The **snake on Re-Roll** is my favorite small detail. A re-roll is a second chance at the same throw, and a snake shedding its skin is the same body coming back renewed. The die doesn't just tumble again; it peels.
 
@@ -47,7 +47,7 @@ The **owl and the cat** are lower priority. If they make it in, the hub versions
 | **Eye / third eye** | Looking at the dream *consciously* | Lock-on and weak-point markers, an eye opening as the transition into a stage, the icon for the Real difficulty setting |
 | **Sigil** | A personal mark used to fix or induce a dream state | The logo itself is drawn as a sigil; a sigil fragment for each cleared stage, assembled on the hub floor as a collectible |
 
-The **spiral** does the most work after the butterfly, because it fits so many moments of play: falling into a stage, waiting for a load, watching dice tumble, and being confused or put to sleep by a Curse effect (see [Elements and Reactions](/wiki/systems/elements)). Wherever the game takes control away from you for a moment, there's a spiral.
+The **spiral** does the most work after the butterfly, because it fits so many moments of play: falling into a stage, waiting for a load, watching dice tumble, and being confused or put to sleep by a Curse effect (see [Elements and Reactions](/wiki/pseudo/systems/elements)). Wherever the game takes control away from you for a moment, there's a spiral.
 
 The **eye** is the other half: wherever the game gives you clarity (a locked target, an exposed weak point), there's an eye.
 

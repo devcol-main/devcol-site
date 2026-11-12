@@ -93,4 +93,4 @@ Leaving the section is the delicate part. If the override was simply cleared, th
 - A dither fade instead of the hard hide when the camera is inside the character.
 - Per-level collision cleanup as levels are built.
 
-Related pages: [Combos and Cancels](/wiki/systems/combo-and-cancels) for how lock-on fits into combat, and [Defense](/wiki/systems/defense) for the slow motion that the camera ignores.
+Related pages: [Combos and Cancels](/wiki/pseudo/systems/combo-and-cancels) for how lock-on fits into combat, and [Defense](/wiki/pseudo/systems/defense) for the slow motion that the camera ignores.

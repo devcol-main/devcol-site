@@ -98,7 +98,7 @@ An attribute set is a class holding a handful of `FGameplayAttributeData` proper
 1. **Group by shared rules and by who needs them.** Health and max health, plus the meta attributes that feed into health (`IncomingDamage`, `IncomingHealing`), go together because all damage and death handling flows through one place. Stamina and mana pools go together because they clamp and regenerate the same way. Combat stats that buffs and debuffs target go together.
 2. **Don't make one set per attribute.** That multiplies boilerplate and replication overhead for nothing.
 
-Then decide which pawns get which sets. In the first version of the framework, the hub character got only health and resources, the combat character got everything, and enemies got health and combat stats. The list of sets has grown since (primaries, resistances, status buildup), and [Stats and Level](/wiki/systems/stats-and-level) has the current one, but the grouping rule hasn't changed.
+Then decide which pawns get which sets. In the first version of the framework, the hub character got only health and resources, the combat character got everything, and enemies got health and combat stats. The list of sets has grown since (primaries, resistances, status buildup), and [Stats and Level](/wiki/pseudo/systems/stats-and-level) has the current one, but the grouping rule hasn't changed.
 
 ### One instance per set class
 

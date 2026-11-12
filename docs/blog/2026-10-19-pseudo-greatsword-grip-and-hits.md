@@ -4,6 +4,8 @@ description: "Two bugs from the day the greatsword went into PSEUDO. The sword a
 date: 2026-10-19
 publishAt: 2026-10-27
 track: "Greatsword attach and hits"
+category: "Debugging / Movement & Combat"
+sidebar: "Greatsword Grip and Hits"
 outline: deep
 tags: [UE5, Animation, Hit Detection, Paragon, Debugging]
 ---
@@ -71,7 +73,7 @@ With the sword in the hand and the hit pipeline in, I chained Light 1 to Light 5
 
 ### How hit detection works here
 
-To make sense of the investigation, here's the shape of the detection (the [Damage Formula](/wiki/systems/damage-formula) page has the full path):
+To make sense of the investigation, here's the shape of the detection (the [Damage Formula](/wiki/pseudo/systems/damage-formula) page has the full path):
 
 1. During an attack's hit window, the attacker sweeps several points along the blade between last frame and this frame.
 2. A **broad phase** finds characters near the sweep (their capsules).
@@ -105,7 +107,7 @@ I moved the dummies into the swing paths: one front-left, one front-right, plus 
 
 - **When there are no hits, check in this order:** is the trace running and its window open; does the broad phase find anything; does the narrow phase hit the target mesh. A verbose log category plus a debug console variable that draws the sweeps make the first two checks one command each.
 - **Place test enemies from the logged blade path, not from the capsule size.** A capsule makes a dummy look closer to the blade than its body is.
-- **Hit windows need retuning.** Light 5's window covers mostly the overhead windup; the slam itself is a short slice of it. That's a feel issue, not a correctness issue, and it's on the list for the combat feel pass. (The finisher has since become an [area attack](/wiki/systems/combo-and-cancels), which changes this again.)
+- **Hit windows need retuning.** Light 5's window covers mostly the overhead windup; the slam itself is a short slice of it. That's a feel issue, not a correctness issue, and it's on the list for the combat feel pass. (The finisher has since become an [area attack](/wiki/pseudo/systems/combo-and-cancels), which changes this again.)
 
 ## The common thread
 

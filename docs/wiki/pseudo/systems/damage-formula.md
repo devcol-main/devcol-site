@@ -67,7 +67,7 @@ The damage-taken term is the one value in the formula that's read from the targe
 
 A resistance of 0.5 halves the damage of that element. A negative resistance is a weakness: −0.5 means 50% extra. Resistance is clamped between −1 and 0.75, so nothing is fully resistant through stacking. A resistance of 1 or more is different: it means **immune**, zero damage, and the only way through is to lower the resistance first (the Dark element does that).
 
-The element of a hit comes from the attack if it overrides it, otherwise from the weapon. The calculation reads every resistance through the element definitions, so adding a new element doesn't touch the damage code. More on that in [Elements and Reactions](/wiki/systems/elements).
+The element of a hit comes from the attack if it overrides it, otherwise from the weapon. The calculation reads every resistance through the element definitions, so adding a new element doesn't touch the damage code. More on that in [Elements and Reactions](/wiki/pseudo/systems/elements).
 
 ### Armor
 
@@ -101,7 +101,7 @@ Damage only matters if the hit is real, so here's the path before the formula ru
 
 Why the attacker detects instead of the server: on a listen server the server's copy of a remote player is a few frames behind, so a swing that clearly connected on the player's screen could miss on the server. Detecting locally and validating on the server keeps hits honest without making them feel laggy.
 
-Area attacks skip step 1's blade sweep: one sphere query finds every target, and the server checks each against a sphere it rebuilds from its own copy of the attacker. The details are on [Combo and Cancels](/wiki/systems/combo-and-cancels).
+Area attacks skip step 1's blade sweep: one sphere query finds every target, and the server checks each against a sphere it rebuilds from its own copy of the attacker. The details are on [Combo and Cancels](/wiki/pseudo/systems/combo-and-cancels).
 
 I also dropped a check I'd planned: verifying on the server that the hit landed inside the animation's hit window. Because the server copy runs behind, a strict check rejected legitimate early hits. "One hit per target per attack" replaced it.
 
@@ -116,7 +116,7 @@ Three things happen alongside the damage:
 - **Element shields.** Some enemies have an element shield. While it's up, hits go to the shield first, at ×2 if the hit is the shield's weakness and ×0.25 otherwise. What breaks through goes to health.
 - **Status buildup.** Elemental hits build a status gauge. When it fills, the status triggers. Poison, for example, deals damage over time per stack and ignores crits, armor and the bucket.
 
-Both are covered on the [Elements and Reactions](/wiki/systems/elements) page.
+Both are covered on the [Elements and Reactions](/wiki/pseudo/systems/elements) page.
 
 ## What's next for the formula
 

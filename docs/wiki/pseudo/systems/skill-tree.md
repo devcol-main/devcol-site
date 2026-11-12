@@ -7,7 +7,7 @@ outline: deep
 
 # Skill Tree: Weapon Trees, Node Types and Tags
 
-Stats in PSEUDO grow on their own when you level up (see [Stats and Level](/wiki/systems/stats-and-level)), so the skill tree is where the build choices are. Each level gives a skill point, and you spend points on nodes. This page covers how the trees are laid out, what a node can do, and how the tree is wired into the combat systems without any of them knowing it exists.
+Stats in PSEUDO grow on their own when you level up (see [Stats and Level](/wiki/pseudo/systems/stats-and-level)), so the skill tree is where the build choices are. Each level gives a skill point, and you spend points on nodes. This page covers how the trees are laid out, what a node can do, and how the tree is wired into the combat systems without any of them knowing it exists.
 
 The skill tree is designed but not built yet. It's the next progression issue after the combat work, so everything here is the decided design.
 
@@ -21,9 +21,9 @@ The skill tree is designed but not built yet. It's the next progression issue af
 | **Second ranged weapon** | Bow or magic, still undecided |
 | **Common** | Survival, Mobility (dash upgrades, air dash), Dice, Element affinity |
 
-Every weapon has its own tree, and a new weapon brings a new tree asset with it. That matches how weapons work in general: adding a weapon means adding data, not combat code (see [Weapons](/wiki/systems/weapons)).
+Every weapon has its own tree, and a new weapon brings a new tree asset with it. That matches how weapons work in general: adding a weapon means adding data, not combat code (see [Weapons](/wiki/pseudo/systems/weapons)).
 
-The common tree holds what doesn't belong to a weapon. The Dice branch is the one I've designed in the most detail: the All-in roll, Advantage (roll three dice, keep the best two), Re-Roll, a +1 or +2 roll bonus, a smaller bad-luck stack, and more pips per perfect input. The [Dice](/wiki/systems/dice) page covers what each of those does to the odds.
+The common tree holds what doesn't belong to a weapon. The Dice branch is the one I've designed in the most detail: the All-in roll, Advantage (roll three dice, keep the best two), Re-Roll, a +1 or +2 roll bonus, a smaller bad-luck stack, and more pips per perfect input. The [Dice](/wiki/pseudo/systems/dice) page covers what each of those does to the odds.
 
 The layout follows the Stellar Blade pattern: a main skill sits on the tree, and derived upgrades and unlocks branch off it. Learning the skill is one decision; making it yours is a series of smaller ones after it.
 
@@ -40,7 +40,7 @@ Only Active and Passive touch abilities and effects directly. The other two are 
 
 ### Unlocks are combo transitions
 
-Every transition in a weapon's combo graph can require tags (see [Combos and Cancels](/wiki/systems/combo-and-cancels)). The heavy branch of the greatsword has a transition that requires `Unlock.Combo.Greatsword.HeavyBranch`. Until you learn that node, the transition simply doesn't match and a heavy press does what it did before.
+Every transition in a weapon's combo graph can require tags (see [Combos and Cancels](/wiki/pseudo/systems/combo-and-cancels)). The heavy branch of the greatsword has a transition that requires `Unlock.Combo.Greatsword.HeavyBranch`. Until you learn that node, the transition simply doesn't match and a heavy press does what it did before.
 
 So the combo system has no idea the skill tree exists. It already checks tags for situational attacks (an attack out of a dash requires `State.Dashing`, a counter requires `State.Perfect.Parry`), and a skill tree unlock is one more tag in the same list. The dice system reads its unlocks the same way: All-in checks for an unlock tag. Right now those tags come from a default list in the project settings; when the tree exists, the nodes grant them instead, and nothing in the dice code changes.
 

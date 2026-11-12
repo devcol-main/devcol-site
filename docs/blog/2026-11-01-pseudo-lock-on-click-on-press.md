@@ -4,13 +4,15 @@ description: "Clicking the mouse wheel to lock on in PSEUDO often did nothing. T
 date: 2026-11-01
 publishAt: 2026-11-04
 track: "Lock-on click"
+category: "Debugging / Input & GAS"
+sidebar: "Lock-On Click on Press"
 outline: deep
 tags: [UE5, Input, Lock-On, Debugging]
 ---
 
 # A Lock-On That Waited for the Release: Moving the Decision to the Press
 
-PSEUDO's lock-on sits on the mouse wheel click (R3 on a gamepad). With a melee weapon out, a click locks on to the enemy in front of you, another click switches to a different target, and holding the key releases the lock. (The layout is on the [Controls](/wiki/systems/controls#lock-on) page.)
+PSEUDO's lock-on sits on the mouse wheel click (R3 on a gamepad). With a melee weapon out, a click locks on to the enemy in front of you, another click switches to a different target, and holding the key releases the lock. (The layout is on the [Controls](/wiki/pseudo/systems/controls#lock-on) page.)
 
 My complaint after a play session was short: lock-on doesn't work well. When I click the wheel I expect to be locked on right away, and often I wasn't. Sometimes it came a beat late, and sometimes it never came.
 

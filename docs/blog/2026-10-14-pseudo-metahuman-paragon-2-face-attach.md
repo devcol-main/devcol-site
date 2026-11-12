@@ -4,6 +4,8 @@ description: "A MetaHuman face under a Paragon Twinblast body floated in place, 
 date: 2026-10-14
 publishAt: 2026-10-25
 track: "MetaHuman face, part 2"
+category: "MetaHuman on Paragon"
+sidebar: "Part 2: Face Attach"
 outline: deep
 tags: [UE5, MetaHuman, Animation, Debugging]
 image: /blog/pseudo-mhface-6.png

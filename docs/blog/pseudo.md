@@ -40,7 +40,7 @@ Every roll is **2d6**. I picked two dice over one because the sum clusters aroun
 - **The first roll is scripted as a critical success**, so the player sees the best case before anything else.
 - **Bad rolls can be turned around.** A failure comes with a short Reversal challenge that flips the penalty into a bonus, and failures build a visible stack that raises Luck and, at a set count, guarantees a critical success.
 
-The full rules, with the odds and the reasoning, are on the wiki's [Dice](/wiki/systems/dice) page.
+The full rules, with the odds and the reasoning, are on the wiki's [Dice](/wiki/pseudo/systems/dice) page.
 
 There are two difficulties. *Story* guarantees at least a Normal result. *Real* lowers the odds of good results, strips most of the UI down to the dice faces, and gives enemies dice too.
 
@@ -66,7 +66,7 @@ I'm leaving the story's turns out of this page on purpose.
 
 The full write-up is the framework doc in the repository. The decisions that shape everything else:
 
-- **The Ability System Component and the attribute sets live on the PlayerState**, not the pawn, so they survive pawn swaps. Enemies own their own ASC. Attributes are grouped into sets by the rules they share: primaries, health, combat stats, resistances, status buildup, and Luck on its own so the luck system can grow. The full list is on the wiki's [Stats and Level](/wiki/systems/stats-and-level) page.
+- **The Ability System Component and the attribute sets live on the PlayerState**, not the pawn, so they survive pawn swaps. Enemies own their own ASC. Attributes are grouped into sets by the rules they share: primaries, health, combat stats, resistances, status buildup, and Luck on its own so the luck system can grow. The full list is on the wiki's [Stats and Level](/wiki/pseudo/systems/stats-and-level) page.
 - **One player character class for both MC and SC.** The differences live in a `UPseudoPawnData` data asset, not in subclasses.
 - **Input goes through GameplayTags.** Enhanced Input actions map to `InputTag.*` tags, which feed the ability system.
 - **Single player is a listen server with one player.** I'm designing for server authority and replication from the start, so the multiplayer mode isn't a rewrite later.
@@ -125,7 +125,7 @@ The full write-up is the framework doc in the repository. The decisions that sha
 
 The framework is in place (game mode, player controller and state, the ability system component, a data-driven input config), and the first combat systems are in the build: the greatsword's combo graph with perfect inputs, two weapon slots with a swap, hit detection validated on the server, the damage formula with stats, and elements with resistances, status buildup and element shields.
 
-Since then, defense (dash, guard, parry and their perfect versions, judged on the server by timestamps), the full dice system, lock-on with camera modes and hitstop, a non-combat mode with weapon stowing, and a shared enemy AI framework with a first melee grunt have landed. On 2026-10-21 hit reactions (stagger, knockback, down, launch, a groggy gauge, break-fall), the Curse statuses (stop, sleep, confuse), death, and area attacks with a floor warning ring followed. Next up is the skill tree. The design for every system is on the [wiki's Systems pages](/wiki/systems/).
+Since then, defense (dash, guard, parry and their perfect versions, judged on the server by timestamps), the full dice system, lock-on with camera modes and hitstop, a non-combat mode with weapon stowing, and a shared enemy AI framework with a first melee grunt have landed. On 2026-10-21 hit reactions (stagger, knockback, down, launch, a groggy gauge, break-fall), the Curse statuses (stop, sleep, confuse), death, and area attacks with a floor warning ring followed. Next up is the skill tree. The design for every system is on the [wiki's Systems pages](/wiki/pseudo/systems/).
 
 ## Credits
 

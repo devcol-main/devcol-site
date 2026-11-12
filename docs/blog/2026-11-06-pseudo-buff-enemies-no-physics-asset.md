@@ -4,13 +4,15 @@ description: "In PSEUDO's combat test map, the Brute and the Flyer took no damag
 date: 2026-11-06
 publishAt: 2026-11-11
 track: "Enemies with no Physics Asset"
+category: "Debugging / Movement & Combat"
+sidebar: "Enemies With No Physics Asset"
 outline: deep
 tags: [UE5, Combat, Physics, Assets, Debugging]
 ---
 
 # Two Enemies Nothing Could Hurt: A Missing Physics Asset and a Two-Phase Hit Test
 
-PSEUDO's enemies come from Paragon's minion pack: a lane melee minion, a ranged one, a siege one, and two larger "Buff" minions that I use as the Brute (red) and the Flyer (blue). The [Enemy AI](/wiki/systems/enemy-ai) page has the roster. My combat test map has a few of each standing around so I can try weapons on them.
+PSEUDO's enemies come from Paragon's minion pack: a lane melee minion, a ranged one, a siege one, and two larger "Buff" minions that I use as the Brute (red) and the Flyer (blue). The [Enemy AI](/wiki/pseudo/systems/enemy-ai) page has the roster. My combat test map has a few of each standing around so I can try weapons on them.
 
 Two of them couldn't be hurt. The Brute and both Flyers ignored the greatsword, the pistols and area attacks. Every other enemy on the map took damage normally.
 

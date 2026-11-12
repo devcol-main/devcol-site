@@ -64,7 +64,7 @@ Because the parry window counts from the press, a quick tap still parries a hit 
 
 A perfect parry or perfect dodge does three things beyond avoiding the hit:
 
-- **Opens a counter.** The character carries a short `State.Perfect.Parry` or `State.Perfect.Dodge` tag, and the combo graph has a transition that requires it. Press attack right after and you get a counter attack instead of the first hit of a normal combo. It's the same tag-gated transition the combo system uses everywhere (see [Combos and Cancels](/wiki/systems/combo-and-cancels)).
+- **Opens a counter.** The character carries a short `State.Perfect.Parry` or `State.Perfect.Dodge` tag, and the combo graph has a transition that requires it. Press attack right after and you get a counter attack instead of the first hit of a normal combo. It's the same tag-gated transition the combo system uses everywhere (see [Combos and Cancels](/wiki/pseudo/systems/combo-and-cancels)).
 - **Charges dice.** Pips are the main combat resource, and perfect defense is one of the fastest ways to earn them. An earlier draft said a perfect dodge would shorten the dice cooldown. Once dice moved from cooldowns to pips, that became a pip charge.
 - **Feeds the same damage bonus as perfect attacks.** Attack perfects and defense perfects share one stack. Taking a hit resets it.
 
@@ -72,7 +72,7 @@ A perfect parry or perfect dodge does three things beyond avoiding the hit:
 
 Luck is the stat that makes timing easier. Higher Luck adds a little time before and after every perfect window, for combo inputs and for defense alike, with one global rate and a cap per window.
 
-That's the bridge between the dice and defense. A bad dice roll adds a bad-luck stack, each stack raises Luck for a while, and higher Luck makes the next perfect parry easier to land, which is often exactly what the Reversal from that bad roll asks for. The [Dice](/wiki/systems/dice) page covers the other half of that loop.
+That's the bridge between the dice and defense. A bad dice roll adds a bad-luck stack, each stack raises Luck for a while, and higher Luck makes the next perfect parry easier to land, which is often exactly what the Reversal from that bad roll asks for. The [Dice](/wiki/pseudo/systems/dice) page covers the other half of that loop.
 
 A Luck check also decides two other things on the defense side: whether fall damage is negated, and whether a status effect is resisted.
 

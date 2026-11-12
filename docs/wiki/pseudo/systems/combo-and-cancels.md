@@ -123,7 +123,7 @@ The keys around WASD are taken (guard, interact, potion, dice), so skills don't 
 | Skill chord A | L1 + attack | Hold E + mouse button |
 | Skill chord B | R1 + attack | Hold Left Ctrl + mouse button |
 
-While the modifier is held, the character carries `Input.Modifier.SkillA` (or `SkillB`), and the skill's entry transition requires that tag. The modifier only matters for the first press; follow-ups are normal transitions, so you can let go. A skill is a combo branch like any other, which is why the skill tree can unlock and modify skills with tags (see [Dice](/wiki/systems/dice) for how the same tree holds the dice upgrades).
+While the modifier is held, the character carries `Input.Modifier.SkillA` (or `SkillB`), and the skill's entry transition requires that tag. The modifier only matters for the first press; follow-ups are normal transitions, so you can let go. A skill is a combo branch like any other, which is why the skill tree can unlock and modify skills with tags (see [Dice](/wiki/pseudo/systems/dice) for how the same tree holds the dice upgrades).
 
 L1 is also guard. Pressing it starts guarding and the parry timing check immediately, and an attack pressed while it's held cancels the guard into the chord. A chord press that lands on an enemy attack still parries.
 
@@ -153,7 +153,7 @@ Any node can be an area attack. Its attack data has an `AoERadius` and a forward
 - **Once per target per node.** The finisher has two hit windows, and in the first test the sphere ran twice. The second pass was refused as "already hit", so nothing doubled, but the node now runs its sphere only once.
 - **The server rebuilds the sphere.** The attacking client sends every target it found in one message. The server never takes the client's center: it rebuilds the sphere from its own copy of the attacker and checks each target against it, with 100 cm of tolerance for lag. A cheated hit on a dummy 30 m away was refused with a log line and no damage.
 
-Each target then goes through its own defense chain, so one swing can be parried by one player and land on the enemy next to them. Enemies use the same query for their own area attacks, with a warning ring on the floor (see [Defense](/wiki/systems/defense)).
+Each target then goes through its own defense chain, so one swing can be parried by one player and land on the enemy next to them. Enemies use the same query for their own area attacks, with a warning ring on the floor (see [Defense](/wiki/pseudo/systems/defense)).
 
 ## Targeting
 

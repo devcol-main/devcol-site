@@ -4,6 +4,8 @@ description: "With the MetaHuman face swapped in at runtime, Twinblast's coat st
 date: 2026-10-15
 publishAt: 2026-10-26
 track: "MetaHuman face, part 5"
+category: "MetaHuman on Paragon"
+sidebar: "Part 5: Cloth and Hair"
 outline: deep
 tags: [UE5, MetaHuman, Chaos Cloth, Groom, Debugging]
 image: /blog/pseudo-mhface-17.png

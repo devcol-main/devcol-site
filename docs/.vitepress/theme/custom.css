@@ -1123,6 +1123,31 @@ html:has(.VPSidebar.open) .back-to-top {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+.blog-topics {
+  align-items: center;
+  margin-top: 0;
+}
+.blog-filter-label {
+  margin-right: 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-2);
+}
+.blog-topics .blog-chip {
+  padding: 5px 12px;
+  font-size: 0.8rem;
+}
+.blog-chip-count {
+  margin-left: 6px;
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+.blog-filter-note {
+  margin: 4px 0 0;
+  font-size: 0.86rem;
+  color: var(--vp-c-text-2);
+}
 .blog-overview {
   margin-left: auto;
   font-family: var(--vp-font-family-mono);

@@ -79,7 +79,7 @@ The 0.2 s threshold isn't a constant in code. It's a project setting today and b
 
 ### Dice: roll or All-in
 
-R (R2) taps to roll one die of the selected type, and holds to go All-in. What All-in does is on the [Dice](/wiki/systems/dice) page.
+R (R2) taps to roll one die of the selected type, and holds to go All-in. What All-in does is on the [Dice](/wiki/pseudo/systems/dice) page.
 
 ### Lock-on
 
@@ -93,7 +93,7 @@ With the pistols out, two keys change meaning, and that was a deliberate redesig
 
 **Lock-on hold becomes the ammo wheel.** Drawing the pistols drops any lock, because shots go where the crosshair points. Holding the lock-on key for 0.2 s opens a radial wheel of unlocked ammo types, with stock counts and empty types greyed out; you pick a direction and release to confirm. In single player the world slows to 0.2x while the wheel is open. In multiplayer nothing slows down, since one player can't slow the world for everyone. A short press does nothing with the pistols out.
 
-The mouse wheel still cycles ammo too, because scrolling is the habit most PC players bring from shooters. The [Weapons](/wiki/systems/weapons) page covers the ammo types themselves.
+The mouse wheel still cycles ammo too, because scrolling is the habit most PC players bring from shooters. The [Weapons](/wiki/pseudo/systems/weapons) page covers the ammo types themselves.
 
 ## Remapping
 
@@ -110,6 +110,6 @@ The tap/hold threshold, look sensitivity and invert Y are per-player settings in
 
 ## Related pages
 
-- [Defense](/wiki/systems/defense): guard, parry, dodge and the perfect windows the keys feed into.
-- [Combos and Cancels](/wiki/systems/combo-and-cancels): the input buffer and skill chords.
-- [Movement and Level Metrics](/wiki/systems/level-metrics): how fast the dash and sprint actually move you.
+- [Defense](/wiki/pseudo/systems/defense): guard, parry, dodge and the perfect windows the keys feed into.
+- [Combos and Cancels](/wiki/pseudo/systems/combo-and-cancels): the input buffer and skill chords.
+- [Movement and Level Metrics](/wiki/pseudo/systems/level-metrics): how fast the dash and sprint actually move you.

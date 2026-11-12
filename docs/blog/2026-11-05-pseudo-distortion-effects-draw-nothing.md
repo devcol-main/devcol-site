@@ -4,6 +4,8 @@ description: "No refraction material in PSEUDO bent the view in PIE, whatever th
 date: 2026-11-05
 publishAt: 2026-11-08
 track: "Distortion effects draw nothing"
+category: "Debugging / VFX & Rendering"
+sidebar: "Distortion Draws Nothing"
 outline: deep
 tags: [UE5, Rendering, VFX, Niagara, Debugging]
 ---

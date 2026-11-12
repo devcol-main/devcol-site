@@ -4,6 +4,8 @@ description: "After pressing Start on PSEUDO's main menu, the player arrived in 
 date: 2026-10-22
 publishAt: 2026-10-29
 track: "No control after menu start"
+category: "Debugging / Input & GAS"
+sidebar: "No Control After Menu Start"
 outline: deep
 tags: [UE5, Input, UI, Networking, Debugging]
 ---

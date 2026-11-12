@@ -4,6 +4,8 @@ description: "On a listen server, PSEUDO's melee grunt stopped hitting anyone th
 date: 2026-10-20
 publishAt: 2026-10-28
 track: "Off-screen enemy hits"
+category: "Debugging / Networking"
+sidebar: "Off-Screen Enemy Hits"
 outline: deep
 tags: [UE5, Animation, Networking, GAS, Debugging]
 ---

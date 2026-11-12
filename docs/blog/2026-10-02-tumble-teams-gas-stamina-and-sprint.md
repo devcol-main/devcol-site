@@ -3,6 +3,8 @@ title: "Stamina and Sprint with GAS"
 description: "Building a replicated stamina system on Unreal's Gameplay Ability System: one periodic effect for all rules, client-predicted sprinting through a custom movement flag, exhaustion hysteresis, and two bugs that had been hiding in the project."
 date: 2026-10-02
 track: "Stamina and sprint with GAS"
+category: "Character & GAS"
+sidebar: "Stamina and Sprint"
 outline: deep
 tags: [UE5, GAS, Networking]
 image: /blog/tt-stamina-c.jpg
