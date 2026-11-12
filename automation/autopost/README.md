@@ -3,6 +3,7 @@
 claude.ai 클라우드 예약 작업 **"devcol autopost"**가 매일 08:45(KST)에 돈다. 맥이 꺼져 있거나 잠자기여도 실행된다(2026-11-04부터). 하는 일:
 
 - PSEUDO의 `Documents/Debugging/DBG-*.md`와 TumbleTeams의 `Documents/Devlogs/`·새 커밋을 확인한다.
+- PSEUDO의 `Documents/Issues/ISS-*.md`(기능·시스템 작업 기록)도 번호순으로 하루 1개씩 빌드 로그 글로 쓴다. 잡무 기록(일괄 수정·정리·빌드 수정 등)과 DBG 글로 이미 다룬 것은 건너뛰고, 이슈 번호·브랜치·작업 모드·overnight 기록 같은 내부 정보는 뺀다.
 - 새 노트를 영어 DevLog 글로 써서 `publishAt` 큐(평소 하루 1개, 밀린 글이 있으면 다 빠질 때까지 하루 최대 3개)에 넣고, `docs:build` 통과 후 main에 push한다.
 - 사이트 공개는 기존 GitHub Actions 일일 빌드가 날짜에 맞춰 처리한다.
 - 글마다 커버 이미지(라이트/다크 jpg)를 `scripts/cover.mjs`로 만들어 넣는다(Playwright 필요, 실패하면 이미지 없이 올리고 요약에 적는다).

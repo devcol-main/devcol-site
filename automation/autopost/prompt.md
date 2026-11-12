@@ -9,6 +9,7 @@ The value of `$DEVCOL_SRC` (and today's date) is given by whoever started this r
 ## 1. Find what's new
 Read `automation/autopost/ledger.md`. Anything listed there is done.
 - PSEUDO: new files in `Documents/Debugging/` named `DBG-NNN ...md` with a number above the highest handled one. Skip `DBG-000 Template.md` and `Debug_Backlog.md`. Skip a note whose status is not fixed/resolved yet (leave it out of the ledger so a later run picks it up).
+- PSEUDO issue records: files in `Documents/Issues/` named `ISS-NNN ...md` that are not in the ledger yet. These are the build records of features and systems. Go through them in number order, oldest first, and pick the first one that qualifies (see "Issue records" in step 2). At most one issue post per run. Every record you look at gets a ledger line, posted or skipped, so no later run reads it again; a record that is not finished yet gets no line.
 - TumbleTeams: new files in `Documents/Devlogs/`, or, if there are none, a substantial body of new commits on `origin/main` since the last handled commit (a new feature or system, not routine fixes). At most one TumbleTeams post per run.
 If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW`.
 Write at most 3 posts per run; leave the rest for the next run.
@@ -18,6 +19,19 @@ Before writing, read these for tone, level of detail and front matter only. Do N
 - `docs/blog/2026-10-23-pseudo-player-groggy-never-triggers.md` next to its source `Documents/Debugging/DBG-021 Player Groggy Not Triggering (2026-10-23).md` in PSEUDO
 - `docs/blog/2026-11-04-pseudo-ammo-switch-lost-presses.md`
 - for TumbleTeams: `docs/blog/2026-10-24-tumble-teams-devlog-03-minigame-playlist.md`
+
+Issue records (`Documents/Issues/ISS-NNN ...md`):
+- Post only feature and system work: a mechanic, a combat or movement system, AI, camera, UI flow, save/load, a tool that changed how the game is built. The post is a build log: what the feature is for, the design that was chosen and the options that lost, how it works in the engine, what testing showed, what is still open.
+- Skip chores and write `skipped: chore` in the ledger: batch fixes, follow-up fixes, cleanup, build fixes, renames, docs or debug-doc work, cheats, asset additions, review passes, tuning-only or look-only passes.
+- Skip a record that is only a pointer to a `Debugging/DBG-...` note (`skipped: covered by <post slug>`); the debugging post already tells that story.
+- Only finished work: the record or `Documents/Handoff.md` says it was merged or closed. If it is still open, leave it out of the ledger and move on to the next number.
+- If a later record redesigned the same feature, write one post about the feature as it ended up, mention the earlier attempt briefly, and list both records in the ledger against that post.
+- Folding: a small related record (under about 600 words, same feature as the one you are writing) goes into the same post. Do not merge larger records; give each its own post and link them with `./<slug>`. A feature with three or more posts is a series: name the parts in the titles ("Pet Drone, Part 2: ...").
+- Length 800 to 2,500 words, never more. A long record is not retold in full: keep the design, the decisions and the one or two problems worth reading, drop the step-by-step log.
+- If a wiki page (`docs/wiki/systems/*.md`) already describes the rules, link it and do not repeat it; the post is about how it was built. Link related debugging posts the same way.
+- Strip everything internal: issue and PR numbers (`ISS-134`, `#134`), branch names, work modes (Learning/Delegate), completion-criteria wording, "the user decided ..." and the dates of those decisions, run reports, overnight/away runs, agents and models. Decisions are written in the first person ("I chose the dash-start check because ...").
+- Mermaid diagrams from the record may be kept if they still make sense after the internal names are removed.
+- File name `docs/blog/<publishAt date>-pseudo-<slug>.md`. `workedOn` is the date the work was finished if the record states it, otherwise leave `workedOn` out. Cover label `PSEUDO · BUILD LOG`.
 
 Shape (the site must not read as one template filled in many times):
 - Let the note decide the structure. Pick the shape that fits: a straight timeline, cause first and then how it was found, a comparison of two attempts, a short note for a small bug, a question-and-answer walk-through.
@@ -55,13 +69,13 @@ Every post gets a cover so it shows a picture on the home page and the DevLog in
 - If the script fails (no Playwright, font error), do not block the post: leave out `image:` and the figure, and say so in the final summary.
 
 ## 3. Schedule
-Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt` on the earliest day from tomorrow that still has room, in source-date order, oldest first. Room per day: normally one post. While there is a backlog, up to three posts per day until it is gone. There is a backlog when the queue already holds posts dated after tomorrow, or when this run's new posts would not all fit at one per day by the day after tomorrow, or when resolved notes are left over for the next run.
+Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt` on the earliest day from tomorrow that still has room, in source-date order, oldest first. Room per day: normally one post. While there is a backlog, up to three posts per day until it is gone. Issue posts are scheduled apart from this: at most one issue post per day, on the earliest day from tomorrow that has no issue post yet, and they never count as a backlog. There is a backlog when the queue already holds posts dated after tomorrow, or when this run's new posts would not all fit at one per day by the day after tomorrow, or when resolved notes are left over for the next run.
 
 ## 4. Wire them in
 For every new post:
 - `docs/blog/index.md`: add `- YYYY-MM-DD: [Title](./slug)` under the right `## PSEUDO` or `## Tumble Teams` heading, newest first (date = the post's `date`, i.e. its `publishAt` day).
-- `docs/blog/pseudo.md` "Reading order" (debugging notes, chronological) or `docs/blog/tumble-teams.md` reading order.
-- `docs/.vitepress/config.mts`: PSEUDO posts go in the PSEUDO sidebar list, in order, with a short `text`. TumbleTeams posts go in `tumbleTeamsGroups`.
+- `docs/blog/pseudo.md` "Reading order" (debugging notes, chronological; issue posts go under a "Build logs" sub-list there, create it on first use) or `docs/blog/tumble-teams.md` reading order.
+- `docs/.vitepress/config.mts`: PSEUDO posts go in the PSEUDO sidebar list, in order, with a short `text`; issue posts go in a collapsed `Build Logs` group inside it (create it on first use, same shape as the `MetaHuman Face on Paragon` group). TumbleTeams posts go in `tumbleTeamsGroups`.
 Then append one line per handled source to the "Handled after the cut-off" list in `automation/autopost/ledger.md`, skipped sources included, with the reason.
 
 ## 5. Check and commit

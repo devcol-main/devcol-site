@@ -10,6 +10,10 @@ Format: `- <repo>: <source path or commit range> -> <post slug | skipped: reason
 - TumbleTeams: Documents/Devlogs/* up to devlog_2026-10-03_DamageAndHitDetection.md -> all posted
 - TumbleTeams: commits up to df86fec (2026-10-24, minigame playlist work) -> 2026-10-24-tumble-teams-devlog-03-minigame-playlist
 
+## PSEUDO issue records (Documents/Issues)
+
+None handled yet. Start from the lowest number. Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: reason>`
+
 ## Handled after the cut-off
 
 - PSEUDO: Documents/Debugging/DBG-031 Forward Dash Pose Cuts The Dash And Sinks The Feet (2026-11-05).md -> 2026-11-05-pseudo-dash-pose-blend-out-cuts-dash
