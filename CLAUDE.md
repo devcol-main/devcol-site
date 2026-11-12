@@ -126,6 +126,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - 게임 온라인 리더보드(`a.devcol.net/lb`, 서버는 같은 devcol-analytics)에 새 게임을 붙일 때는 `docs/GAME-LEADERBOARD.md`를 따른다. 리더보드에서 보내거나 저장하는 항목이 바뀌면 `privacy-policy.md`의 Online Leaderboard 절도 같이 고친다.
 - 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
 - **자동 포스팅**: `automation/autopost/`(claude.ai 클라우드 예약 작업 "devcol autopost", 매일 08:45 KST, 맥 꺼져 있어도 실행. 2026-11-04 전환, 맥 앱 방식은 폐기). PSEUDO DBG 노트·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
+- **문체 교정 스킬**: `.claude/skills/`에 humanizer(영어, blader/humanizer)와 humanize-korean(한글, epoko77-ai/im-not-ai)을 프로젝트 단위로 설치. 자동 포스팅은 글 본문 언어로 둘 중 하나를 골라 한 번 다듬는다(`prompt.md` 2a). 원본 업데이트는 `.github/workflows/update-skills.yml`이 매주 확인해 PR로 올린다(직접 고치지 말고 `scripts/update-skills.sh`로 재설치, 버전은 `.claude/skills/UPSTREAM.lock`).
 
 ---
 
@@ -135,6 +136,8 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - [x] 정적 사이트 제작 — VitePress + GitHub Pages + devcol.net 연결 (devlog + wiki, 커뮤니티/투표 기능 미포함)
 - [x] Discord 서버 개설 — discord.gg/BK4bvy8qS
 - [x] X(트위터) 계정 개설 — @DevCol_Main
+- [x] DevLog 자동 포스팅 — 클라우드 예약 작업, 매일 08:45 KST (2026-11-04)
+- [x] 자동 포스팅 문체 교정 — 영어 humanizer / 한글 im-not-ai 자동 선택, 스킬 업데이트는 매주 PR로 (2026-11-12)
 - [ ] **애드센스 승인 준비** — Privacy Policy/About/Contact 페이지, 플레이스홀더 제거, 콘텐츠 볼륨 확보, Search Console 등록 ← **다음 작업 (2026-08-22 최우선으로 전환)**
 - [ ] Discord 채널 구성 — 개발일지, 피드백, 투표 채널 세팅 및 활동 시작
 - [ ] X(트위터) 활동 시작, 레딧 개설/활동 — r/IndieDev, r/unrealengine 등
