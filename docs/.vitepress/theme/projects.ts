@@ -103,6 +103,14 @@ export const groups: Group[] = [
         img: '/projects/press-plane-1.png',
         badge: 'Released',
       },
+      {
+        title: 'Toy Claw',
+        href: '/projects/toy-claw',
+        blurb: 'A 3D claw machine with real physics, a 15-toy collection and ten challenges.',
+        tags: ['Unity', 'WebGL', 'URP'],
+        img: '/projects/toy-claw-card.jpg',
+        badge: 'Play in browser',
+      },
     ],
   },
   {

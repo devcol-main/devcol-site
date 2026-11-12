@@ -82,6 +82,7 @@ const sidebar: Record<string, SidebarItem[]> = {
       items: [
         { text: 'Rock Paper Scissors - Advance', link: '/projects/rock-paper-scissors-advance' },
         { text: 'Press Plane', link: '/projects/press-plane' },
+        { text: 'Toy Claw', link: '/projects/toy-claw' },
       ],
     },
     {
