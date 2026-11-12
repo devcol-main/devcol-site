@@ -14,12 +14,13 @@ DevCol does not require you to create an account or submit personal information 
 
 ## Cookies and Third-Party Services
 
-Like most websites, DevCol may use cookies and similar technologies through third-party services, including:
+DevCol shows ads through a third-party service that uses cookies and similar technologies:
 
 - **Google AdSense**: may serve ads and use cookies (including the DoubleClick DART cookie) to serve ads based on your prior visits to this or other websites. You can opt out of personalized advertising by visiting [Google Ads Settings](https://adssettings.google.com/) or [www.aboutads.info](https://www.aboutads.info/choices/).
-- **Google Analytics** (if enabled), collects anonymized usage statistics (pages visited, time on site, general location) to help us understand how the site is used.
 
-These third parties may use cookies, web beacons, and similar technologies to collect information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you. If you wish to opt out of this, you may do so by visiting the Google Ads Settings link above.
+DevCol does not use Google Analytics. Visit statistics come from the site's own cookie-free analytics, described under Site Analytics below.
+
+Google and its advertising partners may use cookies, web beacons, and similar technologies to collect information about your visits to this and other websites in order to provide advertisements about goods and services of interest to you. If you wish to opt out of this, you may do so by visiting the Google Ads Settings link above.
 
 ## Site Analytics
 
