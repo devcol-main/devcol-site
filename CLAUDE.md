@@ -146,6 +146,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - [x] X(트위터) 계정 개설 — @DevCol_Main
 - [x] DevLog 자동 포스팅 — 클라우드 예약 작업, 매일 08:45 KST (2026-11-04)
 - [x] 자동 포스팅 문체 교정 — 영어 humanizer / 한글 im-not-ai 자동 선택, 스킬 업데이트는 매주 PR로 (2026-11-12)
+- [x] 사이트 구조 개편 — 상단 탭 드롭다운, PSEUDO Wiki 분리(`/wiki/pseudo/`, 옛 주소 리다이렉트), DevLog 카테고리 사이드바(`category:` 자동 생성)·Debugging 태그 필터, Arcade 탭(`/arcade/`) 신설 (2026-11-12)
 - [ ] **애드센스 승인 준비** — Privacy Policy/About/Contact 페이지, 플레이스홀더 제거, 콘텐츠 볼륨 확보, Search Console 등록 ← **다음 작업 (2026-08-22 최우선으로 전환)**
 - [ ] Discord 채널 구성 — 개발일지, 피드백, 투표 채널 세팅 및 활동 시작
 - [ ] X(트위터) 활동 시작, 레딧 개설/활동 — r/IndieDev, r/unrealengine 등
