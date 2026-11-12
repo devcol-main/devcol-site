@@ -1,14 +1,15 @@
 ---
-title: "Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn"
+title: "Two UE5 Bugs from the First Enemy: A Spring Arm That Jerked the Camera and an AI Controller with Tick Off"
 description: "When PSEUDO's first melee grunt went in, the camera jerked forward whenever anyone walked behind the player, and the grunt never turned to face its target. One was the spring arm treating every character as a wall; the other was an AI controller with tick turned off, the same mistake I'd made a week earlier with the player controller."
-date: 2026-10-20
+date: 2026-10-28
+workedOn: 2026-10-20
 publishAt: 2026-10-28
 track: "First enemy bugs"
 outline: deep
 tags: [UE5, AI, Camera, Collision, Debugging]
 ---
 
-# Two Bugs from the First Enemy: A Jumpy Camera and a Grunt That Wouldn't Turn
+# Two UE5 Bugs from the First Enemy: A Spring Arm That Jerked the Camera and an AI Controller with Tick Off
 
 The first enemy in PSEUDO is a melee grunt built on a shared AI framework: an AI controller that picks a target and sets focus on it, and an enemy character that turns toward where its controller wants to look. The first round of tests looked fine. Then I played it like a player instead of like a test, and two things were obviously wrong:
 

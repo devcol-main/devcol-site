@@ -1,16 +1,17 @@
 ---
-title: "A Dash That Cut the Player in Half: A Distortion Ribbon Edge-On to the Camera"
+title: "A Dash That Cut the Player in Half: A Niagara Refraction Ribbon Edge-On to the Camera"
 description: "Once refraction finally drew in PSEUDO, the dash's distortion ribbon started erasing half of the player's body at some camera angles. A flat refraction sheet in front of the body can't be kept off the camera ray in third person, so I removed it from the dash, and fixed the rebuild script that had left stray copies behind."
-date: 2026-11-05
+date: 2026-11-09
+workedOn: 2026-11-05
 publishAt: 2026-11-09
 track: "Dash distortion cuts the body"
 outline: deep
 tags: [UE5, VFX, Niagara, Rendering, Animation, Debugging]
 ---
 
-# A Dash That Cut the Player in Half: A Distortion Ribbon Edge-On to the Camera
+# A Dash That Cut the Player in Half: A Niagara Refraction Ribbon Edge-On to the Camera
 
-PSEUDO's dash had a distortion trail: a Niagara ribbon, `NS_DashTrail_Distortion`, spawned by a timed notify on the `root` bone at mid-body height on the dash montages. For a long time it didn't matter what that ribbon did, because no distortion effect drew anything in the editor. That story is in [Distortion Effects That Drew Nothing](./2026-11-05-pseudo-distortion-effects-draw-nothing). Once I forced `r.RefractionQuality` on, every refraction effect in the game came to life, the dash ribbon included.
+PSEUDO's dash had a distortion trail: a [Niagara](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine) ribbon, `NS_DashTrail_Distortion`, spawned by a timed notify on the `root` bone at mid-body height on the dash [montages](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine). For a long time it didn't matter what that ribbon did, because no distortion effect drew anything in the editor. That story is in [Distortion Effects That Drew Nothing](./2026-11-05-pseudo-distortion-effects-draw-nothing). Once I forced `r.RefractionQuality` on, every [refraction](https://dev.epicgames.com/documentation/unreal-engine/using-refraction-in-unreal-engine) effect in the game came to life, the dash ribbon included.
 
 The same day, looking at screenshots from a play session, I saw the left half of the player's body missing mid-dash. The rest of the frame looked normal.
 

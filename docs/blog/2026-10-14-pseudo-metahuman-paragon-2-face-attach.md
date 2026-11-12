@@ -1,7 +1,8 @@
 ---
 title: "Putting a MetaHuman Face on a Paragon Body, Part 2: Making the Face Follow a Head It Wasn't Built For"
 description: "A MetaHuman face under a Paragon Twinblast body floated in place, then drifted off the head in aim and jog poses. The face Anim Blueprint copies the head pose by bone name and assumes a MetaHuman body, and Leader Pose can't hide different bind rotations. A socket attach with an inverse offset, and no parent-pose copy, fixed it."
-date: 2026-10-14
+date: 2026-10-25
+workedOn: 2026-10-14
 publishAt: 2026-10-25
 track: "MetaHuman face, part 2"
 outline: deep
@@ -11,7 +12,7 @@ image: /blog/pseudo-mhface-6.png
 
 # Putting a MetaHuman Face on a Paragon Body, Part 2: Making the Face Follow a Head It Wasn't Built For
 
-With the MetaHuman assembled ([Part 1](./2026-10-14-pseudo-metahuman-paragon-1-setup)), the next step was the one I thought would be easy: put the MetaHuman face mesh on the Twinblast body and make it move with the head. In the first try the face didn't move at all. In the next few it moved, but slid off the head as soon as the character aimed or ran.
+With the [MetaHuman](https://dev.epicgames.com/documentation/metahuman/metahumans-in-unreal-engine) assembled ([Part 1](./2026-10-14-pseudo-metahuman-paragon-1-setup)), the next step was the one I thought would be easy: put the MetaHuman face mesh on the Twinblast body and make it move with the head. In the first try the face didn't move at all. In the next few it moved, but slid off the head as soon as the character aimed or ran.
 
 The cause had two layers. The MetaHuman face's Anim Blueprint copies the head pose from its parent by bone name, and it assumes that parent is a MetaHuman body. Twinblast's skeleton has different bind rotations, so no fixed offset lines up across poses. The fix was to attach the face to Twinblast's `head` socket with an inverse offset, and stop the face Anim Blueprint from copying the parent pose.
 

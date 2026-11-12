@@ -1,14 +1,15 @@
 ---
-title: "Swapping in a New Character: Root Motion, Jump Clips, and a Blank BlendSpace"
+title: "Swapping in a New UE5 Character: Root Motion, Jump Clips, and a Blank BlendSpace"
 description: "Replacing the mannequin with a customizable character in UE5 and fixing what the animation pack broke: root-motion running, jump clips with baked-in height, a Python-built BlendSpace that played nothing, and a backward-run loop that stuttered."
-date: 2026-10-02
+date: 2026-10-05
+workedOn: 2026-10-02
 track: "New character: root motion, BlendSpace"
 outline: deep
 tags: [UE5, Animation]
 image: /blog/tt-anim-c.jpg
 ---
 
-# Swapping in a New Character: Root Motion, Jump Clips, and a Blank BlendSpace
+# Swapping in a New UE5 Character: Root Motion, Jump Clips, and a Blank BlendSpace
 
 Today I replaced Tumble Teams' default mannequin with a customizable low-poly character pack and rebuilt the animation setup around it. The most useful habit of the day was measuring bone data over time instead of guessing, because almost every problem turned out to be baked into the animation clips.
 

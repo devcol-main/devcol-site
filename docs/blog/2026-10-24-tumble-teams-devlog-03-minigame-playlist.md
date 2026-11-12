@@ -1,7 +1,8 @@
 ---
 title: "Tumble Teams DevLog #3: Five Minigames on One Match Flow"
 description: "Turning Tumble Teams into a lobby, minigame, result loop with a five-minigame playlist in Unreal Engine 5: a shared server-side match flow, per-minigame rules objects, GAS abilities and effects, greybox maps, and an honest list of what still hasn't been played."
-date: 2026-10-24
+date: 2026-11-04
+workedOn: 2026-10-24
 publishAt: 2026-11-04
 track: "Match flow, minigame playlist"
 outline: deep
@@ -114,7 +115,7 @@ Between rounds every player is respawned at a team-tagged `PlayerStart`. Two det
 - `RestartPlayerAtPlayerStart` doesn't move an existing pawn. The reset unpossesses and destroys the pawn, then calls `RestartPlayer`.
 - The Ability System Component lives on the PlayerState (see DevLog #2), so it **survives the respawn along with any effects and cooldowns on it**. The GameMode cancels running abilities and removes cooldown effects, and the character's `ResetVitals` (called from `PossessedBy`) resets health and stamina and removes per-minigame state. That one cleanup point turned out to matter for every GAS minigame below.
 
-The countdown lock is a loose gameplay tag, `State.MovementLocked`, set with `TagAndCountToAll` replication. The `TagOnly` mode uses minimal replication, which skips the owning client, and the owner is exactly the client that needs it. The movement component returns zero max speed and blocks jumping while the tag is present, so the owning client predicts the lock instead of getting corrected. Look input is untouched, so you can turn the camera during "3, 2, 1".
+The countdown lock is a loose gameplay tag, `State.MovementLocked`, set with `TagAndCountToAll` [replication](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine). The `TagOnly` mode uses minimal replication, which skips the owning client, and the owner is exactly the client that needs it. The movement component returns zero max speed and blocks jumping while the tag is present, so the owning client predicts the lock instead of getting corrected. Look input is untouched, so you can turn the camera during "3, 2, 1".
 
 ## The five minigames
 
@@ -164,7 +165,7 @@ The throw is server-authoritative. **The server measures the charge time itself*
 
 The server traces the victim's mesh at the impact point and walks the hit bone up the skeleton until it finds an entry in a bone-to-zone table. The result is **cross-checked against the impact height on the capsule**, because the server's pose can be stale, and if they disagree the height wins. One side effect I still have to decide on: an arm raised above head height counts as a head hit.
 
-Each status is an infinite gameplay effect with `AggregateByTarget` stacking, capped at 3 stacks: -15% speed per move-slow stack, +40% charge time and cooldown per attack-slow stack, three blur levels. After 5 seconds without a hit, all statuses clear and health regenerates at 10 HP/s via a periodic effect. A small server-side subsystem tracks those 5-second windows and only ticks when there's something to track.
+Each status is an infinite [gameplay effect](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-effects-for-the-gameplay-ability-system-in-unreal-engine) with `AggregateByTarget` stacking, capped at 3 stacks: -15% speed per move-slow stack, +40% charge time and cooldown per attack-slow stack, three blur levels. After 5 seconds without a hit, all statuses clear and health regenerates at 10 HP/s via a periodic effect. A small server-side subsystem tracks those 5-second windows and only ticks when there's something to track.
 
 **Snowmen, revives and lives**
 

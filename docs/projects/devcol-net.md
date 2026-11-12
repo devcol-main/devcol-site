@@ -33,7 +33,7 @@ The source is the DevLog index, `docs/blog/index.md`. It already listed every po
 ```md
 ## Tumble Teams
 
-- 2026-10-03: [Server-Side Damage and Hit Detection for Melee Abilities](./2026-10-03-tumble-teams-damage-and-hit-detection)
+- 2026-10-03: [Server-Side Damage and Hit Detection for Melee Abilities in UE5 GAS](./2026-10-03-tumble-teams-damage-and-hit-detection)
 - 2026-10-03: [Why Mixamo Animations Broke on My Character...](./2026-10-03-tumble-teams-mixamo-retargeting)
 ```
 

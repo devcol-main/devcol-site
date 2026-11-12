@@ -1,14 +1,15 @@
 ---
-title: "A Greatsword at the Hip and Swings That Hit Nothing"
+title: "A Greatsword at the Hip and Swings That Hit Nothing: Paragon Bone Names and UE5 Hit Detection"
 description: "Two bugs from the day the greatsword went into PSEUDO. The sword attached to a bone with the right name and appeared 125 cm from the hand, because the same bone name means different things on two Paragon skeletons. Then full combos on a dummy registered zero hits, because a capsule touch is not a hit."
-date: 2026-10-19
+date: 2026-10-27
+workedOn: 2026-10-19
 publishAt: 2026-10-27
 track: "Greatsword attach and hits"
 outline: deep
 tags: [UE5, Animation, Hit Detection, Paragon, Debugging]
 ---
 
-# A Greatsword at the Hip and Swings That Hit Nothing
+# A Greatsword at the Hip and Swings That Hit Nothing: Paragon Bone Names and UE5 Hit Detection
 
 PSEUDO's main character is Paragon's Twinblast, a pistol hero. The greatsword and its moves come from a different Paragon hero, Kwang, retargeted onto Twinblast. On the day the weapon system and the hit pipeline both went in, I hit two bugs in a row, one for each:
 
@@ -103,7 +104,7 @@ I moved the dummies into the swing paths: one front-left, one front-right, plus 
 
 ### What I changed in my process
 
-- **When there are no hits, check in this order:** is the trace running and its window open; does the broad phase find anything; does the narrow phase hit the target mesh. A verbose log category plus a debug console variable that draws the sweeps make the first two checks one command each.
+- **When there are no hits, check in this order:** is the trace running and its window open; does the broad phase find anything; does the narrow phase hit the target mesh. A verbose log category plus a debug [console variable](https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-console-variables-reference) that draws the sweeps make the first two checks one command each.
 - **Place test enemies from the logged blade path, not from the capsule size.** A capsule makes a dummy look closer to the blade than its body is.
 - **Hit windows need retuning.** Light 5's window covers mostly the overhead windup; the slam itself is a short slice of it. That's a feel issue, not a correctness issue, and it's on the list for the combat feel pass. (The finisher has since become an [area attack](/wiki/systems/combo-and-cancels), which changes this again.)
 

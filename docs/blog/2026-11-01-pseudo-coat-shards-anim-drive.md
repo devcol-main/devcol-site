@@ -1,14 +1,15 @@
 ---
-title: "A Coat That Shattered Only After a Fresh Spawn: Anim Drive, and the Test That Hid It"
+title: "A Coat That Shattered Only After a Fresh Spawn: Chaos Cloth Anim Drive in UE5, and the Test That Hid It"
 description: "The player's coat in PSEUDO kept breaking into dark jagged shards around the legs, even after two rounds of cloth fixes. The cause was the Chaos cloth anim drive holding the coat folded from the moment of spawn, and every earlier test had missed it because swapping the mesh in PIE restarts the cloth simulation from a clean pose."
-date: 2026-11-01
+date: 2026-11-04
+workedOn: 2026-11-01
 publishAt: 2026-11-04
 track: "Coat shards"
 outline: deep
 tags: [UE5, Chaos Cloth, Animation, Debugging]
 ---
 
-# A Coat That Shattered Only After a Fresh Spawn: Anim Drive, and the Test That Hid It
+# A Coat That Shattered Only After a Fresh Spawn: Chaos Cloth Anim Drive in UE5, and the Test That Hid It
 
 PSEUDO's player character wears a long coat, simulated with Chaos cloth. It's the Paragon Twinblast body, and the coat has given me trouble since the [MetaHuman face work](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair). The latest round started with two complaints: the legs poked through it, and just strafing left and right folded it up by 90 degrees. I wanted it to swing 45 degrees at most.
 

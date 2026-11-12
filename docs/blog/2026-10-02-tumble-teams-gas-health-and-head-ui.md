@@ -1,16 +1,17 @@
 ---
-title: "Moving Health into GAS, and Head-Up Bars for Every Player"
+title: "Moving Health into GAS Attributes in UE5, and Head-Up Bars for Every Player"
 description: "Migrating character health from a component to GAS attributes, then building replicated, team-aware, occlusion-aware health and stamina bars above every player's head in Unreal Engine 5."
-date: 2026-10-02
+date: 2026-10-05
+workedOn: 2026-10-02
 track: "Health in GAS, head-up bars"
 outline: deep
 tags: [UE5, GAS, UI]
 image: /blog/tt-health-c.jpg
 ---
 
-# Moving Health into GAS, and Head-Up Bars for Every Player
+# Moving Health into GAS Attributes in UE5, and Head-Up Bars for Every Player
 
-After [stamina](./2026-10-02-tumble-teams-gas-stamina-and-sprint) went into the Gameplay Ability System, health was next, along with the UI to show it: segmented bars above every player's head, visible to everyone in multiplayer.
+After [stamina](./2026-10-02-tumble-teams-gas-stamina-and-sprint) went into the [Gameplay Ability System](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-ability-system-for-unreal-engine), health was next, along with the UI to show it: segmented bars above every player's head, visible to everyone in multiplayer.
 
 <figure class="theme-img">
   <img class="img-light" src="/blog/tt-health-c.jpg" alt="Health moved into GAS, with segmented, team-aware bars above every player’s head" loading="lazy">
@@ -29,7 +30,7 @@ The old `UStatusComponent` is gone from character logic:
   <figcaption>Damage, buffs and death all go through the Health attribute on the PlayerState ASC.</figcaption>
 </figure>
 
-- **Damage** goes through `TakeDamage` into an instant gameplay effect with a `SetByCaller` delta (negative means damage).
+- **Damage** goes through `TakeDamage` into an instant [gameplay effect](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-effects-for-the-gameplay-ability-system-in-unreal-engine) with a `SetByCaller` delta (negative means damage).
 - **Buffs** raise MaxHealth first and then Health, so the Health clamp doesn't cut the increase.
 - **Death** is detected on the server by an attribute-change delegate, firing once when Health goes from above zero to zero or below.
 

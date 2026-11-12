@@ -1,7 +1,8 @@
 ---
 title: "Putting a MetaHuman Face on a Paragon Body, Part 5: The Coat Stops Flapping and the Braids Won't Calm Down"
 description: "With the MetaHuman face swapped in at runtime, Twinblast's coat stopped simulating and the legs clipped through it: mesh edits had dropped the section-to-clothing binding on every LOD. Separately, the braids whipped around at High scalability but looked right at Epic. Two motion-only bugs, and the checks that find them fast."
-date: 2026-10-15
+date: 2026-10-26
+workedOn: 2026-10-15
 publishAt: 2026-10-26
 track: "MetaHuman face, part 5"
 outline: deep
@@ -11,7 +12,7 @@ image: /blog/pseudo-mhface-17.png
 
 # Putting a MetaHuman Face on a Paragon Body, Part 5: The Coat Stops Flapping and the Braids Won't Calm Down
 
-By the end of [Part 4](./2026-10-15-pseudo-metahuman-paragon-4-grooms), the MetaHuman face sat on the headless Twinblast body and looked right in a still frame. This last part is about the two problems that only showed once the character moved: the coat stopped simulating, and the hair simulated far too much.
+By the end of [Part 4](./2026-10-15-pseudo-metahuman-paragon-4-grooms), the [MetaHuman](https://dev.epicgames.com/documentation/metahuman/metahumans-in-unreal-engine) face sat on the headless Twinblast body and looked right in a still frame. This last part is about the two problems that only showed once the character moved: the coat stopped simulating, and the hair simulated far too much.
 
 In the game, a console command swaps between the two looks at runtime: `PseudoUseMCFace 1` switches SC to the headless body with the MetaHuman face, `PseudoUseMCFace 0` switches back to the original Twinblast mesh. That switch turned out to be the best debugging tool in this whole series.
 
@@ -32,7 +33,7 @@ The Skeletal Mesh Editor's viewport stats have an `Active Cloths` line when clot
   <figcaption>The original mesh: <code>Active Cloths: 1</code>, 193 dynamic particles.</figcaption>
 </figure>
 
-On the headless mesh, the line wasn't there at all, even though the Clothing panel still listed the clothing asset with the same LOD data.
+On the headless mesh, the line wasn't there at all, even though the Clothing panel still listed the [clothing asset](https://dev.epicgames.com/documentation/en-us/unreal-engine/clothing-tool-in-unreal-engine) with the same LOD data.
 
 <figure>
   <img src="/blog/pseudo-mhface-17.png" alt="Headless Twinblast mesh in the Skeletal Mesh Editor: the clothing asset is listed in Asset Details but no Active Cloths line appears in the viewport stats" loading="lazy">
@@ -87,7 +88,7 @@ The MetaHuman's long braided hair swung far too much whenever SC ran, jumped or 
 | 3 | The physics values need tuning | Physics tab: bend and stretch stiffness, damping, air drag | Partly helped |
 | 4 | Engine scalability changes the result | Viewport Engine Scalability: High vs Epic | **Confirmed** |
 
-Row 4 changed the question. At **Epic** scalability, the default groom physics looked natural. At **High**, the same settings swung much harder. My editor viewport had been at High while I tuned, and nothing on screen says so. I didn't trace which scalability setting causes it.
+Row 4 changed the question. At **Epic** [scalability](https://dev.epicgames.com/documentation/en-us/unreal-engine/scalability-in-unreal-engine), the default groom physics looked natural. At **High**, the same settings swung much harder. My editor viewport had been at High while I tuned, and nothing on screen says so. I didn't trace which scalability setting causes it.
 
 That matters beyond this bug. The editor viewport's scalability is a local editor setting. In the shipped game, the player's graphics options decide it, so every level has to be checked.
 

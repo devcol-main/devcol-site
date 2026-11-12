@@ -1,7 +1,8 @@
 ---
 title: "Putting a MetaHuman Face on a Paragon Body, Part 3: Removing a Head Without Losing the Shirt"
 description: "Hiding Twinblast's head with M_Hide left the sunglasses floating, because they share the shirt's material slot. Deleting one empty slot then shifted every later index and moved the shirt into the hidden range. And the Skeletal Mesh Editor kept showing edits the asset didn't have. Three traps in UE 5.8's Skeletal Mesh Editing Tools."
-date: 2026-10-14
+date: 2026-10-25
+workedOn: 2026-10-14
 publishAt: 2026-10-25
 track: "MetaHuman face, part 3"
 outline: deep
@@ -11,7 +12,7 @@ image: /blog/pseudo-mhface-8.png
 
 # Putting a MetaHuman Face on a Paragon Body, Part 3: Removing a Head Without Losing the Shirt
 
-[Part 2](./2026-10-14-pseudo-metahuman-paragon-2-face-attach) got the MetaHuman face to follow Twinblast's head. Now Twinblast's own head had to go, along with his sunglasses and the cigarette. I ended up with a duplicate mesh, `TwinBlast_ActionHero_Headless`, edited with UE 5.8.3's Skeletal Mesh Editing Tools. Getting there involved three separate traps, and the second one nearly cost me the shirt without any visible warning.
+[Part 2](./2026-10-14-pseudo-metahuman-paragon-2-face-attach) got the [MetaHuman](https://dev.epicgames.com/documentation/metahuman/metahumans-in-unreal-engine) face to follow Twinblast's head. Now Twinblast's own head had to go, along with his sunglasses and the cigarette. I ended up with a duplicate mesh, `TwinBlast_ActionHero_Headless`, edited with UE 5.8.3's Skeletal Mesh Editing Tools. Getting there involved three separate traps, and the second one nearly cost me the shirt without any visible warning.
 
 Series: [1. Setup](./2026-10-14-pseudo-metahuman-paragon-1-setup) · [2. Face attach](./2026-10-14-pseudo-metahuman-paragon-2-face-attach) · **3. Headless mesh** · [4. Grooms](./2026-10-15-pseudo-metahuman-paragon-4-grooms) · [5. Cloth and hair](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair)
 
@@ -103,4 +104,4 @@ Looking through the empty neck hole from the front, the back of the collar looke
 - After Editing Tools work: **turn Editing Tools off, save, then test** with the mesh placed in a level. The level is the ground truth, not the asset editor.
 - Read `Number of LODs` before a forced-LOD test.
 
-The headless mesh now looked right. It wasn't done: the edits and the LOD regenerate had quietly broken the coat's cloth simulation, which only shows in motion. That's [Part 5](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair). First, the hair: [Part 4](./2026-10-15-pseudo-metahuman-paragon-4-grooms).
+The headless mesh now looked right. It wasn't done: the edits and the LOD regenerate had quietly broken the coat's [cloth simulation](https://dev.epicgames.com/documentation/en-us/unreal-engine/clothing-tool-in-unreal-engine), which only shows in motion. That's [Part 5](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair). First, the hair: [Part 4](./2026-10-15-pseudo-metahuman-paragon-4-grooms).

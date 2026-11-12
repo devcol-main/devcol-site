@@ -1,14 +1,15 @@
 ---
-title: "Three Foot Bugs, Three Causes: A Sunken Idle Foot, a Dragging Dash Leg and a Foot That Hovered"
+title: "Three Foot Bugs That Weren't Foot IK: A Sunken Idle Foot, a Dragging Dash Leg and UE5 Foot Placement"
 description: "In PSEUDO the idle left foot sat inside the floor, the dash dragged one leg far behind the body, and after a dash a foot hovered. They looked like one foot IK problem. They were a clip edited the day before, a bad dash pose frame, and Foot Placement still planting feet while a static pose slid the body."
-date: 2026-11-02
+date: 2026-11-05
+workedOn: 2026-11-02
 publishAt: 2026-11-05
 track: "Idle foot sink and dash leg drag"
 outline: deep
 tags: [UE5, Animation, IK, Debugging]
 ---
 
-# Three Foot Bugs, Three Causes: A Sunken Idle Foot, a Dragging Dash Leg and a Foot That Hovered
+# Three Foot Bugs That Weren't Foot IK: A Sunken Idle Foot, a Dragging Dash Leg and UE5 Foot Placement
 
 My feedback list for the day had three lines about feet. Standing idle, the front of the left foot was inside the ground. During a dash, the right foot was far from the body and dragged along, and the return to running was rough. After a dash, a foot floated a little above the floor.
 
@@ -63,7 +64,7 @@ The anim blueprint `ABP_Pseudo_SC` enables Foot Placement whenever the character
 | `AM_TB_Dash` | Blend-out 0.15 → 0.3 s. |
 | `ABP_Pseudo_SC` | Foot Placement alpha = `NOT bIsFalling AND GetCurveValue(DisableFootIK) < 0.5` (the 0.1 s blend is unchanged). |
 
-The curve is the part I'll reuse. Any montage can now turn Foot Placement off by carrying `DisableFootIK` = 1 on its clip, and as the montage blends out, the curve fades and foot IK comes back with fresh plants at the new position.
+The curve is the part I'll reuse. Any [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) can now turn Foot Placement off by carrying `DisableFootIK` = 1 on its clip, and as the montage blends out, the curve fades and foot IK comes back with fresh plants at the new position.
 
 ## Checking it
 

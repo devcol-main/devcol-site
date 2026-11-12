@@ -1,14 +1,15 @@
 ---
-title: "Hits That Only Landed When the Host Was Watching"
+title: "Hits That Only Landed When the Host Was Watching: Bones That Don't Refresh on a UE5 Listen Server"
 description: "On a listen server, PSEUDO's melee grunt stopped hitting anyone the moment the host looked away. The server wasn't refreshing bones for meshes it didn't render, so the weapon-socket sweep went from the same point to the same point every frame. One mesh setting fixed it."
-date: 2026-10-20
+date: 2026-10-28
+workedOn: 2026-10-20
 publishAt: 2026-10-28
 track: "Off-screen enemy hits"
 outline: deep
 tags: [UE5, Animation, Networking, GAS, Debugging]
 ---
 
-# Hits That Only Landed When the Host Was Watching
+# Hits That Only Landed When the Host Was Watching: Bones That Don't Refresh on a UE5 Listen Server
 
 The day the first melee grunt went into PSEUDO, I found [two bugs](./2026-10-20-pseudo-first-enemy-camera-and-facing) by playing instead of testing: a camera that jerked whenever someone walked behind the player, and a grunt that never turned to face its target. This is the third bug from that session, and it was the one that worried me most, because it would have broken every fight on a dedicated server and I would not have seen it in normal testing.
 
@@ -44,7 +45,7 @@ The second row is the one that saved time. Because the log line sat before every
 
 Skeletal mesh components have a setting, `VisibilityBasedAnimTickOption`, that decides how much animation work to do when the mesh isn't visible. The default for an `ACharacter`'s mesh is `EVisibilityBasedAnimTickOption::AlwaysTickPose`:
 
-- the anim graph keeps ticking and montages keep advancing, so animation state stays correct;
+- the anim graph keeps ticking and [montages](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) keep advancing, so animation state stays correct;
 - but **bone transforms are not refreshed while the mesh isn't rendered**.
 
 That's a sensible optimisation for a game client. Nobody can see those bones, so why compute them?

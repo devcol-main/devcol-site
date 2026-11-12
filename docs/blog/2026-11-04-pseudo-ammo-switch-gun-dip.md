@@ -1,20 +1,21 @@
 ---
-title: "The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen"
+title: "The Gun Dipped on Every Ammo Switch: UE5 Montages Blend In From the Slot, Not the Screen"
 description: "Switching away from the Laser or the heavy machine gun in PSEUDO lowered the pistols and raised them again. The cause was an exit clip chained into an enter clip. Replacing them with a direct blend took three tries, and each failed try taught me something about how UE5 montages blend in."
-date: 2026-11-04
+date: 2026-11-06
+workedOn: 2026-11-04
 publishAt: 2026-11-06
 track: "Ammo switch blend"
 outline: deep
 tags: [UE5, Animation, Montages, Debugging]
 ---
 
-# The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen
+# The Gun Dipped on Every Ammo Switch: UE5 Montages Blend In From the Slot, Not the Screen
 
 Some of the dual pistols' ammo types in PSEUDO come with a stance. The Laser and the heavy machine gun (HMG) summon a big gun and hold it up. The elemental ammo (Fire, Ice, Poison) raises the pistols into a charge pose. Each stance has an enter animation, an upper-body hold pose, and for the Laser and HMG an exit animation too. The [Weapons](/wiki/systems/weapons) page covers how ammo switching works from the player's side.
 
 Switching from the Laser or the HMG to an elemental ammo looked wrong: the gun went down, then came back up. What I wanted was one continuous move from one held pose into the next.
 
-This is a visual bug, and minor. I'm writing it up because the fix took three attempts, and the two that snapped taught me more about montage blending than the one that worked.
+This is a visual bug, and minor. I'm writing it up because the fix took three attempts, and the two that snapped taught me more about [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) blending than the one that worked.
 
 ## The symptom
 

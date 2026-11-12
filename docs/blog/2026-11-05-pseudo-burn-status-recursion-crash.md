@@ -1,16 +1,17 @@
 ---
-title: "A Burn Status With No Flames, and a Re-Activate That Crashed the Editor"
+title: "A Niagara Burn Effect With No Flames, and a Re-Activate That Crashed the UE5 Editor"
 description: "PSEUDO's new Burn status showed its overlay but never any fire. The one emitter I'd kept from the source system was enabled for Low quality only, so at Medium the system had nothing to run and finished inside Activate. My finish handler then re-activated it synchronously and recursed until the stack overflowed."
-date: 2026-11-05
+date: 2026-11-09
+workedOn: 2026-11-05
 publishAt: 2026-11-09
 track: "Burn status recursion crash"
 outline: deep
 tags: [UE5, Niagara, VFX, Debugging]
 ---
 
-# A Burn Status With No Flames, and a Re-Activate That Crashed the Editor
+# A Niagara Burn Effect With No Flames, and a Re-Activate That Crashed the UE5 Editor
 
-Enemies in PSEUDO show their status on the body: Poison, Slow and Burn each get a Niagara system attached to the skeletal mesh, with particles that follow the bones, plus a material overlay. The [Elements](/wiki/systems/elements) page has what the statuses do in play. A component on every machine, `UPseudoStatusLookComponent`, watches the replicated status tags and spawns or removes the looks. No gameplay state lives there; it only follows the tags.
+Enemies in PSEUDO show their status on the body: Poison, Slow and Burn each get a [Niagara](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine) system attached to the skeletal mesh, with particles that follow the bones, plus a material overlay. The [Elements](/wiki/systems/elements) page has what the statuses do in play. A component on every machine, `UPseudoStatusLookComponent`, watches the replicated status tags and spawns or removes the looks. No gameplay state lives there; it only follows the tags.
 
 For Burn I wanted the body to look like it was on fire, so I started from the engine-style fire system `NS_Fire`, copied it, and cut it down to its `FlamesOnly` emitter, with the spawn moved onto the mesh bones. Poison and Slow, built the same day, worked straight away. Burn didn't.
 

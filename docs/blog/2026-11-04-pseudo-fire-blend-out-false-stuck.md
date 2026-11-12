@@ -1,7 +1,8 @@
 ---
 title: "My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out"
 description: "A safety check added to PSEUDO's fire ability treated 'montage not playing' as a stuck fire. Montage_IsPlaying turns false when the blend-out starts, while the round is still running, so a press in that window ended a healthy round, fired nothing, and let the next shot skip the fire cadence."
-date: 2026-11-04
+date: 2026-11-06
+workedOn: 2026-11-04
 publishAt: 2026-11-06
 track: "Fire blend-out false stuck"
 outline: deep
@@ -10,7 +11,7 @@ tags: [UE5, GAS, Animation, Input, Debugging]
 
 # My Safety Net Ended Healthy Shots: Montage_IsPlaying and the Blend-Out
 
-Earlier the same day I fixed [a fire ability that could stay active forever](./2026-11-04-pseudo-ammo-switch-lost-presses) after an ammo switch cut its montage. Along with the real fix I kept a safety net: if you press fire while the fire ability is still active but its montage isn't playing, the ability logs `fire stuck` and ends itself, so the next press works.
+Earlier the same day I fixed [a fire ability that could stay active forever](./2026-11-04-pseudo-ammo-switch-lost-presses) after an ammo switch cut its [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine). Along with the real fix I kept a safety net: if you press fire while the fire ability is still active but its montage isn't playing, the ability logs `fire stuck` and ends itself, so the next press works.
 
 Then a test with plain Shotgun taps, no ammo switching at all, produced `fire stuck` warnings. The safety net was firing on rounds that weren't stuck.
 

@@ -1,7 +1,8 @@
 ---
 title: "Planning a First Steam Release Backwards: Fees, Waiting Periods and Fixed Dates"
 description: "How I worked out PSEUDO's first Steam release date by counting backwards from Steamworks rules: the 21-day wait after the app fee, the two-week Coming Soon minimum, one-to-five-day reviews for the store page and the build, what the store page needs, the content questionnaire for violence and simulated gambling, and why those dates stay fixed when development slips."
-date: 2026-10-22
+date: 2026-11-03
+workedOn: 2026-10-22
 publishAt: 2026-11-03
 track: "Steam release schedule"
 outline: deep

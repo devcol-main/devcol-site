@@ -1,14 +1,15 @@
 ---
-title: "Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds"
+title: "Knocked Back With Pistols Out: An Aiming Torso, Foot IK and a UE5 Hit Reaction Fix That Took Two Rounds"
 description: "Knocked back with PSEUDO's dual pistols drawn, the player kicked a leg up to hip height while the torso stayed upright and aiming. The first fix handled the torso, an upper-body aim pose layered over the hit reaction. The leg was foot IK planting the feet while the knockback pushed the body 600 cm."
-date: 2026-11-04
+date: 2026-11-06
+workedOn: 2026-11-04
 publishAt: 2026-11-06
 track: "Pistol knockback breaks the legs"
 outline: deep
 tags: [UE5, Animation, IK, Anim Blueprint, Debugging]
 ---
 
-# Knocked Back With Pistols Out: An Aiming Torso, a Planted Foot and a Fix That Took Two Rounds
+# Knocked Back With Pistols Out: An Aiming Torso, Foot IK and a UE5 Hit Reaction Fix That Took Two Rounds
 
 When an enemy knocks the player back in PSEUDO, the whole body curls and gets pushed away (the reaction tiers are on the [Defense](/wiki/systems/defense) page). With the greatsword drawn, that's what happens. With the dual pistols drawn, I got a screenshot of something else: pistols still aimed forward, and the left leg kicked up to hip height.
 
@@ -17,7 +18,7 @@ I fixed it, called it done, and it was still broken. This post covers both round
 ## The symptom
 
 - **Observed**: knockback with the pistols out, torso upright and aiming, one leg kicked out. Basic ammo was selected on the HUD.
-- **Expected**: the whole body follows the knockback montage `AM_TB_Knockback`, curled and pushed back, the same as with the greatsword.
+- **Expected**: the whole body follows the knockback [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) `AM_TB_Knockback`, curled and pushed back, the same as with the greatsword.
 - **Repro**: `L_Test_Combat`, standalone PIE, `PseudoEquip Weapon.Ranged.DualPistols`, then `PseudoReact Knockback`, a side camera, and a pause 0.3 s into the reaction.
 
 ## What I ruled out

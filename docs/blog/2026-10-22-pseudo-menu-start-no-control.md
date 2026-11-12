@@ -1,14 +1,15 @@
 ---
-title: "Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change"
+title: "Start Pressed, Nothing Moves: FInputModeUIOnly Survives OpenLevel in UE5"
 description: "After pressing Start on PSEUDO's main menu, the player arrived in the hub and couldn't move or attack. The menu's FInputModeUIOnly had told the game viewport to ignore game input, and the viewport outlives OpenLevel. Why the input stack looked healthy, why Python input injection couldn't reproduce it, and the four-line fix."
-date: 2026-10-22
+date: 2026-10-29
+workedOn: 2026-10-22
 publishAt: 2026-10-29
 track: "No control after menu start"
 outline: deep
 tags: [UE5, Input, UI, Networking, Debugging]
 ---
 
-# Start Pressed, Nothing Moves: A UI-Only Input Mode That Survived the Level Change
+# Start Pressed, Nothing Moves: FInputModeUIOnly Survives OpenLevel in UE5
 
 PSEUDO got a real main menu this week: a title, a tagline, Start and Quit. Start opens the hub map as a listen server, so friends can join from their own menus. The first time I pressed it for real, the hub loaded, my character spawned, the HUD came up, and nothing I pressed did anything. The mouse cursor was still on screen.
 

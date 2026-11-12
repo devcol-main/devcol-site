@@ -11,21 +11,30 @@ Read `automation/autopost/ledger.md`. Anything listed there is done.
 - PSEUDO: new files in `Documents/Debugging/` named `DBG-NNN ...md` with a number above the highest handled one. Skip `DBG-000 Template.md` and `Debug_Backlog.md`. Skip a note whose status is not fixed/resolved yet (leave it out of the ledger so a later run picks it up).
 - TumbleTeams: new files in `Documents/Devlogs/`, or, if there are none, a substantial body of new commits on `origin/main` since the last handled commit (a new feature or system, not routine fixes). At most one TumbleTeams post per run.
 If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW`.
-Write at most 6 posts per run; leave the rest for the next run.
+Write at most 3 posts per run; leave the rest for the next run.
 
 ## 2. Write the posts
-Before writing, read these as the style reference and match them closely (tone, length, front matter, section shape: symptom, what I ruled out table, cause, fix, checking it, what I took from it):
+Before writing, read these for tone, level of detail and front matter only. Do NOT copy their section headings or order:
 - `docs/blog/2026-10-23-pseudo-player-groggy-never-triggers.md` next to its source `Documents/Debugging/DBG-021 Player Groggy Not Triggering (2026-10-23).md` in PSEUDO
 - `docs/blog/2026-11-04-pseudo-ammo-switch-lost-presses.md`
 - for TumbleTeams: `docs/blog/2026-10-24-tumble-teams-devlog-03-minigame-playlist.md`
+
+Shape (the site must not read as one template filled in many times):
+- Let the note decide the structure. Pick the shape that fits: a straight timeline, cause first and then how it was found, a comparison of two attempts, a short note for a small bug, a question-and-answer walk-through.
+- Write headings that name the specific thing ("Why `Montage_IsPlaying` was still true during the blend-out"), not generic labels. Do not use "The symptom", "What I ruled out", "The cause", "The fix", "Checking it" or "What I took from it" as headings, and do not reuse the heading set of the previous three posts in `docs/blog/` (check them).
+- A "ruled out" table only when there were at least three real hypotheses. Otherwise write it as prose.
+- Length follows the note: 500 to 1,800 words. Do not pad a small bug.
+- Title: say the problem in plain words and include the exact thing someone would search for: the API, class, console variable or error text from the note, plus "UE5" or the engine version when it fits (e.g. "`WaitInputRelease` never fires in UE 5.8: a guard that never let go").
+- If the note references screenshots or clips that exist in the source repo, copy the useful ones to `docs/public/blog/` and show them with a one-line caption. Never fabricate an image of the game.
+- External references: when the bug turns on an engine feature, link the official documentation page for it (1 to 3 links, inline where the feature is first explained). Only use a URL you opened and confirmed in this run. If you cannot confirm one, leave the link out.
 
 Rules:
 - English, first person, plain and concrete. No hype.
 - Only facts in the sources (notes, referenced source files, design docs). Never invent numbers, log lines, test results or screenshots.
 - Leave out internal issue numbers, branch names, local machine paths, secrets, hostnames, people other than the developer, and unreleased dates or deadlines.
-- Never mention AI tools, agents, Claude, automation runs, "away"/"overnight" runs, or how the code or notes were produced. This is a hard rule from the TumbleTeams repo and applies to both games.
+- Never mention AI tools, agents, Claude, automation runs, "away"/"overnight" runs, or how the code or notes were produced. This is a hard rule from the TumbleTeams repo and applies to both games. The site-wide disclosure lives on `/about` (DevLog posts are drafted with AI assistance from the developer's notes); never write anything in a post that contradicts it, such as claiming the text was written by hand.
 - File name: `docs/blog/<note date>-pseudo-<slug>.md` or `docs/blog/<date>-tumble-teams-<slug>.md`.
-- Front matter: `title`, `description`, `date` (the note's date), `publishAt`, `track` (short label), `image` (the cover from step 2b), `outline: deep`, `tags`.
+- Front matter: `title`, `description`, `date` (same day as `publishAt`: the day the post goes live), `workedOn` (the note's date; the byline shows it as "Work from ..."), `publishAt`, `track` (short label), `image` (the cover from step 2b), `outline: deep`, `tags`.
 - Link to existing wiki pages (`docs/wiki/systems/*.md`) with absolute links like `/wiki/systems/weapons` when they fit, and to related posts with `./<slug>`.
 - If the note shows a wiki page is now wrong, do not edit the wiki. Add a line under "## Wiki follow-ups" at the end of the ledger instead.
 
@@ -46,11 +55,11 @@ Every post gets a cover so it shows a picture on the home page and the DevLog in
 - If the script fails (no Playwright, font error), do not block the post: leave out `image:` and the figure, and say so in the final summary.
 
 ## 3. Schedule
-Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt`: two per day at most, starting on the later of tomorrow and the day after the last date already in the queue. Order by source date, oldest first.
+Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt`: one post per day, on Mondays, Wednesdays and Fridays only (three a week at most), on the first such free day after both today and the last date already in the queue. Order by source date, oldest first. A slow, steady cadence matters more than clearing the backlog.
 
 ## 4. Wire them in
 For every new post:
-- `docs/blog/index.md`: add `- YYYY-MM-DD: [Title](./slug)` under the right `## PSEUDO` or `## Tumble Teams` heading, newest first (date = the post's `date`).
+- `docs/blog/index.md`: add `- YYYY-MM-DD: [Title](./slug)` under the right `## PSEUDO` or `## Tumble Teams` heading, newest first (date = the post's `date`, i.e. its `publishAt` day).
 - `docs/blog/pseudo.md` "Reading order" (debugging notes, chronological) or `docs/blog/tumble-teams.md` reading order.
 - `docs/.vitepress/config.mts`: PSEUDO posts go in the PSEUDO sidebar list, in order, with a short `text`. TumbleTeams posts go in `tumbleTeamsGroups`.
 Then append one line per handled source to the "Handled after the cut-off" list in `automation/autopost/ledger.md`, skipped sources included, with the reason.

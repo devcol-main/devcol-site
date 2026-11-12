@@ -1,7 +1,8 @@
 ---
 title: "Why WASD Did Nothing: A Player Controller with Tick Turned Off"
 description: "In UE5 PIE the pawn spawned and the camera was right, but WASD and mouse look did nothing. Every binding was correct. The cause was bCanEverTick = false on the PlayerController, because the controller processes input in its tick."
-date: 2026-10-13
+date: 2026-10-15
+workedOn: 2026-10-13
 track: "Player controller tick bug"
 outline: deep
 tags: [UE5, C++, Debugging]

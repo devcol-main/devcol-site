@@ -1,7 +1,8 @@
 ---
 title: "Putting a MetaHuman Face on a Paragon Body, Part 4: Grooms That Scatter and Hair That Vanishes at Mid Range"
 description: "After trimming the MetaHuman face mesh, every groom scattered around the head, and at a middle camera distance all hair vanished and came back further out. Groom bindings are built for one mesh's vertices, and the assembled grooms had a Cards LOD with no card data, set per group."
-date: 2026-10-15
+date: 2026-10-26
+workedOn: 2026-10-15
 publishAt: 2026-10-26
 track: "MetaHuman face, part 4"
 outline: deep
@@ -11,7 +12,7 @@ image: /blog/pseudo-mhface-13.png
 
 # Putting a MetaHuman Face on a Paragon Body, Part 4: Grooms That Scatter and Hair That Vanishes at Mid Range
 
-The MetaHuman's hair, eyebrows, eyelashes, beard, mustache and peach fuzz are six groom components, and in the pilot Blueprint they sit under the face mesh. With the face on Twinblast's head ([Part 2](./2026-10-14-pseudo-metahuman-paragon-2-face-attach)) and Twinblast's head removed ([Part 3](./2026-10-14-pseudo-metahuman-paragon-3-headless-mesh)), two problems showed up in the hair:
+The [MetaHuman](https://dev.epicgames.com/documentation/metahuman/metahumans-in-unreal-engine)'s hair, eyebrows, eyelashes, beard, mustache and peach fuzz are six [groom](https://dev.epicgames.com/documentation/unreal-engine/hair-simulation-and-rendering-quick-start-guide-in-unreal-engine) components, and in the pilot Blueprint they sit under the face mesh. With the face on Twinblast's head ([Part 2](./2026-10-14-pseudo-metahuman-paragon-2-face-attach)) and Twinblast's head removed ([Part 3](./2026-10-14-pseudo-metahuman-paragon-3-headless-mesh)), two problems showed up in the hair:
 
 1. After I swapped the face mesh for a trimmed copy, the grooms scattered around the head.
 2. Zooming the camera out, all the hair disappeared at a middle distance and came back further away.
