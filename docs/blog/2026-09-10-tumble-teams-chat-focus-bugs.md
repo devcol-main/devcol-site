@@ -1,7 +1,8 @@
 ---
 title: "Why Enter Wouldn't Open My UE5 Chat Box (and Why It Crashed with Two Players)"
 description: "Three layers of keyboard-focus bugs in an Unreal Engine 5 chat widget: SetInputMode being queued, SetFocus silently falling back, and a stack overflow that only appears when two PIE clients share one Slate instance."
-date: 2026-09-10
+date: 2026-10-05
+workedOn: 2026-09-10
 track: "Chat box focus and crash fixes"
 category: "Chat & Networking"
 sidebar: "Chat Focus Bugs"
@@ -75,4 +76,4 @@ I verified this by activating the two PIE windows alternately from a script and 
 
 When a focus call should have worked and didn't, I now ask whether it was applied or just queued. A bug that only shows up with two clients in one process may not be a game bug at all. Here it came from a single shared `FSlateApplication`. And reading the engine source beat guessing: three reasonable fixes failed before the source explained why.
 
-*Update: I later replaced this C++ widget with a Blueprint UI on top of the C++ transport layer, so the code above is no longer in the build. What I learned about focus still applies. The story of that change is in [Testing Chat with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing).*
+*Update: I later replaced this C++ widget with a Blueprint UI on top of the C++ transport layer, so the code above is no longer in the build. What I learned about focus still applies. The story of that change is in [Testing a UE5 Chat Plugin with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing).*

@@ -1,7 +1,8 @@
 ---
 title: "Air Control 0.05: Why My Character Couldn't Change Direction After a Jump"
 description: "Jump right, land, press left and jump again, and the character kept drifting right. My first suspect was the input buffer I had just added. The real cause was the engine's default Air Control of 0.05, and a few lines of arithmetic show exactly why it can't reverse a run in one jump."
-date: 2026-10-16
+date: 2026-10-27
+workedOn: 2026-10-16
 publishAt: 2026-10-27
 track: "Air control"
 category: "Debugging / Movement & Combat"

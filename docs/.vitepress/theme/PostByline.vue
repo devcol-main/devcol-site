@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// Byline under the title on DevLog posts and Study notes: author (linked to /about), published date, last update.
+// Byline under the title on DevLog posts and Study notes: author (linked to /about), published date,
+// the day the work happened (`workedOn:`, when the post went up later), last update.
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { author } from './site'
@@ -24,6 +25,12 @@ const isoDate = computed(() => {
   return d instanceof Date ? d.toISOString().slice(0, 10) : d ? String(d).slice(0, 10) : ''
 })
 const published = computed(() => (isoDate.value ? fmt(isoDate.value) : ''))
+// `date` is the day the post went live; `workedOn` is the day of the work it describes.
+const workedIso = computed(() => {
+  const d = frontmatter.value.workedOn
+  const iso = d instanceof Date ? d.toISOString().slice(0, 10) : d ? String(d).slice(0, 10) : ''
+  return iso && iso !== isoDate.value ? iso : ''
+})
 const updated = computed(() => {
   if (!page.value.lastUpdated) return ''
   const u = fmt(page.value.lastUpdated)
@@ -36,7 +43,9 @@ const updated = computed(() => {
     <span class="byline-avatar"><img :src="withBase('/logo.png')" alt="" width="22" height="22" /></span>
     <span>By <a :href="withBase(author.link)" rel="author">{{ author.name }}</a> <span class="byline-handle">({{ author.handle }})</span></span>
     <span v-if="published" class="byline-sep" aria-hidden="true">·</span>
-    <time v-if="published" :datetime="isoDate">{{ published }}</time>
+    <time v-if="published" :datetime="isoDate">{{ workedIso ? 'Published ' : '' }}{{ published }}</time>
+    <span v-if="workedIso" class="byline-sep" aria-hidden="true">·</span>
+    <span v-if="workedIso" class="byline-updated">Work from <time :datetime="workedIso">{{ fmt(workedIso) }}</time></span>
     <span v-if="updated" class="byline-sep" aria-hidden="true">·</span>
     <span v-if="updated" class="byline-updated">Updated {{ updated }}</span>
   </p>

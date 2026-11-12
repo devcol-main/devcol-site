@@ -142,4 +142,4 @@ Projectiles (the boss's thrown rock, later the ranged enemies) are their own ser
 - Per-enemy numbers (senses, ranges, cooldowns, damage), which only playtesting can settle.
 - Perception, searching and returning home are designed but arrive with the full enemy AI pass.
 
-For how the first enemy's bugs went, see [Two Bugs from the First Enemy](/blog/2026-10-20-pseudo-first-enemy-camera-and-facing) and [Hits That Only Landed When the Host Was Watching](/blog/2026-10-20-pseudo-offscreen-enemy-hits).
+For how the first enemy's bugs went, see [Two Bugs from the First Enemy](/blog/2026-10-20-pseudo-first-enemy-camera-and-facing) and [Hits That Only Landed When the Host Was Watching: Bones That Don't Refresh on a UE5 Listen Server](/blog/2026-10-20-pseudo-offscreen-enemy-hits).

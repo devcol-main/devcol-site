@@ -1,7 +1,8 @@
 ---
-title: "Testing Chat with Two Players"
+title: "Testing a UE5 Chat Plugin with Two Players"
 description: "What a second pass on my UE5 chat plugin turned up: notes that disagreed with the code, a Blueprint chat that never reached other clients, a validation trap, editor Python that can't test RPCs, and the small UI bugs only a real second player reveals."
-date: 2026-09-27
+date: 2026-10-05
+workedOn: 2026-09-27
 track: "Testing chat with two players"
 category: "Chat & Networking"
 sidebar: "Chat Two-Player Testing"
@@ -10,7 +11,7 @@ tags: [UE5, Networking, Testing]
 image: /blog/tt-chat2p-c.jpg
 ---
 
-# Testing Chat with Two Players
+# Testing a UE5 Chat Plugin with Two Players
 
 When I came back to finish the chat plugin for Tumble Teams, my notes said it was nearly done. Testing it with two real players showed how much of that wasn't true. This post is the list of what I found, roughly in the order I found it.
 

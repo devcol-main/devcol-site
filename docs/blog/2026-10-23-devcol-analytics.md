@@ -1,7 +1,8 @@
 ---
 title: "Cookie-Free Analytics for devcol.net on Cloudflare Workers"
 description: "I wanted to know which posts get read and how far people get in the games, without cookies or a third-party tracker. Notes on a small analytics service built on Cloudflare Workers and D1: what it records, how it counts visitors without storing IPs, and how a new game gets tracked with two lines of code."
-date: 2026-10-23
+date: 2026-10-30
+workedOn: 2026-10-23
 publishAt: 2026-10-30
 track: "Site analytics"
 outline: deep

@@ -1,7 +1,8 @@
 ---
-title: "Stamina and Sprint with GAS"
+title: "Replicated Stamina and Predicted Sprint with UE5's Gameplay Ability System"
 description: "Building a replicated stamina system on Unreal's Gameplay Ability System: one periodic effect for all rules, client-predicted sprinting through a custom movement flag, exhaustion hysteresis, and two bugs that had been hiding in the project."
-date: 2026-10-02
+date: 2026-10-05
+workedOn: 2026-10-02
 track: "Stamina and sprint with GAS"
 category: "Character & GAS"
 sidebar: "Stamina and Sprint"
@@ -10,7 +11,7 @@ tags: [UE5, GAS, Networking]
 image: /blog/tt-stamina-c.jpg
 ---
 
-# Stamina and Sprint with GAS
+# Replicated Stamina and Predicted Sprint with UE5's Gameplay Ability System
 
 Tumble Teams needed stamina: a pool of 100 spent mostly by movement and attacks. Hold Shift to sprint for 3 per second, fall back to walking when it's empty, and recover from items, recovery zones, and standing (+2 per second) or walking (+1 per second). Walking speed is 250, sprint speed is 600.
 
@@ -21,7 +22,7 @@ Tumble Teams needed stamina: a pool of 100 spent mostly by movement and attacks.
 
 ## The design
 
-**Stamina is a GAS attribute, not a component.** I first proposed a stamina component like the one used for health at the time, but the project already had `Stamina` and `MaxStamina` in its attribute set, and the upcoming abilities (dive attacks and so on) would spend it through gameplay effects. Keeping one pool means no component-versus-GAS duplication, the ability cost check (`CostGameplayEffectClass`) rejects activation when stamina is short, and the UI listens in one place.
+**Stamina is a GAS attribute, not a component.** I first proposed a stamina component like the one used for health at the time, but the project already had `Stamina` and `MaxStamina` in its [attribute set](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-attributes-and-attribute-sets-for-the-gameplay-ability-system-in-unreal-engine), and the upcoming abilities (dive attacks and so on) would spend it through [gameplay effects](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-effects-for-the-gameplay-ability-system-in-unreal-engine). Keeping one pool means no component-versus-GAS duplication, the ability cost check (`CostGameplayEffectClass`) rejects activation when stamina is short, and the UI listens in one place.
 
 <figure class="theme-img">
   <img class="img-light" src="/blog/tt-stamina-a.jpg" alt="Every stamina rule goes through one periodic effect; sprint is predicted through a movement flag" loading="lazy">

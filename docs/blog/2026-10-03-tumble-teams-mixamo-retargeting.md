@@ -1,7 +1,8 @@
 ---
 title: "Why Mixamo Animations Broke on My Character, and the Retargeting Pipeline That Fixed It"
 description: "Importing Mixamo FBX files straight onto another skeleton in Unreal Engine 5 gives broken poses, even though bone names match. Why it happens, why you can't undo it, and the IK Retargeter pipeline with numeric verification."
-date: 2026-10-03
+date: 2026-10-05
+workedOn: 2026-10-03
 track: "Mixamo retargeting pipeline"
 category: "Character & GAS"
 sidebar: "Mixamo Retargeting"
@@ -107,6 +108,6 @@ After landing in `DropKick0`, frames 93 to 141 have the character prone with han
 - [ ] The source IK Rig's mesh isn't empty.
 - [ ] After retarget: Hips local values follow my character's convention, and head is above hips above feet.
 - [ ] Forward-moving attacks: move travel from Hips to root and enable root motion.
-- [ ] Montage in the default slot, then check in PIE.
+- [ ] [Montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) in the default slot, then check in PIE.
 
 One loose end: one montage came out 166 frames long while the retargeted clip is 202. Nothing in my scripts shortened it, so I suspect it was trimmed in the editor; if that wasn't intended, retarget again and rebuild the montage.

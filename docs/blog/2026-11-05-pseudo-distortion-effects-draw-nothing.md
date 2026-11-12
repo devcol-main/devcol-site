@@ -1,7 +1,8 @@
 ---
 title: "Distortion Effects That Drew Nothing: r.RefractionQuality and Medium Scalability"
 description: "No refraction material in PSEUDO bent the view in PIE, whatever the material did. The engine's scalability settings set r.RefractionQuality to 0 at Low and Medium effects quality, the editor runs Medium, and at 0 the renderer skips the distortion pass entirely."
-date: 2026-11-05
+date: 2026-11-08
+workedOn: 2026-11-05
 publishAt: 2026-11-08
 track: "Distortion effects draw nothing"
 category: "Debugging / VFX & Rendering"
@@ -37,9 +38,9 @@ Step 4 was the turning point. A 2D offset with a constant value doesn't depend o
 
 ## The cause
 
-In `DistortionRendering.cpp`, `FDeferredShadingSceneRenderer::ShouldRenderDistortion()` skips the whole distortion pass when `r.RefractionQuality` is 0 or less. The engine's own scalability file sets it to 0 for effects quality Low and Medium, and the editor viewport runs at Medium.
+In `DistortionRendering.cpp`, `FDeferredShadingSceneRenderer::ShouldRenderDistortion()` skips the whole distortion pass when `r.RefractionQuality` is 0 or less. The engine's own [scalability](https://dev.epicgames.com/documentation/en-us/unreal-engine/scalability-in-unreal-engine) file sets it to 0 for effects quality Low and Medium, and the editor viewport runs at Medium.
 
-So at those settings no refraction material is ever composited, and nothing in the material or the Niagara system can bring it back. The trail was invisible in the editor from the start, and the gravity lens and ripples very likely were too.
+So at those settings no [refraction](https://dev.epicgames.com/documentation/unreal-engine/using-refraction-in-unreal-engine) material is ever composited, and nothing in the material or the [Niagara](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine) system can bring it back. The trail was invisible in the editor from the start, and the gravity lens and ripples very likely were too.
 
 ## The fix
 

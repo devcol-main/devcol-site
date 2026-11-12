@@ -1,7 +1,8 @@
 ---
 title: "Putting a MetaHuman Face on a Paragon Body, Part 1: Four Setup Blockers Before Assemble"
 description: "Before a MetaHuman face could go anywhere near a Paragon body, UE 5.8's MetaHuman Creator stopped me four times: missing GPU skinning settings, a deprecated runtime plugin, a greyed-out Assemble button and an asset-validator error. None were bugs, and each one has a one-line fix."
-date: 2026-10-14
+date: 2026-10-24
+workedOn: 2026-10-14
 publishAt: 2026-10-24
 track: "MetaHuman face, part 1"
 category: "MetaHuman on Paragon"
@@ -13,7 +14,7 @@ image: /blog/pseudo-mhface-2.png
 
 # Putting a MetaHuman Face on a Paragon Body, Part 1: Four Setup Blockers Before Assemble
 
-PSEUDO's characters use Paragon bodies and animations from Fab. One of them, which I call SC in the project, uses the Twinblast body. I wanted SC to wear a face I made in MetaHuman Creator instead of Twinblast's own head. That sounds like a component swap. It took two days and seven debugging notes, so I'm writing it up as a five-part series.
+PSEUDO's characters use Paragon bodies and animations from Fab. One of them, which I call SC in the project, uses the Twinblast body. I wanted SC to wear a face I made in [MetaHuman](https://dev.epicgames.com/documentation/metahuman/metahumans-in-unreal-engine) Creator instead of Twinblast's own head. That sounds like a component swap. It took two days and seven debugging notes, so I'm writing it up as a five-part series.
 
 Series: **1. Setup** · [2. Face attach](./2026-10-14-pseudo-metahuman-paragon-2-face-attach) · [3. Headless mesh](./2026-10-14-pseudo-metahuman-paragon-3-headless-mesh) · [4. Grooms](./2026-10-15-pseudo-metahuman-paragon-4-grooms) · [5. Cloth and hair](./2026-10-15-pseudo-metahuman-paragon-5-cloth-and-hair)
 
@@ -21,7 +22,7 @@ This first part is the shortest. Before I could attach anything, I had to get a 
 
 ## The goal
 
-Create a MetaHuman Character asset in MetaHuman Creator (still Beta in 5.8), then use the Assembly tab to turn it into a regular Blueprint with body, face, clothing and groom assets under `/Game/MetaHumans/`. That assembled face mesh and its grooms are what the rest of this series attaches to Twinblast.
+Create a MetaHuman Character asset in MetaHuman Creator (still Beta in 5.8), then use the Assembly tab to turn it into a regular Blueprint with body, face, clothing and [groom](https://dev.epicgames.com/documentation/unreal-engine/hair-simulation-and-rendering-quick-start-guide-in-unreal-engine) assets under `/Game/MetaHumans/`. That assembled face mesh and its grooms are what the rest of this series attaches to Twinblast.
 
 ## Blocker 1: "Missing Project Settings!"
 

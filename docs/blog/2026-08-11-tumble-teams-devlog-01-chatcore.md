@@ -1,7 +1,8 @@
 ---
 title: "Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5"
 description: "How I built ChatCore, a reusable text chat plugin for Unreal Engine 5 using EOS for identity and replicated RPCs for delivery. Design decisions, the bugs I hit, and what was still left."
-date: 2026-08-11
+date: 2026-10-03
+workedOn: 2026-08-11
 track: "Server-authoritative chat plugin"
 category: "DevLogs"
 sidebar: "DevLog #1: ChatCore"
@@ -13,10 +14,10 @@ image: /blog/tt-chatcore-c.jpg
 # Tumble Teams DevLog #1: Building a Server-Authoritative Chat Plugin in UE5
 
 ::: info Update (September 27)
-This post describes ChatCore as it stood on August 11. A few things have moved since: the rate limit and history cap listed as "still open" below were finished shortly after; team routing is now wired up through an interface the project layer implements; and in late September I replaced the C++ chat widget with a Blueprint UI on top of the C++ transport layer. The tunneling trick for Enter and Tab now lives in that Blueprint widget. Whisper sending from the UI is still deferred until there's a target-selection UI. The story of that restructure is in [Testing Chat with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing).
+This post describes ChatCore as it stood on August 11. A few things have moved since: the rate limit and history cap listed as "still open" below were finished shortly after; team routing is now wired up through an interface the project layer implements; and in late September I replaced the C++ chat widget with a Blueprint UI on top of the C++ transport layer. The tunneling trick for Enter and Tab now lives in that Blueprint widget. Whisper sending from the UI is still deferred until there's a target-selection UI. The story of that restructure is in [Testing a UE5 Chat Plugin with Two Players](./2026-09-27-tumble-teams-chat-two-player-testing).
 :::
 
-Tumble Teams is a small team-based party game I'm building in Unreal Engine 5 (C++): short, chaotic minigames for 4 to 6 players split into two teams. It's a one-month warm-up project. I have never shipped a multiplayer game, and I want to learn replication, the Gameplay Ability System (GAS), Epic Online Services (EOS), and dedicated server deployment on something small *before* I commit to anything bigger.
+Tumble Teams is a small team-based party game I'm building in Unreal Engine 5 (C++): short, chaotic minigames for 4 to 6 players split into two teams. It's a one-month warm-up project. I have never shipped a multiplayer game, and I want to learn [replication](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine), the [Gameplay Ability System](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-ability-system-for-unreal-engine) (GAS), Epic Online Services (EOS), and dedicated server deployment on something small *before* I commit to anything bigger.
 
 <figure class="theme-img">
   <img class="img-light" src="/blog/tt-chatcore-c.jpg" alt="ChatCore uses EOS to find out who a player is, and replication to deliver messages" loading="lazy">

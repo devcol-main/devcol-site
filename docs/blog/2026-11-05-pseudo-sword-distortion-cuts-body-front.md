@@ -1,7 +1,8 @@
 ---
-title: "The Same Trap From the Front: A Sword Distortion Pair That Erased the Attacker's Torso"
+title: "The Same Trap From the Front: A Niagara Refraction Trail That Erased the Attacker's Torso"
 description: "Hours after removing PSEUDO's dash distortion for cutting the player in half, a new pair of sword distortion trails did the same thing, but only when the camera looked at the attacker from the front. Lowering the refraction strength helped; making the ribbon narrower is what kept the body whole."
-date: 2026-11-05
+date: 2026-11-10
+workedOn: 2026-11-05
 publishAt: 2026-11-10
 track: "Sword distortion cuts the body"
 category: "Debugging / VFX & Rendering"
@@ -10,7 +11,7 @@ outline: deep
 tags: [UE5, VFX, Niagara, Rendering, Debugging]
 ---
 
-# The Same Trap From the Front: A Sword Distortion Pair That Erased the Attacker's Torso
+# The Same Trap From the Front: A Niagara Refraction Trail That Erased the Attacker's Torso
 
 The greatsword's light attacks in PSEUDO got new distortion trails: a pair of systems from a VFX pack, `NS_SlashTrail_Distortion_Only` and `NS_SlashTrail_Distortion_Only_Loop`. Despite the names, both loop; the only real difference is how long each ribbon point lives, 0.5 s for the first and 0.15 s for the second. Played together from the blade tip, the short one gives a tight bend right behind the weapon and the long one leaves a wake that fades later.
 
@@ -35,7 +36,7 @@ Row 4 mattered for the comparison I was making. The heavy attacks use a differen
 
 ## The cause
 
-The pack's master material, `M_SlashTrail_Master`, drives refraction as `1 + texture * mul_Refraction * dynamic parameter`, in IOR mode. The ribbon is a flat sheet, and every pixel it covers shows scene color taken from an offset position. That's the same mechanism as the dash.
+The pack's master material, `M_SlashTrail_Master`, drives [refraction](https://dev.epicgames.com/documentation/unreal-engine/using-refraction-in-unreal-engine) as `1 + texture * mul_Refraction * dynamic parameter`, in IOR mode. The ribbon is a flat sheet, and every pixel it covers shows scene color taken from an offset position. That's the same mechanism as the dash.
 
 What the sweep showed is that the two settings do different jobs. The **sheet's size** decides how much of the body can be replaced at all. The **strength** mostly decides how far away the replacement pixels come from. At width 100 the sheet was wide enough to cover the torso, so no strength value could save it. I'm describing what I observed in the sweep; I didn't go into the engine source for this one.
 
@@ -43,7 +44,7 @@ As with the dash, no setting removes the effect from every angle. It can only be
 
 ## The fix
 
-- On the greatsword combo montage, the pair's notifies now use a trail width of **40** instead of 100.
+- On the greatsword combo [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine), the pair's notifies now use a trail width of **40** instead of 100.
 - The material instance the pair uses, `MI_SlashTrail_Distort_1`, now has `mul_Refraction` **1** instead of 2. It's our own copy, and only the pair uses it.
 
 Both values are constants in the script that rebuilds the pair, so a rebuild keeps them. The result looks different from the pack's sample, and that's intended.

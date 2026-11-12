@@ -1,7 +1,8 @@
 ---
-title: "Two Enemies Nothing Could Hurt: A Missing Physics Asset and a Two-Phase Hit Test"
+title: "Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5"
 description: "In PSEUDO's combat test map, the Brute and the Flyer took no damage from melee, shots or area attacks. Their meshes had no Physics Asset, and every player attack ends in a narrow test against those bodies. Generating one for each mesh fixed it, and the same session moved the lock-on marker onto a chest socket."
-date: 2026-11-06
+date: 2026-11-11
+workedOn: 2026-11-06
 publishAt: 2026-11-11
 track: "Enemies with no Physics Asset"
 category: "Debugging / Movement & Combat"
@@ -10,7 +11,7 @@ outline: deep
 tags: [UE5, Combat, Physics, Assets, Debugging]
 ---
 
-# Two Enemies Nothing Could Hurt: A Missing Physics Asset and a Two-Phase Hit Test
+# Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5
 
 PSEUDO's enemies come from Paragon's minion pack: a lane melee minion, a ranged one, a siege one, and two larger "Buff" minions that I use as the Brute (red) and the Flyer (blue). The [Enemy AI](/wiki/pseudo/systems/enemy-ai) page has the roster. My combat test map has a few of each standing around so I can try weapons on them.
 

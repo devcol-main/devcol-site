@@ -1,7 +1,8 @@
 ---
 title: "Bug Squash: Rebuilding a Neon Copy as a Retro Terminal"
 description: "The second Arcade Web game worked on the first pass but looked and sounded like Stack Up. Notes on rebuilding it as a retro terminal, redrawing bugs that read as space invaders, and adding keyboard play and an empty-cell penalty."
-date: 2026-10-14
+date: 2026-10-15
+workedOn: 2026-10-14
 track: "Bug Squash terminal redesign"
 outline: deep
 tags: [TypeScript, Game Design, WebAudio]

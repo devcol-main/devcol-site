@@ -1,7 +1,8 @@
 ---
-title: "The Server Never Swapped: Ending a Predicted Ability Too Early"
+title: "The Server Never Swapped: Ending a LocalPredicted GAS Ability Too Early in UE5"
 description: "A locally predicted weapon-swap ability in UE5 GAS swapped on the client and never on the server. The client's normal end was replicated and cut the server's copy before it reached its montage notify. Plus a cheat that called itself 2317 times in one frame, and why editor Python is a bad way to drive a PIE client."
-date: 2026-10-19
+date: 2026-10-28
+workedOn: 2026-10-19
 publishAt: 2026-10-28
 track: "Predicted weapon swap"
 category: "Debugging / Networking"
@@ -10,9 +11,9 @@ outline: deep
 tags: [UE5, GAS, Networking, C++, Debugging]
 ---
 
-# The Server Never Swapped: Ending a Predicted Ability Too Early
+# The Server Never Swapped: Ending a LocalPredicted GAS Ability Too Early in UE5
 
-PSEUDO has two weapon slots, and swapping between them is a Gameplay Ability with a sheath or draw animation. The ability is **locally predicted**: the client starts the animation immediately so the key feels instant, and the server runs its own copy. The actual slot change happens on the server, at an animation notify partway through the montage, and replicates out from there.
+PSEUDO has two weapon slots, and swapping between them is a Gameplay Ability with a sheath or draw animation. The ability is **locally predicted**: the client starts the animation immediately so the key feels instant, and the server runs its own copy. The actual slot change happens on the server, at an [animation notify](https://dev.epicgames.com/documentation/unreal-engine/animation-notifies-in-unreal-engine) partway through the [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine), and replicates out from there.
 
 Sheathing worked. Drawing, from the client player, did not: the client logged its swap, the server never did, and every pawn kept the pistols. This post is about why, which comes down to who gets to end a predicted ability. At the end there's a related story from two days earlier, about a cheat command that called itself 2317 times in one frame, because both bugs share a lesson about how I was testing.
 
@@ -52,7 +53,7 @@ With logs on both sides, the sequence on a client draw was:
 
 A predicted ability runs twice: once on the client, starting immediately, and once on the server, starting when the activation arrives. Both play the same montage, offset by that latency.
 
-When the client's montage finished, it called `EndAbility` with replication on. That sends `ServerEndAbility`, and the server ends its copy **on the client's schedule**. The client ends at 1.42 s of its montage. The server's montage started later, so when that end arrives, the server is earlier in the clip. For the swap to happen, the server needs to have reached 1.27 s by then.
+When the client's montage finished, it called `EndAbility` with [replication](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine) on. That sends `ServerEndAbility`, and the server ends its copy **on the client's schedule**. The client ends at 1.42 s of its montage. The server's montage started later, so when that end arrives, the server is earlier in the clip. For the swap to happen, the server needs to have reached 1.27 s by then.
 
 The margin is 1.42 − 1.27 = 0.15 s, minus the activation latency. In two background editor windows running at low frame rates, the latency ate the whole margin, and the server's copy ended before its notify every time. The sheath montage's notify at 0.40 s had plenty of margin, which is why sheathing worked and made this look like a draw-specific bug.
 

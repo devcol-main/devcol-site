@@ -1,7 +1,8 @@
 ---
-title: "The Coat Wasn't Clipping, the Idle Was: A Thigh in Front of the Coat"
+title: "The Coat Wasn't Clipping, the Idle Was: Telling Chaos Cloth from Animation in UE5"
 description: "Right after spawning in PSEUDO, the player's thigh poked out in front of the coat. Three cloth-side fixes changed nothing, because with the simulation turned off the animation pose itself put the thigh there. The one-check test that settles cloth versus animation, a 10-degree edit to the idle, and loosening the coat's swing to 60 degrees."
-date: 2026-11-01
+date: 2026-11-05
+workedOn: 2026-11-01
 publishAt: 2026-11-05
 track: "Coat through the thigh"
 category: "Debugging / Animation & Cloth"
@@ -10,7 +11,7 @@ outline: deep
 tags: [UE5, Chaos Cloth, Animation, Python, Debugging]
 ---
 
-# The Coat Wasn't Clipping, the Idle Was: A Thigh in Front of the Coat
+# The Coat Wasn't Clipping, the Idle Was: Telling Chaos Cloth from Animation in UE5
 
 This is the second coat bug of the day. The [first one](./2026-11-01-pseudo-coat-shards-anim-drive) was the coat shattering into shards after a fresh spawn, and once that was fixed the coat held together. Two things were still wrong with it, though. Right after spawning, standing still, the coat looked pierced by the thigh. And after all the work to calm it down, it now flapped too little.
 

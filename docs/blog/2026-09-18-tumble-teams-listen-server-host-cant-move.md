@@ -1,7 +1,8 @@
 ---
-title: "Why Only the Listen-Server Host Couldn't Move"
+title: "Why Only the Listen-Server Host Couldn't Move: BeginPlay Runs Before Possess in UE5"
 description: "A classic Unreal Engine multiplayer trap: BeginPlay runs before Possess, so IsLocallyControlled() is false for the host's own pawn. How I diagnosed it from log files and moved input setup to PossessedBy and OnRep_Controller."
-date: 2026-09-18
+date: 2026-10-03
+workedOn: 2026-09-18
 track: "Listen-server host movement fix"
 category: "Chat & Networking"
 sidebar: "Host Couldn't Move"
@@ -10,7 +11,7 @@ tags: [UE5, Networking, Debugging]
 image: /blog/tt-host-c.jpg
 ---
 
-# Why Only the Listen-Server Host Couldn't Move
+# Why Only the Listen-Server Host Couldn't Move: BeginPlay Runs Before Possess in UE5
 
 While testing the quick-play match flow with several windows, I hit a bug that only affected one player: **whichever window clicked Quick Play first and became the listen-server host couldn't move its character.** WASD did nothing. Every client that joined afterward moved fine.
 
@@ -62,7 +63,7 @@ Reading the engine source for the spawn order explained everything:
 - Only afterwards does `FinishRestartPlayer` call `Possess()`.
 - `APawn::IsLocallyControlled()` is basically `GetController() && GetController()->IsLocalController()`, and during `BeginPlay` the controller is still null.
 
-So on the host, which runs spawn and possess locally in that exact order, the check is always false at `BeginPlay` and the whole block is skipped. Remote clients get the pawn through replication, and the server has already possessed it by the time its initial state is sent, so the controller is set in the very first state they receive. For them the check passes. That's why the bug only appears for the host's own pawn, and why a single-player test or a pure remote-client test never reveals it.
+So on the host, which runs spawn and possess locally in that exact order, the check is always false at `BeginPlay` and the whole block is skipped. Remote clients get the pawn through [replication](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine), and the server has already possessed it by the time its initial state is sent, so the controller is set in the very first state they receive. For them the check passes. That's why the bug only appears for the host's own pawn, and why a single-player test or a pure remote-client test never reveals it.
 
 ## The fix
 

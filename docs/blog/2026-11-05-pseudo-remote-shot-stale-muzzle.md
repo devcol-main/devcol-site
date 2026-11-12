@@ -1,7 +1,8 @@
 ---
-title: "A Beam That Started Off the Gun: Stale Bones on a Player the Client Wasn't Drawing"
+title: "A Beam That Started Off the Gun: Stale Bones on Off-Screen Remote Players in UE5"
 description: "On a client's screen, the host's laser beam in PSEUDO seemed to start far from the host's gun. The 290 cm figure never reproduced, but chasing it found a real bug: off-screen remote players kept an old pose, so shot effects read the muzzle from bones that hadn't moved."
-date: 2026-11-05
+date: 2026-11-07
+workedOn: 2026-11-05
 publishAt: 2026-11-07
 track: "Remote shot stale muzzle"
 category: "Debugging / Networking"
@@ -10,7 +11,7 @@ outline: deep
 tags: [UE5, Networking, Animation, VFX, Debugging]
 ---
 
-# A Beam That Started Off the Gun: Stale Bones on a Player the Client Wasn't Drawing
+# A Beam That Started Off the Gun: Stale Bones on Off-Screen Remote Players in UE5
 
 PSEUDO's dual pistols fire several ammo types, and the big ones (the Laser and the heavy machine gun, HMG) summon a larger gun. The [Weapons](/wiki/pseudo/systems/weapons) page has the design. The hit itself is traced from the camera on the server. The feedback, meaning the muzzle flash, the tracer and the laser beam, is played by a gameplay cue on every machine, and each machine reads the muzzle socket from the shooter's mesh to know where to start it.
 

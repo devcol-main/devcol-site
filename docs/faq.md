@@ -8,7 +8,7 @@ DevCol is short for "development collaboration." It's an indie game project buil
 
 ### Who makes it?
 
-One person makes the games and runs the site. Some of the projects and parts of this site were made with Claude's help, and the pages say so where it applies. The [Tools (AI-Assisted)](/projects/#tools) projects are marked that way, and the [devcol.net project page](/projects/devcol-net) explains how this site was built.
+One person makes the games and runs the site. Some of the projects and most of this site's code were made with Claude's help, and the DevLog posts are drafted with AI assistance from my own debugging notes and commits. The [About](/about) page says how that works. The [Tools (AI-Assisted)](/projects/#tools) projects are marked that way, and the [devcol.net project page](/projects/devcol-net) explains how this site was built.
 
 ### What are you working on now?
 

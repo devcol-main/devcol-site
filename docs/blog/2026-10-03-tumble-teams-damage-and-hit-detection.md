@@ -1,7 +1,8 @@
 ---
-title: "Server-Side Damage and Hit Detection for Melee Abilities"
+title: "Server-Side Damage and Hit Detection for Melee Abilities in UE5 GAS"
 description: "How I built hit detection for two Unreal Engine 5 melee abilities: frame windows read from the montage, per-frame sphere sweeps along the foot bone, once-per-target hits, team rules, input locking, and what each approach costs."
-date: 2026-10-03
+date: 2026-10-05
+workedOn: 2026-10-03
 track: "Melee damage and hit detection"
 category: "Character & GAS"
 sidebar: "Damage and Hit Detection"
@@ -10,9 +11,9 @@ tags: [UE5, GAS, Combat]
 image: /blog/tt-damage-c.jpg
 ---
 
-# Server-Side Damage and Hit Detection for Melee Abilities
+# Server-Side Damage and Hit Detection for Melee Abilities in UE5 GAS
 
-Tumble Teams has two melee attacks: a drop kick (right-click) and a primary kick (left-click). This is how their hit detection works, why I did it in code instead of animation notifies, and what it costs.
+Tumble Teams has two melee attacks: a drop kick (right-click) and a primary kick (left-click). This is how their hit detection works, why I did it in code instead of [animation notifies](https://dev.epicgames.com/documentation/unreal-engine/animation-notifies-in-unreal-engine), and what it costs.
 
 <figure class="theme-img">
   <img class="img-light" src="/blog/tt-damage-c.jpg" alt="Server-side hit detection for two melee kicks: montage frame windows and per-frame sphere sweeps" loading="lazy">
@@ -68,7 +69,7 @@ Hit characters are recorded in a `TSet` of weak pointers and also added to the q
 
 ### The server decides
 
-The ability is `LocalPredicted`: the owning client plays the montage immediately, and the server validates and plays it too, replicating the montage to others. **Hit decisions only run on the server** (`HasAuthority`), so a client can't fake them. If the server rejects the activation (cooldown or stamina mismatch), the owner might still see one montage play, but no damage lands.
+The ability is `LocalPredicted`: the owning client plays the [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) immediately, and the server validates and plays it too, replicating the montage to others. **Hit decisions only run on the server** (`HasAuthority`), so a client can't fake them. If the server rejects the activation (cooldown or stamina mismatch), the owner might still see one montage play, but no damage lands.
 
 A subtle one: a server only updates a mesh's bone transforms if it's visible or told to. At hit-window start the ability sets the mesh's `VisibilityBasedAnimTickOption` to `AlwaysTickPoseAndRefreshBones`, and restores the character's default when it ends. I originally set this in the C++ constructor, but the character Blueprint had saved its own value, which silently overrode it, so it's set at runtime now.
 
@@ -86,7 +87,7 @@ The old primary attack hit via a notify on a different montage. The new kick mon
 ## What it costs
 
 - A kick sweeps about 30 times (0.5 s of window at 60 fps), on the server only, with one sphere against Pawn objects. A few dozen microseconds each. Drop kick has a 5-second cooldown. That's the standard pattern for server-authoritative melee, and the cost isn't a problem.
-- Two things did bother me: the per-frame debug drawing (compiled only for development builds, with a console variable `Tumble.AttackSweep.Debug` to switch it off), and the mesh tick option being left on after a kick, which was a real waste. It now restores when the ability ends.
+- Two things did bother me: the per-frame debug drawing (compiled only for development builds, with a [console variable](https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-console-variables-reference) `Tumble.AttackSweep.Debug` to switch it off), and the mesh tick option being left on after a kick, which was a real waste. It now restores when the ability ends.
 - I chose *not* to lower hit-testing to 30 Hz: tiny savings, and a fast swing would get a coarser hit shape.
 
 ## Locking movement during an attack

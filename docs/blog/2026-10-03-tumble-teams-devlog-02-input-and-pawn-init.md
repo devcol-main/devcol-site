@@ -19,7 +19,7 @@ In the [first DevLog](./2026-08-11-tumble-teams-devlog-01-chatcore) I built a ch
   <img class="img-dark" src="/blog/tt-devlog2-c-dark.jpg" alt="Data-driven input and a Lyra-style init funnel, before writing a single ability" loading="lazy">
 </figure>
 
-Neither of these is exciting to look at. The Gameplay Ability System (GAS) arrives in week two, and from what I've read, GAS problems usually come from setup and not from the abilities: input bound straight to gameplay functions, state stored in the wrong place, and initialization that runs at the wrong time on clients. So this week I laid that groundwork early.
+Neither of these is exciting to look at. The [Gameplay Ability System](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-ability-system-for-unreal-engine) (GAS) arrives in week two, and from what I've read, GAS problems usually come from setup and not from the abilities: input bound straight to gameplay functions, state stored in the wrong place, and initialization that runs at the wrong time on clients. So this week I laid that groundwork early.
 
 I'm using Epic's **Lyra** sample project as my main reference throughout. I'm not copying Lyra wholesale, because it's far bigger than a warm-up game needs. Its patterns answer a lot of "how should this be structured?" questions, though.
 
@@ -189,7 +189,7 @@ Writing these down so future me doesn't undo them:
 
 My original week-one plan is still partly unfinished, so the next steps are about closing that gap rather than adding features:
 
-1. **Replication practice with throwaway code.** Three small exercises: a door that uses `RepNotify`, a pickup that exercises the different RPC types, and a debug character for watching movement replication and `Role`/`RemoteRole` from both sides. None of it will ship; it's there to make the concepts concrete.
+1. **Replication practice with throwaway code.** Three small exercises: a door that uses `RepNotify`, a pickup that exercises the different RPC types, and a debug character for watching movement [replication](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine) and `Role`/`RemoteRole` from both sides. None of it will ship; it's there to make the concepts concrete.
 2. **The AWS dedicated server spike**, timeboxed. This is still the biggest unknown in the project, and I've already pushed it back once.
 3. **GAS integration in week two**: wire `InitAbilityActorInfo` on both paths and fill in the ability input list.
 

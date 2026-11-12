@@ -1,7 +1,8 @@
 ---
 title: "Git Setup for a UE5 Project Before the First Push"
 description: "The Git settings I sorted out for PSEUDO before pushing anything: what to ignore, which file types go to Git LFS, line endings, a commit message template, and why the repository stays private."
-date: 2026-10-11
+date: 2026-10-15
+workedOn: 2026-10-11
 track: "Git setup before first push"
 category: "Planning & Setup"
 sidebar: "Git Setup Before the First Push"
@@ -63,7 +64,7 @@ Two decisions:
 
 ### The size limit
 
-GitHub's free tier has 10 GiB of LFS storage and 10 GiB of bandwidth per month, with no rollover. With no payment method on file, going over storage blocks new LFS pushes, and going over bandwidth blocks LFS for the rest of the month. Every edit to a binary stores a whole new copy of it. I plan to use Paragon characters and MetaHumans, so I expect to hit the limit.
+GitHub's free tier has 10 GiB of LFS storage and 10 GiB of bandwidth per month, with no rollover. With no payment method on file, going over storage blocks new LFS pushes, and going over bandwidth blocks LFS for the rest of the month. Every edit to a binary stores a whole new copy of it. I plan to use Paragon characters and [MetaHumans](https://dev.epicgames.com/documentation/metahuman/metahumans-in-unreal-engine), so I expect to hit the limit.
 
 For now I'm staying on GitHub and checking Billing > Usage periodically. If I go over, the options are moving to Azure DevOps Repos (whose LFS limits I'd need to recheck) or adding the marketplace asset folder to `.gitignore`.
 

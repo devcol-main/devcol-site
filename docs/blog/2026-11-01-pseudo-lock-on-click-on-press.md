@@ -1,7 +1,8 @@
 ---
-title: "A Lock-On That Waited for the Release: Moving the Decision to the Press"
+title: "A Lock-On That Waited for the Release: Moving a UE5 Input Tap Decision to the Press"
 description: "Clicking the mouse wheel to lock on in PSEUDO often did nothing. The click was judged on release, inside a 0.3 s tap window, and a stiff wheel button easily stays down longer than that. Why clean 1-frame test taps looked perfect, the fix that locks on the press, and a second report that turned out not to be the code."
-date: 2026-11-01
+date: 2026-11-04
+workedOn: 2026-11-01
 publishAt: 2026-11-04
 track: "Lock-on click"
 category: "Debugging / Input & GAS"
@@ -10,7 +11,7 @@ outline: deep
 tags: [UE5, Input, Lock-On, Debugging]
 ---
 
-# A Lock-On That Waited for the Release: Moving the Decision to the Press
+# A Lock-On That Waited for the Release: Moving a UE5 Input Tap Decision to the Press
 
 PSEUDO's lock-on sits on the mouse wheel click (R3 on a gamepad). With a melee weapon out, a click locks on to the enemy in front of you, another click switches to a different target, and holding the key releases the lock. (The layout is on the [Controls](/wiki/pseudo/systems/controls#lock-on) page.)
 

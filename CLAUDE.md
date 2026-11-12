@@ -133,7 +133,7 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 - **새 게임을 `docs/public/games/`에 추가할 때는 `docs/GAME-ANALYTICS.md` 체크리스트를 따른다.** (스크립트 태그 1줄 + `stage_clear`/`game_over` 호출 2곳. 서버와 대시보드는 고치지 않는다.)
 - 게임 온라인 리더보드(`a.devcol.net/lb`, 서버는 같은 devcol-analytics)에 새 게임을 붙일 때는 `docs/GAME-LEADERBOARD.md`를 따른다. 리더보드에서 보내거나 저장하는 항목이 바뀌면 `privacy-policy.md`의 Online Leaderboard 절도 같이 고친다.
 - 공개 통계 페이지는 `docs/stats.md` + `theme/SiteStats.vue`. 수집 항목이 바뀌면 `privacy-policy.md`의 Site Analytics 절도 같이 고친다.
-- **자동 포스팅**: `automation/autopost/`(claude.ai 클라우드 예약 작업 "devcol autopost", 매일 08:45 KST, 맥 꺼져 있어도 실행. 2026-11-04 전환, 맥 앱 방식은 폐기). PSEUDO DBG 노트·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
+- **자동 포스팅**: `automation/autopost/`(claude.ai 클라우드 예약 작업 "devcol autopost", 매일 08:45 KST, 맥 꺼져 있어도 실행. 2026-11-04 전환, 맥 앱 방식은 폐기). PSEUDO DBG 노트·이슈 기록(`Documents/Issues`)·TumbleTeams devlog를 글로 써서 `publishAt` 큐에 넣는다. 처리 기록은 `ledger.md`, 작성 규칙은 `prompt.md`.
 - **문체 교정 스킬**: `.claude/skills/`에 humanizer(영어, blader/humanizer)와 humanize-korean(한글, epoko77-ai/im-not-ai)을 프로젝트 단위로 설치. 자동 포스팅은 글 본문 언어로 둘 중 하나를 골라 한 번 다듬는다(`prompt.md` 2a). 원본 업데이트는 `.github/workflows/update-skills.yml`이 매주 확인해 PR로 올린다(직접 고치지 말고 `scripts/update-skills.sh`로 재설치, 버전은 `.claude/skills/UPSTREAM.lock`).
 
 ---

@@ -1,7 +1,8 @@
 ---
 title: "A Red Lumen Warning on an Empty Menu Map: Exposure, Cached Lighting and Why I Turned Lumen Off"
 description: "PSEUDO's main menu showed red on-screen text about Lumen cached lighting being clipped and r.EyeAdaptation.CachedLightingPreExposure. I traced the message to the eye adaptation pass in UE 5.8, worked out the exposure window it checks, and fixed it with one unbound post process volume instead of a project-wide setting."
-date: 2026-10-22
+date: 2026-10-29
+workedOn: 2026-10-22
 publishAt: 2026-10-29
 track: "Menu Lumen exposure warning"
 category: "Debugging / VFX & Rendering"
@@ -25,7 +26,7 @@ It showed in the editor viewport, in PIE and in a standalone build. The hub and 
 
 ## Where the message comes from
 
-The first question was who prints it. A search of the 5.8.3 engine source found the string in `Renderer/Private/PostProcess/PostProcessEyeAdaptation.cpp`, in `EyeAdaptation::WriteWarnings()`. So it's the auto exposure pass, not Lumen itself, that raises the warning.
+The first question was who prints it. A search of the 5.8.3 engine source found the string in `Renderer/Private/PostProcess/PostProcessEyeAdaptation.cpp`, in `EyeAdaptation::WriteWarnings()`. So it's the [auto exposure](https://dev.epicgames.com/documentation/unreal-engine/auto-exposure-in-unreal-engine) pass, not Lumen itself, that raises the warning.
 
 `WriteWarnings` draws the line only when **all** of these hold:
 
@@ -88,7 +89,7 @@ One practical note: engine canvas text like this doesn't show up in my editor to
 
 ## What I took from it
 
-**Find the line that prints the message before following its advice.** The message names a console variable, and the obvious move is to change it. Reading `WriteWarnings` showed that the variable only shifts the window, and that the real trigger here was an empty scene with Lumen on.
+**Find the line that prints the message before following its advice.** The message names a [console variable](https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-console-variables-reference), and the obvious move is to change it. Reading `WriteWarnings` showed that the variable only shifts the window, and that the real trigger here was an empty scene with Lumen on.
 
 **UI-only maps get their own post process.** Menus, loading screens and credits now get an unbound volume with Lumen GI and reflections off, or a fixed exposure. They don't need dynamic lighting, and turning it off removes a class of warnings and some GPU cost.
 

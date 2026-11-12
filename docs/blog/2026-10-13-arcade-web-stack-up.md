@@ -1,7 +1,8 @@
 ---
 title: "Building Stack Up in Small Steps with a Three-Agent Loop"
 description: "How the first Arcade Web game went from a single-file browser mockup to a tested TypeScript build: eight steps, a write/check/review loop with a three-attempt limit, what the reviewer caught, and what only a person could catch."
-date: 2026-10-13
+date: 2026-10-15
+workedOn: 2026-10-13
 track: "Stack Up in eight steps"
 outline: deep
 tags: [TypeScript, Canvas 2D, AI Agents]

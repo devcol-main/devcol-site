@@ -1,7 +1,8 @@
 ---
-title: "Switch Ammo, Press Fire, Nothing Happens: Three Bugs Behind One Report"
+title: "Switch Ammo, Press Fire, Nothing Happens: Three UE5 GAS Bugs Behind One Report"
 description: "After switching ammo on PSEUDO's dual pistols, a fire press sometimes did nothing. It turned out to be three separate problems: a stance gate that dropped presses silently, an ammo cycle that didn't count as combat input, and a fire ability that stayed active forever when its montage was cut during the blend-out."
-date: 2026-11-04
+date: 2026-11-05
+workedOn: 2026-11-04
 publishAt: 2026-11-05
 track: "Ammo switch lost presses"
 category: "Debugging / Input & GAS"
@@ -10,7 +11,7 @@ outline: deep
 tags: [UE5, GAS, Animation, Input, Debugging]
 ---
 
-# Switch Ammo, Press Fire, Nothing Happens: Three Bugs Behind One Report
+# Switch Ammo, Press Fire, Nothing Happens: Three UE5 GAS Bugs Behind One Report
 
 PSEUDO's dual pistols have one fire button and several ammo types. The E key (L1 on a gamepad) cycles to the next type, and holding the lock-on key opens an ammo wheel. The [Weapons](/wiki/pseudo/systems/weapons) page has the design. Some ammo types also come with a stance: picking the Laser or the heavy machine gun (HMG) summons a big gun with an enter animation, and the elemental types (Fire, Ice, Poison) raise the pistols into a charge pose first.
 
@@ -48,7 +49,7 @@ Basic ammo has a magazine of 6 in this build and refills over time, which is why
 
 ## Cause A: a gate that says no without saying anything
 
-The stance design has a rule: no shot until the enter animation has finished. The client checks it in the fire ability's `CanActivateAbility`, which returns false while the ranged component's `IsStanceReady()` is false, that is, while an enter or exit montage is playing. The server has its own version of the check, so a modified client can't skip it.
+The stance design has a rule: no shot until the enter animation has finished. The client checks it in the fire ability's `CanActivateAbility`, which returns false while the ranged component's `IsStanceReady()` is false, that is, while an enter or exit [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) is playing. The server has its own version of the check, so a modified client can't skip it.
 
 The rule is fine. The problem was what happened to a press that arrived during that window. `CanActivateAbility` returned false, nothing was logged, and the press was gone. My ability system component does keep a short input buffer for blocked activations, but it's 0.15 s, meant for things like a press during the last frames of a dash. The stance windows are much longer: about 1.5 s of dead time from Laser to Fire (exit, then enter), 1.2 s from HMG to Basic.
 

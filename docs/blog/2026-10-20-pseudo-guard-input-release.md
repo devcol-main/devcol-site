@@ -1,7 +1,8 @@
 ---
 title: "A Guard That Never Let Go: WaitInputRelease in UE 5.8"
 description: "In PSEUDO, letting go of the guard button didn't end the guard. The Gameplay Ability System's WaitInputRelease task listens for a replicated input event that the ability system component no longer sends by itself, so the ability stayed active forever. The fix is a small ASC override, the same one Lyra uses."
-date: 2026-10-20
+date: 2026-10-28
+workedOn: 2026-10-20
 publishAt: 2026-10-28
 track: "Guard input release"
 category: "Debugging / Input & GAS"
@@ -25,7 +26,7 @@ On the client, I tapped guard once during an enemy combo, then tapped it again o
 
 So the first guard was still active. Because the ability was still running, the second press couldn't activate a new one, and that meant no new parry window either. A defense system built around timing a fresh press on each swing was reduced to a permanent damage reduction after one tap.
 
-The dash, which also goes through the ability system, didn't have this problem. That turned out to be a useful clue: the dash ends when its montage and root motion end. It never waits for input.
+The dash, which also goes through the ability system, didn't have this problem. That turned out to be a useful clue: the dash ends when its [montage](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-montage-in-unreal-engine) and root motion end. It never waits for input.
 
 ## What I checked
 

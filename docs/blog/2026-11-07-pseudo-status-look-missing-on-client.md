@@ -1,7 +1,8 @@
 ---
-title: "A Status Look the Client Never Showed: Replicated Tags That Arrive Before BeginPlay"
+title: "A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay"
 description: "In PSEUDO, a client never showed an enemy's status particles and overlay if the status was already running when the enemy appeared on that client. The replicated tags landed before BeginPlay registered the tag listener, so no change event ever came. The fix reads the current tags right after registering."
-date: 2026-11-07
+date: 2026-11-12
+workedOn: 2026-11-07
 publishAt: 2026-11-12
 track: "Status look missing on client"
 category: "Debugging / Networking"
@@ -11,9 +12,9 @@ outline: deep
 tags: [UE5, GAS, Networking, VFX, Debugging]
 ---
 
-# A Status Look the Client Never Showed: Replicated Tags That Arrive Before BeginPlay
+# A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay
 
-Enemies in PSEUDO show their status on the body: Poison, Slow and Burn each get a Niagara system on the mesh plus a material overlay. The [Elements](/wiki/pseudo/systems/elements) page has what the statuses do in play. A component on every non-dedicated machine, `UPseudoStatusLookComponent`, follows the replicated status tags and shows or hides the looks. It holds no gameplay state, it only reacts to tags. I'd already had [one bug in this component with Burn](./2026-11-05-pseudo-burn-status-recursion-crash). This one was about timing, and it only happened on a client.
+Enemies in PSEUDO show their status on the body: Poison, Slow and Burn each get a [Niagara](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine) system on the mesh plus a material overlay. The [Elements](/wiki/pseudo/systems/elements) page has what the statuses do in play. A component on every non-dedicated machine, `UPseudoStatusLookComponent`, follows the replicated status tags and shows or hides the looks. It holds no gameplay state, it only reacts to tags. I'd already had [one bug in this component with Burn](./2026-11-05-pseudo-burn-status-recursion-crash). This one was about timing, and it only happened on a client.
 
 <figure class="theme-img">
   <img class="img-light" src="/blog/pseudo-status-look-c.jpg" alt="The status tags reached the client before the look component started listening." loading="lazy">
@@ -50,7 +51,7 @@ The third line is the whole bug: the client starts following statuses, Poison is
 
 ## The cause
 
-Enemies use the `Minimal` gameplay effect replication mode, so a client doesn't get the effects themselves, only the tags they grant, through the ability system's replicated minimal tag map.
+Enemies use the `Minimal` [gameplay effect](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-effects-for-the-gameplay-ability-system-in-unreal-engine) [replication](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine) mode, so a client doesn't get the effects themselves, only the tags they grant, through the ability system's replicated minimal tag map.
 
 When an actor channel opens on a client (a fresh spawn, a return to relevancy, a late join), the initial replicated properties are applied before `BeginPlay`. So on the client the `Status.Poison` count went from 0 to 1 while nobody was listening. Then `APseudoEnemyCharacter::BeginPlay` called `InitWithAbilitySystem`, which registered `RegisterGameplayTagEvent(StatusTag, NewOrRemoved)`. That delegate only fires on later changes. The count was already 1 and stayed 1, so the event never came.
 
