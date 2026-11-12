@@ -11,7 +11,7 @@ The butterfly is PSEUDO's main symbol. It's on the logo, it flies out of good di
 
 ## Why a butterfly
 
-The motif comes from Zhuangzi's Butterfly Dream: a man dreams he's a butterfly, wakes, and can't say for sure which of the two is dreaming the other. In lucid-dreaming circles the butterfly stands for the boundary between waking and dreaming, and for transformation, since a butterfly is the end of a metamorphosis. Both fit a game about a man who logs in to another world every day. (More on the setup in [World and Tone](/wiki/lore/world-and-tone).)
+The motif comes from Zhuangzi's Butterfly Dream: a man dreams he's a butterfly, wakes, and can't say for sure which of the two is dreaming the other. In lucid-dreaming circles the butterfly stands for the boundary between waking and dreaming, and for transformation, since a butterfly is the end of a metamorphosis. Both fit a game about a man who logs in to another world every day. (More on the setup in [World and Tone](/wiki/pseudo/lore/world-and-tone).)
 
 The game never explains this. There's no codex entry about Zhuangzi. The butterfly just keeps showing up at the moments that matter: loading, a great roll, a clean streak, a cleared stage. The meaning is meant to build up through repetition rather than through text.
 
@@ -49,7 +49,7 @@ Three colors is a deliberate limit. Any more and the player has to learn a code;
 
 ## Butterflies by dice result
 
-Every [2d6 roll](/wiki/systems/dice) ends with butterflies, and each grade has its own combination of color, count and energy:
+Every [2d6 roll](/wiki/pseudo/systems/dice) ends with butterflies, and each grade has its own combination of color, count and energy:
 
 | Result (sum) | Color | Count | Brightness and motion |
 |---|---|---|---|
@@ -64,7 +64,7 @@ A critical failure isn't a red explosion. It's one ember butterfly, flying slowl
 
 ## Streaks: perfect combo inputs
 
-Hitting a combo input inside its perfect window raises the damage of the next hit, and the bonus stacks while the streak lasts (the [combo page](/wiki/systems/combo-and-cancels) has the rules). The streak shows up as **amber butterflies around the character, one more for each perfect input**. Miss the timing, finish the combo, or take a hit, and the streak resets: the butterflies scatter.
+Hitting a combo input inside its perfect window raises the damage of the next hit, and the bonus stacks while the streak lasts (the [combo page](/wiki/pseudo/systems/combo-and-cancels) has the rules). The streak shows up as **amber butterflies around the character, one more for each perfect input**. Miss the timing, finish the combo, or take a hit, and the streak resets: the butterflies scatter.
 
 This is the signal the player sees most often, and it's the one that ties the two halves of the core idea together on screen. Skill makes butterflies; the dice turn them into a swarm or a single ember.
 

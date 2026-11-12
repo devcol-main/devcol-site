@@ -68,7 +68,7 @@ Attributes are grouped into sets by who needs them and what rules they share:
 | Weapon resource | Ammo, mana |
 | Dice | Pips |
 
-The [Damage Formula](/wiki/systems/damage-formula) page shows exactly where each of these enters a hit.
+The [Damage Formula](/wiki/pseudo/systems/damage-formula) page shows exactly where each of these enters a hit.
 
 ## Attack speed and timing windows
 

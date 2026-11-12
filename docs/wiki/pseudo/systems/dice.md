@@ -75,7 +75,7 @@ The high Curse grades apply three control statuses. All three run on the server 
 - **Sleep** stops every action until something hits it. The wake-up hit deals 1.5 times its damage (4.6 became 6.9 in the test), then the enemy reacts normally.
 - **Confuse** turns the enemy against its own side: it attacks the nearest other enemy. If no other enemy is nearby, it hits itself. A kill made by a confused enemy counts as yours, which is what the Curse Reversal's "1 kill" checks.
 
-A Curse Success also raises the target's damage taken by 20 %, and a Critical success adds 60 to its groggy gauge (see [Defense](/wiki/systems/defense)). When a status would land on a player, Luck gets a resist roll first: at Luck 50, 8 of 12 poison procs were resisted in the test.
+A Curse Success also raises the target's damage taken by 20 %, and a Critical success adds 60 to its groggy gauge (see [Defense](/wiki/pseudo/systems/defense)). When a status would land on a player, Luck gets a resist roll first: at Luck 50, 8 of 12 poison procs were resisted in the test.
 
 ### Why one key instead of four
 

@@ -104,14 +104,14 @@ devcol-site/  (GitHub repo — https://github.com/devcol-main/devcol-site)
 │   ├── public/CNAME              # devcol.net
 │   ├── index.md                  # 랜딩 페이지 (<HomePage />)
 │   ├── projects/ · study/        # 프로젝트 소개, 스터디 노트
-│   ├── blog/                     # 개발일지 (index.md의 `## 프로젝트명` 아래 목록이 홈 화면 데이터 원본)
-│   │   ├── index.md
-│   │   └── 2026-08-11-hello-devcol.md
-│   └── wiki/                     # 문서형 위키
-│       ├── index.md
-│       ├── faq.md
-│       ├── lore/index.md
-│       └── systems/index.md
+│   ├── blog/                     # 개발일지 (index.md의 `## 프로젝트명` 아래 목록이 홈 화면·사이드바 데이터 원본)
+│   │   ├── index.md              #   사이드바 그룹은 각 글의 `category:`("Debugging / Networking"처럼 한 단계 중첩), 라벨은 `sidebar:`
+│   │   └── YYYY-MM-DD-*.md
+│   ├── arcade/                   # 웹에서 바로 플레이하는 게임 (index + 게임별 플레이 페이지, theme/arcade.ts가 목록)
+│   └── wiki/                     # 문서형 위키 (게임별 분리)
+│       ├── index.md              #   위키 허브
+│       └── pseudo/               #   PSEUDO Wiki: index.md, systems/, lore/
+│                                 #   (옛 /wiki/systems·/wiki/lore 주소는 public/wiki/의 리다이렉트 HTML)
 ├── .github/workflows/deploy.yml  # main push 시 자동 빌드·배포
 ├── package.json                  # docs:dev / docs:build / docs:preview
 └── README.md

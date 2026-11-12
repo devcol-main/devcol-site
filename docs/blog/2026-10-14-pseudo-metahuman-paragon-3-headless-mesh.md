@@ -4,6 +4,8 @@ description: "Hiding Twinblast's head with M_Hide left the sunglasses floating, 
 date: 2026-10-14
 publishAt: 2026-10-25
 track: "MetaHuman face, part 3"
+category: "MetaHuman on Paragon"
+sidebar: "Part 3: Headless Mesh"
 outline: deep
 tags: [UE5, MetaHuman, Skeletal Mesh, Debugging]
 image: /blog/pseudo-mhface-8.png

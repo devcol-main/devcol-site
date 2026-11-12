@@ -3,6 +3,8 @@ title: "Server-Side Damage and Hit Detection for Melee Abilities"
 description: "How I built hit detection for two Unreal Engine 5 melee abilities: frame windows read from the montage, per-frame sphere sweeps along the foot bone, once-per-target hits, team rules, input locking, and what each approach costs."
 date: 2026-10-03
 track: "Melee damage and hit detection"
+category: "Character & GAS"
+sidebar: "Damage and Hit Detection"
 outline: deep
 tags: [UE5, GAS, Combat]
 image: /blog/tt-damage-c.jpg

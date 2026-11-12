@@ -3,6 +3,8 @@ title: "Why Only the Listen-Server Host Couldn't Move"
 description: "A classic Unreal Engine multiplayer trap: BeginPlay runs before Possess, so IsLocallyControlled() is false for the host's own pawn. How I diagnosed it from log files and moved input setup to PossessedBy and OnRep_Controller."
 date: 2026-09-18
 track: "Listen-server host movement fix"
+category: "Chat & Networking"
+sidebar: "Host Couldn't Move"
 outline: deep
 tags: [UE5, Networking, Debugging]
 image: /blog/tt-host-c.jpg

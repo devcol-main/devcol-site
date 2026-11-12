@@ -40,7 +40,7 @@ On a gamepad L2 is shared with interact. If something you can interact with is i
 ### What a swap does
 
 - **Out of a combo**: the drawn weapon plays its sheath animation, and the other weapon is drawn. The moment the weapons actually change hands is a marker in the animation, and the server makes the switch at that marker.
-- **In a combo, inside a swap window**: you get a swap attack, the other weapon's link move, and the combo keeps going. Swapping back resumes where you left off. The [Combos and Cancels](/wiki/systems/combo-and-cancels) page covers how.
+- **In a combo, inside a swap window**: you get a swap attack, the other weapon's link move, and the combo keeps going. Swapping back resumes where you left off. The [Combos and Cancels](/wiki/pseudo/systems/combo-and-cancels) page covers how.
 - **In a combo, outside a swap window**: the combo ends and a plain swap plays.
 
 The melee weapon isn't hidden when the pistols are out. It goes on your back, in the grip position taken from the original travel animation.
@@ -79,7 +79,7 @@ A weapon is a data asset (`DA_Weapon_Greatsword`, `DA_Weapon_DualPistols`) that 
 |---|---|
 | Weapon tag | `Weapon.Melee.Greatsword`, `Weapon.Ranged.DualPistols`, … |
 | Mesh entries | Mesh, hand socket and offset, holster socket and offset |
-| Base damage | The first term of the [damage formula](/wiki/systems/damage-formula) (greatsword: 10) |
+| Base damage | The first term of the [damage formula](/wiki/pseudo/systems/damage-formula) (greatsword: 10) |
 | Stat scaling | How much Strength, Dexterity and Spirit add (greatsword: Strength 1.0) |
 | Default element and gauge | The element a hit carries unless an attack overrides it (greatsword: Physical) |
 | Combo graph, draw and sheath animations | Loaded when the weapon is equipped |
@@ -96,8 +96,8 @@ Until then the pistols float in an odd place during the greatsword's sheath anim
 
 ## Elements and stats
 
-- **Elements**: each weapon has a default element, and any single attack can override it. A skill tree upgrade or a dice roll can also put an element on the weapon for a while. When several sources compete, the order is skill-tree augment, then dice, then the weapon's own element. See [Elements and Reactions](/wiki/systems/elements).
-- **Stats**: each weapon scales with one main stat (Strength for melee, Dexterity for guns and bows, Spirit for magic), and an individual attack can use different coefficients. See [Stats and Level](/wiki/systems/stats-and-level).
+- **Elements**: each weapon has a default element, and any single attack can override it. A skill tree upgrade or a dice roll can also put an element on the weapon for a while. When several sources compete, the order is skill-tree augment, then dice, then the weapon's own element. See [Elements and Reactions](/wiki/pseudo/systems/elements).
+- **Stats**: each weapon scales with one main stat (Strength for melee, Dexterity for guns and bows, Spirit for magic), and an individual attack can use different coefficients. See [Stats and Level](/wiki/pseudo/systems/stats-and-level).
 
 ## Non-combat mode
 

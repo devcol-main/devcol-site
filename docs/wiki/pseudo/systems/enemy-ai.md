@@ -93,11 +93,11 @@ There is no Gameplay Ability class per enemy. A single class, `UPseudoGameplayAb
 
 - **Timing comes from the montage**, through an Anim Notify State that opens and closes the hit window. Never timers, because timers don't respect time dilation and the animation does.
 - **Hit detection traces between the sockets listed in the data**, on whatever mesh the enemy has. The trace task was generalized from the player's melee trace to "a mesh plus a list of sockets", so any skeleton works.
-- **Damage goes straight down the server path.** AI only runs on the server, so an enemy hit goes through the same validation, damage effect, element and resistance code as a player hit (see [Damage Formula](/wiki/systems/damage-formula)) without a client prediction step.
+- **Damage goes straight down the server path.** AI only runs on the server, so an enemy hit goes through the same validation, damage effect, element and resistance code as a player hit (see [Damage Formula](/wiki/pseudo/systems/damage-formula)) without a client prediction step.
 
 One implementation detail: because every attack shares one ability class, the attack's identity is a dynamic tag on the granted ability spec, and activating by tag doesn't match dynamic spec tags. The controller keeps a map from attack tag to spec handle and activates by handle instead.
 
-Attack wind-ups also fire a telegraph cue: a red signal for attacks you can't block, purple for attacks you can only dodge. That ties into the player's [Defense](/wiki/systems/defense) options.
+Attack wind-ups also fire a telegraph cue: a red signal for attacks you can't block, purple for attacks you can only dodge. That ties into the player's [Defense](/wiki/pseudo/systems/defense) options.
 
 ## Network
 

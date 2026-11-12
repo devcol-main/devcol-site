@@ -17,7 +17,7 @@ My background is a mix of software and games. I studied Management Information S
 
 ## What I'm building
 
-**PSEUDO** is a stylish action RPG in Unreal Engine 5 where a 2d6 dice roll decides the outcome of your skills, with a multiplayer arena mode. It's built in C++ on the Gameplay Ability System with server-authoritative replication, and the [PSEUDO DevLog](/blog/pseudo) follows it bug by bug: prediction, hit detection, MetaHuman and Paragon character assembly, and the rest. The [Wiki](/wiki/) documents the game's systems as they're designed.
+**PSEUDO** is a stylish action RPG in Unreal Engine 5 where a 2d6 dice roll decides the outcome of your skills, with a multiplayer arena mode. It's built in C++ on the Gameplay Ability System with server-authoritative replication, and the [PSEUDO DevLog](/blog/pseudo) follows it bug by bug: prediction, hit detection, MetaHuman and Paragon character assembly, and the rest. The [PSEUDO Wiki](/wiki/pseudo/) documents the game's systems as they're designed.
 
 Before PSEUDO I built **Tumble Teams**, a multiplayer warm-up project that taught me most of what I know about listen servers, GAS attributes, and replicated chat. Its notes are on the [Tumble Teams](/blog/tumble-teams) page. On the side there are the **Arcade Web** games, small browser games like [Stack Up](/projects/stack-up) and [Bug Squash](/projects/bug-squash) that double as a testbed for the site's analytics, and a few AI-assisted desktop tools.
 

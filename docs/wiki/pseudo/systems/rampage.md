@@ -7,7 +7,7 @@ outline: deep
 
 # Boss Sheets and the First Boss, Rampage
 
-[Enemies and AI](/wiki/systems/enemy-ai) explains the machinery every boss runs on: data phases, a boss State Tree, and the shared attack loop linked inside it. This page is about the step before that machinery: how I plan a boss on paper, and the first boss planned that way, Rampage.
+[Enemies and AI](/wiki/pseudo/systems/enemy-ai) explains the machinery every boss runs on: data phases, a boss State Tree, and the shared attack loop linked inside it. This page is about the step before that machinery: how I plan a boss on paper, and the first boss planned that way, Rampage.
 
 ## Why a sheet before the boss
 
@@ -99,5 +99,5 @@ Still open on the leap: which phase it belongs to, how the landing spot is teleg
 
 ## Related pages
 
-- [Enemies and AI](/wiki/systems/enemy-ai): the State Tree, attack selection, and how data phases and the boss tree divide the work.
-- [Defense](/wiki/systems/defense): parryable, unblockable and dodge-only attacks, and the groggy gauge.
+- [Enemies and AI](/wiki/pseudo/systems/enemy-ai): the State Tree, attack selection, and how data phases and the boss tree divide the work.
+- [Defense](/wiki/pseudo/systems/defense): parryable, unblockable and dodge-only attacks, and the groggy gauge.

@@ -4,6 +4,8 @@ description: "When PSEUDO's first melee grunt went in, the camera jerked forward
 date: 2026-10-20
 publishAt: 2026-10-28
 track: "First enemy bugs"
+category: "Debugging / Movement & Combat"
+sidebar: "First Enemy: Camera and Facing"
 outline: deep
 tags: [UE5, AI, Camera, Collision, Debugging]
 ---

@@ -4,6 +4,8 @@ description: "PSEUDO's main menu showed red on-screen text about Lumen cached li
 date: 2026-10-22
 publishAt: 2026-10-29
 track: "Menu Lumen exposure warning"
+category: "Debugging / VFX & Rendering"
+sidebar: "Menu Lumen Warning"
 outline: deep
 tags: [UE5, Rendering, Lumen, Debugging]
 ---

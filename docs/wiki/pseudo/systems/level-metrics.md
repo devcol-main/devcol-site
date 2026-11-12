@@ -106,7 +106,7 @@ The single-jump ledge is higher than the jump apex (150 against 127.5) because t
 | Break-fall | Press Jump within ±0.15 s of touching the ground on a landing that would hurt: no damage, no recovery |
 | Interact range | 250 cm, nearest object in front; blocked if a living enemy is within 1000 cm |
 
-Fall height is measured from the last apex, not from the take-off point, so a jump off a high ledge counts its full drop. Break-fall and Luck details are on the [Defense](/wiki/systems/defense) page.
+Fall height is measured from the last apex, not from the take-off point, so a jump off a high ledge counts its full drop. Break-fall and Luck details are on the [Defense](/wiki/pseudo/systems/defense) page.
 
 ## The design rules
 
@@ -160,7 +160,7 @@ Both are rounded *down* to the grid. The critical path only uses base movement; 
 
 ### Space
 
-- The capsule is 68 cm wide and 176 cm tall. Corridors are at least **150 cm** wide (300 if there's fighting in them), doors **150 × 250**, and ceilings at least **300** wherever the camera follows, since the camera arm is 400 cm and pulls back further while sprinting (see [Camera](/wiki/systems/camera)).
+- The capsule is 68 cm wide and 176 cm tall. Corridors are at least **150 cm** wide (300 if there's fighting in them), doors **150 × 250**, and ceilings at least **300** wherever the camera follows, since the camera arm is 400 cm and pulls back further while sprinting (see [Camera](/wiki/pseudo/systems/camera)).
 - Interactables go within **250 cm** of where the player naturally stops, and living enemies stay more than 1000 cm away unless the object is meant to be used mid-fight.
 - One dash covers 450 cm, so a hazard or area attack ring wider than that can't be crossed with a single dash. That's a tool for boss arenas, not an accident.
 

@@ -4,13 +4,15 @@ description: "Switching away from the Laser or the heavy machine gun in PSEUDO l
 date: 2026-11-04
 publishAt: 2026-11-06
 track: "Ammo switch blend"
+category: "Debugging / Animation & Cloth"
+sidebar: "Ammo Switch Gun Dip"
 outline: deep
 tags: [UE5, Animation, Montages, Debugging]
 ---
 
 # The Gun Dipped on Every Ammo Switch: Montages Blend From the Slot, Not the Screen
 
-Some of the dual pistols' ammo types in PSEUDO come with a stance. The Laser and the heavy machine gun (HMG) summon a big gun and hold it up. The elemental ammo (Fire, Ice, Poison) raises the pistols into a charge pose. Each stance has an enter animation, an upper-body hold pose, and for the Laser and HMG an exit animation too. The [Weapons](/wiki/systems/weapons) page covers how ammo switching works from the player's side.
+Some of the dual pistols' ammo types in PSEUDO come with a stance. The Laser and the heavy machine gun (HMG) summon a big gun and hold it up. The elemental ammo (Fire, Ice, Poison) raises the pistols into a charge pose. Each stance has an enter animation, an upper-body hold pose, and for the Laser and HMG an exit animation too. The [Weapons](/wiki/pseudo/systems/weapons) page covers how ammo switching works from the player's side.
 
 Switching from the Laser or the HMG to an elemental ammo looked wrong: the gun went down, then came back up. What I wanted was one continuous move from one held pose into the next.
 
