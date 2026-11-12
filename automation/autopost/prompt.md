@@ -9,9 +9,9 @@ The value of `$DEVCOL_SRC` (and today's date) is given by whoever started this r
 ## 1. Find what's new
 Read `automation/autopost/ledger.md`. Anything listed there is done.
 - PSEUDO: new files in `Documents/Debugging/` named `DBG-NNN ...md` with a number above the highest handled one. Skip `DBG-000 Template.md` and `Debug_Backlog.md`. Skip a note whose status is not fixed/resolved yet (leave it out of the ledger so a later run picks it up).
-- PSEUDO issue records: files in `Documents/Issues/` named `ISS-NNN ...md` that are not in the ledger yet. These are the build records of features and systems. Go through them in number order, oldest first, and pick the first one that qualifies (see "Issue records" in step 2). At most one issue post per run. Every record you look at gets a ledger line, posted or skipped, so no later run reads it again; a record that is not finished yet gets no line.
+- PSEUDO issue records: files in `Documents/Issues/` named `ISS-NNN ...md` that are not in the ledger yet. These are the build records of features and systems. Go through them in number order, oldest first, and take the ones that qualify (see "Issue records" in step 2) until the run's three posts are filled. Debugging notes and TumbleTeams come first; issue posts fill what is left of the three. Every record you look at gets a ledger line, posted or skipped, so no later run reads it again; a record that is not finished yet gets no line.
 - TumbleTeams: new files in `Documents/Devlogs/`, or, if there are none, a substantial body of new commits on `origin/main` since the last handled commit (a new feature or system, not routine fixes). At most one TumbleTeams post per run.
-If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW`.
+If nothing is new, append nothing, change nothing, and finish by printing `NOTHING NEW` (after the `LOW QUEUE` line from step 5, which applies here too).
 Write at most 3 posts per run; leave the rest for the next run.
 
 ## 2. Write the posts
@@ -69,7 +69,7 @@ Every post gets a cover so it shows a picture on the home page and the DevLog in
 - If the script fails (no Playwright, font error), do not block the post: leave out `image:` and the figure, and say so in the final summary.
 
 ## 3. Schedule
-Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt` on the earliest day from tomorrow that still has room, in source-date order, oldest first. Room per day: normally one post. While there is a backlog, up to three posts per day until it is gone. Issue posts are scheduled apart from this: at most one issue post per day, on the earliest day from tomorrow that has no issue post yet, and they never count as a backlog. There is a backlog when the queue already holds posts dated after tomorrow, or when this run's new posts would not all fit at one per day by the day after tomorrow, or when resolved notes are left over for the next run.
+Run `npm run schedule` to see the queue. Today is in Asia/Seoul time. Give each new post a `publishAt` on the earliest day from tomorrow that has fewer than three posts, in source order, oldest first. Three posts per day at most, all kinds together.
 
 ## 4. Wire them in
 For every new post:
@@ -81,4 +81,5 @@ Then append one line per handled source to the "Handled after the cut-off" list 
 ## 5. Check and commit
 - Run `npm run docs:build`. It must pass. Fix your own pages until it does; never edit unrelated files to make it pass.
 - `git add -A docs automation/autopost/ledger.md` and commit on `main` with a message like `Autopost: add N PSEUDO debugging posts (DBG-031..033), scheduled Nov 7-8`. Do not push; the wrapper script pushes after its own build check.
+- Count the issue records still waiting: files in `Documents/Issues/` that are not in the ledger, are finished, and do not look like chores by their title. If fewer than 10 are left, the final summary and the final reply of the whole run must begin with the line `LOW QUEUE: <N> issue records left to post` (also when nothing was posted in this run).
 - Finish by printing a short summary: each new file, its title, its publishAt, and anything you were unsure about.
