@@ -50,7 +50,7 @@ const shown = computed(() => {
       <p class="eyebrow">Arcade</p>
       <h1>Short games you can play right here.</h1>
       <p class="lede">
-        No install, no account. Each game runs in the browser on a phone or a desktop and takes a minute or two a run. Pick one and play.
+        No install, no account. Each game runs in the browser and takes a minute or two a run. The TypeScript games work on a phone or a desktop; the Unity ones play best on a desktop. Pick one and play.
       </p>
     </header>
 

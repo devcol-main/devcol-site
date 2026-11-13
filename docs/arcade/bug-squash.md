@@ -32,4 +32,4 @@ Bugs pop up in the cells of a retro terminal. Squash them before they hide, and 
 
 The full rules, the difficulty curve and the design decisions are on the [Bug Squash project page](/projects/bug-squash).
 
-**More games:** [Stack Up](/arcade/stack-up) · [Melon Merge](/arcade/melon-merge) · [All games](/arcade/)
+**More games:** [Melon Merge](/arcade/melon-merge) · [Stack Up](/arcade/stack-up) · [Press Plane](/arcade/press-plane) · [Rock Paper Scissors - Advance](/arcade/rock-paper-scissors-advance) · [All games](/arcade/)

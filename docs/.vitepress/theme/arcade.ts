@@ -37,4 +37,25 @@ export const games: Item[] = [
     fit: 'contain',
     badge: 'Play now',
   },
+  // Unity games: the web builds are hosted on itch.io and embedded on the play page, so they send no plays to
+  // the site analytics and rank last under Popular.
+  {
+    title: 'Press Plane',
+    date: '2025-09-18',
+    href: '/arcade/press-plane',
+    blurb: 'Hold to power the engines and climb, release to fall. An endless sky run made in Unity.',
+    tags: ['Hold to climb', 'Desktop', 'Unity'],
+    img: '/projects/press-plane-1.png',
+    badge: 'Play now',
+  },
+  {
+    title: 'Rock Paper Scissors - Advance',
+    date: '2024-07-02',
+    href: '/arcade/rock-paper-scissors-advance',
+    blurb: 'The old hand game against a shrinking timer, in three modes, including one where the rules are flipped.',
+    tags: ['Click or 1-2-3', 'Desktop', 'Unity'],
+    img: '/projects/rock-paper-scissors-advance-icon.png',
+    fit: 'contain',
+    badge: 'Play now',
+  },
 ]

@@ -26,4 +26,4 @@ Tap to drop the sliding block onto the tower. Only the part that overlaps the bl
 
 The full rules, the scoring numbers and how the game was built are on the [Stack Up project page](/projects/stack-up).
 
-**More games:** [Bug Squash](/arcade/bug-squash) · [Melon Merge](/arcade/melon-merge) · [All games](/arcade/)
+**More games:** [Melon Merge](/arcade/melon-merge) · [Bug Squash](/arcade/bug-squash) · [Press Plane](/arcade/press-plane) · [Rock Paper Scissors - Advance](/arcade/rock-paper-scissors-advance) · [All games](/arcade/)

@@ -96,6 +96,8 @@ On a phone you tap. In the browser you can click, or press 1 for Rock, 2 for Pap
 
 ## Play in browser
 
+You can also play it on its own page in the [Arcade](/arcade/rock-paper-scissors-advance).
+
 <div style="max-width: 400px;">
 <iframe src="https://itch.io/embed-upload/15989559?color=333333" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 </div>
