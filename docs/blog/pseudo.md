@@ -113,12 +113,17 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
 - [A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay](./2026-11-07-pseudo-status-look-missing-on-client)
 - [A Hitch That Always Hit at 61 Seconds: UE5 Garbage Collection, Not the Content on Screen](./2026-11-12-pseudo-gc-hitch-at-61-seconds)
+- [A Raised Arm Tears the Coat, Aiming Up Fades the Body: Two UE5 Causes Behind One Clipping Report](./2026-11-15-pseudo-grenade-aim-coat-shoulder)
+- [UE5 Enemy Melee That Whiffs on a Standing Player: AI MaxRange and Facing vs. Where the Clip's Weapon Lands](./2026-11-15-pseudo-boss-swing-whiffs-reach)
 
 **Build logs**
 
 - [Building a UE5 Melee Combo With One Gameplay Ability: A Combo Graph, Montage Sections and a Predicted Advance](./2026-11-14-pseudo-melee-combo-graph-build)
 - [Melee Hit Detection in UE5 With GAS Target Data: Blade Sweeps, Physics Asset Bones and Server Validation](./2026-11-14-pseudo-melee-hit-detection-build)
 - [Data-Driven RPG Stats in UE5 GAS: Curve Tables, Modifier Magnitude Calculations and One Infinite Effect](./2026-11-14-pseudo-data-driven-stats-mmc)
+- [Toes Sinking Into the Floor on the First Step and on Jumps in UE5: a Foot Floor Guard After Foot Placement](./2026-11-15-pseudo-foot-floor-guard)
+- [A UE5 State Tree Enemy AI With One GAS Attack Ability: Data-Driven Attack Selection for a Melee Grunt](./2026-11-15-pseudo-enemy-ai-statetree-core)
+- [Predicted Weapon Swap and Auto-Stow in UE5 GAS: One Ability, One Anim Notify, and a Combat Timer](./2026-11-15-pseudo-weapon-swap-auto-stow)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

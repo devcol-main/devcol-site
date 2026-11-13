@@ -71,7 +71,7 @@ These collision settings live on the spring arm, not in each camera mode. A wall
 
 ### When the camera is inside the character
 
-If the camera ends up closer than 50 cm to the character's capsule (backed into a corner, for example), the local character is hidden for its owner so the screen doesn't fill with the inside of a coat. Other players still see it. A dithered fade instead of a hard hide is a polish item for later.
+When the camera gets close to the character's capsule (backed into a corner, or pushed against the floor while aiming up), the local character dither-fades for its owner so the screen doesn't fill with the inside of a coat. Other players still see it. The fade starts at 70 cm between the camera and the capsule, is complete at 30 cm, and changes at most 4 per second, so a full fade takes a quarter of a second.
 
 ## Character rotation
 
@@ -90,7 +90,6 @@ Leaving the section is the delicate part. If the override was simply cleared, th
 ## What's still open
 
 - Aim mode values for ranged combat.
-- A dither fade instead of the hard hide when the camera is inside the character.
 - Per-level collision cleanup as levels are built.
 
 Related pages: [Combos and Cancels](/wiki/pseudo/systems/combo-and-cancels) for how lock-on fits into combat, and [Defense](/wiki/pseudo/systems/defense) for the slow motion that the camera ignores.

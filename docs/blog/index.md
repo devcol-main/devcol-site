@@ -15,6 +15,11 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-15: [Predicted Weapon Swap and Auto-Stow in UE5 GAS: One Ability, One Anim Notify, and a Combat Timer](./2026-11-15-pseudo-weapon-swap-auto-stow)
+- 2026-11-15: [A UE5 State Tree Enemy AI With One GAS Attack Ability: Data-Driven Attack Selection for a Melee Grunt](./2026-11-15-pseudo-enemy-ai-statetree-core)
+- 2026-11-15: [Toes Sinking Into the Floor on the First Step and on Jumps in UE5: a Foot Floor Guard After Foot Placement](./2026-11-15-pseudo-foot-floor-guard)
+- 2026-11-15: [UE5 Enemy Melee That Whiffs on a Standing Player: AI MaxRange and Facing vs. Where the Clip's Weapon Lands](./2026-11-15-pseudo-boss-swing-whiffs-reach)
+- 2026-11-15: [A Raised Arm Tears the Coat, Aiming Up Fades the Body: Two UE5 Causes Behind One Clipping Report](./2026-11-15-pseudo-grenade-aim-coat-shoulder)
 - 2026-11-14: [Data-Driven RPG Stats in UE5 GAS: Curve Tables, Modifier Magnitude Calculations and One Infinite Effect](./2026-11-14-pseudo-data-driven-stats-mmc)
 - 2026-11-14: [Melee Hit Detection in UE5 With GAS Target Data: Blade Sweeps, Physics Asset Bones and Server Validation](./2026-11-14-pseudo-melee-hit-detection-build)
 - 2026-11-14: [Building a UE5 Melee Combo With One Gameplay Ability: A Combo Graph, Montage Sections and a Predicted Advance](./2026-11-14-pseudo-melee-combo-graph-build)

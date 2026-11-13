@@ -21,6 +21,12 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-016 Weapon Core.md -> 2026-11-14-pseudo-melee-hit-detection-build (folded)
 - PSEUDO: Documents/Issues/ISS-017 Hit Pipeline A.md -> 2026-11-14-pseudo-melee-hit-detection-build
 - PSEUDO: Documents/Issues/ISS-018 Stats and Data B1.md -> 2026-11-14-pseudo-data-driven-stats-mmc
+- PSEUDO: Documents/Issues/ISS-012 Foot Sinking On Start And Jump.md -> 2026-11-15-pseudo-foot-floor-guard
+- PSEUDO: Documents/Issues/ISS-019 AI Core.md -> 2026-11-15-pseudo-enemy-ai-statetree-core
+- PSEUDO: Documents/Issues/ISS-021 Weapon Swap.md -> 2026-11-15-pseudo-weapon-swap-auto-stow (folded)
+- PSEUDO: Documents/Issues/ISS-022 Non-Combat Mode.md -> 2026-11-15-pseudo-weapon-swap-auto-stow
+- PSEUDO: Documents/Issues/ISS-324 Grenade Aim Coat.md -> skipped: covered by 2026-11-15-pseudo-grenade-aim-coat-shoulder
+- PSEUDO: Documents/Issues/ISS-544 Sevarog Attack Whiffs.md -> skipped: covered by 2026-11-15-pseudo-boss-swing-whiffs-reach
 
 ## Handled after the cut-off
 
@@ -34,18 +40,22 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-06) -> nothing to post
 - PSEUDO: Documents/Debugging/DBG-037 Buff Enemies Cannot Be Hit Without A Physics Asset (2026-11-06).md -> 2026-11-06-pseudo-buff-enemies-no-physics-asset
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-07) -> nothing to post
-- PSEUDO: Documents/Debugging/DBG-038 Grenade Aim Tears The Coat Shoulder And Fades The Body (2026-11-07).md -> PENDING, not done: status Open (clip fix not saved yet); re-check every run and post once it is resolved
+- PSEUDO: Documents/Debugging/DBG-038 Grenade Aim Tears The Coat Shoulder And Fades The Body (2026-11-07).md -> 2026-11-15-pseudo-grenade-aim-coat-shoulder (fixed 2026-11-14)
 - PSEUDO: Documents/Debugging/DBG-039 Status Look Missing On Client When Status Already Running (2026-11-07).md -> 2026-11-07-pseudo-status-look-missing-on-client
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-08) -> nothing to post
-- PSEUDO: Documents/Debugging/DBG-038 still Open (checked 2026-11-13) -> stays PENDING
+- PSEUDO: Documents/Debugging/DBG-038 still Open (checked 2026-11-13) -> stays PENDING (posted 2026-11-14 run, see above)
 - PSEUDO: Documents/Debugging/DBG-040 Portal View Hitch (2026-11-12).md -> 2026-11-12-pseudo-gc-hitch-at-61-seconds
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-13) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-041 Sevarog Attacks Whiff (2026-11-14).md -> 2026-11-15-pseudo-boss-swing-whiffs-reach
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-14) -> nothing to post
 
 ## Wiki follow-ups
 
+- /wiki/pseudo/systems/weapons "Status": says auto stow and the draw attack are on an unmerged branch; both are merged (ISS-022).
 
 ## Screenshots wanted
 
 ## Maintenance log
 
 - 2026-11-13: wiki follow-up done: /wiki/pseudo/systems/defense "Status" now says the forward dash holds a single sprint pose and only back/left/right use borrowed evade clips (DBG-031).
+- 2026-11-14: wiki follow-up done: /wiki/pseudo/systems/camera now describes the 70 / 30 cm dither fade of the local character (was a hard hide under 50 cm, fade listed as open) (DBG-038).
