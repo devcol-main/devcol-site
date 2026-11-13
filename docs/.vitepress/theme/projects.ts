@@ -125,8 +125,7 @@ export const groups: Group[] = [
         href: '/projects/jet-rush',
         blurb: 'An endless flying runner through a box city. Steer, climb and boost through the gaps and the rings.',
         tags: ['TypeScript', 'Canvas 2D', 'WebAudio'],
-        img: '/projects/jet-rush-gameplay.png',
-        fit: 'contain',
+        img: '/projects/jet-rush-1.jpg',
         badge: 'Play in browser',
       },
       {

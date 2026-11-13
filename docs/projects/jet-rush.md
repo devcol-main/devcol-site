@@ -617,7 +617,7 @@ Your best score, best flight distance, local Top 10 and settings are kept in loc
 | `src/ui` | Screens, HUD, options, records, the leaderboard, the touch button editor |
 | `src/shared` | The player profile and leaderboard code shared by every DevCol game |
 
-It's written in TypeScript, built with Vite and tested with Vitest, with no game engine, no framework and no CDN. Everything ships in the build, including the Rajdhani font, and the production build is about 143 KB, checked against a 300 KB limit in CI. Like the other games it was developed spec-first with Claude Code: each change started as a numbered task spec, and the playtest notes on feel (the boost sound, the trails, the button layout on a phone) were written back into the spec as numbered fixes.
+It's written in TypeScript, built with Vite and tested with Vitest, with no game engine, no framework and no CDN. Everything ships in the build, including the Rajdhani font, and the production build is about 219 KB, checked against a 300 KB limit in CI. Like the other games it was developed spec-first with Claude Code: each change started as a numbered task spec, and the playtest notes on feel (the boost sound, the trails, the button layout on a phone) were written back into the spec as numbered fixes.
 
 ---
 

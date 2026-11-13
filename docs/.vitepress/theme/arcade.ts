@@ -11,8 +11,7 @@ export const games: Item[] = [
     href: '/arcade/jet-rush',
     blurb: 'An endless flying runner. Steer, climb and boost a jet through the gaps of a sun-bleached box city.',
     tags: ['Keyboard or touch', 'Mobile', 'Desktop'],
-    img: '/projects/jet-rush-gameplay.png',
-    fit: 'contain',
+    img: '/projects/jet-rush-1.jpg',
     badge: 'Play now',
   },
   {
