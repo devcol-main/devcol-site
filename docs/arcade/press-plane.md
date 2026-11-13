@@ -26,4 +26,4 @@ Hold to power the engines and climb. Let go to cut the power and fall. Keep the 
 
 How the flight model differs from a tap-to-jump game, and how the game is built, is on the [Press Plane project page](/projects/press-plane).
 
-**More games:** [Melon Merge](/arcade/melon-merge) · [Bug Squash](/arcade/bug-squash) · [Stack Up](/arcade/stack-up) · [Rock Paper Scissors - Advance](/arcade/rock-paper-scissors-advance) · [All games](/arcade/)
+**More games:** [Jet Rush](/arcade/jet-rush) · [Melon Merge](/arcade/melon-merge) · [Bug Squash](/arcade/bug-squash) · [Stack Up](/arcade/stack-up) · [Rock Paper Scissors - Advance](/arcade/rock-paper-scissors-advance) · [All games](/arcade/)

@@ -121,6 +121,15 @@ export const groups: Group[] = [
         img: '/projects/arcade-web-cover.jpg',
       },
       {
+        title: 'Jet Rush',
+        href: '/projects/jet-rush',
+        blurb: 'An endless flying runner through a box city. Steer, climb and boost through the gaps and the rings.',
+        tags: ['TypeScript', 'Canvas 2D', 'WebAudio'],
+        img: '/projects/jet-rush-gameplay.png',
+        fit: 'contain',
+        badge: 'Play in browser',
+      },
+      {
         title: 'Melon Merge',
         href: '/projects/melon-merge',
         blurb: 'A fruit merging puzzle with hand-rolled physics. Merge two of a kind and grow a watermelon before the crate overflows.',
