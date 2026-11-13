@@ -80,26 +80,26 @@ const sidebar: Record<string, SidebarItem[]> = {
     {
       text: 'Unity',
       items: [
-        { text: 'Rock Paper Scissors - Advance', link: '/projects/rock-paper-scissors-advance' },
         { text: 'Press Plane', link: '/projects/press-plane' },
+        { text: 'Rock Paper Scissors - Advance', link: '/projects/rock-paper-scissors-advance' },
       ],
     },
     {
       text: 'Arcade Web',
       items: [
         { text: 'Overview', link: '/projects/arcade-web' },
-        { text: 'Stack Up', link: '/projects/stack-up' },
-        { text: 'Bug Squash', link: '/projects/bug-squash' },
         { text: 'Melon Merge', link: '/projects/melon-merge' },
+        { text: 'Bug Squash', link: '/projects/bug-squash' },
+        { text: 'Stack Up', link: '/projects/stack-up' },
       ],
     },
     {
       text: 'Tools (AI-Assisted)',
       items: [
-        { text: 'devcol.net', link: '/projects/devcol-net' },
         { text: 'iCUE Scheduler', link: '/projects/icue-scheduler' },
         { text: 'Brightness Scheduler', link: '/projects/brightness-scheduler' },
         { text: 'NewsBriefing', link: '/projects/news-briefing' },
+        { text: 'devcol.net', link: '/projects/devcol-net' },
       ],
     },
   ],
@@ -269,9 +269,11 @@ const nav = pruneNav([
     activeMatch: '^/arcade/',
     items: [
       { text: 'All Games', link: '/arcade/' },
-      { text: 'Stack Up', link: '/arcade/stack-up' },
-      { text: 'Bug Squash', link: '/arcade/bug-squash' },
       { text: 'Melon Merge', link: '/arcade/melon-merge' },
+      { text: 'Bug Squash', link: '/arcade/bug-squash' },
+      { text: 'Stack Up', link: '/arcade/stack-up' },
+      { text: 'Press Plane', link: '/arcade/press-plane' },
+      { text: 'Rock Paper Scissors - Advance', link: '/arcade/rock-paper-scissors-advance' },
     ],
   },
   {

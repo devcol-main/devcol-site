@@ -33,4 +33,4 @@ Drop fruit into a wooden crate. Two of the same kind that touch merge into the n
 
 The full rules, the scoring table and how the game was built are on the [Melon Merge project page](/projects/melon-merge).
 
-**More games:** [Stack Up](/arcade/stack-up) · [Bug Squash](/arcade/bug-squash) · [All games](/arcade/)
+**More games:** [Bug Squash](/arcade/bug-squash) · [Stack Up](/arcade/stack-up) · [Press Plane](/arcade/press-plane) · [Rock Paper Scissors - Advance](/arcade/rock-paper-scissors-advance) · [All games](/arcade/)
