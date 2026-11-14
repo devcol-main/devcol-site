@@ -76,4 +76,4 @@ There is no physics engine. The fruit are circles in a small rigid-body simulati
 
 All the sound is generated in the browser. A merge plucks a marimba-like note on a pentatonic scale that rises with the fruit's level, a watermelon plays a short rising arpeggio, and the background music is a light 95 BPM loop. There isn't a single audio file in the build, and the whole game, font and logo included, is about 172 KB.
 
-Melon Merge is part of [Arcade Web](/projects/arcade-web), together with [Stack Up](/projects/stack-up) and [Bug Squash](/projects/bug-squash). The code is under the Apache 2.0 license, and Fredoka is bundled under the SIL Open Font License.
+Melon Merge is part of [Arcade Web](/projects/arcade-web), together with [Stack Up](/projects/stack-up), [Bug Squash](/projects/bug-squash) and [Jet Rush](/projects/jet-rush). The code is under the Apache 2.0 license, and Fredoka is bundled under the SIL Open Font License.
