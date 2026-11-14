@@ -115,6 +115,6 @@ Getting the weapon back out has no separate button. **An attack press while stow
 
 ## Status
 
-The weapon data assets, the greatsword mesh, the two slots, the swap ability and the stowed weapon on the back are in the build and tested with a host and a client. Auto stow and the draw attack are implemented and tested on a branch that isn't merged yet. Ranged mode (one fire button, ammo cycling, the ammo wheel, regen while firing, the perfect-dodge refill and the muzzle effects) was built on 2026-10-22. The pistol meshes are still part of the body mesh, so the pistol tint waits for the mesh split.
+The weapon data assets, the greatsword mesh, the two slots, the swap ability and the stowed weapon on the back are in the build and tested with a host and a client. Auto stow and the draw attack are in the build and tested too. Ranged mode (one fire button, ammo cycling, the ammo wheel, regen while firing, the perfect-dodge refill and the muzzle effects) was built on 2026-10-22. The pistol meshes are still part of the body mesh, so the pistol tint waits for the mesh split.
 
 Updated 2026-10-24: added the ranged mode section (always aiming, one fire button, ammo type cycling and the ammo wheel, no lock-on with pistols) and the current ammo numbers; a perfect dodge now refills basic ammo to full.

@@ -98,4 +98,4 @@ The same components run in both modes, but each mode points at its own progressi
 
 ## Status
 
-In the build and tested with a host and a client: the primary and combat sets, the player and enemy stat tables, the stat curves, the derived-stats effect, and their use in the damage formula. Changing Strength or Vitality with a cheat updated max HP and the melee bonus on both machines. Experience, levels and skill points come with the progression work, alongside the skill tree.
+In the build and tested with a host and a client: the primary and combat sets, the player and enemy stat tables, the stat curves, the derived-stats effect, and their use in the damage formula. Changing Strength or Vitality with a cheat updated max HP and the melee bonus on both machines. Experience from kills, levels with automatic stat growth and skill points are built too, on the story progression profile, alongside the skill tree (see [A Server-Validated Skill Tree in UE5 GAS](/blog/2026-11-16-pseudo-skill-tree-progression-gas)).

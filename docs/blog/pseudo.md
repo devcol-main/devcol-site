@@ -124,6 +124,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Toes Sinking Into the Floor on the First Step and on Jumps in UE5: a Foot Floor Guard After Foot Placement](./2026-11-15-pseudo-foot-floor-guard)
 - [A UE5 State Tree Enemy AI With One GAS Attack Ability: Data-Driven Attack Selection for a Melee Grunt](./2026-11-15-pseudo-enemy-ai-statetree-core)
 - [Predicted Weapon Swap and Auto-Stow in UE5 GAS: One Ability, One Anim Notify, and a Combat Timer](./2026-11-15-pseudo-weapon-swap-auto-stow)
+- [Elemental Damage, Resistances and Status Buildup in UE5 GAS: Data Assets, One Execution, and a Poison DoT That Counted Stacks Twice](./2026-11-16-pseudo-elements-resistances-gas)
+- [A Server-Validated Skill Tree in UE5 GAS: XP From Kills, Level Growth Effects, Four Node Types and a Clean Respec](./2026-11-16-pseudo-skill-tree-progression-gas)
+- [Witch Time in UE5 Without Slowing the Player: a Time Dilation Stack, CustomTimeDilation, Hitstop and a Predicted Hit Cue](./2026-11-16-pseudo-time-dilation-lock-on-hitstop)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 
