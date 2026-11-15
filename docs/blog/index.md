@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-17: [Hit Reactions, a Groggy Gauge and Break-Fall in UE5 GAS: Reaction Tiers, a Server Hit React Ability, and an Ability Trigger That Fired on Child Tags](./2026-11-17-pseudo-hit-reactions-groggy-break-fall)
+- 2026-11-17: [A Server-Rolled 2d6 Dice Ability in UE5 GAS: Pips as an Attribute, a Throw Notify, FRandomStream and a DataTable of Effects](./2026-11-17-pseudo-dice-roll-ability-gas)
+- 2026-11-17: [Fair Parry and Dodge Windows on a UE5 Listen Server: Press Timestamps, a 0.15 s Grace, and GAS Target Data](./2026-11-17-pseudo-server-judged-parry-dodge)
 - 2026-11-16: [Witch Time in UE5 Without Slowing the Player: a Time Dilation Stack, CustomTimeDilation, Hitstop and a Predicted Hit Cue](./2026-11-16-pseudo-time-dilation-lock-on-hitstop)
 - 2026-11-16: [A Server-Validated Skill Tree in UE5 GAS: XP From Kills, Level Growth Effects, Four Node Types and a Clean Respec](./2026-11-16-pseudo-skill-tree-progression-gas)
 - 2026-11-16: [Elemental Damage, Resistances and Status Buildup in UE5 GAS: Data Assets, One Execution, and a Poison DoT That Counted Stacks Twice](./2026-11-16-pseudo-elements-resistances-gas)

@@ -60,6 +60,8 @@ So the server judges by **timestamps**, not by state at hit time:
 
 Because the parry window counts from the press, a quick tap still parries a hit that lands after you let go. Holding the button only matters for the plain guard.
 
+How this is built with Gameplay Ability System target data, and what dash and guard are allowed to cancel, is in [Fair Parry and Dodge Windows on a UE5 Listen Server](/blog/2026-11-17-pseudo-server-judged-parry-dodge).
+
 ## What "perfect" earns
 
 A perfect parry or perfect dodge does three things beyond avoiding the hit:
@@ -120,6 +122,8 @@ Players react too, and only the enemy attack's data decides how. The grunt's thi
 Pressing Jump right as you hit the ground cancels a Down or a Launch: you roll back to your feet instead of lying there. The window is 0.15 seconds, widened by Luck like every other timing window. It's judged the same way as a parry: the client predicts the break-fall at once and sends the press time and its contact time, and the server checks them against its own contact moment. In testing, a press 0.017 seconds before contact was accepted with 0.025 seconds of client lag; a press 0.73 seconds early was a miss and played the normal get-up.
 
 The contact moment for a Down is a marker on the animation, so it lands on the same frame on every machine. I considered ragdolling the player on a Down and dropped it: there's no clean get-up from a ragdoll pose, the body drifts away from the capsule differently on each machine, and the break-fall moment would stop being a fixed frame.
+
+The reaction component, the hit react ability and the statuses behind this section are written up in [Hit Reactions, a Groggy Gauge and Break-Fall in UE5 GAS](/blog/2026-11-17-pseudo-hit-reactions-groggy-break-fall).
 
 ## Reading enemy attacks
 

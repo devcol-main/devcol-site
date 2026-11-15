@@ -30,6 +30,9 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-025 Elements and Resistances B2.md -> 2026-11-16-pseudo-elements-resistances-gas
 - PSEUDO: Documents/Issues/ISS-026 Progression and Skill Tree.md -> 2026-11-16-pseudo-skill-tree-progression-gas
 - PSEUDO: Documents/Issues/ISS-030 Lock-On and Feel.md -> 2026-11-16-pseudo-time-dilation-lock-on-hitstop
+- PSEUDO: Documents/Issues/ISS-035 Defense.md -> 2026-11-17-pseudo-server-judged-parry-dodge
+- PSEUDO: Documents/Issues/ISS-038 Dice.md -> 2026-11-17-pseudo-dice-roll-ability-gas
+- PSEUDO: Documents/Issues/ISS-040 Reactions and Status.md -> 2026-11-17-pseudo-hit-reactions-groggy-break-fall
 
 ## Handled after the cut-off
 
@@ -53,6 +56,8 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-14) -> nothing to post
 - PSEUDO: no new Debugging notes after DBG-041 (checked 2026-11-15); ISS-008 still open, left for a later run
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-15) -> nothing to post
+- PSEUDO: no new Debugging notes after DBG-041 (checked 2026-11-16); ISS-008 still open, left for a later run
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-16) -> nothing to post
 
 ## Wiki follow-ups
 
@@ -64,3 +69,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-13: wiki follow-up done: /wiki/pseudo/systems/defense "Status" now says the forward dash holds a single sprint pose and only back/left/right use borrowed evade clips (DBG-031).
 - 2026-11-14: wiki follow-up done: /wiki/pseudo/systems/camera now describes the 70 / 30 cm dither fade of the local character (was a hard hide under 50 cm, fade listed as open) (DBG-038).
 - 2026-11-15: wiki follow-up done: /wiki/pseudo/systems/weapons "Status" now says auto stow and the draw attack are in the build (was: on an unmerged branch) (ISS-022). Also, with today's posts, corrected the status lines of /wiki/pseudo/systems/skill-tree (was "designed but not built yet") and /wiki/pseudo/systems/stats-and-level (XP, levels and SP were listed as future work) from ISS-026.
+- 2026-11-16: linked today's posts in: /wiki/pseudo/systems/defense (timing section -> parry/dodge build log, break-fall section -> reactions build log) and /wiki/pseudo/systems/dice (Under the hood -> dice build log).
