@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-19: [Coyote Time, Fall Damage and a Break-Fall Landing in UE5 Multiplayer: CanJumpWhileFalling, Landed Velocity and a Client That Lands First](./2026-11-19-pseudo-coyote-time-fall-damage-break-fall)
+- 2026-11-19: [Server-Checked Interaction and Listen-Server Travel in UE5: an Interactable Interface, a Local Focus Component and ServerTravel From a Portal](./2026-11-19-pseudo-interact-portal-server-travel)
+- 2026-11-19: [Server-Validated Hitscan in UE5 GAS: Predicted Ammo Cost, an Ammo ID in Every Shot, and a Shotgun Spread the Server Can Re-Check](./2026-11-19-pseudo-hitscan-pistols-server-validated)
 - 2026-11-18: [A UE5 Boss With Data Phases and a State Tree: Super-Armor Enrage, Authored Attack Patterns, a Linked Combat Loop and a Server-Judged Thrown Rock](./2026-11-18-pseudo-boss-phases-statetree)
 - 2026-11-18: [Breakable Body Parts With Their Own HP in UE5 GAS: Bone-to-Part Lookup, a Meta Attribute, and a Shielded Hit That Played No GameplayCue](./2026-11-18-pseudo-breakable-parts-shield)
 - 2026-11-18: [Area Attacks in UE5 GAS the Server Can Trust: One Sphere Query, Multi-Target Target Data and a Telegraph Ring Timed by the Montage](./2026-11-18-pseudo-aoe-attacks-server-validated)

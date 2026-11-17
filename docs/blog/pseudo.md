@@ -133,6 +133,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Area Attacks in UE5 GAS the Server Can Trust: One Sphere Query, Multi-Target Target Data and a Telegraph Ring Timed by the Montage](./2026-11-18-pseudo-aoe-attacks-server-validated)
 - [Breakable Body Parts With Their Own HP in UE5 GAS: Bone-to-Part Lookup, a Meta Attribute, and a Shielded Hit That Played No GameplayCue](./2026-11-18-pseudo-breakable-parts-shield)
 - [A UE5 Boss With Data Phases and a State Tree: Super-Armor Enrage, Authored Attack Patterns, a Linked Combat Loop and a Server-Judged Thrown Rock](./2026-11-18-pseudo-boss-phases-statetree)
+- [Server-Validated Hitscan in UE5 GAS: Predicted Ammo Cost, an Ammo ID in Every Shot, and a Shotgun Spread the Server Can Re-Check](./2026-11-19-pseudo-hitscan-pistols-server-validated)
+- [Server-Checked Interaction and Listen-Server Travel in UE5: an Interactable Interface, a Local Focus Component and ServerTravel From a Portal](./2026-11-19-pseudo-interact-portal-server-travel)
+- [Coyote Time, Fall Damage and a Break-Fall Landing in UE5 Multiplayer: CanJumpWhileFalling, Landed Velocity and a Client That Lands First](./2026-11-19-pseudo-coyote-time-fall-damage-break-fall)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

@@ -56,7 +56,7 @@ Gamepad names below are PlayStation, with Xbox in brackets.
 | Other item | D-pad down | D-pad down | D-pad down |
 | Menu | Options | Options | Options |
 
-A gamepad has fewer buttons than a keyboard, so two things are folded together. L2 interacts when something interactable is in focus and in range, and swaps weapons otherwise. Pickups are blocked while a hostile is nearby, so you don't grab a potion off the floor when you meant to swap mid-fight.
+A gamepad has fewer buttons than a keyboard, so two things are folded together. L2 interacts when something interactable is in focus and in range, and swaps weapons otherwise. Pickups are blocked while a hostile is nearby, so you don't grab a potion off the floor when you meant to swap mid-fight. How interaction is focused on the client and re-checked on the server is in [Server-Checked Interaction and Listen-Server Travel in UE5](/blog/2026-11-19-pseudo-interact-portal-server-travel).
 
 ## One button, two actions: tap and hold
 

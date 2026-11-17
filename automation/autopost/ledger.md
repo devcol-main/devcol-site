@@ -36,6 +36,10 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-042 AoE.md -> 2026-11-18-pseudo-aoe-attacks-server-validated
 - PSEUDO: Documents/Issues/ISS-044 Part Health.md -> 2026-11-18-pseudo-breakable-parts-shield
 - PSEUDO: Documents/Issues/ISS-045 Boss Rampage.md -> 2026-11-18-pseudo-boss-phases-statetree
+- PSEUDO: Documents/Issues/ISS-049 Ranged Shooting.md -> 2026-11-19-pseudo-hitscan-pistols-server-validated
+- PSEUDO: Documents/Issues/ISS-079 Ranged Redesign.md -> 2026-11-19-pseudo-hitscan-pistols-server-validated (later redesign of the same feature, written as one post)
+- PSEUDO: Documents/Issues/ISS-052 Game Flow and Interact.md -> 2026-11-19-pseudo-interact-portal-server-travel
+- PSEUDO: Documents/Issues/ISS-056 Jump and Landing.md -> 2026-11-19-pseudo-coyote-time-fall-damage-break-fall
 
 ## Handled after the cut-off
 
@@ -63,6 +67,8 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-16) -> nothing to post
 - PSEUDO: no new Debugging notes after DBG-041 (checked 2026-11-17); ISS-008 still open, left for a later run
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-17) -> nothing to post
+- PSEUDO: no new Debugging notes after DBG-041 (checked 2026-11-18); ISS-008 still open, left for a later run
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-18) -> nothing to post
 
 ## Wiki follow-ups
 
@@ -76,3 +82,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-15: wiki follow-up done: /wiki/pseudo/systems/weapons "Status" now says auto stow and the draw attack are in the build (was: on an unmerged branch) (ISS-022). Also, with today's posts, corrected the status lines of /wiki/pseudo/systems/skill-tree (was "designed but not built yet") and /wiki/pseudo/systems/stats-and-level (XP, levels and SP were listed as future work) from ISS-026.
 - 2026-11-16: linked today's posts in: /wiki/pseudo/systems/defense (timing section -> parry/dodge build log, break-fall section -> reactions build log) and /wiki/pseudo/systems/dice (Under the hood -> dice build log).
 - 2026-11-17: linked today's posts in: /wiki/pseudo/systems/combo-and-cancels (Area attacks -> AoE build log), /wiki/pseudo/systems/enemy-ai (data phases -> boss build log; also fixed the phase tag name from `Boss.Phase.N` to `State.Phase.N`, per ISS-045 and the source), /wiki/pseudo/systems/rampage (Related pages -> parts and boss build logs).
+- 2026-11-18: linked today's posts in: /wiki/pseudo/systems/weapons (Ranged mode -> hitscan build log), /wiki/pseudo/systems/controls (L2 interact paragraph -> interaction and travel build log), /wiki/pseudo/systems/level-metrics (Edges and coyote time -> jump and landing build log).

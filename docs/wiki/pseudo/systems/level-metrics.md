@@ -78,6 +78,8 @@ Two numbers surprised me:
 - **Coyote time is 0.15 s, but only about 0.11 s of it is usable.** When the character runs off a ledge, the capsule first rolls about 27 cm down over the edge while the game still considers it walking. That roll eats part of the window. A jump at 0.11 s after the first falling frame still fires; 0.12 to 0.13 s doesn't. A late coyote jump still buys reach: about 30 cm at run speed and 60 cm at sprint.
 - **The character leaves a ledge 36 to 40 cm past the edge**, and has already dropped 13 to 17 cm when falling starts. That's the capsule radius plus the roll. It means the effective take-off point is beyond the visible edge, which helps gap distances a little.
 
+How coyote time, fall damage and the landing break-fall are kept in sync between client and server is in the build log [Coyote Time, Fall Damage and a Break-Fall Landing in UE5 Multiplayer](/blog/2026-11-19-pseudo-coyote-time-fall-damage-break-fall).
+
 ### Limits
 
 | Test | Passes | Fails |
