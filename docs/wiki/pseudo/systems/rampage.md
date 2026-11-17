@@ -101,3 +101,4 @@ Still open on the leap: which phase it belongs to, how the landing spot is teleg
 
 - [Enemies and AI](/wiki/pseudo/systems/enemy-ai): the State Tree, attack selection, and how data phases and the boss tree divide the work.
 - [Defense](/wiki/pseudo/systems/defense): parryable, unblockable and dodge-only attacks, and the groggy gauge.
+- [Breakable parts and the part shield](/blog/2026-11-18-pseudo-breakable-parts-shield) and [boss phases and patterns](/blog/2026-11-18-pseudo-boss-phases-statetree): build logs for how the shield, the parts and the phase layer were made.

@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-18: [A UE5 Boss With Data Phases and a State Tree: Super-Armor Enrage, Authored Attack Patterns, a Linked Combat Loop and a Server-Judged Thrown Rock](./2026-11-18-pseudo-boss-phases-statetree)
+- 2026-11-18: [Breakable Body Parts With Their Own HP in UE5 GAS: Bone-to-Part Lookup, a Meta Attribute, and a Shielded Hit That Played No GameplayCue](./2026-11-18-pseudo-breakable-parts-shield)
+- 2026-11-18: [Area Attacks in UE5 GAS the Server Can Trust: One Sphere Query, Multi-Target Target Data and a Telegraph Ring Timed by the Montage](./2026-11-18-pseudo-aoe-attacks-server-validated)
 - 2026-11-17: [Hit Reactions, a Groggy Gauge and Break-Fall in UE5 GAS: Reaction Tiers, a Server Hit React Ability, and an Ability Trigger That Fired on Child Tags](./2026-11-17-pseudo-hit-reactions-groggy-break-fall)
 - 2026-11-17: [A Server-Rolled 2d6 Dice Ability in UE5 GAS: Pips as an Attribute, a Throw Notify, FRandomStream and a DataTable of Effects](./2026-11-17-pseudo-dice-roll-ability-gas)
 - 2026-11-17: [Fair Parry and Dodge Windows on a UE5 Listen Server: Press Timestamps, a 0.15 s Grace, and GAS Target Data](./2026-11-17-pseudo-server-judged-parry-dodge)
