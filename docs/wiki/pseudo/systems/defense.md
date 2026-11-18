@@ -60,6 +60,8 @@ So the server judges by **timestamps**, not by state at hit time:
 
 Because the parry window counts from the press, a quick tap still parries a hit that lands after you let go. Holding the button only matters for the plain guard.
 
+How this is built with Gameplay Ability System target data, and what dash and guard are allowed to cancel, is in [Fair Parry and Dodge Windows on a UE5 Listen Server](/blog/2026-11-17-pseudo-server-judged-parry-dodge).
+
 ## What "perfect" earns
 
 A perfect parry or perfect dodge does three things beyond avoiding the hit:
@@ -121,6 +123,8 @@ Pressing Jump right as you hit the ground cancels a Down or a Launch: you roll b
 
 The contact moment for a Down is a marker on the animation, so it lands on the same frame on every machine. I considered ragdolling the player on a Down and dropped it: there's no clean get-up from a ragdoll pose, the body drifts away from the capsule differently on each machine, and the break-fall moment would stop being a fixed frame.
 
+The reaction component, the hit react ability and the statuses behind this section are written up in [Hit Reactions, a Groggy Gauge and Break-Fall in UE5 GAS](/blog/2026-11-17-pseudo-hit-reactions-groggy-break-fall).
+
 ## Reading enemy attacks
 
 Enemy attacks are tagged as one of three kinds, and the attack shows which:
@@ -168,7 +172,7 @@ Dash, guard, parry, perfect parry and perfect dodge are in the build and were te
 
 Dash and guard cancel a combo at any point except the hit frames. A press during the hit frames waits in the input buffer and fires as soon as they end. Taking a hit resets the perfect stack.
 
-Hit reactions, the groggy gauge (including parry and perfect-parry groggy) and break-fall are in the build as of 2026-10-21 and were tested the same way, on both machines. What's not done yet: the counter-attack state and the perfect-dodge slow motion, and an execution move on a groggy enemy. The Down reaction uses the last frame of a death clip until real knock-down and get-up animations exist. The guard pose is a held frame of a greatsword swing and the dash uses borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
+Hit reactions, the groggy gauge (including parry and perfect-parry groggy) and break-fall are in the build as of 2026-10-21 and were tested the same way, on both machines. What's not done yet: the counter-attack state and the perfect-dodge slow motion, and an execution move on a groggy enemy. The Down reaction uses the last frame of a death clip until real knock-down and get-up animations exist. The guard pose is a held frame of a greatsword swing. The forward dash holds a single sprint pose; the back, left and right dashes still use borrowed evade animations until the animation pass. Enemy attacks don't show their kind on screen yet.
 
 Updated 2026-10-21: the defense issue is built. Added the real window lengths, the no-input dash direction, instant draw on guard, how the server judges timing, the corrected unblockable rule (a perfect parry still works) and test results.
 

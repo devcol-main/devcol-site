@@ -69,7 +69,7 @@ With the pistols drawn you are always aiming: the character strafes, a crosshair
 
 This is the second version of the ranged controls. The redesign put everything on one trigger and one selector, because the point of the mode is to keep shooting while you move, not to juggle keys.
 
-Each ammo type is a data asset (`UPseudoAmmoType`) that also carries its feedback: crosshair color and shape, the ammo count and icon, a pop-up and pulse on switching, switch and fire sounds, and a tint on the pistols. Muzzle flash and a tracer play from the muzzle sockets on every machine. The hit itself is still traced from the camera, on the server, so what you see in the crosshair is what gets hit.
+Each ammo type is a data asset (`UPseudoAmmoType`) that also carries its feedback: crosshair color and shape, the ammo count and icon, a pop-up and pulse on switching, switch and fire sounds, and a tint on the pistols. Muzzle flash and a tracer play from the muzzle sockets on every machine. The hit itself is still traced from the camera, on the server, so what you see in the crosshair is what gets hit. How the server checks each shot (cadence, range, aim, walls, the ammo id carried in the shot, and the shotgun's seeded spread) is in [Server-Validated Hitscan in UE5 GAS](/blog/2026-11-19-pseudo-hitscan-pistols-server-validated).
 
 ## Weapons as data
 
@@ -115,6 +115,6 @@ Getting the weapon back out has no separate button. **An attack press while stow
 
 ## Status
 
-The weapon data assets, the greatsword mesh, the two slots, the swap ability and the stowed weapon on the back are in the build and tested with a host and a client. Auto stow and the draw attack are implemented and tested on a branch that isn't merged yet. Ranged mode (one fire button, ammo cycling, the ammo wheel, regen while firing, the perfect-dodge refill and the muzzle effects) was built on 2026-10-22. The pistol meshes are still part of the body mesh, so the pistol tint waits for the mesh split.
+The weapon data assets, the greatsword mesh, the two slots, the swap ability and the stowed weapon on the back are in the build and tested with a host and a client. Auto stow and the draw attack are in the build and tested too. Ranged mode (one fire button, ammo cycling, the ammo wheel, regen while firing, the perfect-dodge refill and the muzzle effects) was built on 2026-10-22. The pistol meshes are still part of the body mesh, so the pistol tint waits for the mesh split.
 
 Updated 2026-10-24: added the ranged mode section (always aiming, one fire button, ammo type cycling and the ammo wheel, no lock-on with pistols) and the current ammo numbers; a perfect dodge now refills basic ammo to full.

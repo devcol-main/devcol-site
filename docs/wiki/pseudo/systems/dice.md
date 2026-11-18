@@ -168,6 +168,8 @@ A few implementation decisions, because they shape the design:
 - **Pips are a Gameplay Ability System attribute** in a dedicated dice attribute set, and each roll's effect is applied as a Gameplay Effect whose magnitude comes from the DataTable row for that type and grade.
 - **The bad-luck stack lives on the server** alongside the roll, so it can't drift between clients.
 
+The full build log, including the throw notify and two bugs found on the way, is [A Server-Rolled 2d6 Dice Ability in UE5 GAS](/blog/2026-11-17-pseudo-dice-roll-ability-gas).
+
 ## No real money near the dice
 
 PSEUDO has gambling-shaped mechanics, so one rule is fixed: dice, rolls and re-rolls are never sold. Everything here is earned in play.

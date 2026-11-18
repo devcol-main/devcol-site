@@ -29,4 +29,4 @@ A shark is stuck in a narrow harbor canal. Swim it out to the open sea: switch l
 
 The background story, the scoring rules and how the game was built are on the [Bukang Run project page](/projects/bukang-run).
 
-**More games:** [Stack Up](/arcade/stack-up) · [Bug Squash](/arcade/bug-squash) · [All games](/arcade/)
+**More games:** [Jet Rush](/arcade/jet-rush) · [Melon Merge](/arcade/melon-merge) · [Bug Squash](/arcade/bug-squash) · [Stack Up](/arcade/stack-up) · [Press Plane](/arcade/press-plane) · [Rock Paper Scissors - Advance](/arcade/rock-paper-scissors-advance) · [All games](/arcade/)

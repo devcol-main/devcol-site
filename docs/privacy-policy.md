@@ -35,7 +35,7 @@ DevCol runs its own small analytics service (source code: [devcol-analytics](htt
 
 ## Browser Games
 
-The games under [Arcade Web](/projects/arcade-web) (such as Stack Up and Bug Squash) save a few things in your browser's local storage so they work the next time you visit: your best score, a local copy of your scores, the nickname you type, a randomly generated player ID, an online leaderboard key (described below), and settings like sound volume and reduced motion. The player ID never leaves your device. You can remove the local data with the reset option in each game or by clearing your browser's site data.
+The games under [Arcade Web](/projects/arcade-web) (such as Stack Up, Bug Squash, Melon Merge and Jet Rush) save a few things in your browser's local storage so they work the next time you visit: your best score, a local copy of your scores, the nickname you type, a randomly generated player ID, an online leaderboard key (described below), and settings like sound volume and reduced motion. The player ID never leaves your device. You can remove the local data with the reset option in each game or by clearing your browser's site data.
 
 ## Online Leaderboard
 

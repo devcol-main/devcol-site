@@ -128,7 +128,7 @@ The first grunt is Paragon's lane melee minion, which has two sets of attacks in
 
 Bosses are where data alone runs out, so they get two layers.
 
-**Data phases** apply to every enemy, and mid-bosses use only this layer. The enemy data lists phases: an HP threshold, the phase tag it grants (`Boss.Phase.N`), a buff effect, a montage play rate, and a shield mode (none, once, or regenerating). A phase component judges the thresholds once, on the server. Attacks with a matching `RequiredTags` entry unlock automatically, so "phase 2 adds a ground slam" is a data change.
+**Data phases** apply to every enemy, and mid-bosses use only this layer. The enemy data lists phases: an HP threshold, the phase tag it grants (`State.Phase.N`), a buff effect, a montage play rate, and a shield mode (none, once, or regenerating). A phase component judges the thresholds once, on the server. Attacks with a matching `RequiredTags` entry unlock automatically, so "phase 2 adds a ground slam" is a data change. The build of this layer and of Rampage's tree is written up in [A UE5 Boss With Data Phases and a State Tree](/blog/2026-11-18-pseudo-boss-phases-statetree).
 
 **The boss tree** (`ST_Boss_<Name>`) is for authored behavior: fixed attack sequences with their own cooldowns and ranges, waiting for a part shield to break, regenerating the shield. The ordinary attack loop is linked into it as an asset (`ST_Enemy_CombatLoop`), one round per entry, so a boss gets the shared behavior for free between its set pieces.
 

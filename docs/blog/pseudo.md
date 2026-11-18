@@ -112,6 +112,30 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [The Same Trap From the Front: A Niagara Refraction Trail That Erased the Attacker's Torso](./2026-11-05-pseudo-sword-distortion-cuts-body-front)
 - [Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5](./2026-11-06-pseudo-buff-enemies-no-physics-asset)
 - [A Status Look the Client Never Showed: Replicated Gameplay Tags That Arrive Before BeginPlay](./2026-11-07-pseudo-status-look-missing-on-client)
+- [A Hitch That Always Hit at 61 Seconds: UE5 Garbage Collection, Not the Content on Screen](./2026-11-12-pseudo-gc-hitch-at-61-seconds)
+- [A Raised Arm Tears the Coat, Aiming Up Fades the Body: Two UE5 Causes Behind One Clipping Report](./2026-11-15-pseudo-grenade-aim-coat-shoulder)
+- [UE5 Enemy Melee That Whiffs on a Standing Player: AI MaxRange and Facing vs. Where the Clip's Weapon Lands](./2026-11-15-pseudo-boss-swing-whiffs-reach)
+
+**Build logs**
+
+- [Building a UE5 Melee Combo With One Gameplay Ability: A Combo Graph, Montage Sections and a Predicted Advance](./2026-11-14-pseudo-melee-combo-graph-build)
+- [Melee Hit Detection in UE5 With GAS Target Data: Blade Sweeps, Physics Asset Bones and Server Validation](./2026-11-14-pseudo-melee-hit-detection-build)
+- [Data-Driven RPG Stats in UE5 GAS: Curve Tables, Modifier Magnitude Calculations and One Infinite Effect](./2026-11-14-pseudo-data-driven-stats-mmc)
+- [Toes Sinking Into the Floor on the First Step and on Jumps in UE5: a Foot Floor Guard After Foot Placement](./2026-11-15-pseudo-foot-floor-guard)
+- [A UE5 State Tree Enemy AI With One GAS Attack Ability: Data-Driven Attack Selection for a Melee Grunt](./2026-11-15-pseudo-enemy-ai-statetree-core)
+- [Predicted Weapon Swap and Auto-Stow in UE5 GAS: One Ability, One Anim Notify, and a Combat Timer](./2026-11-15-pseudo-weapon-swap-auto-stow)
+- [Elemental Damage, Resistances and Status Buildup in UE5 GAS: Data Assets, One Execution, and a Poison DoT That Counted Stacks Twice](./2026-11-16-pseudo-elements-resistances-gas)
+- [A Server-Validated Skill Tree in UE5 GAS: XP From Kills, Level Growth Effects, Four Node Types and a Clean Respec](./2026-11-16-pseudo-skill-tree-progression-gas)
+- [Witch Time in UE5 Without Slowing the Player: a Time Dilation Stack, CustomTimeDilation, Hitstop and a Predicted Hit Cue](./2026-11-16-pseudo-time-dilation-lock-on-hitstop)
+- [Fair Parry and Dodge Windows on a UE5 Listen Server: Press Timestamps, a 0.15 s Grace, and GAS Target Data](./2026-11-17-pseudo-server-judged-parry-dodge)
+- [A Server-Rolled 2d6 Dice Ability in UE5 GAS: Pips as an Attribute, a Throw Notify, FRandomStream and a DataTable of Effects](./2026-11-17-pseudo-dice-roll-ability-gas)
+- [Hit Reactions, a Groggy Gauge and Break-Fall in UE5 GAS: Reaction Tiers, a Server Hit React Ability, and an Ability Trigger That Fired on Child Tags](./2026-11-17-pseudo-hit-reactions-groggy-break-fall)
+- [Area Attacks in UE5 GAS the Server Can Trust: One Sphere Query, Multi-Target Target Data and a Telegraph Ring Timed by the Montage](./2026-11-18-pseudo-aoe-attacks-server-validated)
+- [Breakable Body Parts With Their Own HP in UE5 GAS: Bone-to-Part Lookup, a Meta Attribute, and a Shielded Hit That Played No GameplayCue](./2026-11-18-pseudo-breakable-parts-shield)
+- [A UE5 Boss With Data Phases and a State Tree: Super-Armor Enrage, Authored Attack Patterns, a Linked Combat Loop and a Server-Judged Thrown Rock](./2026-11-18-pseudo-boss-phases-statetree)
+- [Server-Validated Hitscan in UE5 GAS: Predicted Ammo Cost, an Ammo ID in Every Shot, and a Shotgun Spread the Server Can Re-Check](./2026-11-19-pseudo-hitscan-pistols-server-validated)
+- [Server-Checked Interaction and Listen-Server Travel in UE5: an Interactable Interface, a Local Focus Component and ServerTravel From a Portal](./2026-11-19-pseudo-interact-portal-server-travel)
+- [Coyote Time, Fall Damage and a Break-Fall Landing in UE5 Multiplayer: CanJumpWhileFalling, Landed Velocity and a Client That Lands First](./2026-11-19-pseudo-coyote-time-fall-damage-break-fall)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

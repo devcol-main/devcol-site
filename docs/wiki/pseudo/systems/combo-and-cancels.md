@@ -153,7 +153,7 @@ Any node can be an area attack. Its attack data has an `AoERadius` and a forward
 - **Once per target per node.** The finisher has two hit windows, and in the first test the sphere ran twice. The second pass was refused as "already hit", so nothing doubled, but the node now runs its sphere only once.
 - **The server rebuilds the sphere.** The attacking client sends every target it found in one message. The server never takes the client's center: it rebuilds the sphere from its own copy of the attacker and checks each target against it, with 100 cm of tolerance for lag. A cheated hit on a dummy 30 m away was refused with a log line and no damage.
 
-Each target then goes through its own defense chain, so one swing can be parried by one player and land on the enemy next to them. Enemies use the same query for their own area attacks, with a warning ring on the floor (see [Defense](/wiki/pseudo/systems/defense)).
+Each target then goes through its own defense chain, so one swing can be parried by one player and land on the enemy next to them. Enemies use the same query for their own area attacks, with a warning ring on the floor (see [Defense](/wiki/pseudo/systems/defense)). How the query, the server check and the ring are built is in the [area attacks build log](/blog/2026-11-18-pseudo-aoe-attacks-server-validated).
 
 ## Targeting
 

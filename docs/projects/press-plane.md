@@ -123,6 +123,8 @@ Saving is a small interface. A component that needs to persist implements `ISave
 
 ## Play in browser
 
+You can also play it on its own page in the [Arcade](/arcade/press-plane).
+
 <div style="max-width: 400px;">
 <iframe src="https://itch.io/embed-upload/15969002?color=333333" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 </div>

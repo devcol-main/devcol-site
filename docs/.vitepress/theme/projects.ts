@@ -10,7 +10,10 @@ export type Item = {
   start?: number
   fit?: 'cover' | 'contain'
   badge?: string
+  // YYYY-MM-DD the item first went public. Used where a list can be sorted by date (the Arcade page).
+  date?: string
 }
+// Items inside each group are listed newest first; keep new entries at the top of their group.
 export type Group = { id: string; title: string; note?: string; items: Item[] }
 
 export const groups: Group[] = [
@@ -87,13 +90,13 @@ export const groups: Group[] = [
     title: 'Unity',
     items: [
       {
-        title: 'Rock Paper Scissors - Advance',
-        href: '/projects/rock-paper-scissors-advance',
-        blurb: 'Released on Google Play, playable in the browser.',
-        tags: ['Unity', 'Google Play'],
-        img: '/projects/rock-paper-scissors-advance-icon.png',
+        title: 'Bukang Run',
+        href: '/projects/bukang-run',
+        blurb: 'A three-lane swimming runner about the shark that spent 34 days in a Busan harbor canal.',
+        tags: ['Unity 6', 'WebGL', 'Android'],
+        img: '/projects/bukang-run-gameplay.png',
         fit: 'contain',
-        badge: 'Released',
+        badge: 'Play in browser',
       },
       {
         title: 'Press Plane',
@@ -104,13 +107,13 @@ export const groups: Group[] = [
         badge: 'Released',
       },
       {
-        title: 'Bukang Run',
-        href: '/projects/bukang-run',
-        blurb: 'A three-lane swimming runner about the shark that spent 34 days in a Busan harbor canal.',
-        tags: ['Unity 6', 'WebGL', 'Android'],
-        img: '/projects/bukang-run-gameplay.png',
+        title: 'Rock Paper Scissors - Advance',
+        href: '/projects/rock-paper-scissors-advance',
+        blurb: 'Released on Google Play, playable in the browser.',
+        tags: ['Unity', 'Google Play'],
+        img: '/projects/rock-paper-scissors-advance-icon.png',
         fit: 'contain',
-        badge: 'Play in browser',
+        badge: 'Released',
       },
     ],
   },
@@ -127,12 +130,19 @@ export const groups: Group[] = [
         img: '/projects/arcade-web-cover.jpg',
       },
       {
-        title: 'Stack Up',
-        href: '/projects/stack-up',
-        blurb: 'A one-button neon stacking game. Tap to drop the block; whatever overhangs gets sliced off.',
+        title: 'Jet Rush',
+        href: '/projects/jet-rush',
+        blurb: 'An endless flying runner through a box city. Steer, climb and boost through the gaps and the rings.',
         tags: ['TypeScript', 'Canvas 2D', 'WebAudio'],
-        video: '/projects/stack-up-1.mp4',
-        poster: '/projects/stack-up-1-poster.jpg',
+        img: '/projects/jet-rush-1.jpg',
+        badge: 'Play in browser',
+      },
+      {
+        title: 'Melon Merge',
+        href: '/projects/melon-merge',
+        blurb: 'A fruit merging puzzle with hand-rolled physics. Merge two of a kind and grow a watermelon before the crate overflows.',
+        tags: ['TypeScript', 'Canvas 2D', 'WebAudio'],
+        img: '/projects/melon-merge-1.jpg',
         fit: 'contain',
         badge: 'Play in browser',
       },
@@ -146,6 +156,16 @@ export const groups: Group[] = [
         fit: 'contain',
         badge: 'Play in browser',
       },
+      {
+        title: 'Stack Up',
+        href: '/projects/stack-up',
+        blurb: 'A one-button neon stacking game. Tap to drop the block; whatever overhangs gets sliced off.',
+        tags: ['TypeScript', 'Canvas 2D', 'WebAudio'],
+        video: '/projects/stack-up-1.mp4',
+        poster: '/projects/stack-up-1-poster.jpg',
+        fit: 'contain',
+        badge: 'Play in browser',
+      },
     ],
   },
   {
@@ -153,13 +173,6 @@ export const groups: Group[] = [
     title: 'Tools (AI-Assisted)',
     note: 'Small utilities I planned and built with Claude. I wrote the plan and requirements, then tested and revised each one until it worked the way I wanted.',
     items: [
-      {
-        title: 'devcol.net',
-        href: '/projects/devcol-net',
-        blurb: 'This website: a VitePress site on GitHub Pages, designed and built with Claude.',
-        tags: ['VitePress', 'Vue', 'GitHub Pages'],
-        img: '/projects/devcol-net-home.jpg',
-      },
       {
         title: 'iCUE Scheduler',
         href: '/projects/icue-scheduler',
@@ -179,6 +192,13 @@ export const groups: Group[] = [
         href: '/projects/news-briefing',
         blurb: 'A market briefing written and committed every morning at 07:30 KST.',
         tags: ['Claude routine', 'Slack', 'Markdown'],
+      },
+      {
+        title: 'devcol.net',
+        href: '/projects/devcol-net',
+        blurb: 'This website: a VitePress site on GitHub Pages, designed and built with Claude.',
+        tags: ['VitePress', 'Vue', 'GitHub Pages'],
+        img: '/projects/devcol-net-home.jpg',
       },
     ],
   },

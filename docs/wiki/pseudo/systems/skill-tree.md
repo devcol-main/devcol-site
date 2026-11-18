@@ -9,7 +9,7 @@ outline: deep
 
 Stats in PSEUDO grow on their own when you level up (see [Stats and Level](/wiki/pseudo/systems/stats-and-level)), so the skill tree is where the build choices are. Each level gives a skill point, and you spend points on nodes. This page covers how the trees are laid out, what a node can do, and how the tree is wired into the combat systems without any of them knowing it exists.
 
-The skill tree is designed but not built yet. It's the next progression issue after the combat work, so everything here is the decided design.
+The skill tree is built and tested with a host and a client: a greatsword tree, a dual pistols tree and a common tree, all four node types, server-side learning and respec. Respec is free and allowed anywhere for now, because there is no hub yet. How it was built: [A Server-Validated Skill Tree in UE5 GAS](/blog/2026-11-16-pseudo-skill-tree-progression-gas).
 
 ## The trees
 
