@@ -1,6 +1,6 @@
 ---
 title: Arcade Web
-description: "Small browser games built with TypeScript, Canvas 2D, and WebAudio, with no engine and no audio files. Stack Up, Bug Squash and Melon Merge, and how they fit together."
+description: "Small browser games built with TypeScript, Canvas 2D, and WebAudio, with no engine and no audio files. Stack Up, Bug Squash, Melon Merge and Jet Rush, and how they fit together."
 outline: deep
 ---
 
@@ -19,6 +19,7 @@ They're built without a game engine or a framework. Rendering is Canvas 2D, ever
 | **Stack Up** | One button. A block slides back and forth, you tap to drop it, and whatever overhangs the tower gets sliced off. | [Play Stack Up](/projects/stack-up) |
 | **Bug Squash** | Whack-a-mole in a retro terminal. Squash bugs before they hide, and don't touch the working features. | [Play Bug Squash](/projects/bug-squash) |
 | **Melon Merge** | A fruit merging puzzle. Drop fruit into a crate, merge two of a kind into the next bigger one, and grow a watermelon before it overflows. | [Play Melon Merge](/projects/melon-merge) |
+| **Jet Rush** | An endless flying runner through a sun-bleached box city. Steer, climb and boost through the gaps, and fly through rings. | [Play Jet Rush](/arcade/jet-rush) |
 
 ![Stack Up gameplay: a neon tower with a PERFECT combo popup](/projects/stack-up-gameplay.png){width=240} ![Bug Squash gameplay: beetles and a gear in a green terminal grid](/projects/bug-squash-gameplay.png){width=240} ![Melon Merge gameplay: fruit piled in a wooden crate](/projects/melon-merge-gameplay.jpg){width=240}
 
@@ -36,7 +37,7 @@ Each game lives in its own repository:
 
 Two of those shared formats are copied into every game:
 
-- **Leaderboard.** Each game keeps its own local Top 10 behind a `LeaderboardService` interface, with stats that fit the game (floors and best combo for Stack Up; bugs squashed, best combo, and time survived for Bug Squash). The game only talks to the interface, so a server can replace browser storage later without touching game code.
+- **Leaderboard.** Each game keeps its own local Top 10 behind a `LeaderboardService` interface, with stats that fit the game (floors and best combo for Stack Up; bugs squashed, best combo, and time survived for Bug Squash; distance, rings, and flight time for Jet Rush). The game only talks to the interface, so a server can replace browser storage later without touching game code.
 - **Player profile.** One random player ID and one nickname, shared by every game on the site. Type your name once in Stack Up and Bug Squash already knows it.
 
 Because all the games are served from the same domain, they can read that shared profile. That's also the groundwork for a ranking across games, which is the next thing on the list.

@@ -26,4 +26,4 @@ The hand game everyone knows, played against a timer. Pick one of three modes an
 
 How the modes are judged and how the timer speeds up is on the [Rock Paper Scissors - Advance project page](/projects/rock-paper-scissors-advance).
 
-**More games:** [Melon Merge](/arcade/melon-merge) · [Bug Squash](/arcade/bug-squash) · [Stack Up](/arcade/stack-up) · [Press Plane](/arcade/press-plane) · [All games](/arcade/)
+**More games:** [Jet Rush](/arcade/jet-rush) · [Melon Merge](/arcade/melon-merge) · [Bug Squash](/arcade/bug-squash) · [Stack Up](/arcade/stack-up) · [Press Plane](/arcade/press-plane) · [All games](/arcade/)

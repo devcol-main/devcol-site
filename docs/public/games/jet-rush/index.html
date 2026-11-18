@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jet Rush</title>
+<script defer src="/t.js"></script>
+<link rel="icon" type="image/png" href="./assets/devcol-logo-COrzzs1X.png">
+<style>html,body{overscroll-behavior:none;touch-action:none;background:#f7f3e4;height:100%;margin:0;overflow:hidden}canvas{touch-action:none;outline:none;width:100%;height:100%;display:block;position:fixed;top:0;bottom:0;left:0;right:0}</style>
+  <script type="module" crossorigin src="./assets/index-BLG-fLj_.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BB8j5eh1.css">
+</head>
+<body>
+<canvas id="game" tabindex="-1"></canvas>
+<div id="ui" class="ui" data-phase="title">
+  <!-- 좌상단 DevCol 로고: 밝은 배경용 원본 PNG -->
+  <div class="brand">
+    <img class="brand-logo" src="./assets/devcol-logo-COrzzs1X.png" alt="DevCol logo" width="256" height="256" draggable="false">
+  </div>
+
+  <!-- 플레이 중 HUD (상단 가운데) -->
+  <div class="hud" aria-hidden="true">
+    <!-- hud-main 은 우상단 Sound 버튼 밑까지 최소 높이를 가져, 짧은 HUD 에서도 아래 힌트가 버튼과 겹치지 않게 한다 -->
+    <div class="hud-main">
+      <div class="hud-brand">JET RUSH</div>
+      <div class="hud-panel">
+        <div class="hud-score">SCORE <span id="hud-score" class="hud-num">0</span></div>
+        <div id="boost-badge" class="boost-badge" hidden>&times;2</div>
+        <div id="hud-best" class="hud-best" hidden>BEST <span id="hud-best-num" class="hud-num">0</span></div>
+        <div id="hud-dist" class="hud-dist">0 m</div>
+      </div>
+      <div id="shield" class="shield" hidden>SHIELD</div>
+    </div>
+    <!-- 첫 판 안내 힌트: HUD 바로 아래 (HUD 가 커져도 같이 내려간다) -->
+    <div id="tip" class="tip"></div>
+  </div>
+
+  <!-- 하단 배너: 같은 요소를 재사용한다 -->
+  <div id="banner" class="banner" aria-live="off"></div>
+
+  <!-- 하단 키보드 조작 안내 줄 (키보드 기기, 플레이 시작 4초). 내용은 JetRushUi 가 채운다 -->
+  <div id="cbar" class="cbar" aria-hidden="true"></div>
+
+  <!-- 터치 존 안내: 입력은 window pointerdown 절반 판정이 처리한다 -->
+  <div class="zone zone-left" aria-hidden="true">&#8249;</div>
+  <div class="zone zone-right" aria-hidden="true">&#8250;</div>
+
+  <!-- 터치 기기 전용 비행 버튼 (누르고 있는 동안 동작). data-ui 라서 좌우 조종 절반 판정으로 가지 않는다.
+       버튼마다 독립된 절대 위치 요소: DOWN 왼쪽 아래, BOOST 아래 가운데, UP 오른쪽 아래 (data-flight 값은 climb/dive/boost 그대로). -->
+  <button class="fb fb-down" type="button" data-ui data-flight="dive" tabindex="-1" aria-hidden="true">DOWN</button>
+  <button class="fb fb-boost" type="button" data-ui data-flight="boost" tabindex="-1" aria-hidden="true">BOOST</button>
+  <button class="fb fb-up" type="button" data-ui data-flight="climb" tabindex="-1" aria-hidden="true">UP</button>
+
+  <!-- 터치 버튼 위치 편집 화면 (Options > Touch buttons > Edit). 막대만 입력을 받고, 위의 UP/DOWN/BOOST 버튼을 끌어서 옮긴다. -->
+  <div id="layout-bar" class="layout-bar" hidden>
+    <div class="layout-title">Drag buttons to move</div>
+    <div class="layout-actions">
+      <button id="layout-reset" class="layout-btn" type="button" data-ui>Reset</button>
+      <button id="layout-done" class="layout-btn layout-done" type="button" data-ui>Done</button>
+    </div>
+  </div>
+
+  <button id="mute" class="mute" type="button" data-ui aria-pressed="false">Sound: on</button>
+  <button id="options-btn" class="options-btn" type="button" data-ui>Options</button>
+
+  <section class="screen title-screen">
+    <div class="panel title-panel">
+      <h1 class="title">JET RUSH</h1>
+      <p class="desc">Steer left and right. Thread the gaps. Fly through rings.</p>
+      <p id="controls" class="controls"></p>
+      <div class="map-pick" role="group" aria-label="Map">
+        <button id="map-lanes" class="map-btn" type="button" data-ui aria-pressed="true">LANES</button>
+        <button id="map-open" class="map-btn" type="button" data-ui aria-pressed="false" aria-describedby="map-hint">
+          <svg class="lock" viewBox="0 0 12 14" width="12" height="14" aria-hidden="true" focusable="false"><rect x="1" y="6" width="10" height="7.4" rx="1.6"/><path d="M3.4 6.2V4.3a2.6 2.6 0 0 1 5.2 0v1.9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>OPEN
+        </button>
+      </div>
+      <p id="map-hint" class="map-hint" hidden></p>
+      <p class="tap-hint">Tap to start</p>
+      <div id="title-best" class="title-best" hidden>BEST <span id="title-best-num">0</span></div>
+    </div>
+  </section>
+
+  <section id="over-screen" class="screen over-screen">
+    <div class="panel over-panel">
+      <div class="over-title">GAME OVER</div>
+      <div id="crashed" class="crashed">Crashed at 0 m</div>
+      <div id="final-score" class="final-score">SCORE 0</div>
+      <div id="best" class="best">BEST 0</div>
+      <div id="new-best" class="new-best" hidden>NEW BEST</div>
+      <div id="open-unlocked" class="open-unlocked" hidden>OPEN MAP UNLOCKED</div>
+      <form id="nick-form" class="nick-form" data-ui autocomplete="off">
+        <input id="nick" class="nick" type="text" maxlength="12" placeholder="Nickname" aria-label="Nickname" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button class="submit" type="submit">Submit</button>
+      </form>
+      <p id="nick-rule" class="nick-rule"></p>
+      <p id="board-note" class="board-note" aria-live="polite" hidden></p>
+      <ol id="board" class="board" data-ui></ol>
+      <button id="retry" class="retry" type="button">Tap to retry</button>
+    </div>
+  </section>
+
+  <div id="options" class="options" data-ui hidden>
+    <div class="options-panel" role="dialog" aria-modal="true" aria-labelledby="options-title">
+      <h2 id="options-title" class="options-title">OPTIONS</h2>
+      <div class="opt-row"><span class="opt-label" id="lbl-sound">Sound (all)</span><button id="opt-sound" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-sound">On</button></div>
+      <div class="opt-row"><span class="opt-label" id="lbl-music">Music</span><button id="opt-music" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-music">On</button></div>
+      <div class="opt-row"><label class="opt-label" for="opt-music-vol">Music Volume</label><input id="opt-music-vol" class="opt-range" type="range" min="0" max="100" step="1" value="50"></div>
+      <div class="opt-row"><span class="opt-label" id="lbl-sfx">SFX</span><button id="opt-sfx" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-sfx">On</button></div>
+      <div class="opt-row"><label class="opt-label" for="opt-sfx-vol">SFX Volume</label><input id="opt-sfx-vol" class="opt-range" type="range" min="0" max="100" step="1" value="100"></div>
+      <div class="opt-row"><span class="opt-label" id="lbl-rm">Reduced motion</span><button id="opt-rm" class="opt-toggle" type="button" aria-pressed="false" aria-labelledby="lbl-rm">Off</button></div>
+      <div class="opt-row" id="row-vib" hidden><span class="opt-label" id="lbl-vib">Vibration</span><button id="opt-vib" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-vib">On</button></div>
+      <div class="opt-row"><span class="opt-label" id="lbl-map">Map</span><button id="opt-map" class="opt-toggle" type="button" aria-pressed="false" aria-labelledby="lbl-map" aria-describedby="opt-map-hint">Lanes</button></div>
+      <p id="opt-map-hint" class="opt-hint" hidden></p>
+      <div class="opt-row" id="row-touch" hidden><span class="opt-label" id="lbl-touch">Touch buttons</span><button id="opt-touch" class="opt-toggle" type="button" aria-labelledby="lbl-touch">Edit</button></div>
+      <div class="opt-row"><span class="opt-label" id="lbl-reset">Scores &amp; tips</span><button id="opt-reset" class="opt-toggle opt-danger" type="button">Reset data</button></div>
+      <div class="opt-row"><span class="opt-label" id="lbl-lb-delete">Online scores (all games)</span><button id="opt-lb-delete" class="opt-toggle opt-danger" type="button" aria-labelledby="lbl-lb-delete opt-lb-delete">Delete mine</button></div>
+      <div id="opt-controls" class="opt-controls">
+        <h3 class="opt-sub">Controls</h3>
+      </div>
+      <button id="opt-close" class="opt-close" type="button">Close</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

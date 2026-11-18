@@ -6,6 +6,15 @@ import type { Item } from './projects'
 // tie keeps this order. Popular sorts by plays from the public analytics summary.
 export const games: Item[] = [
   {
+    title: 'Jet Rush',
+    date: '2026-11-13',
+    href: '/arcade/jet-rush',
+    blurb: 'An endless flying runner. Steer, climb and boost a jet through the gaps of a sun-bleached box city.',
+    tags: ['Keyboard or touch', 'Mobile', 'Desktop'],
+    img: '/projects/jet-rush-1.jpg',
+    badge: 'Play now',
+  },
+  {
     title: 'Melon Merge',
     date: '2026-11-13',
     href: '/arcade/melon-merge',

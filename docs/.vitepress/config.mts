@@ -88,6 +88,7 @@ const sidebar: Record<string, SidebarItem[]> = {
       text: 'Arcade Web',
       items: [
         { text: 'Overview', link: '/projects/arcade-web' },
+        { text: 'Jet Rush', link: '/projects/jet-rush' },
         { text: 'Melon Merge', link: '/projects/melon-merge' },
         { text: 'Bug Squash', link: '/projects/bug-squash' },
         { text: 'Stack Up', link: '/projects/stack-up' },
@@ -269,6 +270,7 @@ const nav = pruneNav([
     activeMatch: '^/arcade/',
     items: [
       { text: 'All Games', link: '/arcade/' },
+      { text: 'Jet Rush', link: '/arcade/jet-rush' },
       { text: 'Melon Merge', link: '/arcade/melon-merge' },
       { text: 'Bug Squash', link: '/arcade/bug-squash' },
       { text: 'Stack Up', link: '/arcade/stack-up' },
