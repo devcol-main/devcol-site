@@ -178,7 +178,9 @@ PSEUDO has gambling-shaped mechanics, so one rule is fixed: dice, rolls and re-r
 
 The full loop is in the build as of 2026-10-20 and was tested on a listen server with the client rolling: pip charge from perfect inputs, the tap roll and its cancel before the throw, the guaranteed first Critical success, all 15 grade rows plus the 3 double rows, all three Reversals (the Curse one with a real kill), the bad-luck stack ending in a guaranteed 12, All-in on all three types, and the refused Curse without a target. Effect sizes are still placeholders.
 
-Not done yet: the skill-tree nodes (Advantage, Re-Roll, roll bonus) don't exist yet so all three types and All-in are unlocked by default, and the tap roll roots you because the animation blueprint has no upper-body slot yet. The HUD is a functional placeholder.
+Advantage and Re-Roll joined as Common skill-tree nodes on 2026-10-22. Re-Roll means pressing R again within 0.5 s of a result, for 1 pip, with as many uses per fight as the node's rank, and only results that can be fully taken back (not a heal, a groggy result or a guaranteed 12) qualify. How the server undoes a result is in [Undoing a Random Result in UE5 GAS](/blog/2026-11-20-pseudo-dice-advantage-reroll-undo).
+
+Not done yet: the roll bonus node doesn't exist yet so all three types and All-in are unlocked by default, and the tap roll roots you because the animation blueprint has no upper-body slot yet. The HUD is a functional placeholder.
 
 Updated 2026-10-21: the dice system is built. Pips now come only from perfect inputs, start pips differ between single player and multiplayer, rolls resolve at the throw frame and can be cancelled before it, Curse needs a target, and All-in roots you and slows the world only in single player.
 

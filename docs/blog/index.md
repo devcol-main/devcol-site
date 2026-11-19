@@ -15,6 +15,11 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-20: [A Large UE5 Enemy That Twitches While Strafing: Detour Crowd MaxAgentRadius and the Braking Frame](./2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter)
+- 2026-11-20: [UE5 Ragdoll Launches Into the Air on Death: Montage Auto Blend-Out, Unlimited Depenetration and Joints That Start Apart](./2026-11-20-pseudo-ragdoll-launch-on-death)
+- 2026-11-20: [Tap to Dodge, Hold to Sprint on One Key in UE5: a C++ Tap/Hold Judge on Enhanced Input, Real-Time Thresholds and a Dash on Release](./2026-11-20-pseudo-dodge-tap-sprint-hold)
+- 2026-11-20: [UE5 AI Perception With Awareness States: Sight, Hearing, Damage and Seeing an Ally Get Hit, Mapped Into a State Tree by Tags](./2026-11-20-pseudo-ai-perception-awareness-states)
+- 2026-11-20: [Undoing a Random Result in UE5 GAS: a Server-Checked Re-Roll Window and 3d6 Keep-Highest-Two Advantage](./2026-11-20-pseudo-dice-advantage-reroll-undo)
 - 2026-11-19: [Coyote Time, Fall Damage and a Break-Fall Landing in UE5 Multiplayer: CanJumpWhileFalling, Landed Velocity and a Client That Lands First](./2026-11-19-pseudo-coyote-time-fall-damage-break-fall)
 - 2026-11-19: [Server-Checked Interaction and Listen-Server Travel in UE5: an Interactable Interface, a Local Focus Component and ServerTravel From a Portal](./2026-11-19-pseudo-interact-portal-server-travel)
 - 2026-11-19: [Server-Validated Hitscan in UE5 GAS: Predicted Ammo Cost, an Ammo ID in Every Shot, and a Shotgun Spread the Server Can Re-Check](./2026-11-19-pseudo-hitscan-pistols-server-validated)

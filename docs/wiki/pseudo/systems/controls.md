@@ -77,6 +77,8 @@ On a gamepad, holding L3 sprints at once with no threshold, for players who'd ra
 
 The 0.2 s threshold isn't a constant in code. It's a project setting today and becomes a per-player option in the settings menu, because how long a "tap" is varies from person to person.
 
+How the judge is built (one input action, real-time threshold, dash on release) is in [Tap to Dodge, Hold to Sprint on One Key in UE5](/blog/2026-11-20-pseudo-dodge-tap-sprint-hold).
+
 ### Dice: roll or All-in
 
 R (R2) taps to roll one die of the selected type, and holds to go All-in. What All-in does is on the [Dice](/wiki/pseudo/systems/dice) page.
