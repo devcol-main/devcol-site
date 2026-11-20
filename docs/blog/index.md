@@ -15,6 +15,14 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-22: [A UE5 Settings Menu With Key Remapping: UGameUserSettings, Enhanced Input User Settings, a CommonUI Activatable Screen and Gamepad Navigation That Works](./2026-11-22-pseudo-settings-menu-key-remapping-commonui)
+- 2026-11-22: [Save, Load and Checkpoint Retry for a UE5 Listen-Server Game: USaveGame, a Game Instance Subsystem, SaveGame Properties and a Run That Survives ServerTravel](./2026-11-22-pseudo-save-load-checkpoints-listen-server)
+- 2026-11-22: [Health Bars for a UE5 Multiplayer Action Game: Overhead Bars Built in C++ UMG, a Boss Bar on Engage, and Per-Viewer Hiding Without Replication](./2026-11-22-pseudo-combat-ui-overhead-boss-bars)
+- 2026-11-22: [A Hit From Behind Lights the Top of the Screen: Camera Pitch in UnrotateVector and a Yaw-Only Frame for UE5 Damage Direction Indicators](./2026-11-22-pseudo-hit-direction-indicator-camera-pitch)
+- 2026-11-22: [A Low-Health Heartbeat That Plays but Can't Be Heard in UE5: 98 % of the Energy Below 150 Hz, and How to Meter the Real Output](./2026-11-22-pseudo-low-health-heartbeat-not-heard)
+- 2026-11-22: [A Dead Player Stands Up When the UE5 Death Montage Ends: a Parked Section End and Two Touching Anim Segments](./2026-11-22-pseudo-death-montage-stands-up-touching-segments)
+- 2026-11-22: [UE5 AI That Hitches While Walking: StopMovement Resets Velocity, a Random EQS Pick Reverses the Strafe, and Unsmoothed Blend Space Inputs](./2026-11-22-pseudo-ai-stopmovement-velocity-reset-hitch)
+- 2026-11-22: [UE5 Ragdoll Corpses That Jump Seconds Later or Climb a Slope: Ragdoll Self-Collision, Joint Limits and a Death Pose Inside the Ground](./2026-11-22-pseudo-ragdoll-corpse-jumps-climbs-slope)
 - 2026-11-20: [A Large UE5 Enemy That Twitches While Strafing: Detour Crowd MaxAgentRadius and the Braking Frame](./2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter)
 - 2026-11-20: [UE5 Ragdoll Launches Into the Air on Death: Montage Auto Blend-Out, Unlimited Depenetration and Joints That Start Apart](./2026-11-20-pseudo-ragdoll-launch-on-death)
 - 2026-11-20: [Tap to Dodge, Hold to Sprint on One Key in UE5: a C++ Tap/Hold Judge on Enhanced Input, Real-Time Thresholds and a Dash on Release](./2026-11-20-pseudo-dodge-tap-sprint-hold)

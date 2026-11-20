@@ -51,6 +51,10 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-077 Sprint Tap Hold.md -> 2026-11-20-pseudo-dodge-tap-sprint-hold
 - PSEUDO: Documents/Issues/ISS-613 Enemy Ragdoll Launch.md -> skipped: covered by 2026-11-20-pseudo-ragdoll-launch-on-death
 - PSEUDO: Documents/Issues/ISS-614 Prime Helix Move-Off Jitter.md -> skipped: covered by 2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter
+- PSEUDO: Documents/Issues/ISS-081 Animation Pass.md -> skipped: chore (batch of animation feedback items: montage rate scales, clip swaps, a stowed layer)
+- PSEUDO: Documents/Issues/ISS-083 Combat UI.md -> 2026-11-22-pseudo-combat-ui-overhead-boss-bars
+- PSEUDO: Documents/Issues/ISS-085 Save Load and Checkpoints.md -> 2026-11-22-pseudo-save-load-checkpoints-listen-server
+- PSEUDO: Documents/Issues/ISS-087 Settings UI and Key Remapping.md -> 2026-11-22-pseudo-settings-menu-key-remapping-commonui
 
 ## Handled after the cut-off
 
@@ -83,11 +87,22 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Debugging/DBG-042 Enemy Ragdoll Launches On Death (2026-11-18).md -> 2026-11-20-pseudo-ragdoll-launch-on-death
 - PSEUDO: Documents/Debugging/DBG-043 Prime Helix Move-Off Jitter (2026-11-18).md -> 2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-19) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-044 Enemy Melee Starts Out Of Reach (2026-11-20).md -> updated 2026-11-15-pseudo-boss-swing-whiffs-reach
+- PSEUDO: Documents/Debugging/DBG-045 Corpse Jumps Seconds After Ragdoll (2026-11-20).md -> 2026-11-22-pseudo-ragdoll-corpse-jumps-climbs-slope
+- PSEUDO: Documents/Debugging/DBG-046 Corpse Climbs Up A Slope (2026-11-20).md -> 2026-11-22-pseudo-ragdoll-corpse-jumps-climbs-slope
+- PSEUDO: Documents/Debugging/DBG-047 Enemy Walk Hitches And Leg Pops (2026-11-20).md -> 2026-11-22-pseudo-ai-stopmovement-velocity-reset-hitch
+- PSEUDO: Documents/Debugging/DBG-048 Dead Player Stands Up After The Death Clip (2026-11-20).md -> 2026-11-22-pseudo-death-montage-stands-up-touching-segments
+- PSEUDO: Documents/Debugging/DBG-049 Heartbeat Not Heard (2026-11-20).md -> 2026-11-22-pseudo-low-health-heartbeat-not-heard
+- PSEUDO: Documents/Debugging/DBG-050 Rear Hit Lights The Top Edge (2026-11-21).md -> 2026-11-22-pseudo-hit-direction-indicator-camera-pitch
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-21) -> nothing to post
 
 ## Wiki follow-ups
 
 
 ## Screenshots wanted
+
+- 2026-11-22-pseudo-hit-direction-indicator-camera-pitch: the hit edge at the bottom for a back hit with the camera pitched down and the attacker below (after the fix).
+- 2026-11-22-pseudo-combat-ui-overhead-boss-bars: the boss bar at the top and an elite overhead bar in the same frame.
 
 ## Maintenance log
 
@@ -98,3 +113,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-17: linked today's posts in: /wiki/pseudo/systems/combo-and-cancels (Area attacks -> AoE build log), /wiki/pseudo/systems/enemy-ai (data phases -> boss build log; also fixed the phase tag name from `Boss.Phase.N` to `State.Phase.N`, per ISS-045 and the source), /wiki/pseudo/systems/rampage (Related pages -> parts and boss build logs).
 - 2026-11-18: linked today's posts in: /wiki/pseudo/systems/weapons (Ranged mode -> hitscan build log), /wiki/pseudo/systems/controls (L2 interact paragraph -> interaction and travel build log), /wiki/pseudo/systems/level-metrics (Edges and coyote time -> jump and landing build log).
 - 2026-11-19: linked today's posts in and corrected status lines: /wiki/pseudo/systems/controls (tap / hold section -> dodge and sprint build log), /wiki/pseudo/systems/dice (Status: Advantage and Re-Roll nodes now exist, per ISS-058; link to the re-roll build log), /wiki/pseudo/systems/enemy-ai (Suspicious now leaves to Return, and perception / search / return home are built, per ISS-060; link to the perception build log).
+- 2026-11-21: linked today's posts in and corrected a status line: /wiki/pseudo/systems/controls (the tap/hold threshold is now a per-player setting, per ISS-087; link to the settings and remapping build log), 2026-11-20-pseudo-ragdoll-launch-on-death (Related line to the later corpse post). Also added an Update section to 2026-11-15-pseudo-boss-swing-whiffs-reach from DBG-044.

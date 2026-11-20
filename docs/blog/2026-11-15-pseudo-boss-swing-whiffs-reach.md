@@ -180,3 +180,16 @@ If an enemy melee attack misses a still target and the trace itself looks correc
 5. **Refresh derived data per use.** A cached copy of data-derived values (scaled ranges, for example) makes live tuning silently do nothing.
 
 Still open: at Scale 1.5, Swing2 passes over a player who stands closer than about 50 cm edge to edge. The AI never starts it from that close after an approach, but a player who walks into the boss mid-combo is safe from it. Fixing that would need a minimum range and a back-off move the AI doesn't have yet.
+
+## Update, November 2026: the same range bug on every enemy
+
+The boss was not the only one. A month later a standing player was also dodging most punches of the Red Brute, an elite that hit 4 times in 15 swings. Its hit traces swept through a standing body inside the window, and a bearing map showed every enemy except this boss hits best at 0 degrees. The misses all started at the attack's `MaxRange`: edge distances of 145 to 159 cm for punches with ranges of 150 and 160, while the fist's reach in the hit window was about 125 cm. Most ranges in the enemy data were first guesses (round numbers like 110, 160 and 200) that were never checked against the clips.
+
+So I ran the offline reach measurement from this post over every traced melee attack in every enemy data asset: 34 attacks in 19 assets had `MaxRange` at or past the reach. Two things changed compared with the boss tuning above:
+
+- 75 % instead of 85 %. The offline reach (a sphere sweep of the hit sockets against a standing body) is about 10 to 20 cm optimistic on small, fast swipes, so a range only a few centimetres inside it still missed sometimes. Any `MaxRange` past 85 % of the reach is now set to 75 % of it; ranges already well inside were left alone.
+- A minimum range where a swing passes over a close player. That closes the open case above: Swing2 now starts at 40 cm at the earliest.
+
+Attacks that move while they swing and area attacks were left as they were. One area attack still missed in testing because its centre landed on the far side of the room's wall, and the wall check correctly dropped the hit. I moved that test to an open room, and fixed the area centre calculation for an enemy standing close to a wall, which had found 0 targets before.
+
+With a still player, 16 enemies and 15 natural attack starts each, 223 of 225 attacks hit on the host and 221 of 226 on the client. The rule I keep now: whenever a melee attack is added, measure its reach offline and keep `MaxRange` at 75 to 85 % of it.

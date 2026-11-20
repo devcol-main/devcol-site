@@ -117,3 +117,5 @@ The ragdoll still falls the way it should. Killed at the top of a launch, with t
 - **Check joint gaps on the last death frame** when you add an enemy from a pack. If a prop bone ends up far from the bone it is jointed to, either release the joint in code as above or change the physics asset.
 
 Related: [Two Enemies Nothing Could Hurt: Meshes With No Physics Asset in UE5](./2026-11-06-pseudo-buff-enemies-no-physics-asset) is another case where a pack enemy's physics asset decided how combat behaved.
+
+Related: two later ragdoll bugs, corpses that jump seconds after going limp and corpses that climb a slope, are in [Ragdoll Corpses That Jump Seconds Later or Climb a Slope](./2026-11-22-pseudo-ragdoll-corpse-jumps-climbs-slope).

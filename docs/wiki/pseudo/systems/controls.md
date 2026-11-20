@@ -75,7 +75,7 @@ Sprint ends when you release the button, attack, fire while aiming, guard, roll 
 
 On a gamepad, holding L3 sprints at once with no threshold, for players who'd rather keep ◯ as a pure dodge.
 
-The 0.2 s threshold isn't a constant in code. It's a project setting today and becomes a per-player option in the settings menu, because how long a "tap" is varies from person to person.
+The 0.2 s threshold isn't a constant in code. It's a project setting, and players can override it in the settings menu, because how long a "tap" is varies from person to person. A player who never changes it keeps following the project default.
 
 How the judge is built (one input action, real-time threshold, dash on release) is in [Tap to Dodge, Hold to Sprint on One Key in UE5](/blog/2026-11-20-pseudo-dodge-tap-sprint-hold).
 
@@ -108,7 +108,7 @@ The settings menu has a Controls tab with a keyboard-and-mouse column and a game
 
 Look, the menu key and mouse-wheel ammo cycling are fixed. Assigning the same key to two actions is allowed and only shows a warning; I'd rather let a player make an odd layout on purpose than block one they chose.
 
-The tap/hold threshold, look sensitivity and invert Y are per-player settings in the same tab. Settings are saved per user, separately from the game save, so a new playthrough keeps your layout.
+The tap/hold threshold, look sensitivity and invert Y are per-player settings in the same tab. Settings are saved per user, separately from the game save, so a new playthrough keeps your layout. How the settings screen and remapping were built is in the [settings and key remapping build log](/blog/2026-11-22-pseudo-settings-menu-key-remapping-commonui).
 
 ## Related pages
 
