@@ -1,6 +1,6 @@
 ---
 title: "Play Bukang Run"
-description: "Play Bukang Run free in your browser: a three-lane swimming runner about the shark that spent 34 days in a Busan harbor canal. Dodge nets, pumps and camera flashes and swim out to the open sea."
+description: "Play Bukang Run free in your browser, in English or Korean: a three-lane swimming runner about the shark that spent 34 days in a Busan harbor canal. Dodge nets, pumps and camera flashes and swim out to the open sea."
 sidebar: false
 aside: false
 prev: false
@@ -9,7 +9,7 @@ next: false
 
 # Bukang Run
 
-A shark is stuck in a narrow harbor canal. Swim it out to the open sea: switch lanes, jump over low nets, dive under high ones, and grab ice cream on the way. The game text is in Korean, but the controls below are all you need.
+A shark is stuck in a narrow harbor canal. Swim it out to the open sea: switch lanes, jump over low nets, dive under high ones, and grab ice cream on the way. The game runs in English or Korean. Switch with the button in the top right of the title screen.
 
 <GameFrame slug="bukang-run" title="Bukang Run, a three-lane shark swimming runner" hint="Click the game once, then the arrow keys work too. The first load is about 9 MB." />
 
