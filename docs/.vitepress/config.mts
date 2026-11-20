@@ -80,6 +80,7 @@ const sidebar: Record<string, SidebarItem[]> = {
     {
       text: 'Unity',
       items: [
+        { text: 'Bukang Run', link: '/projects/bukang-run' },
         { text: 'Press Plane', link: '/projects/press-plane' },
         { text: 'Rock Paper Scissors - Advance', link: '/projects/rock-paper-scissors-advance' },
       ],
@@ -270,6 +271,7 @@ const nav = pruneNav([
     activeMatch: '^/arcade/',
     items: [
       { text: 'All Games', link: '/arcade/' },
+      { text: 'Bukang Run', link: '/arcade/bukang-run' },
       { text: 'Jet Rush', link: '/arcade/jet-rush' },
       { text: 'Melon Merge', link: '/arcade/melon-merge' },
       { text: 'Bug Squash', link: '/arcade/bug-squash' },
