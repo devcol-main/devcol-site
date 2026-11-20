@@ -40,7 +40,7 @@ AI behavior uses State Tree rather than a Behavior Tree. The shared tree, `ST_En
 | State | Does | Leaves when |
 |---|---|---|
 | Idle / Patrol | Waits or follows a patrol path | Hears or feels something → Suspicious; clear sight → Combat |
-| Suspicious | Walks to the noise or the last place it saw you | Target confirmed → Combat; nothing there → Patrol |
+| Suspicious | Walks to the noise or the last place it saw you | Target confirmed → Combat; nothing there → Return |
 | **Combat** | The attack selection loop (below) | Target lost → Lost |
 | Lost | Searches around your last known position | Found → Combat; timeout → Return |
 | Return | Walks back home | Arrived → Idle |
@@ -140,6 +140,6 @@ Projectiles (the boss's thrown rock, later the ranged enemies) are their own ser
 
 - The monster assets for Stage 2's swarm enemies.
 - Per-enemy numbers (senses, ranges, cooldowns, damage), which only playtesting can settle.
-- Perception, searching and returning home are designed but arrive with the full enemy AI pass.
+- Perception (sight, hearing, damage, seeing an ally get hit), searching and returning home are in the build for enemies whose data turns perception on; bosses keep the radius rule. Teams, ally calls and alert icons are not built yet. How it was built: [UE5 AI Perception With Awareness States](/blog/2026-11-20-pseudo-ai-perception-awareness-states).
 
 For how the first enemy's bugs went, see [Two Bugs from the First Enemy](/blog/2026-10-20-pseudo-first-enemy-camera-and-facing) and [Hits That Only Landed When the Host Was Watching: Bones That Don't Refresh on a UE5 Listen Server](/blog/2026-10-20-pseudo-offscreen-enemy-hits).

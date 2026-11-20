@@ -40,6 +40,17 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-079 Ranged Redesign.md -> 2026-11-19-pseudo-hitscan-pistols-server-validated (later redesign of the same feature, written as one post)
 - PSEUDO: Documents/Issues/ISS-052 Game Flow and Interact.md -> 2026-11-19-pseudo-interact-portal-server-travel
 - PSEUDO: Documents/Issues/ISS-056 Jump and Landing.md -> 2026-11-19-pseudo-coyote-time-fall-damage-break-fall
+- PSEUDO: Documents/Issues/ISS-058 Dice Unlocks.md -> 2026-11-20-pseudo-dice-advantage-reroll-undo
+- PSEUDO: Documents/Issues/ISS-060 AI Perception.md -> 2026-11-20-pseudo-ai-perception-awareness-states
+- PSEUDO: Documents/Issues/ISS-064 Batch 1 Fixes.md -> skipped: chore (batch fixes; menu input fix already posted as 2026-10-22-pseudo-menu-start-no-control)
+- PSEUDO: Documents/Issues/ISS-067 Menu Debug Docs.md -> skipped: chore (debug-doc work, no code change)
+- PSEUDO: Documents/Issues/ISS-069 Main Menu Buttons.md -> skipped: no general lesson (short placeholder menu-button pass, later replaced by the UI rework)
+- PSEUDO: Documents/Issues/ISS-071 Unlock All Cheat.md -> skipped: chore (cheat)
+- PSEUDO: Documents/Issues/ISS-073 Non-Combat Tuning.md -> skipped: chore (tuning-only)
+- PSEUDO: Documents/Issues/ISS-075 Level Metrics and Gym.md -> skipped: covered by /wiki/pseudo/systems/level-metrics (gym, method and numbers already there)
+- PSEUDO: Documents/Issues/ISS-077 Sprint Tap Hold.md -> 2026-11-20-pseudo-dodge-tap-sprint-hold
+- PSEUDO: Documents/Issues/ISS-613 Enemy Ragdoll Launch.md -> skipped: covered by 2026-11-20-pseudo-ragdoll-launch-on-death
+- PSEUDO: Documents/Issues/ISS-614 Prime Helix Move-Off Jitter.md -> skipped: covered by 2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter
 
 ## Handled after the cut-off
 
@@ -69,6 +80,9 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-17) -> nothing to post
 - PSEUDO: no new Debugging notes after DBG-041 (checked 2026-11-18); ISS-008 still open, left for a later run
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-18) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-042 Enemy Ragdoll Launches On Death (2026-11-18).md -> 2026-11-20-pseudo-ragdoll-launch-on-death
+- PSEUDO: Documents/Debugging/DBG-043 Prime Helix Move-Off Jitter (2026-11-18).md -> 2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-19) -> nothing to post
 
 ## Wiki follow-ups
 
@@ -83,3 +97,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-16: linked today's posts in: /wiki/pseudo/systems/defense (timing section -> parry/dodge build log, break-fall section -> reactions build log) and /wiki/pseudo/systems/dice (Under the hood -> dice build log).
 - 2026-11-17: linked today's posts in: /wiki/pseudo/systems/combo-and-cancels (Area attacks -> AoE build log), /wiki/pseudo/systems/enemy-ai (data phases -> boss build log; also fixed the phase tag name from `Boss.Phase.N` to `State.Phase.N`, per ISS-045 and the source), /wiki/pseudo/systems/rampage (Related pages -> parts and boss build logs).
 - 2026-11-18: linked today's posts in: /wiki/pseudo/systems/weapons (Ranged mode -> hitscan build log), /wiki/pseudo/systems/controls (L2 interact paragraph -> interaction and travel build log), /wiki/pseudo/systems/level-metrics (Edges and coyote time -> jump and landing build log).
+- 2026-11-19: linked today's posts in and corrected status lines: /wiki/pseudo/systems/controls (tap / hold section -> dodge and sprint build log), /wiki/pseudo/systems/dice (Status: Advantage and Re-Roll nodes now exist, per ISS-058; link to the re-roll build log), /wiki/pseudo/systems/enemy-ai (Suspicious now leaves to Return, and perception / search / return home are built, per ISS-060; link to the perception build log).

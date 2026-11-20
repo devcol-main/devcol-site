@@ -115,6 +115,8 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [A Hitch That Always Hit at 61 Seconds: UE5 Garbage Collection, Not the Content on Screen](./2026-11-12-pseudo-gc-hitch-at-61-seconds)
 - [A Raised Arm Tears the Coat, Aiming Up Fades the Body: Two UE5 Causes Behind One Clipping Report](./2026-11-15-pseudo-grenade-aim-coat-shoulder)
 - [UE5 Enemy Melee That Whiffs on a Standing Player: AI MaxRange and Facing vs. Where the Clip's Weapon Lands](./2026-11-15-pseudo-boss-swing-whiffs-reach)
+- [UE5 Ragdoll Launches Into the Air on Death: Montage Auto Blend-Out, Unlimited Depenetration and Joints That Start Apart](./2026-11-20-pseudo-ragdoll-launch-on-death)
+- [A Large UE5 Enemy That Twitches While Strafing: Detour Crowd MaxAgentRadius and the Braking Frame](./2026-11-20-pseudo-detour-crowd-max-agent-radius-jitter)
 
 **Build logs**
 
@@ -136,6 +138,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Server-Validated Hitscan in UE5 GAS: Predicted Ammo Cost, an Ammo ID in Every Shot, and a Shotgun Spread the Server Can Re-Check](./2026-11-19-pseudo-hitscan-pistols-server-validated)
 - [Server-Checked Interaction and Listen-Server Travel in UE5: an Interactable Interface, a Local Focus Component and ServerTravel From a Portal](./2026-11-19-pseudo-interact-portal-server-travel)
 - [Coyote Time, Fall Damage and a Break-Fall Landing in UE5 Multiplayer: CanJumpWhileFalling, Landed Velocity and a Client That Lands First](./2026-11-19-pseudo-coyote-time-fall-damage-break-fall)
+- [Undoing a Random Result in UE5 GAS: a Server-Checked Re-Roll Window and 3d6 Keep-Highest-Two Advantage](./2026-11-20-pseudo-dice-advantage-reroll-undo)
+- [UE5 AI Perception With Awareness States: Sight, Hearing, Damage and Seeing an Ally Get Hit, Mapped Into a State Tree by Tags](./2026-11-20-pseudo-ai-perception-awareness-states)
+- [Tap to Dodge, Hold to Sprint on One Key in UE5: a C++ Tap/Hold Judge on Enhanced Input, Real-Time Thresholds and a Dash on Release](./2026-11-20-pseudo-dodge-tap-sprint-hold)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 
