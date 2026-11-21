@@ -122,6 +122,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [A Dead Player Stands Up When the UE5 Death Montage Ends: a Parked Section End and Two Touching Anim Segments](./2026-11-22-pseudo-death-montage-stands-up-touching-segments)
 - [A Low-Health Heartbeat That Plays but Can't Be Heard in UE5: 98 % of the Energy Below 150 Hz, and How to Meter the Real Output](./2026-11-22-pseudo-low-health-heartbeat-not-heard)
 - [A Hit From Behind Lights the Top of the Screen: Camera Pitch in UnrotateVector and a Yaw-Only Frame for UE5 Damage Direction Indicators](./2026-11-22-pseudo-hit-direction-indicator-camera-pitch)
+- [Gameplay Cues Never Reach PIE Clients When Fired From Editor Python: FEditorScriptExecutionGuard Makes Every RPC Local in UE5](./2026-11-23-pseudo-editor-python-rpcs-run-locally)
+- [A Dead Player Gets Up After Pressing Attack in UE5 GAS: State.Dead Missing From ActivationBlockedTags, and Two Other Ways a Death Montage Breaks](./2026-11-23-pseudo-dead-player-ability-replaces-death-montage)
+- [A Flying ACharacter Bobs at the Water Surface in UE5: bCanSwim Defaults to True and PhysicsVolumeChanged Switches It to MOVE_Swimming](./2026-11-23-pseudo-flying-character-bcanswim-water-bob)
 
 **Build logs**
 
@@ -149,6 +152,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [Health Bars for a UE5 Multiplayer Action Game: Overhead Bars Built in C++ UMG, a Boss Bar on Engage, and Per-Viewer Hiding Without Replication](./2026-11-22-pseudo-combat-ui-overhead-boss-bars)
 - [Save, Load and Checkpoint Retry for a UE5 Listen-Server Game: USaveGame, a Game Instance Subsystem, SaveGame Properties and a Run That Survives ServerTravel](./2026-11-22-pseudo-save-load-checkpoints-listen-server)
 - [A UE5 Settings Menu With Key Remapping: UGameUserSettings, Enhanced Input User Settings, a CommonUI Activatable Screen and Gamepad Navigation That Works](./2026-11-22-pseudo-settings-menu-key-remapping-commonui)
+- [A Puzzle Kit for a UE5 Multiplayer Game: Boolean Signals, Soft Actor References, Server-Clock Doors and Hittable Puzzle Pieces Without an Ability System](./2026-11-23-pseudo-puzzle-gimmick-signal-system)
+- [NPC Dialogue and a Side Quest in UE5 With No Quest Component: Data Asset Dialogue Trees, Gameplay Tag World Flags and a Consequence You See Next Visit](./2026-11-23-pseudo-npc-dialogue-quests-world-flags)
+- [A 2D Side-Scrolling Section Inside a 3D UE5 Game: CharacterMovement Plane Constraint, a Side Camera Mode and Why GetBaseAimRotation Rejected Every Shot](./2026-11-23-pseudo-2d-side-scroll-plane-constraint)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

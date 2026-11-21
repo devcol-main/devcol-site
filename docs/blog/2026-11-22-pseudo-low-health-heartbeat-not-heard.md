@@ -89,3 +89,13 @@ The drone chirp was also lowered by 6 dB in the same audio pass. Against it, the
 - If your meter reads silence in automated PIE runs, check background audio and which PIE window owns the audio device before you suspect the game.
 - Give heartbeats, rumbles and impacts a mid-band layer (harmonics, a transient) so they survive laptop speakers and headsets.
 - If an effect depends on a mix that only applies at a lower threshold, test the stage players spend most of their time in on its own.
+
+## Update (2026-11-22): a heartbeat that outlived the player
+
+Two days later a new report came in: after dying in the boss's grab attack, "the grab sound kept playing". It wasn't the grab. Listing the active sounds on the victim's machine (`pseudo.Audio.Sounds`) at the death and at +0.5, 1, 3, 6 and 10 s showed the boss's effort sound ending about 1.5 s after the death, and the heartbeat active at every dump until Retry. The grab montage's sound notifies (none looping) and the button-mash prompt (no audio) were checked and ruled out.
+
+The low-health component maps a health fraction of 0 to its loudest stage, 120 bpm. Nothing checked the dead state, so the component restarted the heartbeat every 0.5 s under the death screen, and only the respawn's full health stopped it. Its sound class sits outside the low-health muffle, so it was the loudest thing left.
+
+The fix: the component stops the heartbeat and skips the beat while the local player is dead. Everything else gets a death sound mix pushed while the local player is dead. A scan for other loops found one more that could outlive its owner, the fall-warning wind loop, which now stops in `EndPlay`. After the change the log says "heartbeat stopped: player dead" on the death frame, and there are 0 active sounds from +0.5 s to +10 s, on host and client. Retry restores the audio.
+
+The general rule: any per-player loop or repeating sound needs to check the dead state (or its owner's `EndPlay`), not only its own trigger condition. And when a sound won't stop, list the active sounds first; it names the culprit before you start reading assets.

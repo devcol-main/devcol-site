@@ -55,6 +55,9 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-083 Combat UI.md -> 2026-11-22-pseudo-combat-ui-overhead-boss-bars
 - PSEUDO: Documents/Issues/ISS-085 Save Load and Checkpoints.md -> 2026-11-22-pseudo-save-load-checkpoints-listen-server
 - PSEUDO: Documents/Issues/ISS-087 Settings UI and Key Remapping.md -> 2026-11-22-pseudo-settings-menu-key-remapping-commonui
+- PSEUDO: Documents/Issues/ISS-089 Gimmick Kit and Puzzles.md -> 2026-11-23-pseudo-puzzle-gimmick-signal-system
+- PSEUDO: Documents/Issues/ISS-091 NPC Dialogue and Side Quest.md -> 2026-11-23-pseudo-npc-dialogue-quests-world-flags
+- PSEUDO: Documents/Issues/ISS-093 Side Scroll Section.md -> 2026-11-23-pseudo-2d-side-scroll-plane-constraint
 
 ## Handled after the cut-off
 
@@ -95,12 +98,20 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Debugging/DBG-049 Heartbeat Not Heard (2026-11-20).md -> 2026-11-22-pseudo-low-health-heartbeat-not-heard
 - PSEUDO: Documents/Debugging/DBG-050 Rear Hit Lights The Top Edge (2026-11-21).md -> 2026-11-22-pseudo-hit-direction-indicator-camera-pitch
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-21) -> nothing to post
+- PSEUDO: Documents/Debugging/DBG-051 Server Cues Missing On Clients In Scripted Tests (2026-11-21).md -> 2026-11-23-pseudo-editor-python-rpcs-run-locally
+- PSEUDO: Documents/Debugging/DBG-052 Dead Player Stands Up (2026-11-22).md -> 2026-11-23-pseudo-dead-player-ability-replaces-death-montage
+- PSEUDO: Documents/Debugging/DBG-053 Heartbeat Survives Death (2026-11-22).md -> updated 2026-11-22-pseudo-low-health-heartbeat-not-heard
+- PSEUDO: Documents/Debugging/DBG-054 Drone Swims After A Dive (2026-11-22).md -> 2026-11-23-pseudo-flying-character-bcanswim-water-bob
+- PSEUDO: Documents/Issues/ISS-008 still open (checked 2026-11-22), left for a later run
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-22) -> nothing to post
 
 ## Wiki follow-ups
 
 
 ## Screenshots wanted
 
+- 2026-11-23-pseudo-2d-side-scroll-plane-constraint: the side camera view of the 2D section with the pistol crosshair on the aim ray.
+- 2026-11-23-pseudo-puzzle-gimmick-signal-system: `pseudo.Debug.Gimmicks 1` view of the sequence puzzle (numbered links) and the dice display.
 - 2026-11-22-pseudo-hit-direction-indicator-camera-pitch: the hit edge at the bottom for a back hit with the camera pitched down and the attacker below (after the fix).
 - 2026-11-22-pseudo-combat-ui-overhead-boss-bars: the boss bar at the top and an elite overhead bar in the same frame.
 
@@ -114,3 +125,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-18: linked today's posts in: /wiki/pseudo/systems/weapons (Ranged mode -> hitscan build log), /wiki/pseudo/systems/controls (L2 interact paragraph -> interaction and travel build log), /wiki/pseudo/systems/level-metrics (Edges and coyote time -> jump and landing build log).
 - 2026-11-19: linked today's posts in and corrected status lines: /wiki/pseudo/systems/controls (tap / hold section -> dodge and sprint build log), /wiki/pseudo/systems/dice (Status: Advantage and Re-Roll nodes now exist, per ISS-058; link to the re-roll build log), /wiki/pseudo/systems/enemy-ai (Suspicious now leaves to Return, and perception / search / return home are built, per ISS-060; link to the perception build log).
 - 2026-11-21: linked today's posts in and corrected a status line: /wiki/pseudo/systems/controls (the tap/hold threshold is now a per-player setting, per ISS-087; link to the settings and remapping build log), 2026-11-20-pseudo-ragdoll-launch-on-death (Related line to the later corpse post). Also added an Update section to 2026-11-15-pseudo-boss-swing-whiffs-reach from DBG-044.
+- 2026-11-22: linked today's posts in: 2026-10-19-pseudo-predicted-weapon-swap (Update paragraph: the 'RPC ran locally' suspicion is now traced, link to the editor Python post), 2026-11-22-pseudo-death-montage-stands-up-touching-segments (Related line to the second dead-player post), /wiki/pseudo/systems/camera (override mode -> 2D section build log). Also added an Update section to 2026-11-22-pseudo-low-health-heartbeat-not-heard from DBG-053.

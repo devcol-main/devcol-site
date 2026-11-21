@@ -83,7 +83,7 @@ In combat that would be a problem, since you want to attack what you're looking 
 
 Some sections need a camera that has nothing to do with the player's state. The mode component has one more entry point for that: `SetOverrideMode`, which places a mode above every tag rule until it's cleared, blended like any other mode change.
 
-The first user is a 2D side-scrolling section. Its mode, `DA_CameraMode_Side2D`, uses a long arm (1100 cm), a small offset up (Z 60), a narrow FOV (55, to flatten the perspective) and heavier lag (8), with a slower 0.6 s blend. While it's active the arm stops following the player's control rotation and holds the volume's side-on rotation instead, with a little rotation lag so turns don't snap.
+The first user is a 2D side-scrolling section ([how the section was built](/blog/2026-11-23-pseudo-2d-side-scroll-plane-constraint)). Its mode, `DA_CameraMode_Side2D`, uses a long arm (1100 cm), a small offset up (Z 60), a narrow FOV (55, to flatten the perspective) and heavier lag (8), with a slower 0.6 s blend. While it's active the arm stops following the player's control rotation and holds the volume's side-on rotation instead, with a little rotation lag so turns don't snap.
 
 Leaving the section is the delicate part. If the override was simply cleared, the camera would swing back to wherever the control rotation pointed before the section, which could be anywhere. Instead, on exit the control rotation is set to the side view first, and then the normal mode blends in from there, so nothing pops.
 

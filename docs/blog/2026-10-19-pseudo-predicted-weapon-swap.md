@@ -117,6 +117,8 @@ On a real client, `ServerCheat` is an RPC: it goes to the server, and the server
 
 Why did the RPC run locally? My best explanation is that a call from the editor tick happens outside the client's play-in-editor context, so the RPC's call space resolves as local. I haven't traced it through the engine, so treat that as a suspicion. A later test of a server-initiated ability from editor Python showed the same pattern: the client-side RPC ran locally and the client never activated.
 
+Update: I traced it later. The tick explanation was wrong: editor Python wraps every call in `FEditorScriptExecutionGuard`, and `AActor::GetFunctionCallspace` then answers "Local" for every RPC. The details and a fix in the cheat manager are in [Gameplay Cues Never Reach PIE Clients When Fired From Editor Python](./2026-11-23-pseudo-editor-python-rpcs-run-locally).
+
 The fix is a guard that makes a misrouted call harmless (simplified):
 
 ```cpp

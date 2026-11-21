@@ -83,3 +83,5 @@ You probably have this bug if all of these are true: you play montage sections o
 - When you debug a pose problem, log a bone height per frame next to the montage state. Here the montage, the section and the position all looked correct, and only the pelvis height showed the bug.
 
 The same "hold the last frame" handover matters for ragdolls too; my post on [ragdolls launching at death](./2026-11-20-pseudo-ragdoll-launch-on-death) covers the auto blend-out side of it.
+
+Related: the same symptom came back two days later with a different cause, the player's own attack starting on the dead body. That one is in [A Dead Player Gets Up After Pressing Attack in UE5 GAS](./2026-11-23-pseudo-dead-player-ability-replaces-death-montage).
