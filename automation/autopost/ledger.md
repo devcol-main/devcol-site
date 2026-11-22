@@ -58,6 +58,14 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-089 Gimmick Kit and Puzzles.md -> 2026-11-23-pseudo-puzzle-gimmick-signal-system
 - PSEUDO: Documents/Issues/ISS-091 NPC Dialogue and Side Quest.md -> 2026-11-23-pseudo-npc-dialogue-quests-world-flags
 - PSEUDO: Documents/Issues/ISS-093 Side Scroll Section.md -> 2026-11-23-pseudo-2d-side-scroll-plane-constraint
+- PSEUDO: Documents/Issues/ISS-095 QTE.md -> 2026-11-24-pseudo-qte-real-time-judge-enhanced-input
+- PSEUDO: Documents/Issues/ISS-099 Project Review Pass.md -> skipped: chore (review pass: batch of fixes and montage / cloth tuning)
+- PSEUDO: Documents/Issues/ISS-101 Asset Additions.md -> skipped: chore (asset additions)
+- PSEUDO: Documents/Issues/ISS-103 Inventory Core.md -> 2026-11-24-pseudo-inventory-playerstate-replicated-saved
+- PSEUDO: Documents/Issues/ISS-105 Build Fix Inventory Log Category.md -> 2026-11-24-pseudo-inventory-playerstate-replicated-saved (folded: unity-build log category fix)
+- PSEUDO: Documents/Issues/ISS-110 Batch 2 Fixes.md -> skipped: chore (batch fixes)
+- PSEUDO: Documents/Issues/ISS-112 Swap and Coat.md -> skipped: chore (follow-up fixes and cloth tuning)
+- PSEUDO: Documents/Issues/ISS-118 Pet Drone Spawn and Follow.md -> 2026-11-24-pseudo-pet-drone-follow-statetree (Pet Drone series, part 1)
 
 ## Handled after the cut-off
 
@@ -104,12 +112,17 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Debugging/DBG-054 Drone Swims After A Dive (2026-11-22).md -> 2026-11-23-pseudo-flying-character-bcanswim-water-bob
 - PSEUDO: Documents/Issues/ISS-008 still open (checked 2026-11-22), left for a later run
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-22) -> nothing to post
+- PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-23)
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-23) -> nothing to post
 
 ## Wiki follow-ups
 
 
 ## Screenshots wanted
 
+- 2026-11-24-pseudo-qte-real-time-judge-enhanced-input: the ring QTE on screen (ring, target circle, Good band, key name) during the slow motion.
+- 2026-11-24-pseudo-inventory-playerstate-replicated-saved: the inventory screen with a few stacks, the detail panel and the equipped / quick markers.
+- 2026-11-24-pseudo-pet-drone-follow-statetree: the drone at the player's upper left in combat, and `pseudo.Debug.Pet 1` showing the follow point.
 - 2026-11-23-pseudo-2d-side-scroll-plane-constraint: the side camera view of the 2D section with the pistol crosshair on the aim ray.
 - 2026-11-23-pseudo-puzzle-gimmick-signal-system: `pseudo.Debug.Gimmicks 1` view of the sequence puzzle (numbered links) and the dice display.
 - 2026-11-22-pseudo-hit-direction-indicator-camera-pitch: the hit edge at the bottom for a back hit with the camera pitched down and the attacker below (after the fix).
@@ -126,3 +139,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-19: linked today's posts in and corrected status lines: /wiki/pseudo/systems/controls (tap / hold section -> dodge and sprint build log), /wiki/pseudo/systems/dice (Status: Advantage and Re-Roll nodes now exist, per ISS-058; link to the re-roll build log), /wiki/pseudo/systems/enemy-ai (Suspicious now leaves to Return, and perception / search / return home are built, per ISS-060; link to the perception build log).
 - 2026-11-21: linked today's posts in and corrected a status line: /wiki/pseudo/systems/controls (the tap/hold threshold is now a per-player setting, per ISS-087; link to the settings and remapping build log), 2026-11-20-pseudo-ragdoll-launch-on-death (Related line to the later corpse post). Also added an Update section to 2026-11-15-pseudo-boss-swing-whiffs-reach from DBG-044.
 - 2026-11-22: linked today's posts in: 2026-10-19-pseudo-predicted-weapon-swap (Update paragraph: the 'RPC ran locally' suspicion is now traced, link to the editor Python post), 2026-11-22-pseudo-death-montage-stands-up-touching-segments (Related line to the second dead-player post), /wiki/pseudo/systems/camera (override mode -> 2D section build log). Also added an Update section to 2026-11-22-pseudo-low-health-heartbeat-not-heard from DBG-053.
+- 2026-11-23: linked today's posts in: 2026-11-23-pseudo-flying-character-bcanswim-water-bob (Related line to Pet Drone, Part 1), 2026-11-22-pseudo-save-load-checkpoints-listen-server (spawned-actor sentence -> inventory build log, the dropped pickup that lost its item).

@@ -57,7 +57,7 @@ That order caused one bug that tests caught: on the host, the restore runs befor
 
 Gimmicks and other level actors opt in through a C++ interface with three hooks: `OnPreSave`, `OnSaveLoaded` and `ShouldSaveTransform`. Their state is marked `UPROPERTY(SaveGame)`, which can also be a replicated property. Serialisation is the engine's own: `Actor->Serialize` with an archive that has `ArIsSaveGame` set writes only the actor's SaveGame properties, tagged. Component state has to be copied into actor properties to be saved.
 
-Actors need stable ids. For placed actors (`IsNetStartupActor`) the id is the actor's name in the level, and destroyed placed actors are recorded, so a breakable wall stays broken. Spawned actors are saved as class plus transform and spawned again on load. A placed actor that gets renamed after a save exists is skipped with a warning; a GUID property can replace names if that becomes a problem.
+Actors need stable ids. For placed actors (`IsNetStartupActor`) the id is the actor's name in the level, and destroyed placed actors are recorded, so a breakable wall stays broken. Spawned actors are saved as class plus transform and spawned again on load. A placed actor that gets renamed after a save exists is skipped with a warning; a GUID property can replace names if that becomes a problem. (A spawned actor only gets back what is marked `SaveGame`: the [inventory build log](./2026-11-24-pseudo-inventory-playerstate-replicated-saved) has a dropped pickup that returned with no item for exactly that reason.)
 
 `OnSaveLoaded` runs on the server before `BeginPlay`, so it re-applies visuals and collision there, and clients get the values through normal replication.
 

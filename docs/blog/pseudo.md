@@ -155,6 +155,9 @@ The full write-up is the framework doc in the repository. The decisions that sha
 - [A Puzzle Kit for a UE5 Multiplayer Game: Boolean Signals, Soft Actor References, Server-Clock Doors and Hittable Puzzle Pieces Without an Ability System](./2026-11-23-pseudo-puzzle-gimmick-signal-system)
 - [NPC Dialogue and a Side Quest in UE5 With No Quest Component: Data Asset Dialogue Trees, Gameplay Tag World Flags and a Consequence You See Next Visit](./2026-11-23-pseudo-npc-dialogue-quests-world-flags)
 - [A 2D Side-Scrolling Section Inside a 3D UE5 Game: CharacterMovement Plane Constraint, a Side Camera Mode and Why GetBaseAimRotation Rejected Every Shot](./2026-11-23-pseudo-2d-side-scroll-plane-constraint)
+- [Quick-Time Events in UE5 Under Slow Motion: Judge on GetRealTimeSeconds, a Remappable Enhanced Input Context and a Single-Player-Only Rule](./2026-11-24-pseudo-qte-real-time-judge-enhanced-input)
+- [A Replicated, Saved Inventory on the PlayerState in UE5: Item Data Assets, One GAS Consumable Ability and Pickups That Survive a Load](./2026-11-24-pseudo-inventory-playerstate-replicated-saved)
+- [Pet Drone, Part 1: A Flying Companion That Follows the Player in UE5 With a Plain AAIController, a State Tree and RequestDirectMove Steering](./2026-11-24-pseudo-pet-drone-follow-statetree)
 
 **Putting a MetaHuman Face on a Paragon Body** (a five-part debugging series)
 

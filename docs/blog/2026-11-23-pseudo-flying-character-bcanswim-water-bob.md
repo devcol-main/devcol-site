@@ -63,3 +63,5 @@ Same harness after the change, driven from the host and from the client, logged 
 - Search your project for `ACharacter` subclasses that use `MOVE_Flying`. For each one that should not swim, set `bCanSwim = false` on its movement component, and check that Blueprint children still read false.
 - A custom movement component that keeps flyers flying in `PhysicsVolumeChanged` only helps the classes that actually use it.
 - When a character jitters, log the movement mode next to the position. Here the mode flip pointed at the cause in a single run, where the position alone only showed "it bounces".
+
+Related: how the drone follows the player in the first place (owner-tracking steering, wall sweeps, the stuck teleport) is in [Pet Drone, Part 1](./2026-11-24-pseudo-pet-drone-follow-statetree).
