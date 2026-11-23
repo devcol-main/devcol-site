@@ -154,6 +154,8 @@ In slow motion the world slows down and the player is compensated so they move a
 
 In multiplayer only shared moments slow the whole world. Personal effects like a perfect-dodge slow motion use camera and post-processing effects instead, so one player's dodge doesn't slow everyone else.
 
+How the perfect-dodge slow motion (Glitch Time) was built, including ending it on any attack and easing the world in and out, is in [Perfect-Dodge Slow Motion in UE5 GAS](/blog/2026-11-25-pseudo-glitch-time-perfect-dodge-slow-motion).
+
 ## Planned extras
 
 These are designed but come after the vertical slice:

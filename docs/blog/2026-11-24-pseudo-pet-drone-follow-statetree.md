@@ -108,3 +108,5 @@ The drone faces the way the body faces in both modes. One round in between froze
 - Make "untargetable" a filter in every hit query. Zero damage alone still plays cues and reactions.
 
 Later, the drone's default movement settings caused one more bug in water: see [a flying character that bobs at the water surface](./2026-11-23-pseudo-flying-character-bcanswim-water-bob).
+
+Next: [Part 2, the drone's attack](./2026-11-25-pseudo-pet-drone-attack-target-kill-credit), and [Part 3, the scan](./2026-11-25-pseudo-pet-drone-scan-custom-stencil-post-process).

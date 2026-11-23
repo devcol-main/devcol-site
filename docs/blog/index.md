@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-25: [Perfect-Dodge Slow Motion in UE5 GAS: Ending It on Any Attack With AbilityActivatedCallbacks, Easing World Time Dilation and Keeping the Effects on Real Time](./2026-11-25-pseudo-glitch-time-perfect-dodge-slow-motion)
+- 2026-11-25: [Pet Drone, Part 3: A Local Scan Pulse in UE5 With Custom Depth Stencil Outlines, a Post Process Material and the Blendable Location Traps (Auto Exposure, TSR Jitter, Upscaled UVs)](./2026-11-25-pseudo-pet-drone-scan-custom-stencil-post-process)
+- 2026-11-25: [Pet Drone, Part 2: A Companion That Only Shoots What the Player Hit, With OnGameplayEffectAppliedDelegateToTarget and Kill Credit Through the Instigator in UE5 GAS](./2026-11-25-pseudo-pet-drone-attack-target-kill-credit)
 - 2026-11-24: [Pet Drone, Part 1: A Flying Companion That Follows the Player in UE5 With a Plain AAIController, a State Tree and RequestDirectMove Steering](./2026-11-24-pseudo-pet-drone-follow-statetree)
 - 2026-11-24: [A Replicated, Saved Inventory on the PlayerState in UE5: Item Data Assets, One GAS Consumable Ability and Pickups That Survive a Load](./2026-11-24-pseudo-inventory-playerstate-replicated-saved)
 - 2026-11-24: [Quick-Time Events in UE5 Under Slow Motion: Judge on GetRealTimeSeconds, a Remappable Enhanced Input Context and a Single-Player-Only Rule](./2026-11-24-pseudo-qte-real-time-judge-enhanced-input)

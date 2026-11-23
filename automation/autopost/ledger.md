@@ -66,6 +66,12 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-110 Batch 2 Fixes.md -> skipped: chore (batch fixes)
 - PSEUDO: Documents/Issues/ISS-112 Swap and Coat.md -> skipped: chore (follow-up fixes and cloth tuning)
 - PSEUDO: Documents/Issues/ISS-118 Pet Drone Spawn and Follow.md -> 2026-11-24-pseudo-pet-drone-follow-statetree (Pet Drone series, part 1)
+- PSEUDO: Documents/Issues/ISS-120 Camera View Rework.md -> skipped: chore (tuning-only: camera mode values)
+- PSEUDO: Documents/Issues/ISS-123 Pet Drone Attack.md -> 2026-11-25-pseudo-pet-drone-attack-target-kill-credit (Pet Drone series, part 2)
+- PSEUDO: Documents/Issues/ISS-125 Pet Drone Look and Tuning.md -> 2026-11-25-pseudo-pet-drone-attack-target-kill-credit (folded: look pass that closed part 2's leftovers, crossfaded clips)
+- PSEUDO: Documents/Issues/ISS-127 Pet Drone Scan.md -> 2026-11-25-pseudo-pet-drone-scan-custom-stencil-post-process (Pet Drone series, part 3)
+- PSEUDO: Documents/Issues/ISS-130 Leftover Cleanup.md -> skipped: chore (cleanup)
+- PSEUDO: Documents/Issues/ISS-132 Glitch Time Feedback.md -> 2026-11-25-pseudo-glitch-time-perfect-dodge-slow-motion
 
 ## Handled after the cut-off
 
@@ -114,6 +120,8 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-22) -> nothing to post
 - PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-23)
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-23) -> nothing to post
+- PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-24); ISS-008 still open
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-24) -> nothing to post
 
 ## Wiki follow-ups
 
@@ -140,3 +148,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-21: linked today's posts in and corrected a status line: /wiki/pseudo/systems/controls (the tap/hold threshold is now a per-player setting, per ISS-087; link to the settings and remapping build log), 2026-11-20-pseudo-ragdoll-launch-on-death (Related line to the later corpse post). Also added an Update section to 2026-11-15-pseudo-boss-swing-whiffs-reach from DBG-044.
 - 2026-11-22: linked today's posts in: 2026-10-19-pseudo-predicted-weapon-swap (Update paragraph: the 'RPC ran locally' suspicion is now traced, link to the editor Python post), 2026-11-22-pseudo-death-montage-stands-up-touching-segments (Related line to the second dead-player post), /wiki/pseudo/systems/camera (override mode -> 2D section build log). Also added an Update section to 2026-11-22-pseudo-low-health-heartbeat-not-heard from DBG-053.
 - 2026-11-23: linked today's posts in: 2026-11-23-pseudo-flying-character-bcanswim-water-bob (Related line to Pet Drone, Part 1), 2026-11-22-pseudo-save-load-checkpoints-listen-server (spawned-actor sentence -> inventory build log, the dropped pickup that lost its item).
+- 2026-11-24: linked today's posts in: 2026-11-24-pseudo-pet-drone-follow-statetree (Next line to parts 2 and 3), /wiki/pseudo/systems/defense (slow motion section -> Glitch Time build log), 2026-11-16-pseudo-time-dilation-lock-on-hitstop (Related line to the Glitch Time build log).
