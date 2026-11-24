@@ -27,9 +27,10 @@ Drop fruit into a wooden crate. Two of the same kind that touch merge into the n
 ## Tips
 
 - Keep the big fruit on one side and build the chain toward it. A watermelon needs a melon next to a melon, and the crate only has room for a few large fruit at once.
-- **SHAKE** jolts the whole crate for a moment. Use it when two fruit of the same kind are stuck apart behind a bigger one.
+- **SHAKE** rocks the whole crate for two seconds and loosens the pile. Use it when two fruit of the same kind are stuck apart behind a bigger one. The game-over countdown pauses while it shakes.
 - **RIPEN** grows one fruit by a level in place. Pick one that sits next to a fruit of the next level up, and it merges right away.
 - You get a new SHAKE every 800 points and a new RIPEN every 1200, up to three of each.
+- Every 600 points a **special fruit** with a badge shows up. Merge a SHAKE or RIPEN fruit for an extra powerup, or merge a **BOMB** to blast the fruit around it apart.
 
 The full rules, the scoring table and how the game was built are on the [Melon Merge project page](/projects/melon-merge).
 
