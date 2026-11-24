@@ -36,7 +36,7 @@ Writing it as one chain matters because every defensive feature becomes "insert 
 | Parry | About 200 ms after the press | Adds 20 to the attacker's groggy gauge |
 | **Perfect parry** | About 80 ms before the hit lands | 50 groggy and a stagger on the attacker, a counter attack, **dice pip charge** |
 | Dodge (dash) | 350 ms of invulnerability | Avoids the hit |
-| **Perfect dodge** | The first 120 ms of the dash | A counter attack, a short slow motion, **pip charge**, basic pistol ammo refilled to full |
+| **Perfect dodge** | The first 120 ms of the dash | A counter attack, a short slow motion, **pip charge**, basic pistol ammo refilled to full, +1 round of the selected special ammo |
 
 Guard and parry share one button (L1 on a gamepad, E on PC). Pressing it starts the guard and the parry timing check at the same moment, so there's no delay to decide whether you meant to guard or parry. Holding keeps guarding.
 
@@ -59,6 +59,8 @@ So the server judges by **timestamps**, not by state at hit time:
 3. When an enemy hit lands, the server compares the hit time with the stored press times and walks the chain: dash invulnerability (perfect dodge if it's inside the first 120 ms) → perfect parry → parry → held guard → damage.
 
 Because the parry window counts from the press, a quick tap still parries a hit that lands after you let go. Holding the button only matters for the plain guard.
+
+A dodge straight back usually takes you out of reach, so the attack never touches you and step 3 never runs. For that case the server also checks every attack that misses: if it would have hit the spot where you stood when the dash started (with 50 cm of extra room), and the dash started inside the perfect window, it's a perfect dodge too. A dodge against an attack that was never going to reach you earns nothing. How that check works: [A Perfect Dodge That Never Gets Hit](/blog/2026-11-26-pseudo-backward-perfect-dodge-dash-start-check).
 
 How this is built with Gameplay Ability System target data, and what dash and guard are allowed to cancel, is in [Fair Parry and Dodge Windows on a UE5 Listen Server](/blog/2026-11-17-pseudo-server-judged-parry-dodge).
 
@@ -181,3 +183,5 @@ Updated 2026-10-21: the defense issue is built. Added the real window lengths, t
 Updated 2026-10-21: hit reactions and groggy are built. Added the two reaction axes, the tier list, the groggy numbers (4 s, +50 % damage taken, 3 s drain), player reactions with get-up invulnerability, break-fall, and enemy area attacks with their warning ring. Fixed the parry rows: parries fill the attacker's gauge, they don't lower it.
 
 Updated 2026-10-24: dash and sprint now share one button (tap = dash on release, hold = sprint with no dash); the dash is judged from the release time. A perfect dodge now refills basic pistol ammo to full instead of a partial ammo / mana refill.
+
+Updated 2026-11-26: a well-timed dodge that takes you out of reach now counts as a perfect dodge if the attack would have hit your dash start. A perfect dodge also adds one round of the selected special ammo.

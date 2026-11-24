@@ -72,6 +72,11 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-127 Pet Drone Scan.md -> 2026-11-25-pseudo-pet-drone-scan-custom-stencil-post-process (Pet Drone series, part 3)
 - PSEUDO: Documents/Issues/ISS-130 Leftover Cleanup.md -> skipped: chore (cleanup)
 - PSEUDO: Documents/Issues/ISS-132 Glitch Time Feedback.md -> 2026-11-25-pseudo-glitch-time-perfect-dodge-slow-motion
+- PSEUDO: Documents/Issues/ISS-134 Backdash Graze Perfect Dodge.md -> 2026-11-26-pseudo-backward-perfect-dodge-dash-start-check
+- PSEUDO: Documents/Issues/ISS-136 Plugins VFX Cutscene UI.md -> skipped: chore (plugin enabling only)
+- PSEUDO: Documents/Issues/ISS-137 Temp Player HP Bar.md -> skipped: no general lesson (placeholder HUD bar, to be replaced)
+- PSEUDO: Documents/Issues/ISS-138 Combat Test Map and Training Dummies.md -> 2026-11-26-pseudo-training-dummies-combat-test-map
+- PSEUDO: Documents/Issues/ISS-139 Combo Light Heavy Split.md -> 2026-11-26-pseudo-light-heavy-combo-one-ability-two-specs
 
 ## Handled after the cut-off
 
@@ -122,6 +127,8 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-23) -> nothing to post
 - PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-24); ISS-008 still open
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-24) -> nothing to post
+- PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-25); ISS-008 still open
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-25) -> nothing to post
 
 ## Wiki follow-ups
 
@@ -149,3 +156,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-22: linked today's posts in: 2026-10-19-pseudo-predicted-weapon-swap (Update paragraph: the 'RPC ran locally' suspicion is now traced, link to the editor Python post), 2026-11-22-pseudo-death-montage-stands-up-touching-segments (Related line to the second dead-player post), /wiki/pseudo/systems/camera (override mode -> 2D section build log). Also added an Update section to 2026-11-22-pseudo-low-health-heartbeat-not-heard from DBG-053.
 - 2026-11-23: linked today's posts in: 2026-11-23-pseudo-flying-character-bcanswim-water-bob (Related line to Pet Drone, Part 1), 2026-11-22-pseudo-save-load-checkpoints-listen-server (spawned-actor sentence -> inventory build log, the dropped pickup that lost its item).
 - 2026-11-24: linked today's posts in: 2026-11-24-pseudo-pet-drone-follow-statetree (Next line to parts 2 and 3), /wiki/pseudo/systems/defense (slow motion section -> Glitch Time build log), 2026-11-16-pseudo-time-dilation-lock-on-hitstop (Related line to the Glitch Time build log).
+- 2026-11-25: linked today's posts in and corrected the wiki from ISS-134 / ISS-139: /wiki/pseudo/systems/defense (backward perfect dodge judged from the dash start, special ammo +1; link), /wiki/pseudo/systems/weapons (special ammo is refilled +1 up to its cap, emptied special stays selected, dry fire), /wiki/pseudo/systems/combo-and-cancels (light / heavy split is built; status line; link), /wiki/pseudo/systems/controls (RMB / triangle heavy combo and stowed draw attack), /wiki/pseudo/systems/damage-formula (link to the training dummy post), 2026-11-14-pseudo-melee-combo-graph-build (What changed later -> light / heavy build log).

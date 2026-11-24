@@ -75,7 +75,7 @@ Armor is `k / (k + Defense)` instead of a flat subtraction. A flat `damage − d
 
 ## Worked examples
 
-All with the greatsword, the default player at Strength 10, against a training dummy with Defense 20. "Seen" means I hit the dummy in the running game and the number matched.
+All with the greatsword, the default player at Strength 10, against a training dummy with Defense 20. "Seen" means I hit the dummy in the running game and the number matched. The dummy logs every term of the formula for each hit; how it works is in [Training Dummies in UE5 Without a New Enemy Class](/blog/2026-11-26-pseudo-training-dummies-combat-test-map).
 
 | Case | Base | Scaling | Mult | Bucket | Crit | Armor | Damage | Seen |
 |---|---|---|---|---|---|---|---|---|

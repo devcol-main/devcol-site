@@ -19,7 +19,7 @@ Gamepad names below are PlayStation, with Xbox in brackets.
 |---|---|---|---|
 | Move / look | WASD / mouse | WASD / mouse, always aiming (strafe + crosshair) | WASD / mouse |
 | Light attack / fire | LMB | LMB fires the selected ammo (hold = automatic; laser: hold to charge, release to shoot) | LMB: draw and attack |
-| Heavy / charge | RMB | Not used yet | — |
+| Heavy / charge | RMB: heavy combo | Not used yet | RMB: draw and heavy attack |
 | Jump | Space | Space | Space |
 | Dash | Tap Shift (dash on release) | Tap Shift | Tap Shift |
 | Sprint | Hold Shift 0.2 s or more | Hold Shift | Hold Shift |
@@ -41,7 +41,7 @@ Gamepad names below are PlayStation, with Xbox in brackets.
 |---|---|---|---|
 | Move / look | Left / right stick | Left / right stick, always aiming | Left / right stick |
 | Light attack / fire | ▢ (X) | ▢ fires the selected ammo (hold = automatic / charge) | ▢: draw and attack |
-| Heavy / charge | △ (Y) | Not used yet | — |
+| Heavy / charge | △ (Y): heavy combo | Not used yet | △: draw and heavy attack |
 | Jump | ✕ (A) | ✕ | ✕ |
 | Dash | Tap ◯ (B), dash on release | Tap ◯ | Tap ◯ |
 | Sprint | Hold ◯ 0.2 s or more, or hold L3 | Same | Same |

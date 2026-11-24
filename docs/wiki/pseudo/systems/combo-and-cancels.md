@@ -70,7 +70,7 @@ The first five are in the vertical slice. The rest come after it.
 
 ### The greatsword layout
 
-The greatsword started as a straight five-hit light chain. Testing it showed that the first two swings barely reach anything, which is wrong for a light attack. They're becoming **heavy attacks with a launch**, and the light chain becomes the last three swings, ending in the finisher. The change is data only: different transitions and a heavy input on the first two nodes.
+The greatsword started as a straight five-hit light chain. Testing it showed that the first two swings barely reach anything, which is wrong for a light attack. They're now a two-hit **heavy chain** on the heavy button (RMB, △ / Y), and the light chain is the last three swings, ending in the finisher. The graph change was data only: renamed nodes, different transitions and a heavy entry. The heavy swings still use the light numbers; making them hit harder is a tuning pass. There are no light-to-heavy transitions yet, so pressing the other button mid-combo starts the other chain only if the current one ends within the input buffer time. How it was built: [Light and Heavy Attacks From One GAS Combo Ability](/blog/2026-11-26-pseudo-light-heavy-combo-one-ability-two-specs).
 
 ## Perfect inputs
 
@@ -166,8 +166,10 @@ On PC the mouse wheel click locks on (and switches to the enemy closest to where
 
 ## Status
 
-The combo graph, the runner, transition tags, perfect inputs and the buffer are in the build and tested on a listen server with a second client. The greatsword's five-hit chain works; the heavy branch, the swap attacks and the ranged graphs come with the ranged weapon work. Dash, guard and movement cancels arrived with the defense work and were tested the same way.
+The combo graph, the runner, transition tags, perfect inputs and the buffer are in the build and tested on a listen server with a second client. The greatsword's light chain (three hits) and heavy chain (two hits) work, including the draw attack into either; the swap attacks and the ranged graphs come with the ranged weapon work. Dash, guard and movement cancels arrived with the defense work and were tested the same way.
 
 Updated 2026-10-21: added the cancel rules as built (dash and guard cancel anything but the hit frames, movement cancels after the swing).
 
 Updated 2026-10-21: the greatsword finisher is now an area attack; added how area nodes work and how the server checks them. The finisher's recovery can now be cancelled by movement like the other swings.
+
+Updated 2026-11-26: the greatsword combo is split into a three-hit light chain and a two-hit heavy chain on separate buttons.

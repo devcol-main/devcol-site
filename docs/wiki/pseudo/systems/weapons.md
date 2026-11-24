@@ -55,7 +55,7 @@ Each ranged weapon spends something different, so they don't play the same:
 | Bow | None | — | Each shot costs draw time |
 | Magic | Mana | Refills over time | Each spell costs mana |
 
-There's no reload key. A reload button adds a chore without adding a decision, and a steady trickle of rounds already makes you pace your shots. The trickle keeps running while you fire, so holding the trigger never locks you out completely; you just fall back to the regen rate. A perfect dodge refills basic ammo to full, which ties the ranged weapons into the same "play well, get resources" loop as the dice. Special ammo types keep their own stock and don't refill that way. Mana will get the same treatment when magic exists.
+There's no reload key. A reload button adds a chore without adding a decision, and a steady trickle of rounds already makes you pace your shots. The trickle keeps running while you fire, so holding the trigger never locks you out completely; you just fall back to the regen rate. A perfect dodge refills basic ammo to full, which ties the ranged weapons into the same "play well, get resources" loop as the dice. Special ammo types keep their own stock; a perfect dodge adds one round of the selected special type, up to that type's cap (10 by default). An emptied special type stays selected, and pulling the trigger with no rounds plays a dry-fire click instead of doing nothing. Mana will get the same treatment when magic exists.
 
 Refills run on world time, so they slow down with everything else during slow motion. That keeps slow motion from becoming an infinite ammo window.
 

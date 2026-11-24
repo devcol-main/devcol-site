@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-26: [Light and Heavy Attacks From One GAS Combo Ability: Granting It Twice With Different Input Tags and Blocking With BlockAbilitiesWithTag in UE5](./2026-11-26-pseudo-light-heavy-combo-one-ability-two-specs)
+- 2026-11-26: [Training Dummies in UE5 Without a New Enemy Class: A Data-Asset Flag, a Health Floor Tag and a Per-Hit Damage Breakdown Log](./2026-11-26-pseudo-training-dummies-combat-test-map)
+- 2026-11-26: [A Perfect Dodge That Never Gets Hit: Judging Backward Dodges From the Dash Start With FMath::SegmentDistToSegmentSafe in UE5](./2026-11-26-pseudo-backward-perfect-dodge-dash-start-check)
 - 2026-11-25: [Perfect-Dodge Slow Motion in UE5 GAS: Ending It on Any Attack With AbilityActivatedCallbacks, Easing World Time Dilation and Keeping the Effects on Real Time](./2026-11-25-pseudo-glitch-time-perfect-dodge-slow-motion)
 - 2026-11-25: [Pet Drone, Part 3: A Local Scan Pulse in UE5 With Custom Depth Stencil Outlines, a Post Process Material and the Blendable Location Traps (Auto Exposure, TSR Jitter, Upscaled UVs)](./2026-11-25-pseudo-pet-drone-scan-custom-stencil-post-process)
 - 2026-11-25: [Pet Drone, Part 2: A Companion That Only Shoots What the Player Hit, With OnGameplayEffectAppliedDelegateToTarget and Kill Credit Through the Instigator in UE5 GAS](./2026-11-25-pseudo-pet-drone-attack-target-kill-credit)
