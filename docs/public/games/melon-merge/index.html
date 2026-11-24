@@ -8,8 +8,8 @@
 <script defer src="/t.js"></script>
 <link rel="icon" type="image/png" href="./assets/devcol-logo-COrzzs1X.png">
 <style>html,body{overscroll-behavior:none;touch-action:none;background:#cfebf5;height:100%;margin:0;overflow:hidden}#game{touch-action:none;outline:none;width:100%;height:100%;display:block;position:fixed;top:0;bottom:0;left:0;right:0}</style>
-  <script type="module" crossorigin src="./assets/index-C8CX2Z1X.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CeuXE3Nu.css">
+  <script type="module" crossorigin src="./assets/index-CAtSovsU.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BRHwLpzn.css">
 </head>
 <body>
 <canvas id="game" tabindex="-1"></canvas>
@@ -102,13 +102,20 @@
         <div class="opt-row"><span class="opt-label" id="lbl-sfx">SFX</span><button id="opt-sfx" class="opt-toggle" type="button" aria-pressed="true" aria-labelledby="lbl-sfx">On</button></div>
         <div class="opt-row"><label class="opt-label" for="opt-sfx-vol">SFX Volume</label><input id="opt-sfx-vol" class="opt-range" type="range" min="0" max="100" step="1" value="80"></div>
         <div class="opt-row"><span class="opt-label" id="lbl-rm">Reduced motion</span><button id="opt-rm" class="opt-toggle" type="button" aria-pressed="false" aria-labelledby="lbl-rm">Off</button></div>
+        <div class="opt-row"><label class="opt-label" for="opt-bg">Background</label><select id="opt-bg" class="opt-select"></select></div>
         <div class="opt-row"><span class="opt-label" id="lbl-reset">Scores &amp; settings</span><button id="opt-reset" class="opt-toggle opt-danger" type="button">Reset data</button></div>
         <section class="powerups" aria-labelledby="powerups-title">
           <h3 id="powerups-title" class="fruits-title">Powerups</h3>
-          <ul class="powerup-list">
+          <ul class="powerup-list" aria-labelledby="powerups-title">
             <li><strong>SHAKE (Q):</strong> jolt the crate to reshuffle the fruit.</li>
             <li><strong>RIPEN (E):</strong> pick a fruit and grow it one size.</li>
             <li>Earn more by scoring.</li>
+          </ul>
+          <h3 id="special-title" class="fruits-title">Special fruit</h3>
+          <ul class="powerup-list" aria-labelledby="special-title">
+            <li id="special-every-note">Special fruit appears every 600 points.</li>
+            <li>Merge a <strong>SHAKE</strong> or <strong>RIPEN</strong> fruit to earn that powerup.</li>
+            <li>Merge a <strong>BOMB</strong> fruit to blast nearby fruit apart.</li>
           </ul>
         </section>
         <section class="fruits" aria-labelledby="fruits-title">
