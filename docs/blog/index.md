@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-27: [Sword Slash Marks and Bullet Decals in UE5: Passing the Look Through the Gameplay Effect Context and Projecting Decals on the Visible Mesh](./2026-11-27-pseudo-hit-marks-gameplay-cue-decals)
+- 2026-11-27: [Ranked Passive Skills in UE5 GAS: One Replicated Attribute per Bonus and a Per-Rank SetByCaller Magnitude](./2026-11-27-pseudo-ranked-skill-nodes-replicated-attributes)
+- 2026-11-27: [Stopping a Chaos Cloth Coat From Folding Over in UE5: Capping Max Distance by Depth, Measuring the Hem Angle, and the Iteration Count That Undid It](./2026-11-27-pseudo-chaos-cloth-max-distance-cap-by-depth)
 - 2026-11-26: [Light and Heavy Attacks From One GAS Combo Ability: Granting It Twice With Different Input Tags and Blocking With BlockAbilitiesWithTag in UE5](./2026-11-26-pseudo-light-heavy-combo-one-ability-two-specs)
 - 2026-11-26: [Training Dummies in UE5 Without a New Enemy Class: A Data-Asset Flag, a Health Floor Tag and a Per-Hit Damage Breakdown Log](./2026-11-26-pseudo-training-dummies-combat-test-map)
 - 2026-11-26: [A Perfect Dodge That Never Gets Hit: Judging Backward Dodges From the Dash Start With FMath::SegmentDistToSegmentSafe in UE5](./2026-11-26-pseudo-backward-perfect-dodge-dash-start-check)

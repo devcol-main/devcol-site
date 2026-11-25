@@ -158,6 +158,8 @@ In multiplayer only shared moments slow the whole world. Personal effects like a
 
 How the perfect-dodge slow motion (Glitch Time) was built, including ending it on any attack and easing the world in and out, is in [Perfect-Dodge Slow Motion in UE5 GAS](/blog/2026-11-25-pseudo-glitch-time-perfect-dodge-slow-motion).
 
+Four ranked skill nodes widen the perfect window and lengthen, speed up or reward ending the slow motion. How their values reach the defense code is in [Ranked Passive Skills in UE5 GAS](/blog/2026-11-27-pseudo-ranked-skill-nodes-replicated-attributes).
+
 ## Planned extras
 
 These are designed but come after the vertical slice:

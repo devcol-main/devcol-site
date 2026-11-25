@@ -84,6 +84,8 @@ Learning is a server call. The server checks that you have the skill points, tha
 
 **Respec is free in the hub** during the vertical slice. Because stats grow automatically, the tree is the only thing a respec has to undo. A free respec also lowers the stakes of trying a node; I'd rather players experiment than read a guide before spending their first point.
 
+Ranked Passive nodes that change a number, such as the perfect-dodge and slow-motion nodes in the Common tree, each add to their own replicated attribute, with one value per rank stored on the node. That build is described in [Ranked Passive Skills in UE5 GAS](/blog/2026-11-27-pseudo-ranked-skill-nodes-replicated-attributes).
+
 ## Story and multiplayer
 
 The arena and the story use the same components but point at different progression profiles. A profile sets the growth curve, the skill point rules, which nodes are allowed and which save slot is used. That means the arena can ban a node, or hand out points differently, without touching the story's balance.

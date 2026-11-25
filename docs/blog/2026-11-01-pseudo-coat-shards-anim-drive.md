@@ -103,3 +103,5 @@ One thing I didn't test at runtime is the face swap path, which uses the headles
 **Anim drive isn't a safe "flap less" knob next to a Max Distance cap.** Both pull the cloth towards the animation, and together they can lock in a bad state. If the swing needs limiting, the cap and the velocity scales do it without that risk.
 
 **Compare against the original asset first, under the same conditions.** Swapping the original mesh in, and then putting the original config on my data, told me data versus config in two runs. Everything after that was a much smaller search.
+
+Related: how the Max Distance cap by depth was built and measured, and the solver setting that broke the coat before this, is in [Stopping a Chaos Cloth Coat From Folding Over in UE5](./2026-11-27-pseudo-chaos-cloth-max-distance-cap-by-depth).
