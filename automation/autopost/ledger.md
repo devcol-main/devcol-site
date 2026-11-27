@@ -84,6 +84,13 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - PSEUDO: Documents/Issues/ISS-144 Hit Marks.md -> 2026-11-27-pseudo-hit-marks-gameplay-cue-decals
 - PSEUDO: Documents/Issues/ISS-155 Overnight Follow-up Fixes.md -> skipped: chore (batch follow-up fixes; its coat section is used in 2026-11-27-pseudo-chaos-cloth-max-distance-cap-by-depth and its hit-mark section in 2026-11-27-pseudo-hit-marks-gameplay-cue-decals)
 - PSEUDO: Documents/Issues/ISS-157 Coat Shards.md -> skipped: covered by 2026-11-01-pseudo-coat-shards-anim-drive
+- PSEUDO: Documents/Issues/ISS-158 Lock-On Screen Targeting.md -> 2026-11-29-pseudo-lock-on-screen-space-targeting
+- PSEUDO: Documents/Issues/ISS-167 Slash Mark Element Color.md -> skipped: chore (look-only follow-up to the hit marks: element colors for the slash decal)
+- PSEUDO: Documents/Issues/ISS-168 Animation Fixes Feet Dash.md -> skipped: covered by 2026-11-02-pseudo-idle-foot-sink-dash-leg-drag (DBG-025); guard pose part was reverted
+- PSEUDO: Documents/Issues/ISS-173 Landing Feel and Camera Shakes.md -> 2026-11-29-pseudo-hard-landing-knockback-animation-vs-movement
+- PSEUDO: Documents/Issues/ISS-175 Knockback.md -> 2026-11-29-pseudo-hard-landing-knockback-animation-vs-movement (folded)
+- PSEUDO: Documents/Issues/ISS-183 Twinblast FX.md -> skipped: chore (FX asset wiring and notify placement; its muzzle socket finding is mentioned in 2026-11-29-pseudo-ranged-stances-anim-notify-shots)
+- PSEUDO: Documents/Issues/ISS-184 Ranged Stances.md -> 2026-11-29-pseudo-ranged-stances-anim-notify-shots
 
 ## Handled after the cut-off
 
@@ -138,12 +145,17 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-25) -> nothing to post
 - PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-26); ISS-008 still open
 - TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-26) -> nothing to post
+- PSEUDO: no new Debugging notes after DBG-054 (checked 2026-11-28); ISS-008 still open
+- TumbleTeams: no new Devlogs and no commits after df86fec (checked 2026-11-28) -> nothing to post
 
 ## Wiki follow-ups
 
 
 ## Screenshots wanted
 
+- 2026-11-29-pseudo-lock-on-screen-space-targeting: the `pseudo.Debug.LockOn 1` view (ellipse, green / red / grey markers, TARGET line). Already captured (`Documents/Debugging/Images/ISS-158/debug_candidates.png`, `debug_occluded.png`, `debug_out_of_view.png`, `debug_target.png`), Git LFS, not downloadable from this run.
+- 2026-11-29-pseudo-ranged-stances-anim-notify-shots: the heavy gun stance hold and the basic ammo regen bar under the crosshair (`Documents/Debugging/Images/ISS-184/11_basic_ammo_bar.png`, Git LFS).
+- 2026-11-29-pseudo-hard-landing-knockback-animation-vs-movement: the fall warning (danger pose with the vignette) just before a 1200 cm landing.
 - 2026-11-27-pseudo-chaos-cloth-max-distance-cap-by-depth: before / after side strafe of the coat. Already captured in the PSEUDO repo (`Documents/Debugging/Images/ISS-141/before_strafe_1.png`, `after_strafe_1.png`, `ISS-155/before_turn_iter4_subdiv2.png`, `after_turn.png`) but stored in Git LFS, which this run could not download.
 - 2026-11-27-pseudo-hit-marks-gameplay-cue-decals: the slash decal on an enemy and the per-ammo wall decals. Already captured (`Documents/Debugging/Images/ISS-144/slash.png`, `shots_v2.png`, `ISS-155/slash_minion_testred.png`, `slash_dummy_testred.png`), Git LFS, not downloadable from this run.
 - 2026-11-27-pseudo-ranked-skill-nodes-replicated-attributes: the Common tree with the four Glitch nodes, and the damage breakdown line during the release buff.
@@ -170,3 +182,4 @@ Format: `- PSEUDO: Documents/Issues/ISS-NNN <name>.md -> <post slug | skipped: r
 - 2026-11-24: linked today's posts in: 2026-11-24-pseudo-pet-drone-follow-statetree (Next line to parts 2 and 3), /wiki/pseudo/systems/defense (slow motion section -> Glitch Time build log), 2026-11-16-pseudo-time-dilation-lock-on-hitstop (Related line to the Glitch Time build log).
 - 2026-11-25: linked today's posts in and corrected the wiki from ISS-134 / ISS-139: /wiki/pseudo/systems/defense (backward perfect dodge judged from the dash start, special ammo +1; link), /wiki/pseudo/systems/weapons (special ammo is refilled +1 up to its cap, emptied special stays selected, dry fire), /wiki/pseudo/systems/combo-and-cancels (light / heavy split is built; status line; link), /wiki/pseudo/systems/controls (RMB / triangle heavy combo and stowed draw attack), /wiki/pseudo/systems/damage-formula (link to the training dummy post), 2026-11-14-pseudo-melee-combo-graph-build (What changed later -> light / heavy build log).
 - 2026-11-26: linked today's posts in: /wiki/pseudo/systems/defense (slow motion section -> ranked skill nodes build log), /wiki/pseudo/systems/skill-tree (Learning a node -> ranked skill nodes build log), 2026-11-01-pseudo-coat-shards-anim-drive (Related line to the Max Distance cap build log).
+- 2026-11-28: linked today's posts in and corrected the wiki from ISS-173: /wiki/pseudo/systems/level-metrics (landing recovery now on every damaging landing from 500 cm, was 1000 cm; drop table row; double jump restarts the drop; link), /wiki/pseudo/systems/controls (Lock-on -> screen-space lock-on build log), /wiki/pseudo/systems/weapons (Ranged mode -> ranged stances build log), 2026-11-01-pseudo-lock-on-click-on-press (Related line).

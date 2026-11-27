@@ -15,6 +15,9 @@ Optional per-post frontmatter for the cards: `tags: [A, B]` and `image: /path.jp
 
 A solo Unreal Engine 5 stylish action RPG built around a 2d6 dice mechanic.
 
+- 2026-11-29: [Weapon Stances and Shots Fired by Anim Notifies in UE5 GAS: an Upper-Body Hold Pose, Paid Rounds the Server Counts, and a Bullet Index NetSerialize Dropped](./2026-11-29-pseudo-ranged-stances-anim-notify-shots)
+- 2026-11-29: [Hard Landings and Knockback in UE5: One Fall Threshold From the Apex, Camera Shakes as Data, and Ending a Hit React When the Root Motion Push Ends](./2026-11-29-pseudo-hard-landing-knockback-animation-vs-movement)
+- 2026-11-29: [Lock-On That Only Picks What the Camera Shows in UE5: ProjectWorldLocationToScreen, a Screen Ellipse, a Camera Sight Trace and a Tolerant Server Check](./2026-11-29-pseudo-lock-on-screen-space-targeting)
 - 2026-11-27: [Sword Slash Marks and Bullet Decals in UE5: Passing the Look Through the Gameplay Effect Context and Projecting Decals on the Visible Mesh](./2026-11-27-pseudo-hit-marks-gameplay-cue-decals)
 - 2026-11-27: [Ranked Passive Skills in UE5 GAS: One Replicated Attribute per Bonus and a Per-Rank SetByCaller Magnitude](./2026-11-27-pseudo-ranked-skill-nodes-replicated-attributes)
 - 2026-11-27: [Stopping a Chaos Cloth Coat From Folding Over in UE5: Capping Max Distance by Depth, Measuring the Hem Angle, and the Iteration Count That Undid It](./2026-11-27-pseudo-chaos-cloth-max-distance-cap-by-depth)

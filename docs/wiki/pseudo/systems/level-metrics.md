@@ -104,11 +104,11 @@ The single-jump ledge is higher than the jump apex (150 against 127.5) because t
 | Metric | Measured |
 |---|---|
 | Fall damage | None up to 500 cm, then linear up to 40% of max health at 1500 cm (capped) |
-| Landing recovery | From 1000 cm |
+| Landing recovery | Every landing that deals fall damage (from 500 cm, the same threshold) |
 | Break-fall | Press Jump within ±0.15 s of touching the ground on a landing that would hurt: no damage, no recovery |
 | Interact range | 250 cm, nearest object in front; blocked if a living enemy is within 1000 cm |
 
-Fall height is measured from the last apex, not from the take-off point, so a jump off a high ledge counts its full drop. Break-fall and Luck details are on the [Defense](/wiki/pseudo/systems/defense) page.
+Fall height is measured from the last apex, not from the take-off point, so a jump off a high ledge counts its full drop, and a double jump in mid-fall starts a new drop. Why damage, recovery and the fall warning share one threshold is in [Hard Landings and Knockback in UE5](/blog/2026-11-29-pseudo-hard-landing-knockback-animation-vs-movement). Break-fall and Luck details are on the [Defense](/wiki/pseudo/systems/defense) page.
 
 ## The design rules
 
@@ -147,7 +147,8 @@ Both are rounded *down* to the grid. The critical path only uses base movement; 
 | 250 | Skill double-jump ledge |
 | 300 and up | Blocks every jump |
 | 450 or less | A free drop, no damage |
-| 1000 and up | A drop with landing recovery; kept off the critical path |
+| 500 and up | A drop with fall damage and landing recovery |
+| 1000 and up | Kept off the critical path |
 
 ### Slopes
 

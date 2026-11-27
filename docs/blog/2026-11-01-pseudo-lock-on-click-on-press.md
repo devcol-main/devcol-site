@@ -128,3 +128,5 @@ Every press that reached the game locked. So the remaining suspects sit before t
 **Vary the down time in input tests.** My tests used clean one-frame taps, and so did the baseline real clicks at 80 ms: both looked perfect. Nobody clicks a mouse wheel in one frame. Testing 80, 300 and 450 ms would have found this the day the tap window was written.
 
 **When one key works and another doesn't, check the mapping first, then the hardware.** If both keys map to the same action with no triggers, the game can't treat them differently, and the question becomes whether the press arrives at all.
+
+Related: how the lock-on decides which enemy to pick, after a rewrite that limits it to what the camera shows, is in [Lock-On That Only Picks What the Camera Shows in UE5](./2026-11-29-pseudo-lock-on-screen-space-targeting).

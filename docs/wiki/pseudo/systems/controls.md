@@ -85,7 +85,7 @@ R (R2) taps to roll one die of the selected type, and holds to go All-in. What A
 
 ### Lock-on
 
-With a melee weapon, wheel click (R3) locks on, presses again to switch target, and a hold releases the lock. Lock-on is soft: the camera assists but you keep control of it.
+With a melee weapon, wheel click (R3) locks on, presses again to switch target, and a hold releases the lock. Lock-on is soft: the camera assists but you keep control of it. It only picks enemies you can see on screen, near the centre first; how candidates are chosen and when the lock breaks is in [Lock-On That Only Picks What the Camera Shows](/blog/2026-11-29-pseudo-lock-on-screen-space-targeting).
 
 ## Why ranged changes the layout
 
