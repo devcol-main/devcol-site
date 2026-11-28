@@ -6,6 +6,16 @@ import type { Item } from './projects'
 // tie keeps this order. Popular sorts by plays from the public analytics summary.
 export const games: Item[] = [
   {
+    title: 'Bukang Run',
+    date: '2026-11-19',
+    href: '/arcade/bukang-run',
+    blurb: 'A three-lane swimming runner. Guide the shark out of a Busan harbor canal past nets, pumps and camera flashes.',
+    tags: ['Swipe or keyboard', 'Mobile', 'Desktop'],
+    img: '/projects/bukang-run-gameplay.png',
+    fit: 'contain',
+    badge: 'Play now',
+  },
+  {
     title: 'Jet Rush',
     date: '2026-11-13',
     href: '/arcade/jet-rush',

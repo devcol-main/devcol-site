@@ -90,6 +90,15 @@ export const groups: Group[] = [
     title: 'Unity',
     items: [
       {
+        title: 'Bukang Run',
+        href: '/projects/bukang-run',
+        blurb: 'A three-lane swimming runner about the shark that spent 34 days in a Busan harbor canal.',
+        tags: ['Unity 6', 'WebGL', 'Android'],
+        img: '/projects/bukang-run-gameplay.png',
+        fit: 'contain',
+        badge: 'Play in browser',
+      },
+      {
         title: 'Press Plane',
         href: '/projects/press-plane',
         blurb: 'Released on Google Play, playable in the browser.',
